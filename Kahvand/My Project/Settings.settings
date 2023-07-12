@@ -1,0 +1,27 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="SizeCustomer" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">750, 649</Value>
+    </Setting>
+    <Setting Name="Fontsize" Type="System.Drawing.Font" Scope="User">
+      <Value Profile="(Default)">Tahoma, 9pt</Value>
+    </Setting>
+    <Setting Name="ServerIp" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="SystemStatus" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Client</Value>
+    </Setting>
+    <Setting Name="EditorSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">846, 586</Value>
+    </Setting>
+    <Setting Name="CustomerVisitSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">810, 517</Value>
+    </Setting>
+    <Setting Name="VisitListSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">933, 558</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

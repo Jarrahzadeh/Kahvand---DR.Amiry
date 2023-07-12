@@ -1,0 +1,505 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D697C386-7818-44BC-8D37-1F6F82FCFD0F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>Kahvand.My.MyApplication</StartupObject>
+    <RootNamespace>Kahvand</RootNamespace>
+    <AssemblyName>Kahvand</AssemblyName>
+    <MyType>WindowsForms</MyType>
+    <ApplicationIcon>Blue cube.ico</ApplicationIcon>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022,42353,42354,42355</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Janus.Data.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Janus\Janus.Data.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.ButtonBar.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Janus\Janus.Windows.ButtonBar.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.CalendarCombo.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Janus\Janus.Windows.CalendarCombo.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.Common.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Janus\Janus.Windows.Common.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.ExplorerBar.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Janus\Janus.Windows.ExplorerBar.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.FilterEditor.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Janus\Janus.Windows.FilterEditor.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.GridEX.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Janus\Janus.Windows.GridEX.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.Ribbon.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Janus\Janus.Windows.Ribbon.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.Schedule.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Janus\Janus.Windows.Schedule.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.TimeLine.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Janus\Janus.Windows.TimeLine.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Janus.Windows.UI.v3, Version=3.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Janus\Janus.Windows.UI.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="ShamsiDatePicker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\ShamsiDatePicker.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Management" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseData.Designer.vb">
+      <DependentUpon>BaseData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BaseData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chat.Designer.vb">
+      <DependentUpon>Chat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Chat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Compresor.vb" />
+    <Compile Include="Control\ParentForm.Designer.vb">
+      <DependentUpon>ParentForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ParentForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnCode.vb" />
+    <Compile Include="ListOfData.Designer.vb">
+      <DependentUpon>ListOfData.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ListOfData.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Register.Designer.vb">
+      <DependentUpon>Register.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Register.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RptVisit.Designer.vb">
+      <DependentUpon>RptVisit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RptVisit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control\Temp_form.Designer.vb">
+      <DependentUpon>Temp_form.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Control\Temp_form.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control\UForm.designer.vb">
+      <DependentUpon>UForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Control\UForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control\UTextBox.Designer.vb">
+      <DependentUpon>UTextBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Control\UTextBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Customer2VisitList.Designer.vb">
+      <DependentUpon>Customer2VisitList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Customer2VisitList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor.Designer.vb">
+      <DependentUpon>Editor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Editor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F1_Ref.Designer.vb">
+      <DependentUpon>F1_Ref.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F1_Ref.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F2_Cat.Designer.vb">
+      <DependentUpon>F2_Cat.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F2_Cat.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F3_Cornea.Designer.vb">
+      <DependentUpon>F3_Cornea.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F3_Cornea.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F4_Strabisam.Designer.vb">
+      <DependentUpon>F4_Strabisam.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F4_Strabisam.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F5_Fundus.Designer.vb">
+      <DependentUpon>F5_Fundus.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F5_Fundus.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F6_Conjunctiva.Designer.vb">
+      <DependentUpon>F6_Conjunctiva.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F6_Conjunctiva.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F7_Nld.Designer.vb">
+      <DependentUpon>F7_Nld.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F7_Nld.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F8_Lid.Designer.vb">
+      <DependentUpon>F8_Lid.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F8_Lid.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F9_Surgery.Designer.vb">
+      <DependentUpon>F9_Surgery.vb</DependentUpon>
+    </Compile>
+    <Compile Include="F9_Surgery.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.designer.vb">
+      <DependentUpon>Main.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Main.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Customer.Designer.vb">
+      <DependentUpon>Customer.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OldVisit.Designer.vb">
+      <DependentUpon>OldVisit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="OldVisit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaveMSG.Designer.vb">
+      <DependentUpon>SaveMSG.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SaveMSG.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test.Designer.vb">
+      <DependentUpon>Test.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Test.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Control\UCheckBox.Designer.vb">
+      <DependentUpon>UCheckBox.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Control\UCheckBox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Tools.vb" />
+    <Compile Include="Users.Designer.vb">
+      <DependentUpon>Users.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Users.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Visit.Designer.vb">
+      <DependentUpon>Visit.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Visit.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VisitList.Designer.vb">
+      <DependentUpon>VisitList.vb</DependentUpon>
+    </Compile>
+    <Compile Include="VisitList.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="BaseData.resx">
+      <DependentUpon>BaseData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chat.resx">
+      <DependentUpon>Chat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\ParentForm.resx">
+      <DependentUpon>ParentForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\Temp_form.resx">
+      <DependentUpon>Temp_form.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control\UForm.resx">
+      <DependentUpon>UForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer2VisitList.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Customer2VisitList.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Editor.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F1_Ref.resx">
+      <DependentUpon>F1_Ref.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F2_Cat.resx">
+      <DependentUpon>F2_Cat.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F3_Cornea.resx">
+      <DependentUpon>F3_Cornea.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F4_Strabisam.resx">
+      <DependentUpon>F4_Strabisam.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F5_Fundus.resx">
+      <DependentUpon>F5_Fundus.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F6_Conjunctiva.resx">
+      <DependentUpon>F6_Conjunctiva.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F7_Nld.resx">
+      <DependentUpon>F7_Nld.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F8_Lid.resx">
+      <DependentUpon>F8_Lid.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F9_Surgery.resx">
+      <DependentUpon>F9_Surgery.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListOfData.resx">
+      <DependentUpon>ListOfData.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Customer.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Customer.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OldVisit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>OldVisit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Register.resx">
+      <DependentUpon>Register.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RptVisit.resx">
+      <DependentUpon>RptVisit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaveMSG.resx">
+      <DependentUpon>SaveMSG.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users.resx">
+      <DependentUpon>Users.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Visit.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Visit.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VisitList.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>VisitList.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\05.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_h.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cut.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dv645017.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\im.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Resources\s.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Blue cube.ico" />
+    <None Include="Resources\dialog-ok.gif" />
+    <None Include="Resources\Icon %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
