@@ -146,7 +146,7 @@ Partial Class RptVisit
         '
         Me.BtnView.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnView.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnView.Image = Global.Kahvand.My.Resources.Resources.s
+        Me.BtnView.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.s
         Me.BtnView.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BtnView.Location = New System.Drawing.Point(222, 62)
         Me.BtnView.Name = "BtnView"
@@ -160,7 +160,7 @@ Partial Class RptVisit
         Me.BtnClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.BtnClose.Font = New System.Drawing.Font("Tahoma", 8.25!)
-        Me.BtnClose.Image = Global.Kahvand.My.Resources.Resources.Delete
+        Me.BtnClose.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.Delete
         Me.BtnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BtnClose.Location = New System.Drawing.Point(12, 62)
         Me.BtnClose.Name = "BtnClose"

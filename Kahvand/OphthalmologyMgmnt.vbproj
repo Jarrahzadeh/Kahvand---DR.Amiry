@@ -7,9 +7,9 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{D697C386-7818-44BC-8D37-1F6F82FCFD0F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Kahvand.My.MyApplication</StartupObject>
-    <RootNamespace>Kahvand</RootNamespace>
-    <AssemblyName>Kahvand</AssemblyName>
+    <StartupObject>OphthalmologyMgmnt.My.MyApplication</StartupObject>
+    <RootNamespace>OphthalmologyMgmnt</RootNamespace>
+    <AssemblyName>OphthalmologyMgmnt</AssemblyName>
     <MyType>WindowsForms</MyType>
     <ApplicationIcon>Blue cube.ico</ApplicationIcon>
     <FileUpgradeFlags>

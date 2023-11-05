@@ -1,9 +1,9 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class F9_Surgery
-    Inherits Kahvand.ParentForm
+    Inherits OphthalmologyMgmnt.ParentForm
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -17,56 +17,56 @@ Partial Class F9_Surgery
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Me.GroupBox8 = New System.Windows.Forms.GroupBox
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.UCheckBox14 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox13 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox3 = New Kahvand.UCheckBox(Me.components)
+        Me.UCheckBox14 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox13 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox3 = New OphthalmologyMgmnt.UCheckBox(Me.components)
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
-        Me.UCheckBox6 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox5 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox4 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox2 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox1 = New Kahvand.UCheckBox(Me.components)
-        Me.UTextBox1 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox2 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox47 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox56 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox48 = New Kahvand.UTextBox(Me.components)
+        Me.UCheckBox6 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox5 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox4 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox2 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox1 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UTextBox1 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox2 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox47 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox56 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox48 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label66 = New System.Windows.Forms.Label
-        Me.UTextBox51 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox51 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label64 = New System.Windows.Forms.Label
-        Me.UTextBox55 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox53 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox55 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox53 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label62 = New System.Windows.Forms.Label
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
-        Me.UCheckBox7 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox8 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox9 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox10 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox11 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox12 = New Kahvand.UCheckBox(Me.components)
-        Me.UTextBox3 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox4 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox5 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox6 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox7 = New Kahvand.UTextBox(Me.components)
+        Me.UCheckBox7 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox8 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox9 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox10 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox11 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox12 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UTextBox3 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox4 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox5 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox6 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox7 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label6 = New System.Windows.Forms.Label
-        Me.UTextBox8 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox8 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label5 = New System.Windows.Forms.Label
-        Me.UTextBox9 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox10 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox9 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox10 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label8 = New System.Windows.Forms.Label
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
-        Me.UCheckBox15 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox16 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox17 = New Kahvand.UCheckBox(Me.components)
+        Me.UCheckBox15 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox16 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox17 = New OphthalmologyMgmnt.UCheckBox(Me.components)
         Me.GroupBox8.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -213,7 +213,7 @@ Partial Class F9_Surgery
         '
         'UTextBox1
         '
-        Me.UTextBox1.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox1.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox1.IsNumber = True
         Me.UTextBox1.IsSplit = True
         Me.UTextBox1.Location = New System.Drawing.Point(111, 152)
@@ -225,7 +225,7 @@ Partial Class F9_Surgery
         '
         'UTextBox2
         '
-        Me.UTextBox2.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox2.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox2.IsNumber = True
         Me.UTextBox2.IsSplit = True
         Me.UTextBox2.Location = New System.Drawing.Point(111, 180)
@@ -237,7 +237,7 @@ Partial Class F9_Surgery
         '
         'UTextBox47
         '
-        Me.UTextBox47.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox47.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox47.IsNumber = True
         Me.UTextBox47.IsSplit = True
         Me.UTextBox47.Location = New System.Drawing.Point(155, 32)
@@ -249,7 +249,7 @@ Partial Class F9_Surgery
         '
         'UTextBox56
         '
-        Me.UTextBox56.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox56.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox56.IsNumber = True
         Me.UTextBox56.IsSplit = True
         Me.UTextBox56.Location = New System.Drawing.Point(590, 32)
@@ -261,7 +261,7 @@ Partial Class F9_Surgery
         '
         'UTextBox48
         '
-        Me.UTextBox48.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox48.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox48.IsNumber = True
         Me.UTextBox48.IsSplit = True
         Me.UTextBox48.Location = New System.Drawing.Point(392, 32)
@@ -282,7 +282,7 @@ Partial Class F9_Surgery
         '
         'UTextBox51
         '
-        Me.UTextBox51.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox51.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox51.IsNumber = True
         Me.UTextBox51.IsSplit = True
         Me.UTextBox51.Location = New System.Drawing.Point(234, 32)
@@ -303,7 +303,7 @@ Partial Class F9_Surgery
         '
         'UTextBox55
         '
-        Me.UTextBox55.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox55.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox55.IsNumber = True
         Me.UTextBox55.IsSplit = True
         Me.UTextBox55.Location = New System.Drawing.Point(647, 32)
@@ -315,7 +315,7 @@ Partial Class F9_Surgery
         '
         'UTextBox53
         '
-        Me.UTextBox53.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox53.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox53.IsNumber = True
         Me.UTextBox53.IsSplit = True
         Me.UTextBox53.Location = New System.Drawing.Point(449, 32)
@@ -443,7 +443,7 @@ Partial Class F9_Surgery
         '
         'UTextBox3
         '
-        Me.UTextBox3.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox3.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox3.IsNumber = True
         Me.UTextBox3.IsSplit = True
         Me.UTextBox3.Location = New System.Drawing.Point(111, 173)
@@ -455,7 +455,7 @@ Partial Class F9_Surgery
         '
         'UTextBox4
         '
-        Me.UTextBox4.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox4.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox4.IsNumber = True
         Me.UTextBox4.IsSplit = True
         Me.UTextBox4.Location = New System.Drawing.Point(111, 199)
@@ -467,7 +467,7 @@ Partial Class F9_Surgery
         '
         'UTextBox5
         '
-        Me.UTextBox5.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox5.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox5.IsNumber = True
         Me.UTextBox5.IsSplit = True
         Me.UTextBox5.Location = New System.Drawing.Point(154, 40)
@@ -479,7 +479,7 @@ Partial Class F9_Surgery
         '
         'UTextBox6
         '
-        Me.UTextBox6.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox6.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox6.IsNumber = True
         Me.UTextBox6.IsSplit = True
         Me.UTextBox6.Location = New System.Drawing.Point(590, 33)
@@ -491,7 +491,7 @@ Partial Class F9_Surgery
         '
         'UTextBox7
         '
-        Me.UTextBox7.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox7.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox7.IsNumber = True
         Me.UTextBox7.IsSplit = True
         Me.UTextBox7.Location = New System.Drawing.Point(389, 39)
@@ -512,7 +512,7 @@ Partial Class F9_Surgery
         '
         'UTextBox8
         '
-        Me.UTextBox8.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox8.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox8.IsNumber = True
         Me.UTextBox8.IsSplit = True
         Me.UTextBox8.Location = New System.Drawing.Point(233, 40)
@@ -533,7 +533,7 @@ Partial Class F9_Surgery
         '
         'UTextBox9
         '
-        Me.UTextBox9.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox9.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox9.IsNumber = True
         Me.UTextBox9.IsSplit = True
         Me.UTextBox9.Location = New System.Drawing.Point(647, 33)
@@ -545,7 +545,7 @@ Partial Class F9_Surgery
         '
         'UTextBox10
         '
-        Me.UTextBox10.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox10.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox10.IsNumber = True
         Me.UTextBox10.IsSplit = True
         Me.UTextBox10.Location = New System.Drawing.Point(446, 39)
@@ -625,51 +625,51 @@ Partial Class F9_Surgery
 
     End Sub
     Friend WithEvents GroupBox8 As System.Windows.Forms.GroupBox
-    Friend WithEvents UTextBox47 As Kahvand.UTextBox
-    Friend WithEvents UTextBox56 As Kahvand.UTextBox
-    Friend WithEvents UTextBox48 As Kahvand.UTextBox
+    Friend WithEvents UTextBox47 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox56 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox48 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents Label66 As System.Windows.Forms.Label
-    Friend WithEvents UTextBox51 As Kahvand.UTextBox
+    Friend WithEvents UTextBox51 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents Label64 As System.Windows.Forms.Label
-    Friend WithEvents UTextBox55 As Kahvand.UTextBox
-    Friend WithEvents UTextBox53 As Kahvand.UTextBox
+    Friend WithEvents UTextBox55 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox53 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents Label62 As System.Windows.Forms.Label
-    Friend WithEvents UCheckBox6 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox5 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox4 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox3 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox2 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox1 As Kahvand.UCheckBox
-    Friend WithEvents UTextBox1 As Kahvand.UTextBox
+    Friend WithEvents UCheckBox6 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox5 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox4 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox3 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox2 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox1 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UTextBox1 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents UTextBox2 As Kahvand.UTextBox
+    Friend WithEvents UTextBox2 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents UCheckBox7 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox8 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox9 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox10 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox11 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox12 As Kahvand.UCheckBox
-    Friend WithEvents UTextBox3 As Kahvand.UTextBox
-    Friend WithEvents UTextBox4 As Kahvand.UTextBox
-    Friend WithEvents UTextBox5 As Kahvand.UTextBox
-    Friend WithEvents UTextBox6 As Kahvand.UTextBox
-    Friend WithEvents UTextBox7 As Kahvand.UTextBox
-    Friend WithEvents UTextBox8 As Kahvand.UTextBox
-    Friend WithEvents UTextBox9 As Kahvand.UTextBox
-    Friend WithEvents UTextBox10 As Kahvand.UTextBox
+    Friend WithEvents UCheckBox7 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox8 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox9 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox10 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox11 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox12 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UTextBox3 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox4 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox5 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox6 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox7 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox8 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox9 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox10 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents UCheckBox14 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox13 As Kahvand.UCheckBox
+    Friend WithEvents UCheckBox14 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox13 As OphthalmologyMgmnt.UCheckBox
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-    Friend WithEvents UCheckBox15 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox16 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox17 As Kahvand.UCheckBox
+    Friend WithEvents UCheckBox15 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox16 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox17 As OphthalmologyMgmnt.UCheckBox
 
 End Class

@@ -76,7 +76,7 @@ Partial Class ListOfData
         '
         Me.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.BtnClose.Font = New System.Drawing.Font("Tahoma", 8.25!)
-        Me.BtnClose.Image = Global.Kahvand.My.Resources.Resources.Delete
+        Me.BtnClose.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.Delete
         Me.BtnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BtnClose.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.BtnClose.Location = New System.Drawing.Point(12, 509)
@@ -89,7 +89,7 @@ Partial Class ListOfData
         'BtnSave
         '
         Me.BtnSave.Font = New System.Drawing.Font("Tahoma", 8.25!)
-        Me.BtnSave.Image = Global.Kahvand.My.Resources.Resources.dialog_ok
+        Me.BtnSave.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.dialog_ok
         Me.BtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BtnSave.ImeMode = System.Windows.Forms.ImeMode.NoControl
         Me.BtnSave.Location = New System.Drawing.Point(140, 509)

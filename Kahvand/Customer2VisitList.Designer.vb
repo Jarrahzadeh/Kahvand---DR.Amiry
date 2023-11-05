@@ -136,21 +136,21 @@ Partial Class Customer2VisitList
         '
         resources.ApplyResources(Me.BtnClose, "BtnClose")
         Me.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.BtnClose.Image = Global.Kahvand.My.Resources.Resources.Delete
+        Me.BtnClose.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.Delete
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.UseVisualStyleBackColor = True
         '
         'BtnDelete
         '
         resources.ApplyResources(Me.BtnDelete, "BtnDelete")
-        Me.BtnDelete.Image = Global.Kahvand.My.Resources.Resources.cut
+        Me.BtnDelete.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.cut
         Me.BtnDelete.Name = "BtnDelete"
         Me.BtnDelete.UseVisualStyleBackColor = True
         '
         'BtnSave
         '
         resources.ApplyResources(Me.BtnSave, "BtnSave")
-        Me.BtnSave.Image = Global.Kahvand.My.Resources.Resources.Add_h
+        Me.BtnSave.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.Add_h
         Me.BtnSave.Name = "BtnSave"
         Me.BtnSave.UseVisualStyleBackColor = True
         '

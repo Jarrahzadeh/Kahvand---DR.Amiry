@@ -25,50 +25,50 @@ Partial Class Test
         Me.components = New System.ComponentModel.Container
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.Label1 = New System.Windows.Forms.Label
-        Me.UTextBox1 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox1 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label2 = New System.Windows.Forms.Label
-        Me.UTextBox2 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox3 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox2 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox3 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label3 = New System.Windows.Forms.Label
-        Me.UTextBox4 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox5 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox6 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox4 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox5 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox6 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label4 = New System.Windows.Forms.Label
         Me.Label5 = New System.Windows.Forms.Label
-        Me.UTextBox7 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox7 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label6 = New System.Windows.Forms.Label
         Me.Label7 = New System.Windows.Forms.Label
-        Me.UTextBox8 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox8 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label8 = New System.Windows.Forms.Label
         Me.Label9 = New System.Windows.Forms.Label
-        Me.UTextBox9 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox10 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox11 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox12 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox13 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox14 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox9 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox10 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox11 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox12 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox13 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox14 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label10 = New System.Windows.Forms.Label
         Me.Label11 = New System.Windows.Forms.Label
         Me.Label12 = New System.Windows.Forms.Label
-        Me.UTextBox15 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox15 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label13 = New System.Windows.Forms.Label
-        Me.UTextBox16 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox16 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label14 = New System.Windows.Forms.Label
         Me.Label15 = New System.Windows.Forms.Label
         Me.Label16 = New System.Windows.Forms.Label
         Me.Label17 = New System.Windows.Forms.Label
-        Me.UTextBox17 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox18 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox19 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox20 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox21 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox22 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox23 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox24 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox25 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox26 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox27 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox28 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox17 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox18 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox19 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox20 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox21 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox22 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox23 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox24 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox25 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox26 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox27 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox28 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label18 = New System.Windows.Forms.Label
         Me.Label19 = New System.Windows.Forms.Label
         Me.Label20 = New System.Windows.Forms.Label
@@ -77,15 +77,15 @@ Partial Class Test
         Me.Label23 = New System.Windows.Forms.Label
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.Label24 = New System.Windows.Forms.Label
-        Me.UTextBox29 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox32 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox29 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox32 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label27 = New System.Windows.Forms.Label
         Me.Label29 = New System.Windows.Forms.Label
-        Me.UTextBox34 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox34 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label25 = New System.Windows.Forms.Label
-        Me.UTextBox30 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox31 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox33 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox30 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox31 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox33 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label26 = New System.Windows.Forms.Label
         Me.Label28 = New System.Windows.Forms.Label
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
@@ -96,24 +96,24 @@ Partial Class Test
         Me.GroupBox4 = New System.Windows.Forms.GroupBox
         Me.Label31 = New System.Windows.Forms.Label
         Me.Label33 = New System.Windows.Forms.Label
-        Me.UTextBox36 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox38 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox36 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox38 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label34 = New System.Windows.Forms.Label
         Me.Label35 = New System.Windows.Forms.Label
-        Me.UTextBox39 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox40 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox39 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox40 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label36 = New System.Windows.Forms.Label
         Me.Label37 = New System.Windows.Forms.Label
-        Me.UTextBox41 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox42 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox41 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox42 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label38 = New System.Windows.Forms.Label
         Me.Label39 = New System.Windows.Forms.Label
-        Me.UTextBox35 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox37 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox43 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox44 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox45 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox46 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox35 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox37 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox43 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox44 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox45 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox46 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label40 = New System.Windows.Forms.Label
         Me.Label41 = New System.Windows.Forms.Label
         Me.Label42 = New System.Windows.Forms.Label
@@ -150,15 +150,15 @@ Partial Class Test
         Me.GroupBox8 = New System.Windows.Forms.GroupBox
         Me.ComboBox14 = New System.Windows.Forms.ComboBox
         Me.Label59 = New System.Windows.Forms.Label
-        Me.UTextBox47 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox48 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox51 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox53 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox47 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox48 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox51 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox53 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label62 = New System.Windows.Forms.Label
         Me.Label64 = New System.Windows.Forms.Label
-        Me.UTextBox55 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox55 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label66 = New System.Windows.Forms.Label
-        Me.UTextBox56 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox56 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label58 = New System.Windows.Forms.Label
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -241,7 +241,7 @@ Partial Class Test
         '
         'UTextBox1
         '
-        Me.UTextBox1.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox1.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox1.IsNumber = True
         Me.UTextBox1.IsSplit = True
         Me.UTextBox1.Location = New System.Drawing.Point(69, 22)
@@ -261,7 +261,7 @@ Partial Class Test
         '
         'UTextBox2
         '
-        Me.UTextBox2.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox2.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox2.IsNumber = True
         Me.UTextBox2.IsSplit = True
         Me.UTextBox2.Location = New System.Drawing.Point(187, 22)
@@ -272,7 +272,7 @@ Partial Class Test
         '
         'UTextBox3
         '
-        Me.UTextBox3.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox3.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox3.IsNumber = True
         Me.UTextBox3.IsSplit = True
         Me.UTextBox3.Location = New System.Drawing.Point(245, 22)
@@ -292,7 +292,7 @@ Partial Class Test
         '
         'UTextBox4
         '
-        Me.UTextBox4.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox4.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox4.IsNumber = True
         Me.UTextBox4.IsSplit = True
         Me.UTextBox4.Location = New System.Drawing.Point(395, 22)
@@ -303,7 +303,7 @@ Partial Class Test
         '
         'UTextBox5
         '
-        Me.UTextBox5.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox5.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox5.IsNumber = True
         Me.UTextBox5.IsSplit = True
         Me.UTextBox5.Location = New System.Drawing.Point(513, 22)
@@ -314,7 +314,7 @@ Partial Class Test
         '
         'UTextBox6
         '
-        Me.UTextBox6.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox6.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox6.IsNumber = True
         Me.UTextBox6.IsSplit = True
         Me.UTextBox6.Location = New System.Drawing.Point(571, 22)
@@ -343,7 +343,7 @@ Partial Class Test
         '
         'UTextBox7
         '
-        Me.UTextBox7.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox7.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox7.IsNumber = True
         Me.UTextBox7.IsSplit = True
         Me.UTextBox7.Location = New System.Drawing.Point(703, 22)
@@ -372,7 +372,7 @@ Partial Class Test
         '
         'UTextBox8
         '
-        Me.UTextBox8.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox8.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox8.IsNumber = True
         Me.UTextBox8.IsSplit = True
         Me.UTextBox8.Location = New System.Drawing.Point(69, 48)
@@ -401,7 +401,7 @@ Partial Class Test
         '
         'UTextBox9
         '
-        Me.UTextBox9.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox9.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox9.IsNumber = True
         Me.UTextBox9.IsSplit = True
         Me.UTextBox9.Location = New System.Drawing.Point(395, 48)
@@ -412,7 +412,7 @@ Partial Class Test
         '
         'UTextBox10
         '
-        Me.UTextBox10.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox10.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox10.IsNumber = True
         Me.UTextBox10.IsSplit = True
         Me.UTextBox10.Location = New System.Drawing.Point(703, 48)
@@ -423,7 +423,7 @@ Partial Class Test
         '
         'UTextBox11
         '
-        Me.UTextBox11.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox11.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox11.IsNumber = True
         Me.UTextBox11.IsSplit = True
         Me.UTextBox11.Location = New System.Drawing.Point(187, 48)
@@ -434,7 +434,7 @@ Partial Class Test
         '
         'UTextBox12
         '
-        Me.UTextBox12.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox12.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox12.IsNumber = True
         Me.UTextBox12.IsSplit = True
         Me.UTextBox12.Location = New System.Drawing.Point(513, 48)
@@ -445,7 +445,7 @@ Partial Class Test
         '
         'UTextBox13
         '
-        Me.UTextBox13.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox13.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox13.IsNumber = True
         Me.UTextBox13.IsSplit = True
         Me.UTextBox13.Location = New System.Drawing.Point(245, 48)
@@ -456,7 +456,7 @@ Partial Class Test
         '
         'UTextBox14
         '
-        Me.UTextBox14.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox14.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox14.IsNumber = True
         Me.UTextBox14.IsSplit = True
         Me.UTextBox14.Location = New System.Drawing.Point(571, 48)
@@ -494,7 +494,7 @@ Partial Class Test
         '
         'UTextBox15
         '
-        Me.UTextBox15.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox15.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox15.IsNumber = True
         Me.UTextBox15.IsSplit = True
         Me.UTextBox15.Location = New System.Drawing.Point(69, 89)
@@ -514,7 +514,7 @@ Partial Class Test
         '
         'UTextBox16
         '
-        Me.UTextBox16.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox16.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox16.IsNumber = True
         Me.UTextBox16.IsSplit = True
         Me.UTextBox16.Location = New System.Drawing.Point(69, 115)
@@ -561,7 +561,7 @@ Partial Class Test
         '
         'UTextBox17
         '
-        Me.UTextBox17.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox17.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox17.IsNumber = True
         Me.UTextBox17.IsSplit = True
         Me.UTextBox17.Location = New System.Drawing.Point(395, 89)
@@ -572,7 +572,7 @@ Partial Class Test
         '
         'UTextBox18
         '
-        Me.UTextBox18.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox18.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox18.IsNumber = True
         Me.UTextBox18.IsSplit = True
         Me.UTextBox18.Location = New System.Drawing.Point(395, 115)
@@ -583,7 +583,7 @@ Partial Class Test
         '
         'UTextBox19
         '
-        Me.UTextBox19.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox19.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox19.IsNumber = True
         Me.UTextBox19.IsSplit = True
         Me.UTextBox19.Location = New System.Drawing.Point(703, 89)
@@ -594,7 +594,7 @@ Partial Class Test
         '
         'UTextBox20
         '
-        Me.UTextBox20.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox20.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox20.IsNumber = True
         Me.UTextBox20.IsSplit = True
         Me.UTextBox20.Location = New System.Drawing.Point(703, 115)
@@ -605,7 +605,7 @@ Partial Class Test
         '
         'UTextBox21
         '
-        Me.UTextBox21.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox21.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox21.IsNumber = True
         Me.UTextBox21.IsSplit = True
         Me.UTextBox21.Location = New System.Drawing.Point(187, 89)
@@ -616,7 +616,7 @@ Partial Class Test
         '
         'UTextBox22
         '
-        Me.UTextBox22.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox22.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox22.IsNumber = True
         Me.UTextBox22.IsSplit = True
         Me.UTextBox22.Location = New System.Drawing.Point(187, 115)
@@ -627,7 +627,7 @@ Partial Class Test
         '
         'UTextBox23
         '
-        Me.UTextBox23.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox23.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox23.IsNumber = True
         Me.UTextBox23.IsSplit = True
         Me.UTextBox23.Location = New System.Drawing.Point(513, 89)
@@ -638,7 +638,7 @@ Partial Class Test
         '
         'UTextBox24
         '
-        Me.UTextBox24.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox24.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox24.IsNumber = True
         Me.UTextBox24.IsSplit = True
         Me.UTextBox24.Location = New System.Drawing.Point(513, 115)
@@ -649,7 +649,7 @@ Partial Class Test
         '
         'UTextBox25
         '
-        Me.UTextBox25.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox25.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox25.IsNumber = True
         Me.UTextBox25.IsSplit = True
         Me.UTextBox25.Location = New System.Drawing.Point(245, 89)
@@ -660,7 +660,7 @@ Partial Class Test
         '
         'UTextBox26
         '
-        Me.UTextBox26.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox26.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox26.IsNumber = True
         Me.UTextBox26.IsSplit = True
         Me.UTextBox26.Location = New System.Drawing.Point(245, 115)
@@ -671,7 +671,7 @@ Partial Class Test
         '
         'UTextBox27
         '
-        Me.UTextBox27.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox27.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox27.IsNumber = True
         Me.UTextBox27.IsSplit = True
         Me.UTextBox27.Location = New System.Drawing.Point(571, 89)
@@ -682,7 +682,7 @@ Partial Class Test
         '
         'UTextBox28
         '
-        Me.UTextBox28.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox28.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox28.IsNumber = True
         Me.UTextBox28.IsSplit = True
         Me.UTextBox28.Location = New System.Drawing.Point(571, 115)
@@ -777,7 +777,7 @@ Partial Class Test
         '
         'UTextBox29
         '
-        Me.UTextBox29.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox29.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox29.IsNumber = True
         Me.UTextBox29.IsSplit = True
         Me.UTextBox29.Location = New System.Drawing.Point(69, 19)
@@ -788,7 +788,7 @@ Partial Class Test
         '
         'UTextBox32
         '
-        Me.UTextBox32.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox32.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox32.IsNumber = True
         Me.UTextBox32.IsSplit = True
         Me.UTextBox32.Location = New System.Drawing.Point(187, 19)
@@ -817,7 +817,7 @@ Partial Class Test
         '
         'UTextBox34
         '
-        Me.UTextBox34.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox34.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox34.IsNumber = True
         Me.UTextBox34.IsSplit = True
         Me.UTextBox34.Location = New System.Drawing.Point(292, 19)
@@ -837,7 +837,7 @@ Partial Class Test
         '
         'UTextBox30
         '
-        Me.UTextBox30.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox30.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox30.IsNumber = True
         Me.UTextBox30.IsSplit = True
         Me.UTextBox30.Location = New System.Drawing.Point(592, 19)
@@ -848,7 +848,7 @@ Partial Class Test
         '
         'UTextBox31
         '
-        Me.UTextBox31.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox31.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox31.IsNumber = True
         Me.UTextBox31.IsSplit = True
         Me.UTextBox31.Location = New System.Drawing.Point(697, 19)
@@ -859,7 +859,7 @@ Partial Class Test
         '
         'UTextBox33
         '
-        Me.UTextBox33.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox33.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox33.IsNumber = True
         Me.UTextBox33.IsSplit = True
         Me.UTextBox33.Location = New System.Drawing.Point(474, 19)
@@ -990,7 +990,7 @@ Partial Class Test
         '
         'UTextBox36
         '
-        Me.UTextBox36.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox36.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox36.IsNumber = True
         Me.UTextBox36.IsSplit = True
         Me.UTextBox36.Location = New System.Drawing.Point(195, 18)
@@ -1001,7 +1001,7 @@ Partial Class Test
         '
         'UTextBox38
         '
-        Me.UTextBox38.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox38.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox38.IsNumber = True
         Me.UTextBox38.IsSplit = True
         Me.UTextBox38.Location = New System.Drawing.Point(99, 18)
@@ -1030,7 +1030,7 @@ Partial Class Test
         '
         'UTextBox39
         '
-        Me.UTextBox39.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox39.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox39.IsNumber = True
         Me.UTextBox39.IsSplit = True
         Me.UTextBox39.Location = New System.Drawing.Point(298, 18)
@@ -1041,7 +1041,7 @@ Partial Class Test
         '
         'UTextBox40
         '
-        Me.UTextBox40.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox40.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox40.IsNumber = True
         Me.UTextBox40.IsSplit = True
         Me.UTextBox40.Location = New System.Drawing.Point(385, 18)
@@ -1070,7 +1070,7 @@ Partial Class Test
         '
         'UTextBox41
         '
-        Me.UTextBox41.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox41.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox41.IsNumber = True
         Me.UTextBox41.IsSplit = True
         Me.UTextBox41.Location = New System.Drawing.Point(521, 18)
@@ -1081,7 +1081,7 @@ Partial Class Test
         '
         'UTextBox42
         '
-        Me.UTextBox42.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox42.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox42.IsNumber = True
         Me.UTextBox42.IsSplit = True
         Me.UTextBox42.Location = New System.Drawing.Point(618, 18)
@@ -1110,7 +1110,7 @@ Partial Class Test
         '
         'UTextBox35
         '
-        Me.UTextBox35.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox35.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox35.IsNumber = True
         Me.UTextBox35.IsSplit = True
         Me.UTextBox35.Location = New System.Drawing.Point(99, 48)
@@ -1121,7 +1121,7 @@ Partial Class Test
         '
         'UTextBox37
         '
-        Me.UTextBox37.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox37.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox37.IsNumber = True
         Me.UTextBox37.IsSplit = True
         Me.UTextBox37.Location = New System.Drawing.Point(298, 48)
@@ -1132,7 +1132,7 @@ Partial Class Test
         '
         'UTextBox43
         '
-        Me.UTextBox43.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox43.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox43.IsNumber = True
         Me.UTextBox43.IsSplit = True
         Me.UTextBox43.Location = New System.Drawing.Point(521, 48)
@@ -1143,7 +1143,7 @@ Partial Class Test
         '
         'UTextBox44
         '
-        Me.UTextBox44.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox44.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox44.IsNumber = True
         Me.UTextBox44.IsSplit = True
         Me.UTextBox44.Location = New System.Drawing.Point(195, 48)
@@ -1154,7 +1154,7 @@ Partial Class Test
         '
         'UTextBox45
         '
-        Me.UTextBox45.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox45.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox45.IsNumber = True
         Me.UTextBox45.IsSplit = True
         Me.UTextBox45.Location = New System.Drawing.Point(385, 48)
@@ -1165,7 +1165,7 @@ Partial Class Test
         '
         'UTextBox46
         '
-        Me.UTextBox46.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox46.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox46.IsNumber = True
         Me.UTextBox46.IsSplit = True
         Me.UTextBox46.Location = New System.Drawing.Point(618, 48)
@@ -1536,7 +1536,7 @@ Partial Class Test
         '
         'UTextBox47
         '
-        Me.UTextBox47.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox47.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox47.IsNumber = True
         Me.UTextBox47.IsSplit = True
         Me.UTextBox47.Location = New System.Drawing.Point(234, 14)
@@ -1547,7 +1547,7 @@ Partial Class Test
         '
         'UTextBox48
         '
-        Me.UTextBox48.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox48.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox48.IsNumber = True
         Me.UTextBox48.IsSplit = True
         Me.UTextBox48.Location = New System.Drawing.Point(394, 14)
@@ -1558,7 +1558,7 @@ Partial Class Test
         '
         'UTextBox51
         '
-        Me.UTextBox51.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox51.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox51.IsNumber = True
         Me.UTextBox51.IsSplit = True
         Me.UTextBox51.Location = New System.Drawing.Point(292, 14)
@@ -1569,7 +1569,7 @@ Partial Class Test
         '
         'UTextBox53
         '
-        Me.UTextBox53.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox53.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox53.IsNumber = True
         Me.UTextBox53.IsSplit = True
         Me.UTextBox53.Location = New System.Drawing.Point(451, 14)
@@ -1598,7 +1598,7 @@ Partial Class Test
         '
         'UTextBox55
         '
-        Me.UTextBox55.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox55.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox55.IsNumber = True
         Me.UTextBox55.IsSplit = True
         Me.UTextBox55.Location = New System.Drawing.Point(610, 14)
@@ -1618,7 +1618,7 @@ Partial Class Test
         '
         'UTextBox56
         '
-        Me.UTextBox56.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox56.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox56.IsNumber = True
         Me.UTextBox56.IsSplit = True
         Me.UTextBox56.Location = New System.Drawing.Point(553, 14)
@@ -1634,8 +1634,8 @@ Partial Class Test
         Me.Label58.Name = "Label58"
         Me.Label58.Size = New System.Drawing.Size(235, 52)
         Me.Label58.TabIndex = 2
-        Me.Label58.Text = "IO Myectomy ) / " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                DCR +/- tube" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                 " & _
-            "              Blepharoplasty       " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               lev. Resecti" & _
+        Me.Label58.Text = "IO Myectomy ) / " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                                DCR +/- tube" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                 " &
+            "              Blepharoplasty       " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "                               lev. Resecti" &
             "on #mm     Sling " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'Test
@@ -1674,7 +1674,7 @@ Partial Class Test
     End Sub
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents UTextBox1 As Kahvand.UTextBox
+    Friend WithEvents UTextBox1 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label23 As System.Windows.Forms.Label
     Friend WithEvents Label22 As System.Windows.Forms.Label
@@ -1686,30 +1686,30 @@ Partial Class Test
     Friend WithEvents Label19 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Label18 As System.Windows.Forms.Label
-    Friend WithEvents UTextBox28 As Kahvand.UTextBox
-    Friend WithEvents UTextBox14 As Kahvand.UTextBox
-    Friend WithEvents UTextBox27 As Kahvand.UTextBox
-    Friend WithEvents UTextBox6 As Kahvand.UTextBox
-    Friend WithEvents UTextBox26 As Kahvand.UTextBox
-    Friend WithEvents UTextBox13 As Kahvand.UTextBox
-    Friend WithEvents UTextBox25 As Kahvand.UTextBox
-    Friend WithEvents UTextBox3 As Kahvand.UTextBox
-    Friend WithEvents UTextBox24 As Kahvand.UTextBox
-    Friend WithEvents UTextBox12 As Kahvand.UTextBox
-    Friend WithEvents UTextBox23 As Kahvand.UTextBox
-    Friend WithEvents UTextBox5 As Kahvand.UTextBox
-    Friend WithEvents UTextBox22 As Kahvand.UTextBox
-    Friend WithEvents UTextBox11 As Kahvand.UTextBox
-    Friend WithEvents UTextBox21 As Kahvand.UTextBox
-    Friend WithEvents UTextBox2 As Kahvand.UTextBox
-    Friend WithEvents UTextBox20 As Kahvand.UTextBox
-    Friend WithEvents UTextBox10 As Kahvand.UTextBox
-    Friend WithEvents UTextBox19 As Kahvand.UTextBox
-    Friend WithEvents UTextBox7 As Kahvand.UTextBox
-    Friend WithEvents UTextBox18 As Kahvand.UTextBox
-    Friend WithEvents UTextBox9 As Kahvand.UTextBox
-    Friend WithEvents UTextBox17 As Kahvand.UTextBox
-    Friend WithEvents UTextBox4 As Kahvand.UTextBox
+    Friend WithEvents UTextBox28 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox14 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox27 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox6 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox26 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox13 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox25 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox3 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox24 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox12 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox23 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox5 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox22 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox11 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox21 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox2 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox20 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox10 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox19 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox7 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox18 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox9 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox17 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox4 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label16 As System.Windows.Forms.Label
@@ -1718,24 +1718,24 @@ Partial Class Test
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents UTextBox16 As Kahvand.UTextBox
-    Friend WithEvents UTextBox8 As Kahvand.UTextBox
+    Friend WithEvents UTextBox16 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox8 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents UTextBox15 As Kahvand.UTextBox
+    Friend WithEvents UTextBox15 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents Label28 As System.Windows.Forms.Label
     Friend WithEvents Label26 As System.Windows.Forms.Label
     Friend WithEvents Label24 As System.Windows.Forms.Label
-    Friend WithEvents UTextBox33 As Kahvand.UTextBox
+    Friend WithEvents UTextBox33 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents Label29 As System.Windows.Forms.Label
-    Friend WithEvents UTextBox31 As Kahvand.UTextBox
-    Friend WithEvents UTextBox29 As Kahvand.UTextBox
-    Friend WithEvents UTextBox30 As Kahvand.UTextBox
-    Friend WithEvents UTextBox34 As Kahvand.UTextBox
+    Friend WithEvents UTextBox31 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox29 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox30 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox34 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents Label25 As System.Windows.Forms.Label
-    Friend WithEvents UTextBox32 As Kahvand.UTextBox
+    Friend WithEvents UTextBox32 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents Label27 As System.Windows.Forms.Label
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents ComboBox2 As System.Windows.Forms.ComboBox
@@ -1755,18 +1755,18 @@ Partial Class Test
     Friend WithEvents Label36 As System.Windows.Forms.Label
     Friend WithEvents Label40 As System.Windows.Forms.Label
     Friend WithEvents Label34 As System.Windows.Forms.Label
-    Friend WithEvents UTextBox46 As Kahvand.UTextBox
-    Friend WithEvents UTextBox42 As Kahvand.UTextBox
-    Friend WithEvents UTextBox45 As Kahvand.UTextBox
-    Friend WithEvents UTextBox40 As Kahvand.UTextBox
-    Friend WithEvents UTextBox44 As Kahvand.UTextBox
-    Friend WithEvents UTextBox43 As Kahvand.UTextBox
-    Friend WithEvents UTextBox36 As Kahvand.UTextBox
-    Friend WithEvents UTextBox37 As Kahvand.UTextBox
-    Friend WithEvents UTextBox41 As Kahvand.UTextBox
-    Friend WithEvents UTextBox35 As Kahvand.UTextBox
-    Friend WithEvents UTextBox39 As Kahvand.UTextBox
-    Friend WithEvents UTextBox38 As Kahvand.UTextBox
+    Friend WithEvents UTextBox46 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox42 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox45 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox40 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox44 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox43 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox36 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox37 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox41 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox35 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox39 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox38 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents Label31 As System.Windows.Forms.Label
     Friend WithEvents Label33 As System.Windows.Forms.Label
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
@@ -1799,14 +1799,14 @@ Partial Class Test
     Friend WithEvents GroupBox8 As System.Windows.Forms.GroupBox
     Friend WithEvents ComboBox14 As System.Windows.Forms.ComboBox
     Friend WithEvents Label59 As System.Windows.Forms.Label
-    Friend WithEvents UTextBox47 As Kahvand.UTextBox
-    Friend WithEvents UTextBox56 As Kahvand.UTextBox
-    Friend WithEvents UTextBox48 As Kahvand.UTextBox
+    Friend WithEvents UTextBox47 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox56 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox48 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents Label66 As System.Windows.Forms.Label
-    Friend WithEvents UTextBox51 As Kahvand.UTextBox
+    Friend WithEvents UTextBox51 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents Label64 As System.Windows.Forms.Label
-    Friend WithEvents UTextBox55 As Kahvand.UTextBox
-    Friend WithEvents UTextBox53 As Kahvand.UTextBox
+    Friend WithEvents UTextBox55 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox53 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents Label62 As System.Windows.Forms.Label
     Friend WithEvents Label58 As System.Windows.Forms.Label
 End Class

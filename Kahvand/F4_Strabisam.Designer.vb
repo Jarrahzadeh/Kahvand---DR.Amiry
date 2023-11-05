@@ -1,9 +1,9 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class F4_Strabisam
-    Inherits Kahvand.ParentForm
+    Inherits OphthalmologyMgmnt.ParentForm
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -17,16 +17,16 @@ Partial Class F4_Strabisam
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.UTextBox38 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox39 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox41 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox36 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox40 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox42 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox38 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox39 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox41 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox36 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox40 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox42 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label34 = New System.Windows.Forms.Label
         Me.Label36 = New System.Windows.Forms.Label
         Me.Label38 = New System.Windows.Forms.Label
@@ -41,12 +41,12 @@ Partial Class F4_Strabisam
         Me.Label42 = New System.Windows.Forms.Label
         Me.Label41 = New System.Windows.Forms.Label
         Me.Label40 = New System.Windows.Forms.Label
-        Me.UTextBox46 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox45 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox44 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox43 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox37 = New Kahvand.UTextBox(Me.components)
-        Me.UTextBox35 = New Kahvand.UTextBox(Me.components)
+        Me.UTextBox46 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox45 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox44 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox43 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox37 = New OphthalmologyMgmnt.UTextBox(Me.components)
+        Me.UTextBox35 = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -75,7 +75,7 @@ Partial Class F4_Strabisam
         '
         'UTextBox38
         '
-        Me.UTextBox38.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox38.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox38.IsNumber = True
         Me.UTextBox38.IsSplit = True
         Me.UTextBox38.Location = New System.Drawing.Point(48, 19)
@@ -87,7 +87,7 @@ Partial Class F4_Strabisam
         '
         'UTextBox39
         '
-        Me.UTextBox39.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox39.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox39.IsNumber = True
         Me.UTextBox39.IsSplit = True
         Me.UTextBox39.Location = New System.Drawing.Point(247, 19)
@@ -99,7 +99,7 @@ Partial Class F4_Strabisam
         '
         'UTextBox41
         '
-        Me.UTextBox41.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox41.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox41.IsNumber = True
         Me.UTextBox41.IsSplit = True
         Me.UTextBox41.Location = New System.Drawing.Point(470, 19)
@@ -111,7 +111,7 @@ Partial Class F4_Strabisam
         '
         'UTextBox36
         '
-        Me.UTextBox36.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox36.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox36.IsNumber = True
         Me.UTextBox36.IsSplit = True
         Me.UTextBox36.Location = New System.Drawing.Point(144, 19)
@@ -123,7 +123,7 @@ Partial Class F4_Strabisam
         '
         'UTextBox40
         '
-        Me.UTextBox40.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox40.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox40.IsNumber = True
         Me.UTextBox40.IsSplit = True
         Me.UTextBox40.Location = New System.Drawing.Point(334, 19)
@@ -135,7 +135,7 @@ Partial Class F4_Strabisam
         '
         'UTextBox42
         '
-        Me.UTextBox42.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox42.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox42.IsNumber = True
         Me.UTextBox42.IsSplit = True
         Me.UTextBox42.Location = New System.Drawing.Point(567, 19)
@@ -287,7 +287,7 @@ Partial Class F4_Strabisam
         '
         'UTextBox46
         '
-        Me.UTextBox46.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox46.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox46.IsNumber = True
         Me.UTextBox46.IsSplit = True
         Me.UTextBox46.Location = New System.Drawing.Point(566, 19)
@@ -299,7 +299,7 @@ Partial Class F4_Strabisam
         '
         'UTextBox45
         '
-        Me.UTextBox45.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox45.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox45.IsNumber = True
         Me.UTextBox45.IsSplit = True
         Me.UTextBox45.Location = New System.Drawing.Point(333, 19)
@@ -311,7 +311,7 @@ Partial Class F4_Strabisam
         '
         'UTextBox44
         '
-        Me.UTextBox44.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox44.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox44.IsNumber = True
         Me.UTextBox44.IsSplit = True
         Me.UTextBox44.Location = New System.Drawing.Point(143, 19)
@@ -323,7 +323,7 @@ Partial Class F4_Strabisam
         '
         'UTextBox43
         '
-        Me.UTextBox43.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox43.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox43.IsNumber = True
         Me.UTextBox43.IsSplit = True
         Me.UTextBox43.Location = New System.Drawing.Point(469, 19)
@@ -335,7 +335,7 @@ Partial Class F4_Strabisam
         '
         'UTextBox37
         '
-        Me.UTextBox37.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox37.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox37.IsNumber = True
         Me.UTextBox37.IsSplit = True
         Me.UTextBox37.Location = New System.Drawing.Point(246, 19)
@@ -347,7 +347,7 @@ Partial Class F4_Strabisam
         '
         'UTextBox35
         '
-        Me.UTextBox35.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.UTextBox35.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.UTextBox35.IsNumber = True
         Me.UTextBox35.IsSplit = True
         Me.UTextBox35.Location = New System.Drawing.Point(47, 19)
@@ -378,12 +378,12 @@ Partial Class F4_Strabisam
     Friend WithEvents Label38 As System.Windows.Forms.Label
     Friend WithEvents Label36 As System.Windows.Forms.Label
     Friend WithEvents Label34 As System.Windows.Forms.Label
-    Friend WithEvents UTextBox42 As Kahvand.UTextBox
-    Friend WithEvents UTextBox40 As Kahvand.UTextBox
-    Friend WithEvents UTextBox36 As Kahvand.UTextBox
-    Friend WithEvents UTextBox41 As Kahvand.UTextBox
-    Friend WithEvents UTextBox39 As Kahvand.UTextBox
-    Friend WithEvents UTextBox38 As Kahvand.UTextBox
+    Friend WithEvents UTextBox42 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox40 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox36 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox41 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox39 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox38 As OphthalmologyMgmnt.UTextBox
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents Label45 As System.Windows.Forms.Label
@@ -392,11 +392,11 @@ Partial Class F4_Strabisam
     Friend WithEvents Label42 As System.Windows.Forms.Label
     Friend WithEvents Label41 As System.Windows.Forms.Label
     Friend WithEvents Label40 As System.Windows.Forms.Label
-    Friend WithEvents UTextBox46 As Kahvand.UTextBox
-    Friend WithEvents UTextBox45 As Kahvand.UTextBox
-    Friend WithEvents UTextBox44 As Kahvand.UTextBox
-    Friend WithEvents UTextBox43 As Kahvand.UTextBox
-    Friend WithEvents UTextBox37 As Kahvand.UTextBox
-    Friend WithEvents UTextBox35 As Kahvand.UTextBox
+    Friend WithEvents UTextBox46 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox45 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox44 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox43 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox37 As OphthalmologyMgmnt.UTextBox
+    Friend WithEvents UTextBox35 As OphthalmologyMgmnt.UTextBox
 
 End Class

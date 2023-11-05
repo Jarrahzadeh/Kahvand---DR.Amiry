@@ -1,9 +1,9 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class F5_Fundus
-    Inherits Kahvand.ParentForm
+    Inherits OphthalmologyMgmnt.ParentForm
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         If disposing AndAlso components IsNot Nothing Then
             components.Dispose()
@@ -17,40 +17,40 @@ Partial Class F5_Fundus
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Me.UCheckBox1 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox2 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox3 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox4 = New Kahvand.UCheckBox(Me.components)
+        Me.UCheckBox1 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox2 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox3 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox4 = New OphthalmologyMgmnt.UCheckBox(Me.components)
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.GroupBox7 = New System.Windows.Forms.GroupBox
-        Me.UCheckBox17 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox10 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox18 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox11 = New Kahvand.UCheckBox(Me.components)
+        Me.UCheckBox17 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox10 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox18 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox11 = New OphthalmologyMgmnt.UCheckBox(Me.components)
         Me.GroupBox6 = New System.Windows.Forms.GroupBox
         Me.GroupBox5 = New System.Windows.Forms.GroupBox
         Me.GroupBox9 = New System.Windows.Forms.GroupBox
-        Me.UCheckBox14 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox15 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox16 = New Kahvand.UCheckBox(Me.components)
+        Me.UCheckBox14 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox15 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox16 = New OphthalmologyMgmnt.UCheckBox(Me.components)
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
-        Me.UCheckBox5 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox6 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox7 = New Kahvand.UCheckBox(Me.components)
+        Me.UCheckBox5 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox6 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox7 = New OphthalmologyMgmnt.UCheckBox(Me.components)
         Me.GroupBox4 = New System.Windows.Forms.GroupBox
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.UCheckBox22 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox21 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox9 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox8 = New Kahvand.UCheckBox(Me.components)
+        Me.UCheckBox22 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox21 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox9 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox8 = New OphthalmologyMgmnt.UCheckBox(Me.components)
         Me.GroupBox8 = New System.Windows.Forms.GroupBox
-        Me.UCheckBox20 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox19 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox12 = New Kahvand.UCheckBox(Me.components)
-        Me.UCheckBox13 = New Kahvand.UCheckBox(Me.components)
+        Me.UCheckBox20 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox19 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox12 = New OphthalmologyMgmnt.UCheckBox(Me.components)
+        Me.UCheckBox13 = New OphthalmologyMgmnt.UCheckBox(Me.components)
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
@@ -418,36 +418,36 @@ Partial Class F5_Fundus
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents UCheckBox1 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox2 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox3 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox4 As Kahvand.UCheckBox
+    Friend WithEvents UCheckBox1 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox2 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox3 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox4 As OphthalmologyMgmnt.UCheckBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox6 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox9 As System.Windows.Forms.GroupBox
-    Friend WithEvents UCheckBox14 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox15 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox16 As Kahvand.UCheckBox
+    Friend WithEvents UCheckBox14 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox15 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox16 As OphthalmologyMgmnt.UCheckBox
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-    Friend WithEvents UCheckBox5 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox6 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox7 As Kahvand.UCheckBox
+    Friend WithEvents UCheckBox5 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox6 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox7 As OphthalmologyMgmnt.UCheckBox
     Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
-    Friend WithEvents UCheckBox22 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox21 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox9 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox8 As Kahvand.UCheckBox
+    Friend WithEvents UCheckBox22 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox21 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox9 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox8 As OphthalmologyMgmnt.UCheckBox
     Friend WithEvents GroupBox8 As System.Windows.Forms.GroupBox
-    Friend WithEvents UCheckBox20 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox19 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox12 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox13 As Kahvand.UCheckBox
+    Friend WithEvents UCheckBox20 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox19 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox12 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox13 As OphthalmologyMgmnt.UCheckBox
     Friend WithEvents GroupBox7 As System.Windows.Forms.GroupBox
-    Friend WithEvents UCheckBox17 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox10 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox18 As Kahvand.UCheckBox
-    Friend WithEvents UCheckBox11 As Kahvand.UCheckBox
+    Friend WithEvents UCheckBox17 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox10 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox18 As OphthalmologyMgmnt.UCheckBox
+    Friend WithEvents UCheckBox11 As OphthalmologyMgmnt.UCheckBox
 
 End Class

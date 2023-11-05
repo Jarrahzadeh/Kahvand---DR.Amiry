@@ -51,7 +51,7 @@ Partial Class Login
         '
         Me.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.BtnClose.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClose.Image = Global.Kahvand.My.Resources.Resources.Delete
+        Me.BtnClose.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.Delete
         Me.BtnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BtnClose.Location = New System.Drawing.Point(233, 143)
         Me.BtnClose.Name = "BtnClose"
@@ -63,7 +63,7 @@ Partial Class Login
         'BtnEnter
         '
         Me.BtnEnter.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnEnter.Image = Global.Kahvand.My.Resources.Resources.dialog_ok
+        Me.BtnEnter.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.dialog_ok
         Me.BtnEnter.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BtnEnter.Location = New System.Drawing.Point(357, 143)
         Me.BtnEnter.Name = "BtnEnter"
@@ -109,7 +109,7 @@ Partial Class Login
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = Global.Kahvand.My.Resources.Resources.Icon__2_
+        Me.PictureBox1.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.Icon__2_
         Me.PictureBox1.Location = New System.Drawing.Point(19, 14)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(172, 159)

@@ -202,7 +202,7 @@ Partial Class Users
         Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancel.Font = New System.Drawing.Font("Tahoma", 8.25!)
-        Me.btnCancel.Image = Global.Kahvand.My.Resources.Resources.Delete
+        Me.btnCancel.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.Delete
         Me.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCancel.Location = New System.Drawing.Point(6, 19)
         Me.btnCancel.Name = "btnCancel"
@@ -216,7 +216,7 @@ Partial Class Users
         Me.btnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnDelete.Enabled = False
         Me.btnDelete.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Image = Global.Kahvand.My.Resources.Resources.cut
+        Me.btnDelete.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.cut
         Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnDelete.Location = New System.Drawing.Point(110, 20)
         Me.btnDelete.Name = "btnDelete"
@@ -230,7 +230,7 @@ Partial Class Users
         Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEdit.Enabled = False
         Me.btnEdit.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEdit.Image = Global.Kahvand.My.Resources.Resources._05
+        Me.btnEdit.Image = Global.OphthalmologyMgmnt.My.Resources.Resources._05
         Me.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnEdit.Location = New System.Drawing.Point(209, 20)
         Me.btnEdit.Name = "btnEdit"
@@ -243,7 +243,7 @@ Partial Class Users
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSave.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Image = Global.Kahvand.My.Resources.Resources.Add_h
+        Me.btnSave.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.Add_h
         Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnSave.Location = New System.Drawing.Point(306, 20)
         Me.btnSave.Name = "btnSave"

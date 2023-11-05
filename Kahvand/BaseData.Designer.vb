@@ -27,7 +27,7 @@ Partial Class BaseData
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
         Me.DG = New System.Windows.Forms.DataGridView
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
-        Me.txtPrice = New Kahvand.UTextBox(Me.components)
+        Me.txtPrice = New OphthalmologyMgmnt.UTextBox(Me.components)
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
@@ -89,7 +89,7 @@ Partial Class BaseData
         '
         'txtPrice
         '
-        Me.txtPrice.IsLanguage = Kahvand.UTextBox.Language.Defualt
+        Me.txtPrice.IsLanguage = OphthalmologyMgmnt.UTextBox.Language.Defualt
         Me.txtPrice.IsNumber = False
         Me.txtPrice.IsSplit = True
         Me.txtPrice.Location = New System.Drawing.Point(22, 50)
@@ -153,7 +153,7 @@ Partial Class BaseData
         Me.btnCancel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.btnCancel.Font = New System.Drawing.Font("Tahoma", 8.25!)
-        Me.btnCancel.Image = Global.Kahvand.My.Resources.Resources.Delete
+        Me.btnCancel.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.Delete
         Me.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnCancel.Location = New System.Drawing.Point(22, 352)
         Me.btnCancel.Name = "btnCancel"
@@ -167,7 +167,7 @@ Partial Class BaseData
         Me.btnDelete.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnDelete.Enabled = False
         Me.btnDelete.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDelete.Image = Global.Kahvand.My.Resources.Resources.cut
+        Me.btnDelete.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.cut
         Me.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnDelete.Location = New System.Drawing.Point(126, 353)
         Me.btnDelete.Name = "btnDelete"
@@ -181,7 +181,7 @@ Partial Class BaseData
         Me.btnEdit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnEdit.Enabled = False
         Me.btnEdit.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnEdit.Image = Global.Kahvand.My.Resources.Resources._05
+        Me.btnEdit.Image = Global.OphthalmologyMgmnt.My.Resources.Resources._05
         Me.btnEdit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnEdit.Location = New System.Drawing.Point(225, 353)
         Me.btnEdit.Name = "btnEdit"
@@ -194,7 +194,7 @@ Partial Class BaseData
         '
         Me.btnSave.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnSave.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnSave.Image = Global.Kahvand.My.Resources.Resources.Add_h
+        Me.btnSave.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.Add_h
         Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnSave.Location = New System.Drawing.Point(322, 353)
         Me.btnSave.Name = "btnSave"
@@ -238,6 +238,6 @@ Partial Class BaseData
     Friend WithEvents btnDelete As System.Windows.Forms.Button
     Friend WithEvents btnEdit As System.Windows.Forms.Button
     Friend WithEvents btnSave As System.Windows.Forms.Button
-    Friend WithEvents txtPrice As Kahvand.UTextBox
+    Friend WithEvents txtPrice As OphthalmologyMgmnt.UTextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
 End Class

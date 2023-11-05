@@ -182,7 +182,7 @@ Partial Class Editor
         'BtnClose
         '
         Me.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.BtnClose.Image = Global.Kahvand.My.Resources.Resources.Delete
+        Me.BtnClose.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.Delete
         Me.BtnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.BtnClose.Location = New System.Drawing.Point(12, 39)
         Me.BtnClose.Name = "BtnClose"
@@ -193,7 +193,7 @@ Partial Class Editor
         '
         'BtnSave
         '
-        Me.BtnSave.Image = Global.Kahvand.My.Resources.Resources.im
+        Me.BtnSave.Image = Global.OphthalmologyMgmnt.My.Resources.Resources.im
         Me.BtnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.BtnSave.Location = New System.Drawing.Point(122, 39)
         Me.BtnSave.Name = "BtnSave"
