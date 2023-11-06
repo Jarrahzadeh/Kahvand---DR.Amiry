@@ -22,21 +22,21 @@ Partial Class BaseData
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.DG = New System.Windows.Forms.DataGridView
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.DG = New System.Windows.Forms.DataGridView()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.txtPrice = New OphthalmologyMgmnt.UTextBox(Me.components)
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.Label3 = New System.Windows.Forms.Label
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.TxtName = New System.Windows.Forms.TextBox
-        Me.TxtId = New System.Windows.Forms.TextBox
-        Me.btnCancel = New System.Windows.Forms.Button
-        Me.btnDelete = New System.Windows.Forms.Button
-        Me.btnEdit = New System.Windows.Forms.Button
-        Me.btnSave = New System.Windows.Forms.Button
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TxtName = New System.Windows.Forms.TextBox()
+        Me.TxtId = New System.Windows.Forms.TextBox()
+        Me.btnCancel = New System.Windows.Forms.Button()
+        Me.btnDelete = New System.Windows.Forms.Button()
+        Me.btnEdit = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DG, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
@@ -131,7 +131,7 @@ Partial Class BaseData
         'TxtName
         '
         Me.TxtName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TxtName.Location = New System.Drawing.Point(22, 20)
         Me.TxtName.Name = "TxtName"
         Me.TxtName.Size = New System.Drawing.Size(244, 21)
@@ -219,7 +219,7 @@ Partial Class BaseData
         Me.Name = "BaseData"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "BaseData"
+        Me.Text = "نوع بیمار"
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.DG, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)

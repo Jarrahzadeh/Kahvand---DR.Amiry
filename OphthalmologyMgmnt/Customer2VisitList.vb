@@ -119,7 +119,7 @@ Public Class Customer2VisitList
             ShowGrid()
 
             Me.Size = My.Settings.CustomerVisitSize
-
+            MtTime.Text = DateTime.Now.ToString("HH:mm")
         Catch ex As Exception
 
         End Try
