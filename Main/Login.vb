@@ -78,5 +78,6 @@ Public Class Login
             rbOther.Checked = True
         End If
 
+        ActiveControl = TxtUserName
     End Sub
 End Class
