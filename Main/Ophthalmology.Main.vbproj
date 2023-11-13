@@ -158,10 +158,10 @@
     <Compile Include="Forms\ListOfData.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Login.Designer.vb">
-      <DependentUpon>Login.vb</DependentUpon>
+    <Compile Include="Forms\LoginForm.Designer.vb">
+      <DependentUpon>LoginForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Login.vb">
+    <Compile Include="Forms\LoginForm.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Register.Designer.vb">
@@ -387,8 +387,8 @@
     <EmbeddedResource Include="Forms\ListOfData.resx">
       <DependentUpon>ListOfData.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Login.resx">
-      <DependentUpon>Login.vb</DependentUpon>
+    <EmbeddedResource Include="Forms\LoginForm.resx">
+      <DependentUpon>LoginForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
