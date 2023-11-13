@@ -5,7 +5,7 @@ Imports Ophthalmology.Controls.CustomControls
 Imports Ophthalmology.Utility.Connection
 Imports Ophthalmology.Utility.Helpers
 
-Public Class FormChat
+Public Class ChatForm
     Public Sub New()
         InitializeComponent()
 

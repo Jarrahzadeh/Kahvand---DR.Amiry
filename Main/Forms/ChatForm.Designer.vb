@@ -1,7 +1,7 @@
 ﻿Imports Ophthalmology.Controls.CustomControls
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class FormChat
+Partial Class ChatForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -124,7 +124,7 @@ Partial Class FormChat
         Me.ChatControlPrivate2.Size = New System.Drawing.Size(417, 416)
         Me.ChatControlPrivate2.TabIndex = 0
         '
-        'FormChat
+        'ChatForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -132,7 +132,7 @@ Partial Class FormChat
         Me.Controls.Add(Me.TabControl1)
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
         Me.KeyPreview = True
-        Me.Name = "FormChat"
+        Me.Name = "ChatForm"
         Me.Padding = New System.Windows.Forms.Padding(10, 3, 10, 10)
         Me.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
