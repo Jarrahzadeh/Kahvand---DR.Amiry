@@ -1,5 +1,4 @@
 ﻿Imports System.Net.Sockets
-Imports Ophthalmology.Utility.Classes
 Imports Ophthalmology.Utility.Connection
 Imports Ophthalmology.Utility.Helpers
 
@@ -14,11 +13,11 @@ Module Module1
             End If
 
             If My.Settings.SystemStatus = "Server" Then
-                _userTypeTitle = ConstDrTitle
+                _userTypeTitle = Constants.ConstDrTitle
             ElseIf My.Settings.SystemStatus = "Client" Then
-                _userTypeTitle = ConstMonshiTitle
+                _userTypeTitle = Constants.ConstMonshiTitle
             Else
-                _userTypeTitle = ConstOtherTitle
+                _userTypeTitle = Constants.ConstOtherTitle
             End If
 
             Return _userTypeTitle
@@ -43,9 +42,7 @@ Module Module1
     Public ClientIp As String
     Public Message As String
 
-    Public Const ConstDrTitle As String = "دکتر"
-    Public Const ConstMonshiTitle As String = "منشی"
-    Public Const ConstOtherTitle As String = "اپتومتریست"
+
 
     Public Sub Reset(ByVal X As Object)
         For Each Obj As Control In X.Controls

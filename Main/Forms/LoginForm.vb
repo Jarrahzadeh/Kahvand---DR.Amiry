@@ -1,16 +1,16 @@
 ﻿Imports System.Data.OleDb
 Imports System.Net
+Imports Ophthalmology.Utility.Helpers
 
 Namespace Forms
 
     Public Class LoginForm
         Sub FillCombo()
-            Dim ado As New OleDbDataAdapter("Select * from Dr", AdoCon)
-            Dim dt As New DataTable
-            ado.Fill(dt)
+
+            Dim dt = DatabaseHelper.Select(Constants.DrTableName)
             CbDr.DataSource = dt
-            CbDr.DisplayMember = "Name"
-            CbDr.ValueMember = "Id"
+            CbDr.DisplayMember = Constants.NameFieldName
+            CbDr.ValueMember = Constants.IdFieldName
 
         End Sub
         Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
@@ -19,9 +19,11 @@ Namespace Forms
 
         Private Sub BtnEnter_Click(sender As Object, e As EventArgs) Handles BtnEnter.Click
 
-            Dim ado As New OleDbDataAdapter("Select * from User1 Where Name = '" + TxtUserName.Text + "' and Pass = '" + TxtPass.Text + "' " + St, AdoCon)
-            Dim dt As New DataTable
-            ado.Fill(dt)
+            Dim where As New List(Of Tuple(Of String, Type, Object, String))
+            where.Add(New Tuple(Of String, Type, Object, String)(Constants.NameFieldName, String.Empty.GetType(), TxtUserName.Text, "AND"))
+            where.Add(New Tuple(Of String, Type, Object, String)(Constants.PassFieldName, String.Empty.GetType(), TxtPass.Text, String.Empty))
+
+            Dim dt = DatabaseHelper.Select(Constants.UserTableName, whereClause:=where)
 
             DrName = CbDr.Text
 

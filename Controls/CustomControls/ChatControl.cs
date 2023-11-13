@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows.Forms;
 using Ophthalmology.CustomControls.Controls;
 
 namespace Ophthalmology.Controls.CustomControls
@@ -63,6 +62,11 @@ namespace Ophthalmology.Controls.CustomControls
                 _title = value;
                 GroupBox1.Text = $"نمایش پیام های {_title}";
             }
+        }
+
+        private void ChatControl_Load(object sender, EventArgs e)
+        {
+            ActiveControl = ComboBoxMessage;
         }
     }
 }

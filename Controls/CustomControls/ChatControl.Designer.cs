@@ -47,7 +47,7 @@
             this.GroupBox1.Name = "GroupBox1";
             this.GroupBox1.Padding = new System.Windows.Forms.Padding(5);
             this.GroupBox1.Size = new System.Drawing.Size(585, 499);
-            this.GroupBox1.TabIndex = 2;
+            this.GroupBox1.TabIndex = 1;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "نمایش پیام های ";
             // 
@@ -72,7 +72,7 @@
             this.GroupBox2.Location = new System.Drawing.Point(5, 504);
             this.GroupBox2.Name = "GroupBox2";
             this.GroupBox2.Size = new System.Drawing.Size(585, 102);
-            this.GroupBox2.TabIndex = 3;
+            this.GroupBox2.TabIndex = 0;
             this.GroupBox2.TabStop = false;
             this.GroupBox2.Text = "ارسال پیام";
             // 
@@ -83,7 +83,7 @@
             this.Label2.Location = new System.Drawing.Point(534, 19);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(45, 13);
-            this.Label2.TabIndex = 1248;
+            this.Label2.TabIndex = 0;
             this.Label2.Text = "متن پیام";
             // 
             // ButtonCustomMessage
@@ -91,7 +91,7 @@
             this.ButtonCustomMessage.Location = new System.Drawing.Point(6, 15);
             this.ButtonCustomMessage.Name = "ButtonCustomMessage";
             this.ButtonCustomMessage.Size = new System.Drawing.Size(123, 78);
-            this.ButtonCustomMessage.TabIndex = 1246;
+            this.ButtonCustomMessage.TabIndex = 3;
             this.ButtonCustomMessage.Text = "پیام های آماده";
             this.ButtonCustomMessage.UseVisualStyleBackColor = true;
             this.ButtonCustomMessage.Click += new System.EventHandler(this.ButtonCustomMessage_Click);
@@ -103,10 +103,10 @@
             this.ComboBoxMessage.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ComboBoxMessage.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.ComboBoxMessage.FormattingEnabled = true;
-            this.ComboBoxMessage.Location = new System.Drawing.Point(135, 15);
+            this.ComboBoxMessage.Location = new System.Drawing.Point(135, 16);
             this.ComboBoxMessage.Name = "ComboBoxMessage";
             this.ComboBoxMessage.Size = new System.Drawing.Size(393, 21);
-            this.ComboBoxMessage.TabIndex = 1245;
+            this.ComboBoxMessage.TabIndex = 1;
             // 
             // ButtonSend
             // 
@@ -115,7 +115,7 @@
             this.ButtonSend.Location = new System.Drawing.Point(135, 43);
             this.ButtonSend.Name = "ButtonSend";
             this.ButtonSend.Size = new System.Drawing.Size(393, 50);
-            this.ButtonSend.TabIndex = 1;
+            this.ButtonSend.TabIndex = 2;
             this.ButtonSend.Text = "ارسال";
             this.ButtonSend.UseVisualStyleBackColor = true;
             this.ButtonSend.Click += new System.EventHandler(this.ButtonSend_Click);
@@ -128,6 +128,7 @@
             this.Controls.Add(this.GroupBox2);
             this.Name = "ChatControl";
             this.Size = new System.Drawing.Size(595, 611);
+            this.Load += new System.EventHandler(this.ChatControl_Load);
             this.GroupBox1.ResumeLayout(false);
             this.GroupBox2.ResumeLayout(false);
             this.GroupBox2.PerformLayout();

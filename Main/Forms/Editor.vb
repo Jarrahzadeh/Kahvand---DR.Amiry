@@ -104,7 +104,7 @@
 
             ViewGrapicData()
 
-            Dim Ado As New OleDb.OleDbDataAdapter("SELECT Customer.Age, TypePatient.Name, TypePatient.Price,Customer.Address FROM Customer INNER JOIN TypePatient ON Customer.IdTypePatient = TypePatient.ID where Customer.id = " + TFk_Customer.Text, AdoCon)
+            Dim Ado As New OleDb.OleDbDataAdapter("SELECT CustomerForm.Age, TypePatient.Name, TypePatient.Price,CustomerForm.Address FROM CustomerForm INNER JOIN TypePatient ON CustomerForm.IdTypePatient = TypePatient.ID where CustomerForm.id = " + TFk_Customer.Text, AdoCon)
             Dim Dt As New DataTable
             Ado.Fill(Dt)
             txtAge.Text = Dt.Rows(0)(0).ToString()

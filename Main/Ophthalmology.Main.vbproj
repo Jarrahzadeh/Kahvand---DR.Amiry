@@ -132,6 +132,7 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constants.vb" />
     <Compile Include="Forms\BaseData.Designer.vb">
       <DependentUpon>BaseData.vb</DependentUpon>
     </Compile>
@@ -468,7 +469,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Blue cube.ico" />
-    <None Include="db2.mdb">
+    <None Include="db.mdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\dialog-ok.gif" />

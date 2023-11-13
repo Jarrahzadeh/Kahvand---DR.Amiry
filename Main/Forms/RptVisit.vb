@@ -2,15 +2,15 @@
 
 Public Class RptVisit
 
-    Private Sub RptVisit_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub RptVisit_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
 
     End Sub
 
-    Private Sub BtnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnClose.Click
+    Private Sub BtnClose_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BtnClose.Click
         Close()
     End Sub
 
-    Private Sub BtnView_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnView.Click
+    Private Sub BtnView_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BtnView.Click
 
         Dim St As String = " where 1=1 "
         If ChDate.Checked Then
@@ -19,9 +19,9 @@ Public Class RptVisit
         Dim DtDg As New DataTable
 
         If RbVisit.Checked Then
-            Dim AdoDaDg As New OleDb.OleDbDataAdapter("select C.id as کد ,C.Name as نام , C.Family as فامیلی, Tel as تلفن, NameFather as [نام پدر] , C.DateSave as تاریخ ,TimeVisit as زمان,V.Status as وضعیت , v.price as مبلغ From Customer C inner join VisitList V on (C.id=V.Code_Customer)   " + St + " and C.DrId = " + DrId.ToString() + " order by C.id desc", AdoCon)
+            Dim AdoDaDg As New OleDb.OleDbDataAdapter("select C.id as کد ,C.Name as نام , C.Family as فامیلی, Tel as تلفن, NameFather as [نام پدر] , C.DateSave as تاریخ ,TimeVisit as زمان,V.Status as وضعیت , v.price as مبلغ From CustomerForm C inner join VisitList V on (C.id=V.Code_Customer)   " + St + " and C.DrId = " + DrId.ToString() + " order by C.id desc", AdoCon)
             AdoDaDg.Fill(DtDg)
-            Dim CmdSum As New OleDb.OleDbCommand("select Sum(v.price) From Customer C inner join VisitList V on (C.id=V.Code_Customer) " + St, AdoCon)
+            Dim CmdSum As New OleDb.OleDbCommand("select Sum(v.price) From CustomerForm C inner join VisitList V on (C.id=V.Code_Customer) " + St, AdoCon)
             Dim StSum = CmdSum.ExecuteScalar().ToString()
             TSSLTitel.Text = StSum
             TSSLSummery.Text = Adad(Val(StSum))
@@ -47,7 +47,7 @@ Public Class RptVisit
             dr("LID") = LID
             DtDg.Rows.Add(dr)
         ElseIf RbAllVisit.Checked Then
-            Dim AdoDaDg As New OleDb.OleDbDataAdapter("select C.id as کد ,C.Name as نام , C.Family as فامیلی, Tel as تلفن, NameFather as [نام پدر] , C.DateSave as تاریخ  , D.Name as Dr From Customer C inner join Dr D on (C.DRid=D.ID)   " + St + " order by C.Drid desc", AdoCon)
+            Dim AdoDaDg As New OleDb.OleDbDataAdapter("select C.id as کد ,C.Name as نام , C.Family as فامیلی, Tel as تلفن, NameFather as [نام پدر] , C.DateSave as تاریخ  , D.Name as Dr From CustomerForm C inner join Dr D on (C.DRid=D.ID)   " + St + " order by C.Drid desc", AdoCon)
             AdoDaDg.Fill(DtDg)
         End If
 

@@ -21,19 +21,11 @@ Public Class ChatForm
 
     Private Sub SendMessageToGroup(sender As ChatControl, msg As String)
         Try
-            'If cbType.Text <> "" Then TxtText.Text = cbType.Text
-            ' If ClientIp = "" Or TxtText.Text = "" Then
-            'MsgBox("Sorry Uncomplete data")
-            'Else
-
-            'client = New TcpClient(ClientIp, 44444)
-            'Dim writer As New StreamWriter(client.GetStream())
-            'writer.Write($"{UserTypeTitle} : {msg}")
-            'writer.Flush()
+            Dim dataTable = DatabaseHelper.Select(Constants.UserIpAddressTableName)
 
             Dim cl = New Client(ClientIp, 44444)
             cl.Send(msg)
-            'ServerListener.SendToClient(ClientIp, $"{UserTypeTitle} : {msg}")
+
 
             sender.ClearMessage()
 
@@ -112,29 +104,29 @@ Public Class ChatForm
     End Sub
 
     Private Sub SetTabsTitle()
-        If UserTypeTitle = ConstDrTitle Then
+        If UserTypeTitle = Constants.ConstDrTitle Then
 
-            TabPagePrivate1.Text = ConstMonshiTitle
-            ChatControlPrivate1.Text = ConstMonshiTitle
+            TabPagePrivate1.Text = Constants.ConstMonshiTitle
+            ChatControlPrivate1.Text = Constants.ConstMonshiTitle
 
-            TabPagePrivate2.Text = ConstOtherTitle
-            ChatControlPrivate2.Text = ConstOtherTitle
+            TabPagePrivate2.Text = Constants.ConstOtherTitle
+            ChatControlPrivate2.Text = Constants.ConstOtherTitle
 
-        ElseIf UserTypeTitle = ConstMonshiTitle Then
+        ElseIf UserTypeTitle = Constants.ConstMonshiTitle Then
 
-            TabPagePrivate1.Text = ConstDrTitle
-            ChatControlPrivate1.Text = ConstDrTitle
+            TabPagePrivate1.Text = Constants.ConstDrTitle
+            ChatControlPrivate1.Text = Constants.ConstDrTitle
 
-            TabPagePrivate2.Text = ConstOtherTitle
-            ChatControlPrivate2.Text = ConstOtherTitle
+            TabPagePrivate2.Text = Constants.ConstOtherTitle
+            ChatControlPrivate2.Text = Constants.ConstOtherTitle
 
         Else
 
-            TabPagePrivate1.Text = ConstDrTitle
-            ChatControlPrivate1.Text = ConstDrTitle
+            TabPagePrivate1.Text = Constants.ConstDrTitle
+            ChatControlPrivate1.Text = Constants.ConstDrTitle
 
-            TabPagePrivate2.Text = ConstMonshiTitle
-            ChatControlPrivate2.Text = ConstMonshiTitle
+            TabPagePrivate2.Text = Constants.ConstMonshiTitle
+            ChatControlPrivate2.Text = Constants.ConstMonshiTitle
 
         End If
     End Sub

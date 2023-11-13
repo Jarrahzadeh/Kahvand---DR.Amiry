@@ -40,6 +40,7 @@
             ShowGrid()
         Catch ex As Exception
             'HandelError(ex)
+            MsgBox(ex.ToString())
         End Try
     End Sub
 

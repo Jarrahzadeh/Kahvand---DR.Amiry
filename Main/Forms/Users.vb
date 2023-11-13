@@ -18,7 +18,7 @@
            
             Dim Cmd As New OleDb.OleDbCommand
             Cmd.Connection = AdoCon
-            Cmd.CommandText = "INSERT INTO [User1]( Name, Pass, FirstName, LastName) VALUES(@Name, @Pass, @FirstName, @LastName)"
+            Cmd.CommandText = $"INSERT INTO [{Constants.UserTableName}]( Name, Pass, FirstName, LastName) VALUES(@Name, @Pass, @FirstName, @LastName)"
             Cmd.Parameters.AddWithValue("Name", TxtUserName.Text)
             Cmd.Parameters.AddWithValue("Pass", TxtPassword.Text)
             Cmd.Parameters.AddWithValue("FirstName", TxtName.Text)
@@ -38,7 +38,7 @@
 
         Dim Cmd As New OleDb.OleDbCommand
         Cmd.Connection = AdoCon
-        Cmd.CommandText = "Update [User1] set Name=@Name, Pass=@Pass, FirstName=@FirstName, LastName=@LastName where(id = " + TxtId.Text + ")"
+        Cmd.CommandText = $"Update [{Constants.UserTableName}] set Name=@Name, Pass=@Pass, FirstName=@FirstName, LastName=@LastName where(id = " + TxtId.Text + ")"
         Cmd.Parameters.AddWithValue("Name", TxtUserName.Text)
         Cmd.Parameters.AddWithValue("Pass", TxtPassword.Text)
         Cmd.Parameters.AddWithValue("FirstName", TxtName.Text)
@@ -53,7 +53,7 @@
 
     Private Sub btnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnDelete.Click
         If MsgBox("ایا از حذف اطلاعات جاری اطمینان دارید ؟", MsgBoxStyle.YesNo + MsgBoxStyle.Question, "خذف") = MsgBoxResult.Yes Then
-            Dim Cmd As New OleDb.OleDbCommand("Delete From User1 Where id = " + TxtId.Text, AdoCon)
+            Dim Cmd As New OleDb.OleDbCommand($"Delete From {Constants.UserTableName} Where id = " + TxtId.Text, AdoCon)
             Cmd.ExecuteNonQuery()
             MsgBox("اطلاعات جاری حذف شد")
             Reset(GroupBox3)
@@ -63,7 +63,7 @@
         End If
     End Sub
     Sub ShowGrid()
-        Dim Ado As New OleDb.OleDbDataAdapter("SELECT id as کد,Name as [نام کاربري], FirstName as نام, LastName as فاميلي from User1", AdoCon)
+        Dim Ado As New OleDb.OleDbDataAdapter($"SELECT id as کد,Name as [نام کاربري], FirstName as نام, LastName as فاميلي from {Constants.UserTableName}", AdoCon)
         Dim Dt As New DataTable
         Ado.Fill(Dt)
         Dg.DataSource = Dt
@@ -84,7 +84,7 @@
 
             Dim Cmd As New OleDb.OleDbCommand
             Cmd.Connection = AdoCon
-            Cmd.CommandText = "Select * from User1 where id = " + TxtId.Text
+            Cmd.CommandText = $"Select * from {Constants.UserTableName} where id = " + TxtId.Text
             Dim Dr As OleDb.OleDbDataReader = Cmd.ExecuteReader
             Dim dt As New DataTable
             dt.Load(Dr)

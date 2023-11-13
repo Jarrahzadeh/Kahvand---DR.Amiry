@@ -6,7 +6,7 @@ Public Class Customer2VisitList
     Sub ShowGrid()
 
         Dim DtDg As New DataTable
-        Dim AdoDaDg As New OleDb.OleDbDataAdapter("select V.id,C.id as کد ,C.Name as نام , C.Family as فامیلی,   C.DateSave as تاریخ ,TimeVisit as زمان,V.Status as وضعیت  , v.price as مبلغ  From Customer C inner join VisitList V on (C.id=V.Code_Customer) where V.DateVisit = '" + DatePicker1.Text + "' and C.DrId = " + DrId.ToString() + " order by V.id desc", AdoCon)
+        Dim AdoDaDg As New OleDb.OleDbDataAdapter("select V.id,C.id as کد ,C.Name as نام , C.Family as فامیلی,   C.DateSave as تاریخ ,TimeVisit as زمان,V.Status as وضعیت  , v.price as مبلغ  From CustomerForm C inner join VisitList V on (C.id=V.Code_Customer) where V.DateVisit = '" + DatePicker1.Text + "' and C.DrId = " + DrId.ToString() + " order by V.id desc", AdoCon)
         AdoDaDg.Fill(DtDg)
         DG.DataSource = DtDg
         DG.Columns(0).Width = 50
@@ -45,7 +45,7 @@ Public Class Customer2VisitList
 
         If (Val(txtId.Text) = 0) Then
 
-            Dim Cmd As New OleDb.OleDbCommand("insert into VisitList(Code_customer,DateVisit,TimeVisit,Status,Price,DrId)" & _
+            Dim Cmd As New OleDb.OleDbCommand("insert into VisitList(Code_customer,DateVisit,TimeVisit,Status,Price,DrId)" &
                 " Values(@Code_customer,@DateVisit,@TimeVisit,'ویزیت نشده',@Price,@DrId)", AdoCon)
 
             Cmd.Parameters.Add("@Code_customer", OleDb.OleDbType.Numeric).Value = CbCustomer.SelectedValue.ToString
@@ -57,7 +57,7 @@ Public Class Customer2VisitList
             Cmd.ExecuteNonQuery()
         Else
 
-            Dim Cmd As New OleDb.OleDbCommand("Update VisitList set Code_customer=@Code_customer,DateVisit=@DateVisit" & _
+            Dim Cmd As New OleDb.OleDbCommand("Update VisitList set Code_customer=@Code_customer,DateVisit=@DateVisit" &
                 " ,TimeVisit=@TimeVisit,Price=@Price,Drid=@Drid where id =" + txtId.Text, AdoCon)
 
             Cmd.Parameters.Add("@Code_customer", OleDb.OleDbType.Numeric).Value = CbCustomer.SelectedValue.ToString
@@ -104,7 +104,7 @@ Public Class Customer2VisitList
 
 
             txtDrName.Text = DrName
-            Dim Ado As New OleDb.OleDbDataAdapter("select id,Family +' ' + name +' ' + Tel as X from Customer where DrId = " + DrId.ToString(), AdoCon)
+            Dim Ado As New OleDb.OleDbDataAdapter("select id,Family +' ' + name +' ' + Tel as X from CustomerForm where DrId = " + DrId.ToString(), AdoCon)
             Dim Dt As New DataTable
             Ado.Fill(Dt)
             CbCustomer.ValueMember = "id"
@@ -133,7 +133,7 @@ Public Class Customer2VisitList
 
     End Sub
 
- 
+
 
     Private Sub DG_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DG.CellClick
         CbCustomer.SelectedValue = DG.CurrentRow.Cells(0).Value.ToString
@@ -215,7 +215,7 @@ Public Class Customer2VisitList
     End Sub
     Sub ChangeCustomer()
 
-        Dim Ado As New OleDb.OleDbDataAdapter("SELECT Customer.Age, TypePatient.Name, TypePatient.Price FROM Customer INNER JOIN TypePatient ON Customer.IdTypePatient = TypePatient.ID where Customer.id = " + CbCustomer.SelectedValue.ToString(), AdoCon)
+        Dim Ado As New OleDb.OleDbDataAdapter("SELECT CustomerForm.Age, TypePatient.Name, TypePatient.Price FROM CustomerForm INNER JOIN TypePatient ON CustomerForm.IdTypePatient = TypePatient.ID where CustomerForm.id = " + CbCustomer.SelectedValue.ToString(), AdoCon)
         Dim Dt As New DataTable
         Ado.Fill(Dt)
         If Dt.Rows.Count <> 0 Then
