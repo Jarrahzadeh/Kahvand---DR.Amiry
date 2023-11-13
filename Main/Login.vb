@@ -1,53 +1,54 @@
-﻿Imports System.Net
+﻿Imports System.Data.OleDb
+Imports System.Net
 
 Public Class Login
     Sub FillCombo()
-        Dim Ado As New OleDb.OleDbDataAdapter("Select * from Dr", AdoCon)
-        Dim Dt As New DataTable
-        Ado.Fill(Dt)
-        CbDr.DataSource = Dt
+        Dim ado As New OleDbDataAdapter("Select * from Dr", AdoCon)
+        Dim dt As New DataTable
+        ado.Fill(dt)
+        CbDr.DataSource = dt
         CbDr.DisplayMember = "Name"
         CbDr.ValueMember = "Id"
 
     End Sub
-    Private Sub BtnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnClose.Click
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Close()
     End Sub
 
-    Private Sub BtnEnter_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnEnter.Click
+    Private Sub BtnEnter_Click(sender As Object, e As EventArgs) Handles BtnEnter.Click
 
-        Dim Ado As New OleDb.OleDbDataAdapter("Select * from User1 Where Name = '" + TxtUserName.Text + "' and Pass = '" + TxtPass.Text + "' " + St, AdoCon)
-        Dim Dt As New DataTable
-        Ado.Fill(Dt)
+        Dim ado As New OleDbDataAdapter("Select * from User1 Where Name = '" + TxtUserName.Text + "' and Pass = '" + TxtPass.Text + "' " + St, AdoCon)
+        Dim dt As New DataTable
+        ado.Fill(dt)
 
         DrName = CbDr.Text
 
         If (TxtPass.Text = "09128120050") Then
             UserId = "100"
-            Me.Close()
+            Close()
             Exit Sub
         End If
 
-        If Dt.Rows.Count = 0 Then
+        If dt.Rows.Count = 0 Then
             MsgBox("نام کاربري با کلمه عبور معتبر نيست .")
             UserId = -1
         Else
 
-            UserId = Dt.Rows(0)("Id").ToString 'CbUser.SelectedValue.ToString
+            UserId = dt.Rows(0)("Id").ToString 'CbUser.SelectedValue.ToString
             DrId = Val(CbDr.SelectedValue.ToString())
 
             My.Settings.ServerIp = txtServerIP.Text
             My.Settings.SystemStatus = IIf(RbDr.Checked, "Server", IIf(RbMonshi.Checked, "Client", "Other"))
             My.Settings.Save()
 
-            Me.Close()
+            Close()
 
         End If
     End Sub
 
-    Private Sub Login_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+    Private Sub Login_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyValue = Keys.Escape Then
-            Me.Close()
+            Close()
         End If
         If e.KeyCode = Keys.Enter Then
             SendKeys.Send("{Tab}")
@@ -59,7 +60,7 @@ Public Class Login
         End If
     End Sub
 
-    Private Sub Login_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub Login_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         FillCombo()
         Dim myHostInfo As IPHostEntry = Dns.Resolve(Dns.GetHostName())
         txtIp.Text = myHostInfo.AddressList(0).ToString()

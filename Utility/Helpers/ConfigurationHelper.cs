@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace Utility.Classes
+namespace Ophthalmology.Utility.Helpers
 {
     internal class ConfigurationHelper
     {

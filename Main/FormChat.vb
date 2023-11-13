@@ -4,6 +4,7 @@ Imports System.IO
 Imports Ophthalmology.Controls.CustomControls
 Imports Ophthalmology.Utility.Classes
 Imports Ophthalmology.Utility.Connection
+Imports Ophthalmology.Utility.Helpers
 
 Public Class FormChat
     Public Sub New()

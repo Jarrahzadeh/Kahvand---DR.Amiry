@@ -1,6 +1,7 @@
 ﻿Imports System.Net.Sockets
 Imports Ophthalmology.Utility.Classes
 Imports Ophthalmology.Utility.Connection
+Imports Ophthalmology.Utility.Helpers
 
 Module Module1
     Public AdoCon As New OleDb.OleDbConnection

@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows.Forms;
 
-namespace Utility.Classes
+namespace Ophthalmology.Utility.Helpers
 {
     public class CultureHelper
     {

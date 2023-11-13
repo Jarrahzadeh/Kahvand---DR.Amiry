@@ -1,7 +1,6 @@
 ﻿using System;
-using Utility.Classes;
 
-namespace Ophthalmology.Utility.Classes
+namespace Ophthalmology.Utility.Helpers
 {
     public class DateTimeHelper
     {

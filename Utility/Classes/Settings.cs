@@ -1,6 +1,7 @@
 ﻿using System;
+using Ophthalmology.Utility.Helpers;
 
-namespace Utility.Classes
+namespace Ophthalmology.Utility.Classes
 {
     public class Settings
     {

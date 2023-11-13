@@ -2,7 +2,7 @@
 using System.Data;
 using System.Linq;
 
-namespace Ophthalmology.Utility.Classes
+namespace Ophthalmology.Utility.Helpers
 {
     public static class CollectionHelper
     {
