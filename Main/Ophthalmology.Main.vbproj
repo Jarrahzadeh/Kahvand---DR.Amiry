@@ -132,16 +132,16 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseData.Designer.vb">
+    <Compile Include="Forms\BaseData.Designer.vb">
       <DependentUpon>BaseData.vb</DependentUpon>
     </Compile>
-    <Compile Include="BaseData.vb">
+    <Compile Include="Forms\BaseData.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormChat.Designer.vb">
+    <Compile Include="Forms\FormChat.Designer.vb">
       <DependentUpon>FormChat.vb</DependentUpon>
     </Compile>
-    <Compile Include="FormChat.vb">
+    <Compile Include="Forms\FormChat.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Compresor.vb" />
@@ -152,28 +152,28 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="EnCode.vb" />
-    <Compile Include="ListOfData.Designer.vb">
+    <Compile Include="Forms\ListOfData.Designer.vb">
       <DependentUpon>ListOfData.vb</DependentUpon>
     </Compile>
-    <Compile Include="ListOfData.vb">
+    <Compile Include="Forms\ListOfData.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login.Designer.vb">
+    <Compile Include="Forms\Login.Designer.vb">
       <DependentUpon>Login.vb</DependentUpon>
     </Compile>
-    <Compile Include="Login.vb">
+    <Compile Include="Forms\Login.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Register.Designer.vb">
+    <Compile Include="Forms\Register.Designer.vb">
       <DependentUpon>Register.vb</DependentUpon>
     </Compile>
-    <Compile Include="Register.vb">
+    <Compile Include="Forms\Register.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RptVisit.Designer.vb">
+    <Compile Include="Forms\RptVisit.Designer.vb">
       <DependentUpon>RptVisit.vb</DependentUpon>
     </Compile>
-    <Compile Include="RptVisit.vb">
+    <Compile Include="Forms\RptVisit.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Control\Temp_form.Designer.vb">
@@ -194,76 +194,76 @@
     <Compile Include="Control\UTextBox.vb">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Customer2VisitList.Designer.vb">
+    <Compile Include="Forms\Customer2VisitList.Designer.vb">
       <DependentUpon>Customer2VisitList.vb</DependentUpon>
     </Compile>
-    <Compile Include="Customer2VisitList.vb">
+    <Compile Include="Forms\Customer2VisitList.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Editor.Designer.vb">
+    <Compile Include="Forms\Editor.Designer.vb">
       <DependentUpon>Editor.vb</DependentUpon>
     </Compile>
-    <Compile Include="Editor.vb">
+    <Compile Include="Forms\Editor.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F1_Ref.Designer.vb">
+    <Compile Include="Forms\F1_Ref.Designer.vb">
       <DependentUpon>F1_Ref.vb</DependentUpon>
     </Compile>
-    <Compile Include="F1_Ref.vb">
+    <Compile Include="Forms\F1_Ref.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F2_Cat.Designer.vb">
+    <Compile Include="Forms\F2_Cat.Designer.vb">
       <DependentUpon>F2_Cat.vb</DependentUpon>
     </Compile>
-    <Compile Include="F2_Cat.vb">
+    <Compile Include="Forms\F2_Cat.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F3_Cornea.Designer.vb">
+    <Compile Include="Forms\F3_Cornea.Designer.vb">
       <DependentUpon>F3_Cornea.vb</DependentUpon>
     </Compile>
-    <Compile Include="F3_Cornea.vb">
+    <Compile Include="Forms\F3_Cornea.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F4_Strabisam.Designer.vb">
+    <Compile Include="Forms\F4_Strabisam.Designer.vb">
       <DependentUpon>F4_Strabisam.vb</DependentUpon>
     </Compile>
-    <Compile Include="F4_Strabisam.vb">
+    <Compile Include="Forms\F4_Strabisam.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F5_Fundus.Designer.vb">
+    <Compile Include="Forms\F5_Fundus.Designer.vb">
       <DependentUpon>F5_Fundus.vb</DependentUpon>
     </Compile>
-    <Compile Include="F5_Fundus.vb">
+    <Compile Include="Forms\F5_Fundus.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F6_Conjunctiva.Designer.vb">
+    <Compile Include="Forms\F6_Conjunctiva.Designer.vb">
       <DependentUpon>F6_Conjunctiva.vb</DependentUpon>
     </Compile>
-    <Compile Include="F6_Conjunctiva.vb">
+    <Compile Include="Forms\F6_Conjunctiva.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F7_Nld.Designer.vb">
+    <Compile Include="Forms\F7_Nld.Designer.vb">
       <DependentUpon>F7_Nld.vb</DependentUpon>
     </Compile>
-    <Compile Include="F7_Nld.vb">
+    <Compile Include="Forms\F7_Nld.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F8_Lid.Designer.vb">
+    <Compile Include="Forms\F8_Lid.Designer.vb">
       <DependentUpon>F8_Lid.vb</DependentUpon>
     </Compile>
-    <Compile Include="F8_Lid.vb">
+    <Compile Include="Forms\F8_Lid.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="F9_Surgery.Designer.vb">
+    <Compile Include="Forms\F9_Surgery.Designer.vb">
       <DependentUpon>F9_Surgery.vb</DependentUpon>
     </Compile>
-    <Compile Include="F9_Surgery.vb">
+    <Compile Include="Forms\F9_Surgery.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.designer.vb">
+    <Compile Include="Forms\Main.designer.vb">
       <DependentUpon>Main.vb</DependentUpon>
     </Compile>
-    <Compile Include="Main.vb">
+    <Compile Include="Forms\Main.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Module1.vb" />
@@ -283,28 +283,28 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Customer.Designer.vb">
+    <Compile Include="Forms\Customer.Designer.vb">
       <DependentUpon>Customer.vb</DependentUpon>
     </Compile>
-    <Compile Include="Customer.vb">
+    <Compile Include="Forms\Customer.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="OldVisit.Designer.vb">
+    <Compile Include="Forms\OldVisit.Designer.vb">
       <DependentUpon>OldVisit.vb</DependentUpon>
     </Compile>
-    <Compile Include="OldVisit.vb">
+    <Compile Include="Forms\OldVisit.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SaveMSG.Designer.vb">
+    <Compile Include="Forms\SaveMSG.Designer.vb">
       <DependentUpon>SaveMSG.vb</DependentUpon>
     </Compile>
-    <Compile Include="SaveMSG.vb">
+    <Compile Include="Forms\SaveMSG.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Test.Designer.vb">
+    <Compile Include="Forms\Test.Designer.vb">
       <DependentUpon>Test.vb</DependentUpon>
     </Compile>
-    <Compile Include="Test.vb">
+    <Compile Include="Forms\Test.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Control\UCheckBox.Designer.vb">
@@ -314,30 +314,30 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Tools.vb" />
-    <Compile Include="Users.Designer.vb">
+    <Compile Include="Forms\Users.Designer.vb">
       <DependentUpon>Users.vb</DependentUpon>
     </Compile>
-    <Compile Include="Users.vb">
+    <Compile Include="Forms\Users.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Visit.Designer.vb">
+    <Compile Include="Forms\Visit.Designer.vb">
       <DependentUpon>Visit.vb</DependentUpon>
     </Compile>
-    <Compile Include="Visit.vb">
+    <Compile Include="Forms\Visit.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="VisitList.Designer.vb">
+    <Compile Include="Forms\VisitList.Designer.vb">
       <DependentUpon>VisitList.vb</DependentUpon>
     </Compile>
-    <Compile Include="VisitList.vb">
+    <Compile Include="Forms\VisitList.vb">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="BaseData.resx">
+    <EmbeddedResource Include="Forms\BaseData.resx">
       <DependentUpon>BaseData.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormChat.resx">
+    <EmbeddedResource Include="Forms\FormChat.resx">
       <DependentUpon>FormChat.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Control\ParentForm.resx">
@@ -349,48 +349,48 @@
     <EmbeddedResource Include="Control\UForm.resx">
       <DependentUpon>UForm.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer2VisitList.resx">
+    <EmbeddedResource Include="Forms\Customer2VisitList.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Customer2VisitList.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Editor.resx">
+    <EmbeddedResource Include="Forms\Editor.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Editor.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F1_Ref.resx">
+    <EmbeddedResource Include="Forms\F1_Ref.resx">
       <DependentUpon>F1_Ref.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F2_Cat.resx">
+    <EmbeddedResource Include="Forms\F2_Cat.resx">
       <DependentUpon>F2_Cat.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F3_Cornea.resx">
+    <EmbeddedResource Include="Forms\F3_Cornea.resx">
       <DependentUpon>F3_Cornea.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F4_Strabisam.resx">
+    <EmbeddedResource Include="Forms\F4_Strabisam.resx">
       <DependentUpon>F4_Strabisam.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F5_Fundus.resx">
+    <EmbeddedResource Include="Forms\F5_Fundus.resx">
       <DependentUpon>F5_Fundus.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F6_Conjunctiva.resx">
+    <EmbeddedResource Include="Forms\F6_Conjunctiva.resx">
       <DependentUpon>F6_Conjunctiva.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F7_Nld.resx">
+    <EmbeddedResource Include="Forms\F7_Nld.resx">
       <DependentUpon>F7_Nld.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F8_Lid.resx">
+    <EmbeddedResource Include="Forms\F8_Lid.resx">
       <DependentUpon>F8_Lid.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="F9_Surgery.resx">
+    <EmbeddedResource Include="Forms\F9_Surgery.resx">
       <DependentUpon>F9_Surgery.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ListOfData.resx">
+    <EmbeddedResource Include="Forms\ListOfData.resx">
       <DependentUpon>ListOfData.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login.resx">
+    <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="Forms\Main.resx">
       <DependentUpon>Main.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
@@ -401,34 +401,34 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer.resx">
+    <EmbeddedResource Include="Forms\Customer.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Customer.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="OldVisit.resx">
+    <EmbeddedResource Include="Forms\OldVisit.resx">
       <SubType>Designer</SubType>
       <DependentUpon>OldVisit.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Register.resx">
+    <EmbeddedResource Include="Forms\Register.resx">
       <DependentUpon>Register.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RptVisit.resx">
+    <EmbeddedResource Include="Forms\RptVisit.resx">
       <DependentUpon>RptVisit.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaveMSG.resx">
+    <EmbeddedResource Include="Forms\SaveMSG.resx">
       <DependentUpon>SaveMSG.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Test.resx">
+    <EmbeddedResource Include="Forms\Test.resx">
       <DependentUpon>Test.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Users.resx">
+    <EmbeddedResource Include="Forms\Users.resx">
       <DependentUpon>Users.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Visit.resx">
+    <EmbeddedResource Include="Forms\Visit.resx">
       <SubType>Designer</SubType>
       <DependentUpon>Visit.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="VisitList.resx">
+    <EmbeddedResource Include="Forms\VisitList.resx">
       <SubType>Designer</SubType>
       <DependentUpon>VisitList.vb</DependentUpon>
     </EmbeddedResource>
@@ -511,6 +511,7 @@
       <Name>Ophthalmology.Utility</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
