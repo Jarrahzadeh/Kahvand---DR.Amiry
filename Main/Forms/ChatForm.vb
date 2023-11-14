@@ -1,5 +1,4 @@
-﻿Imports System.Data.OleDb
-Imports System.Net.Sockets
+﻿Imports System.Net.Sockets
 Imports System.IO
 Imports Ophthalmology.Controls.CustomControls
 Imports Ophthalmology.Utility.Connection
@@ -171,9 +170,11 @@ Public Class ChatForm
 
     Private Sub PopulateSavedMessagesToCombo()
         Try
-            Dim ado As New OleDbDataAdapter("SELECT Name FROM SaveMSG", AdoCon)
-            Dim dt As New DataTable
-            ado.Fill(dt)
+            'Dim ado As New OleDbDataAdapter("SELECT Name FROM SaveMSG", AdoCon)
+            'Dim dt As New DataTable
+            'ado.Fill(dt)
+
+            Dim dt = DatabaseHelper.Select(Constants.SaveMsgTableName)
 
             Dim convertToList = dt.ConvertToList("Name")
             ChatControlGroup.PopulateTextBoxCustomDataSource(convertToList)

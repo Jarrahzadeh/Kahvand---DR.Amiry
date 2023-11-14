@@ -1,19 +1,26 @@
-﻿Imports System.Net.Sockets
+﻿Imports System.Data.OleDb
+Imports System.Net.Sockets
 Imports System.IO
+Imports Ophthalmology.Utility.Helpers
 
 Public Class Customer2VisitList
 
     Sub ShowGrid()
 
-        Dim DtDg As New DataTable
-        Dim AdoDaDg As New OleDb.OleDbDataAdapter("select V.id,C.id as کد ,C.Name as نام , C.Family as فامیلی,   C.DateSave as تاریخ ,TimeVisit as زمان,V.Status as وضعیت  , v.price as مبلغ  From CustomerForm C inner join VisitList V on (C.id=V.Code_Customer) where V.DateVisit = '" + DatePicker1.Text + "' and C.DrId = " + DrId.ToString() + " order by V.id desc", AdoCon)
-        AdoDaDg.Fill(DtDg)
-        DG.DataSource = DtDg
+        Dim tableName = "Customer C inner join VisitList V on (C.id=V.Code_Customer)"
+        Dim fields = "V.id,C.id as کد ,C.Name as نام , C.Family as فامیلی,   C.DateSave as تاریخ ,TimeVisit as زمان,V.Status as وضعیت  , v.price as مبلغ"
+        Dim where As New List(Of Tuple(Of String, Type, Object, String)) From
+        {
+            New Tuple(Of String, Type, Object, String)("V.DateVisit", "".GetType(), $"@{DatePicker1.Text}", "AND"),
+            New Tuple(Of String, Type, Object, String)("C.DrId", "".GetType(), $"@{DrId}", "")
+        }
+        Dim dt As DataTable = DatabaseHelper.Select(tableName, fields, where)
+        dt.DefaultView.Sort = "V.Id DESC"
+        DG.DataSource = dt.DefaultView
+
         DG.Columns(0).Width = 50
         DG.Columns(1).Width = 50
         DG.Columns(0).Visible = False
-
-
 
         Dim K As Integer
 
@@ -35,57 +42,41 @@ Public Class Customer2VisitList
 
     End Sub
 
-    Private Sub BtnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnClose.Click
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
 
         Me.Close()
 
     End Sub
 
-    Private Sub BtnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSave.Click
+    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
 
-        If (Val(txtId.Text) = 0) Then
+        Dim params As New List(Of Tuple(Of String, Type, Object)) From {
+                New Tuple(Of String, Type, Object)("Code_customer", 0.GetType(), CbCustomer.SelectedValue.ToString),
+                New Tuple(Of String, Type, Object)("DateVisit", "".GetType(), MtDate.Text),
+                New Tuple(Of String, Type, Object)("TimeVisit", "".GetType(), MtTime.Text),
+                New Tuple(Of String, Type, Object)("Price", 0.GetType(), Val(txtPrice.Text)),
+                New Tuple(Of String, Type, Object)(Constants.DrIdFieldName, 0.GetType(), DrId)
+                }
 
-            Dim Cmd As New OleDb.OleDbCommand("insert into VisitList(Code_customer,DateVisit,TimeVisit,Status,Price,DrId)" &
-                " Values(@Code_customer,@DateVisit,@TimeVisit,'ویزیت نشده',@Price,@DrId)", AdoCon)
-
-            Cmd.Parameters.Add("@Code_customer", OleDb.OleDbType.Numeric).Value = CbCustomer.SelectedValue.ToString
-            Cmd.Parameters.Add("@DateVisit", OleDb.OleDbType.VarChar).Value = MtDate.Text
-            Cmd.Parameters.Add("@TimeVisit", OleDb.OleDbType.VarChar).Value = MtTime.Text
-            Cmd.Parameters.Add("@Price", OleDb.OleDbType.Integer).Value = Val(txtPrice.Text)
-            Cmd.Parameters.Add("@DrId", OleDb.OleDbType.Integer).Value = DrId
-
-            Cmd.ExecuteNonQuery()
+        If Val(txtId.Text) = 0 Then
+            DatabaseHelper.Insert("VisitList", params)
         Else
-
-            Dim Cmd As New OleDb.OleDbCommand("Update VisitList set Code_customer=@Code_customer,DateVisit=@DateVisit" &
-                " ,TimeVisit=@TimeVisit,Price=@Price,Drid=@Drid where id =" + txtId.Text, AdoCon)
-
-            Cmd.Parameters.Add("@Code_customer", OleDb.OleDbType.Numeric).Value = CbCustomer.SelectedValue.ToString
-            Cmd.Parameters.Add("@DateVisit", OleDb.OleDbType.VarChar).Value = MtDate.Text
-            Cmd.Parameters.Add("@TimeVisit", OleDb.OleDbType.VarChar).Value = MtTime.Text
-            Cmd.Parameters.Add("@Price", OleDb.OleDbType.Integer).Value = Val(txtPrice.Text)
-            Cmd.Parameters.Add("@DrId", OleDb.OleDbType.Integer).Value = DrId
-            Cmd.ExecuteNonQuery()
+            params.Add(New Tuple(Of String, Type, Object)(Constants.IdFieldName, "".GetType(), txtId.Text))
+            DatabaseHelper.Update("VisitList", params)
         End If
 
-
-        'CbCustomer.SelectedValue = Dr("Code_customer")
-        MtDate.Text = DateToday
-        MtTime.Text = ""
-        txtPrice.Text = ""
-        txtId.Text = ""
-        txtType.Text = ""
+        ResetFormControls()
         ShowGrid()
         'Me.Close()
 
     End Sub
 
-    Private Sub Customer2VisitList_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub Customer2VisitList_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
         My.Settings.CustomerVisitSize = Me.Size
         My.Settings.Save()
     End Sub
 
-    Private Sub Customer2VisitList_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+    Private Sub Customer2VisitList_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
 
         If e.KeyCode = Keys.Enter Then
             Me.SelectNextControl(Me.ActiveControl, True, False, True, True)
@@ -99,17 +90,24 @@ Public Class Customer2VisitList
         End If
     End Sub
 
-    Private Sub Customer2VisitList_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub Customer2VisitList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
 
 
             txtDrName.Text = DrName
-            Dim Ado As New OleDb.OleDbDataAdapter("select id,Family +' ' + name +' ' + Tel as X from CustomerForm where DrId = " + DrId.ToString(), AdoCon)
-            Dim Dt As New DataTable
-            Ado.Fill(Dt)
+
+            'Dim Ado As New OleDbDataAdapter("select id,Family +' ' + name +' ' + Tel as X from Customer where DrId = " + DrId.ToString(), AdoCon)
+            'Dim Dt As New DataTable
+            'Ado.Fill(Dt)
+
+            Dim where As New List(Of Tuple(Of String, Type, Object, String)) From {
+                    New Tuple(Of String, Type, Object, String)(Constants.DrIdFieldName, "".GetType(), DrId, "")}
+
+            Dim dt As DataTable = DatabaseHelper.Select(Constants.CustomerTableName, "id,Family +' ' + name +' ' + Tel as X", where)
+
             CbCustomer.ValueMember = "id"
             CbCustomer.DisplayMember = "X"
-            CbCustomer.DataSource = Dt
+            CbCustomer.DataSource = dt
 
             If Val(LblCustomer.Text) <> 0 Then
                 CbCustomer.SelectedValue = Val(LblCustomer.Text)
@@ -118,14 +116,14 @@ Public Class Customer2VisitList
 
             ShowGrid()
 
-            Me.Size = My.Settings.CustomerVisitSize
+            Size = My.Settings.CustomerVisitSize
             MtTime.Text = DateTime.Now.ToString("HH:mm")
         Catch ex As Exception
 
         End Try
     End Sub
 
-    Private Sub CbCustomer_LostFocus(ByVal sender As Object, ByVal e As System.EventArgs) Handles CbCustomer.LostFocus
+    Private Sub CbCustomer_LostFocus(sender As Object, e As EventArgs) Handles CbCustomer.LostFocus
 
         If CbCustomer.SelectedValue = Nothing Then
             CbCustomer.SelectedIndex = 0
@@ -133,23 +131,18 @@ Public Class Customer2VisitList
 
     End Sub
 
-
-
-    Private Sub DG_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DG.CellClick
+    Private Sub DG_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DG.CellClick
         CbCustomer.SelectedValue = DG.CurrentRow.Cells(0).Value.ToString
-
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
         Dim frm As New ListOfData
         frm.ShowDialog()
         If Val(Code_Customer) <> 0 Then
             Try
                 CbCustomer.SelectedValue = Code_Customer
-
                 ChangeCustomer()
-
             Catch ex As Exception
 
             End Try
@@ -157,44 +150,49 @@ Public Class Customer2VisitList
 
     End Sub
 
-    Private Sub DG_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DG.DoubleClick
-        Dim cmd As New OleDb.OleDbCommand("Select * from VisitList where id = " + DG.CurrentRow.Cells(0).Value.ToString(), AdoCon)
-        Dim Dr As OleDb.OleDbDataReader = cmd.ExecuteReader()
-        Dr.Read()
-        If Dr.HasRows Then
+    Private Sub DG_DoubleClick(sender As Object, e As EventArgs) Handles DG.DoubleClick
+        'Dim cmd As New OleDbCommand("Select * from VisitList where id = " + DG.CurrentRow.Cells(0).Value.ToString(), AdoCon)
+        'Dim Dr As OleDbDataReader = cmd.ExecuteReader()
+        'Dr.Read()
+        'If Dr.HasRows Then
 
-            CbCustomer.SelectedValue = Dr("Code_customer")
-            MtDate.Text = Dr("DateVisit")
-            MtTime.Text = Dr("TimeVisit")
-            txtPrice.Text = Dr("Price").ToString()
-            txtId.Text = Dr("Id")
-        End If
+        '  CbCustomer.SelectedValue = Dr("Code_customer")  
+        '  MtDate.Text = Dr("DateVisit")  
+        '  MtTime.Text = Dr("TimeVisit")  
+        '  txtPrice.Text = Dr("Price").ToString()  
+        '  txtId.Text = Dr("Id")  
+        'End If
 
+        CbCustomer.SelectedValue = DG.CurrentRow.Cells(1).Value
+        MtDate.Text = DG.CurrentRow.Cells(2).Value
+        MtTime.Text = DG.CurrentRow.Cells(3).Value
+        txtPrice.Text = DG.CurrentRow.Cells(4).Value
+        txtId.Text = DG.CurrentRow.Cells(0).Value
 
     End Sub
 
-    Private Sub BtnDelete_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnDelete.Click
+    Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
         If Val(txtId.Text) <> 0 Then
-            Dim cmd As New OleDb.OleDbCommand("Delete from VisitList where id = " + txtId.Text, AdoCon)
-            cmd.ExecuteNonQuery()
+
+            Dim where As New List(Of Tuple(Of String, Type, Object, String)) From {
+                    New Tuple(Of String, Type, Object, String)(Constants.IdFieldName, "".GetType(), txtId.Text, "")}
+
+            DatabaseHelper.Delete("VisitList", where)
+
             ShowGrid()
 
-            MtDate.Text = DateToday
-            MtTime.Text = ""
-            txtPrice.Text = ""
-            txtId.Text = ""
-            txtType.Text = ""
+            ResetFormControls()
         Else
             MsgBox("ویزیت مورد نظر را مشخص کنید ")
         End If
 
     End Sub
 
-    Private Sub BtnView_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnView.Click
+    Private Sub BtnView_Click(sender As Object, e As EventArgs) Handles BtnView.Click
         ShowGrid()
     End Sub
 
-    Private Sub SendToDocterToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SendToDocterToolStripMenuItem.Click
+    Private Sub SendToDocterToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SendToDocterToolStripMenuItem.Click
 
         Try
 
@@ -213,21 +211,29 @@ Public Class Customer2VisitList
 
 
     End Sub
+
     Sub ChangeCustomer()
 
-        Dim Ado As New OleDb.OleDbDataAdapter("SELECT CustomerForm.Age, TypePatient.Name, TypePatient.Price FROM CustomerForm INNER JOIN TypePatient ON CustomerForm.IdTypePatient = TypePatient.ID where CustomerForm.id = " + CbCustomer.SelectedValue.ToString(), AdoCon)
-        Dim Dt As New DataTable
-        Ado.Fill(Dt)
-        If Dt.Rows.Count <> 0 Then
-            txtType.Text = Dt.Rows(0)(1).ToString()
-            txtPrice.Text = Dt.Rows(0)(2).ToString()
+        Dim tableName = "Customer INNER JOIN TypePatient ON Customer.IdTypePatient = TypePatient.ID"
+        Dim fields = "Customer.Age, TypePatient.Name, TypePatient.Price"
+        Dim where As New List(Of Tuple(Of String, Type, Object, String)) From {
+        New Tuple(Of String, Type, Object, String)("Customer.id", "".GetType(), CbCustomer.SelectedValue.ToString(), "")
+        }
+        Dim dt As DataTable = DatabaseHelper.Select(tableName, fields, where)
+
+        If dt.Rows.Count <> 0 Then
+            txtType.Text = dt.Rows(0)(1).ToString()
+            txtPrice.Text = dt.Rows(0)(2).ToString()
         End If
 
-
-    End Sub
-    Private Sub CbCustomer_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles CbCustomer.SelectedIndexChanged
-
     End Sub
 
-    
+    Private Sub ResetFormControls()
+        MtDate.Text = DateToday
+        MtTime.Text = ""
+        txtPrice.Text = ""
+        txtId.Text = ""
+        txtType.Text = ""
+    End Sub
+
 End Class

@@ -1,7 +1,9 @@
-﻿Namespace Forms
+﻿Imports Ophthalmology.Controls.CustomForm
+
+Namespace Forms
     <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
     Partial Class LoginForm
-        Inherits System.Windows.Forms.Form
+        Inherits Ophthalmology.Controls.CustomForm.CustomizableFormBase
 
         'Form overrides dispose to clean up the component list.
         <System.Diagnostics.DebuggerNonUserCode()>

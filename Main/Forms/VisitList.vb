@@ -4,7 +4,7 @@
 
 
             Dim DtDg As New DataTable
-            Dim AdoDaDg As New OleDb.OleDbDataAdapter("select V.id,C.id as کد ,C.Name as نام , C.Family as فامیلی, Tel as تلفن,  C.DateSave as تاریخ ,TimeVisit as زمان,V.Status as وضعیت  , v.price as مبلغ  From CustomerForm C inner join VisitList V on (C.id=V.Code_Customer) where V.DateVisit = '" + MtDate.Text + "' and C.DrId = " + DrId.ToString() + St + " order by C.id desc", AdoCon)
+            Dim AdoDaDg As New OleDb.OleDbDataAdapter("select V.id,C.id as کد ,C.Name as نام , C.Family as فامیلی, Tel as تلفن,  C.DateSave as تاریخ ,TimeVisit as زمان,V.Status as وضعیت  , v.price as مبلغ  From Customer C inner join VisitList V on (C.id=V.Code_Customer) where V.DateVisit = '" + MtDate.Text + "' and C.DrId = " + DrId.ToString() + St + " order by C.id desc", AdoCon)
             AdoDaDg.Fill(DtDg)
             DG.DataSource = DtDg
             DG.Columns(0).Width = 50

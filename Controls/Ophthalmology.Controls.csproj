@@ -51,6 +51,18 @@
     <Compile Include="CustomControls\UserControlBase.Designer.cs">
       <DependentUpon>UserControlBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="CustomForm\CustomizableFormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomForm\CustomizableFormBase.Designer.cs">
+      <DependentUpon>CustomizableFormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomForm\FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CustomForm\FormBase.Designer.cs">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -60,6 +72,15 @@
     <EmbeddedResource Include="CustomControls\UserControlBase.resx">
       <DependentUpon>UserControlBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomForm\FormBase.resx">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utility\Ophthalmology.Utility.csproj">
+      <Project>{87739c09-90e2-470d-b438-94881969fd29}</Project>
+      <Name>Ophthalmology.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,4 @@
-﻿Imports System.Data.OleDb
-Imports System.Net
+﻿Imports System.Net
 Imports Ophthalmology.Utility.Helpers
 
 Namespace Forms
@@ -18,10 +17,10 @@ Namespace Forms
         End Sub
 
         Private Sub BtnEnter_Click(sender As Object, e As EventArgs) Handles BtnEnter.Click
-
-            Dim where As New List(Of Tuple(Of String, Type, Object, String))
-            where.Add(New Tuple(Of String, Type, Object, String)(Constants.NameFieldName, String.Empty.GetType(), TxtUserName.Text, "AND"))
-            where.Add(New Tuple(Of String, Type, Object, String)(Constants.PassFieldName, String.Empty.GetType(), TxtPass.Text, String.Empty))
+            Dim where As New List(Of Tuple(Of String, Type, Object, String)) From {
+                New Tuple(Of String, Type, Object, String)(Constants.NameFieldName, String.Empty.GetType(), TxtUserName.Text, "AND"),
+                New Tuple(Of String, Type, Object, String)(Constants.PassFieldName, String.Empty.GetType(), TxtPass.Text, String.Empty)
+            }
 
             Dim dt = DatabaseHelper.Select(Constants.UserTableName, whereClause:=where)
 

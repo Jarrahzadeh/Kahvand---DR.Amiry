@@ -14,6 +14,8 @@
     Public Const PassFieldName As String = "Pass"
 
     Public Const UserTableName As String = "User"
+    Public Const TypePatientTableName As String = "TypePatient"
+    Public Const SaveMsgTableName As String = "SaveMsg"
 
     Public Const CustomerTableName As String = "Customer"
     Public Const DrIdFieldName As String = "DrId"
@@ -28,4 +30,5 @@
     Public Const AddressFieldName As String = "Address"
     Public Const IdTypePatientFieldName As String = "IdTypePatient"
     Public Const DateSaveFieldName As String = "DateSave"
+    Public Const PriceFieldName As String = "Price"
 End Class

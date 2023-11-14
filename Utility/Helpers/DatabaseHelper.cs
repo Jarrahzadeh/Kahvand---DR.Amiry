@@ -9,7 +9,7 @@ namespace Ophthalmology.Utility.Helpers
 {
     public static class DatabaseHelper
     {
-        public static int Insert(string tableName, IList<Tuple<string, Type, object>> filedNameAndValues)
+        public static int Insert(string tableName, List<Tuple<string, Type, object>> filedNameAndValues)
         {
             if (string.IsNullOrEmpty(tableName))
             {
@@ -48,7 +48,7 @@ namespace Ophthalmology.Utility.Helpers
             }
         }
 
-        public static int Update(string tableName, IList<Tuple<string, Type, object>> filedNameAndValues)
+        public static int Update(string tableName, List<Tuple<string, Type, object>> filedNameAndValues)
         {
             if (string.IsNullOrEmpty(tableName))
             {
@@ -88,7 +88,7 @@ namespace Ophthalmology.Utility.Helpers
             return rowsAffectedCount;
         }
 
-        public static int Delete(string tableName, IEnumerable<Tuple<string, Type, object, string>> whereClause = default)
+        public static int Delete(string tableName, List<Tuple<string, Type, object, string>> whereClause = default)
         {
             if (string.IsNullOrEmpty(tableName))
             {
@@ -105,10 +105,14 @@ namespace Ophthalmology.Utility.Helpers
                     script += $" WHERE {fields}";
             }
 
-            return 0;
+            using (var dbConnection = new DbConnection(Settings.ConnectionString))
+            {
+                dbConnection.Open();
+                return dbConnection.ExecuteCommand(script, parameters);
+            }
         }
 
-        public static DataTable Select(string tableName, string selectFields = "*", IList<Tuple<string, Type, object, string>> whereClause = default)
+        public static DataTable Select(string tableName, string selectFields = "*", List<Tuple<string, Type, object, string>> whereClause = default)
         {
             if (string.IsNullOrEmpty(tableName))
             {
@@ -132,7 +136,7 @@ namespace Ophthalmology.Utility.Helpers
             }
         }
 
-        private static string GetWhereClauseScript(IEnumerable<Tuple<string, Type, object, string>> whereClause, ICollection<OleDbParameter> parameters)
+        private static string GetWhereClauseScript(List<Tuple<string, Type, object, string>> whereClause, ICollection<OleDbParameter> parameters)
         {
             var fields = string.Empty;
             foreach (var tuple in whereClause)

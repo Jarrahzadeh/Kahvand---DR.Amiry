@@ -17,7 +17,7 @@
 
     Private Sub ShowGrid(ByVal critria As String)
         Dim DtDg As New DataTable
-        Dim AdoDaDg As New OleDb.OleDbDataAdapter("select id as کد , Name as نام , Family as فامیلی, Tel as تلفن From CustomerForm where drId = " + DrId.ToString() + critria + " order by id desc", AdoCon)
+        Dim AdoDaDg As New OleDb.OleDbDataAdapter("select id as کد , Name as نام , Family as فامیلی, Tel as تلفن From Customer where drId = " + DrId.ToString() + critria + " order by id desc", AdoCon)
         AdoDaDg.Fill(DtDg)
         DG.DataSource = DtDg
         DG.Columns(0).Width = 50

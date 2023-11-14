@@ -97,4 +97,6 @@
         btnDelete.Enabled = True
         btnSave.Text = "اضافه"
     End Sub
+
+    Public Overloads Property Tag As String
 End Class

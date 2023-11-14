@@ -1,9 +1,13 @@
-﻿Public Class Editor
+﻿Imports System.Data.OleDb
+Imports System.Globalization
+Imports Ophthalmology.Utility.Helpers
+
+Public Class Editor
     Dim textCurent As String
     Dim IsSave As Boolean = False
     Dim t As Int64
 
-    Sub CallDtl(ByVal x As String)
+    Sub CallDtl(x As String)
         IsSave = True
         St = ""
         Select Case x
@@ -35,10 +39,10 @@
 
     End Sub
 
-    Private Sub Editor_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+    Private Sub Editor_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
 
         If IsSave = True Then
-            Dim x = MessageBox.Show("ایا می خواهید داده ها ذخیره شود ؟", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
+            Dim x = MessageBox.Show("آیا می خواهید داده ها ذخیره شود؟", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question)
             If x = DialogResult.Yes Then
                 BtnSave_Click(Nothing, Nothing)
             End If
@@ -47,11 +51,11 @@
             End If
         End If
 
-        My.Settings.EditorSize = Me.Size
+        My.Settings.EditorSize = Size
         My.Settings.Save()
 
     End Sub
-    Private Sub Editor_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles Me.KeyDown
+    Private Sub Editor_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.F1 Then
             CallDtl("F1")
         ElseIf e.KeyCode = Keys.F2 Then
@@ -73,14 +77,14 @@
         End If
     End Sub
 
-    Private Sub Editor_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+    Private Sub Editor_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Try
 
             Me.Size = My.Settings.EditorSize
 
             txtDrName.Text = DrName
 
-            Dim c As New System.Globalization.CultureInfo("En")
+            Dim c As New CultureInfo("En")
             InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(c)
 
 
@@ -91,20 +95,29 @@
             Next
             CbFont.Text = 12
             LblStatus.Text = 0
-            Dim Cmd As New OleDb.OleDbCommand("Select * from TblText where Fk_Customer = " + TFk_Customer.Text)
-            Cmd.Connection = AdoCon
-            Dim dr As Data.OleDb.OleDbDataReader = Cmd.ExecuteReader()
-            dr.Read()
-            If dr.HasRows Then
-                rtbMain.Text = dr("TextVisit").ToString()
-                lblId.Text = dr("id").ToString()
-                LblStatus.Text = 1
-            End If
+
+            Dim where As New List(Of Tuple(Of String, Type, Object, String)) From {
+                    New Tuple(Of String, Type, Object, String)("Fk_Customer", "".GetType(), TFk_Customer.Text, "")}
+            Dim dt1 As DataTable = DatabaseHelper.Select("TblText", whereClause:=where)
+
+            rtbMain.Text = dt1.Rows(0)("TextVisit").ToString()
+            lblId.Text = dt1.Rows(0)("id").ToString()
+            LblStatus.Text = 1
+
+            'Dim Cmd As New OleDbCommand("Select * from  where  = " + TFk_Customer.Text)
+            'Cmd.Connection = AdoCon
+            'Dim dr As OleDbDataReader = Cmd.ExecuteReader()
+            'dr.Read()
+            'If dr.HasRows Then
+            '    rtbMain.Text = dr("TextVisit").ToString()
+            '    lblId.Text = dr("id").ToString()
+            '    LblStatus.Text = 1
+            'End If
             '  RTxt.Text = vbCrLf + "---------------------------" + DateToday + RTxt.Text
 
             ViewGrapicData()
 
-            Dim Ado As New OleDb.OleDbDataAdapter("SELECT CustomerForm.Age, TypePatient.Name, TypePatient.Price,CustomerForm.Address FROM CustomerForm INNER JOIN TypePatient ON CustomerForm.IdTypePatient = TypePatient.ID where CustomerForm.id = " + TFk_Customer.Text, AdoCon)
+            Dim Ado As New OleDbDataAdapter("SELECT Customer.Age, TypePatient.Name, TypePatient.Price, Customer.Address FROM Customer INNER JOIN TypePatient ON Customer.IdTypePatient = TypePatient.ID where Customer.id = " + TFk_Customer.Text, AdoCon)
             Dim Dt As New DataTable
             Ado.Fill(Dt)
             txtAge.Text = Dt.Rows(0)(0).ToString()
@@ -154,26 +167,26 @@
 
     End Sub
 
-    Private Sub CbFont_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CbFont.SelectedIndexChanged
+    Private Sub CbFont_SelectedIndexChanged(sender As Object, e As EventArgs) Handles CbFont.SelectedIndexChanged
 
         rtbMain.Font = New Font(rtbMain.Font.FontFamily, Val(CbFont.Text))
 
 
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         If Not isShow Then
             ChatForm.Show()
             isShow = True
         End If
     End Sub
 
-    Private Sub BtnClose_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnClose.Click
+    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
         Me.Close()
 
     End Sub
 
-    Private Sub BtnSave_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnSave.Click
+    Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
         IsSave = False
 
 
@@ -183,25 +196,25 @@
         Dim ststusBimar As String = "ویزیت شده"
         If My.Settings.SystemStatus = "Other" Then ststusBimar = "اپتومتری"
 
-        Dim CmdVisitList As New OleDb.OleDbCommand("Update VisitList Set Status = '" + ststusBimar + "' Where Code_customer = " + TFk_Customer.Text + " and DateVisit = '" + TDateVisit.Text + "'", AdoCon)
+        Dim CmdVisitList As New OleDbCommand("Update VisitList Set Status = '" + ststusBimar + "' Where Code_customer = " + TFk_Customer.Text + " and DateVisit = '" + TDateVisit.Text + "'", AdoCon)
         CmdVisitList.ExecuteNonQuery()
 
 
         If LblStatus.Text = 0 Then
-            Dim Cmd As New OleDb.OleDbCommand("insert into TblText(Fk_Customer,DateVisit,textvisit)" & _
+            Dim Cmd As New OleDbCommand("insert into TblText(Fk_Customer,DateVisit,textvisit)" &
             " Values(@Fk_Customer,@DateVisit,@textVisit)", AdoCon)
-            Cmd.Parameters.Add("@Fk_Customer", OleDb.OleDbType.Numeric).Value = TFk_Customer.Text
-            Cmd.Parameters.Add("@DateVisit", OleDb.OleDbType.VarChar).Value = TDateVisit.Text
-            Cmd.Parameters.Add("@text", OleDb.OleDbType.VarChar).Value = rtbMain.Text
+            Cmd.Parameters.Add("@Fk_Customer", OleDbType.Numeric).Value = TFk_Customer.Text
+            Cmd.Parameters.Add("@DateVisit", OleDbType.VarChar).Value = TDateVisit.Text
+            Cmd.Parameters.Add("@text", OleDbType.VarChar).Value = rtbMain.Text
             Cmd.ExecuteNonQuery()
         End If
 
         If LblStatus.Text = 1 Then
 
-            Dim Cmd As New OleDb.OleDbCommand("update TblText set Fk_Customer=@Fk_Customer,DateVisit=@DateVisit,textvisit=@textVisit where id = " + lblId.Text, AdoCon)
-            Cmd.Parameters.Add("@Fk_Customer", OleDb.OleDbType.Numeric).Value = TFk_Customer.Text
-            Cmd.Parameters.Add("@DateVisit", OleDb.OleDbType.VarChar).Value = TDateVisit.Text
-            Cmd.Parameters.Add("@textVisit", OleDb.OleDbType.VarChar).Value = rtbMain.Text
+            Dim Cmd As New OleDbCommand("update TblText set Fk_Customer=@Fk_Customer,DateVisit=@DateVisit,textvisit=@textVisit where id = " + lblId.Text, AdoCon)
+            Cmd.Parameters.Add("@Fk_Customer", OleDbType.Numeric).Value = TFk_Customer.Text
+            Cmd.Parameters.Add("@DateVisit", OleDbType.VarChar).Value = TDateVisit.Text
+            Cmd.Parameters.Add("@textVisit", OleDbType.VarChar).Value = rtbMain.Text
             Cmd.ExecuteNonQuery()
 
         End If
@@ -227,13 +240,13 @@
             Lid = True
         End If
         If Cat Or Strabism Or NLD Or Lid Then
-            Dim CmdAmar As New OleDb.OleDbCommand("insert into Amar (idCustomer, DateVisit, CAT, Strabism, NLD, LID) Values (@idCustomer, @DateVisit, @CAT, @Strabism, @NLD, @LID)", AdoCon)
-            CmdAmar.Parameters.Add("@idCustomer", OleDb.OleDbType.Integer).Value = TFk_Customer.Text
-            CmdAmar.Parameters.Add("@DateVisit", OleDb.OleDbType.VarChar).Value = TDateVisit.Text
-            CmdAmar.Parameters.Add("@CAT", OleDb.OleDbType.Boolean).Value = Cat
-            CmdAmar.Parameters.Add("@Strabism", OleDb.OleDbType.Boolean).Value = Strabism
-            CmdAmar.Parameters.Add("@NLD", OleDb.OleDbType.Boolean).Value = NLD
-            CmdAmar.Parameters.Add("@LID", OleDb.OleDbType.Boolean).Value = Lid
+            Dim CmdAmar As New OleDbCommand("insert into Amar (idCustomer, DateVisit, CAT, Strabism, NLD, LID) Values (@idCustomer, @DateVisit, @CAT, @Strabism, @NLD, @LID)", AdoCon)
+            CmdAmar.Parameters.Add("@idCustomer", OleDbType.Integer).Value = TFk_Customer.Text
+            CmdAmar.Parameters.Add("@DateVisit", OleDbType.VarChar).Value = TDateVisit.Text
+            CmdAmar.Parameters.Add("@CAT", OleDbType.Boolean).Value = Cat
+            CmdAmar.Parameters.Add("@Strabism", OleDbType.Boolean).Value = Strabism
+            CmdAmar.Parameters.Add("@NLD", OleDbType.Boolean).Value = NLD
+            CmdAmar.Parameters.Add("@LID", OleDbType.Boolean).Value = Lid
             CmdAmar.ExecuteNonQuery()
         End If
 
@@ -242,71 +255,71 @@
 
     End Sub
 
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         CallDtl("F1")
     End Sub
 
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+    Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         CallDtl("F2")
 
     End Sub
 
-    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+    Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         CallDtl("F3")
 
     End Sub
 
-    Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
+    Private Sub Button5_Click(sender As Object, e As EventArgs) Handles Button5.Click
         CallDtl("F4")
 
     End Sub
 
-    Private Sub Button6_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button6.Click
+    Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         CallDtl("F5")
 
     End Sub
 
-    Private Sub Button7_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button7.Click
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         CallDtl("F6")
 
     End Sub
 
-    Private Sub Button8_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button8.Click
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
         CallDtl("F7")
 
     End Sub
 
-    Private Sub Button9_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button9.Click
+    Private Sub Button9_Click(sender As Object, e As EventArgs) Handles Button9.Click
         CallDtl("F8")
 
     End Sub
 
-    Private Sub Button10_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button10.Click
+    Private Sub Button10_Click(sender As Object, e As EventArgs) Handles Button10.Click
         CallDtl("F9")
 
     End Sub
 
-    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
         t += 1
         lblTime.Text = (t \ 60).ToString("00") + ":" + (t Mod 60).ToString("00")
 
     End Sub
 
-    Private Sub rtbMain_KeyDown(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles rtbMain.KeyDown
+    Private Sub rtbMain_KeyDown(sender As Object, e As KeyEventArgs) Handles rtbMain.KeyDown
         IsSave = True
     End Sub
 
-    Private Sub rtbMain_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles rtbMain.TextChanged
+    Private Sub rtbMain_TextChanged(sender As Object, e As EventArgs) Handles rtbMain.TextChanged
 
 
     End Sub
 
-    Private Sub کپیToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles کپیToolStripMenuItem.Click
+    Private Sub کپیToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles کپیToolStripMenuItem.Click
         rtbMain.Copy()
 
     End Sub
 
-    Private Sub الحاقToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles الحاقToolStripMenuItem1.Click
+    Private Sub الحاقToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles الحاقToolStripMenuItem1.Click
 
         rtbMain.Paste()
 

@@ -1,6 +1,6 @@
 ﻿Public Class UForm
 
-    Inherits System.Windows.Forms.Form
+    Inherits Ophthalmology.Controls.CustomForm.CustomizableFormBase
     Private VCriteria As String = ""
     Private VAction As String = ""
 
