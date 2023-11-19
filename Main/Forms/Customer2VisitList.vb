@@ -1,5 +1,4 @@
-﻿Imports System.Data.OleDb
-Imports System.Net.Sockets
+﻿Imports System.Net.Sockets
 Imports System.IO
 Imports Ophthalmology.Utility.Helpers
 
@@ -11,8 +10,8 @@ Public Class Customer2VisitList
         Dim fields = "V.id,C.id as کد ,C.Name as نام , C.Family as فامیلی,   C.DateSave as تاریخ ,TimeVisit as زمان,V.Status as وضعیت  , v.price as مبلغ"
         Dim where As New List(Of Tuple(Of String, Type, Object, String)) From
         {
-            New Tuple(Of String, Type, Object, String)("V.DateVisit", "".GetType(), $"@{DatePicker1.Text}", "AND"),
-            New Tuple(Of String, Type, Object, String)("C.DrId", "".GetType(), $"@{DrId}", "")
+            New Tuple(Of String, Type, Object, String)("V.DateVisit", "".GetType(), $"{DatePicker1.Text}", "AND"),
+            New Tuple(Of String, Type, Object, String)("C.DrId", "".GetType(), $"{DrId}", "")
         }
         Dim dt As DataTable = DatabaseHelper.Select(tableName, fields, where)
         dt.DefaultView.Sort = "V.Id DESC"

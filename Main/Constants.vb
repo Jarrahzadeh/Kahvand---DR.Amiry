@@ -13,7 +13,7 @@
 
     Public Const PassFieldName As String = "Pass"
 
-    Public Const UserTableName As String = "User"
+    Public Const UserTableName As String = "User1"
     Public Const TypePatientTableName As String = "TypePatient"
     Public Const SaveMsgTableName As String = "SaveMsg"
 

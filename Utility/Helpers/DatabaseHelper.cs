@@ -39,7 +39,7 @@ namespace Ophthalmology.Utility.Helpers
                 parameters.Add(oleDbParameter);
             }
 
-            var script = $@" INSERT INTO {tableName} ({fields}) VALUES ({values})";
+            var script = $" INSERT INTO {tableName} ({fields}) VALUES ({values})";
 
             using (var dbConnection = new DbConnection(Settings.ConnectionString))
             {
@@ -76,7 +76,7 @@ namespace Ophthalmology.Utility.Helpers
                 parameters.Add(oleDbParameter);
             }
 
-            var script = $@" UPDATE {tableName} SET {fields} WHERE {filedNameAndValues[0].Item1} = @{filedNameAndValues[0].Item1}";
+            var script = $"UPDATE {tableName} SET {fields} WHERE {filedNameAndValues[0].Item1} = @{filedNameAndValues[0].Item1}";
 
             int rowsAffectedCount;
             using (var dbConnection = new DbConnection(Settings.ConnectionString))
@@ -95,7 +95,7 @@ namespace Ophthalmology.Utility.Helpers
                 throw new ArgumentNullException(nameof(tableName));
             }
 
-            var script = $@" DELETE FROM {tableName}";
+            var script = $"DELETE FROM {tableName}";
             var parameters = new List<OleDbParameter>();
 
             if (whereClause != null)
@@ -119,7 +119,7 @@ namespace Ophthalmology.Utility.Helpers
                 throw new ArgumentNullException(nameof(tableName));
             }
 
-            var script = $@" SELECT {selectFields} FROM [{tableName}]";
+            var script = $" SELECT {selectFields} FROM {tableName}";
             var parameters = new List<OleDbParameter>();
             if (whereClause != null)
             {
