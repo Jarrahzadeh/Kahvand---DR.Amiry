@@ -3,10 +3,9 @@ Imports System.IO
 Imports Ophthalmology.Utility.Helpers
 
 Public Class Customer2VisitList
-
     Sub ShowGrid()
 
-        Dim tableName = "Customer C inner join VisitList V on (C.id=V.Code_Customer)"
+        Dim tableName = "Customer C INNER JOIN VisitList V on (C.id=V.Code_Customer)"
         Dim fields = "V.id,C.id as کد ,C.Name as نام , C.Family as فامیلی,   C.DateSave as تاریخ ,TimeVisit as زمان,V.Status as وضعیت  , v.price as مبلغ"
         Dim where As New List(Of Tuple(Of String, Type, Object, String)) From
         {
@@ -14,7 +13,7 @@ Public Class Customer2VisitList
             New Tuple(Of String, Type, Object, String)("C.DrId", "".GetType(), $"{DrId}", "")
         }
         Dim dt As DataTable = DatabaseHelper.Select(tableName, fields, where)
-        dt.DefaultView.Sort = "V.Id DESC"
+        dt.DefaultView.Sort = "Id DESC"
         DG.DataSource = dt.DefaultView
 
         DG.Columns(0).Width = 50
@@ -25,17 +24,24 @@ Public Class Customer2VisitList
 
         Dim I, J As Int16
         For I = 0 To DG.RowCount - 1
-            If DG.Rows(I).Cells("وضعیت").Value = "ویزیت شده" Then
-                For J = 0 To DG.Columns.Count - 1
-                    DG.Rows(I).Cells(J).Style.BackColor = Color.Red
-                    K += 1
-                Next
-            End If
-            If DG.Rows(I).Cells("وضعیت").Value = "اپتومتری" Then
-                For J = 0 To DG.Columns.Count - 1
-                    DG.Rows(I).Cells(J).Style.BackColor = Color.Yellow
-                    K += 1
-                Next
+            Dim statusValue = DG.Rows(I).Cells("وضعیت").Value
+
+            If statusValue IsNot DBNull.Value Then
+
+                If statusValue = "ویزیت شده" Then
+                    For J = 0 To DG.Columns.Count - 1
+                        DG.Rows(I).Cells(J).Style.BackColor = Color.Red
+                        K += 1
+                    Next
+                End If
+
+                If statusValue = "اپتومتری" Then
+                    For J = 0 To DG.Columns.Count - 1
+                        DG.Rows(I).Cells(J).Style.BackColor = Color.Yellow
+                        K += 1
+                    Next
+                End If
+
             End If
         Next
 
@@ -58,8 +64,11 @@ Public Class Customer2VisitList
                 }
 
         If Val(txtId.Text) = 0 Then
+            params.Add(New Tuple(Of String, Type, Object)(Constants.StatusFieldName, "".GetType(), "ویزیت نشده"))
             DatabaseHelper.Insert("VisitList", params)
         Else
+
+            params.Add(New Tuple(Of String, Type, Object)(Constants.StatusFieldName, "".GetType(), "ویزیت نشده"))
             params.Add(New Tuple(Of String, Type, Object)(Constants.IdFieldName, "".GetType(), txtId.Text))
             DatabaseHelper.Update("VisitList", params)
         End If
@@ -235,4 +244,9 @@ Public Class Customer2VisitList
         txtType.Text = ""
     End Sub
 
+    Public WriteOnly Property CustomerTitle As String
+        Set
+            LblCustomer.Text = Value
+        End Set
+    End Property
 End Class

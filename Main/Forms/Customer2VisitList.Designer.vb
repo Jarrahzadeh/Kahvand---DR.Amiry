@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Customer2VisitList
     Inherits Ophthalmology.Controls.CustomForm.CustomizableFormBase
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Customer2VisitList
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Customer2VisitList))
@@ -260,30 +260,30 @@ Partial Class Customer2VisitList
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents CbCustomer As System.Windows.Forms.ComboBox
-    Friend WithEvents MtDate As Devy.Windows.DatePicker
-    Friend WithEvents LFamily As System.Windows.Forms.Label
-    Friend WithEvents BtnSave As System.Windows.Forms.Button
-    Friend WithEvents BtnClose As System.Windows.Forms.Button
-    Friend WithEvents LblCustomer As System.Windows.Forms.Label
-    Friend WithEvents MtTime As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents DG As System.Windows.Forms.DataGridView
-    Friend WithEvents txtPrice As System.Windows.Forms.TextBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents txtId As System.Windows.Forms.TextBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents BtnView As System.Windows.Forms.Button
-    Friend WithEvents DatePicker1 As Devy.Windows.DatePicker
-    Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents BtnDelete As System.Windows.Forms.Button
-    Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents txtDrName As System.Windows.Forms.TextBox
-    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents SendToDocterToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents txtType As System.Windows.Forms.TextBox
-    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Private WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Private WithEvents Label1 As System.Windows.Forms.Label
+    Private WithEvents CbCustomer As System.Windows.Forms.ComboBox
+    Private WithEvents MtDate As Devy.Windows.DatePicker
+    Private WithEvents LFamily As System.Windows.Forms.Label
+    Private WithEvents BtnSave As System.Windows.Forms.Button
+    Private WithEvents BtnClose As System.Windows.Forms.Button
+    Private WithEvents LblCustomer As System.Windows.Forms.Label
+    Private WithEvents MtTime As System.Windows.Forms.MaskedTextBox
+    Private WithEvents Label2 As System.Windows.Forms.Label
+    Private WithEvents DG As System.Windows.Forms.DataGridView
+    Private WithEvents txtPrice As System.Windows.Forms.TextBox
+    Private WithEvents Label3 As System.Windows.Forms.Label
+    Private WithEvents txtId As System.Windows.Forms.TextBox
+    Private WithEvents Button1 As System.Windows.Forms.Button
+    Private WithEvents BtnView As System.Windows.Forms.Button
+    Private WithEvents DatePicker1 As Devy.Windows.DatePicker
+    Private WithEvents Label4 As System.Windows.Forms.Label
+    Private WithEvents BtnDelete As System.Windows.Forms.Button
+    Private WithEvents Label5 As System.Windows.Forms.Label
+    Private WithEvents txtDrName As System.Windows.Forms.TextBox
+    Private WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
+    Private WithEvents SendToDocterToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Private WithEvents Label6 As System.Windows.Forms.Label
+    Private WithEvents txtType As System.Windows.Forms.TextBox
+    Private WithEvents ToolTip1 As System.Windows.Forms.ToolTip
 End Class

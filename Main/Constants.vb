@@ -31,4 +31,5 @@
     Public Const IdTypePatientFieldName As String = "IdTypePatient"
     Public Const DateSaveFieldName As String = "DateSave"
     Public Const PriceFieldName As String = "Price"
+    Public Const StatusFieldName As String = "Status"
 End Class

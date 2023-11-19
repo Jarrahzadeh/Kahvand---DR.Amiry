@@ -31,10 +31,10 @@ namespace Ophthalmology.Utility.Helpers
                 values = string.Join(separator, values, $"@{filedNameAndValue.Item1}");
 
                 var oleDbParameter = new OleDbParameter($"@{filedNameAndValue.Item1}", filedNameAndValue.Item3);
-                if (filedNameAndValue.Item2 == typeof(string))
-                    oleDbParameter.DbType = DbType.String;
-                else if (filedNameAndValue.Item2 == typeof(int))
-                    oleDbParameter.DbType = DbType.Int32;
+                //if (filedNameAndValue.Item2 == typeof(string))
+                //    oleDbParameter.DbType = DbType.String;
+                //else if (filedNameAndValue.Item2 == typeof(int))
+                //    oleDbParameter.DbType = DbType.Int32;
 
                 parameters.Add(oleDbParameter);
             }
@@ -68,10 +68,10 @@ namespace Ophthalmology.Utility.Helpers
                 fields = string.Join(separator, fields, $"{filedNameAndValue.Item1} = @{filedNameAndValue.Item1}");
 
                 var oleDbParameter = new OleDbParameter($"@{filedNameAndValue.Item1}", filedNameAndValue.Item3);
-                if (filedNameAndValue.Item2 == typeof(string))
-                    oleDbParameter.DbType = DbType.String;
-                else if (filedNameAndValue.Item2 == typeof(int))
-                    oleDbParameter.DbType = DbType.Int32;
+                //if (filedNameAndValue.Item2 == typeof(string))
+                //    oleDbParameter.DbType = DbType.String;
+                //else if (filedNameAndValue.Item2 == typeof(int))
+                //    oleDbParameter.DbType = DbType.Int32;
 
                 parameters.Add(oleDbParameter);
             }
@@ -144,10 +144,10 @@ namespace Ophthalmology.Utility.Helpers
                 fields = string.Join(string.Empty, fields, $" {tuple.Item1} = @{tuple.Item1} ", tuple.Item4.ToUpper());
 
                 var oleDbParameter = new OleDbParameter($"@{tuple.Item1}", tuple.Item3);
-                if (tuple.Item2 == typeof(string))
-                    oleDbParameter.DbType = DbType.String;
-                else if (tuple.Item2 == typeof(int))
-                    oleDbParameter.DbType = DbType.Int32;
+                //if (tuple.Item2 == typeof(string))
+                //    oleDbParameter.DbType = DbType.String;
+                //else if (tuple.Item2 == typeof(int))
+                //    oleDbParameter.DbType = DbType.Int32;
 
                 parameters.Add(oleDbParameter);
             }
