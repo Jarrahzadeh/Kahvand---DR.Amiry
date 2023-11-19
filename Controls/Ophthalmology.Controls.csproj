@@ -54,17 +54,23 @@
     <Compile Include="CustomControls\UserControlBase.Designer.cs">
       <DependentUpon>UserControlBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomForm\CustomizableFormBase.cs">
+    <Compile Include="CustomForms\CustomizableFormBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomForm\CustomizableFormBase.Designer.cs">
+    <Compile Include="CustomForms\CustomizableFormBase.Designer.cs">
       <DependentUpon>CustomizableFormBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomForm\FormBase.cs">
+    <Compile Include="CustomForms\FormBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CustomForm\FormBase.Designer.cs">
+    <Compile Include="CustomForms\FormBase.Designer.cs">
       <DependentUpon>FormBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\CustomersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CustomersForm.Designer.cs">
+      <DependentUpon>CustomersForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -75,8 +81,11 @@
     <EmbeddedResource Include="CustomControls\UserControlBase.resx">
       <DependentUpon>UserControlBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CustomForm\FormBase.resx">
+    <EmbeddedResource Include="CustomForms\FormBase.resx">
       <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\CustomersForm.resx">
+      <DependentUpon>CustomersForm.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -85,5 +94,6 @@
       <Name>Ophthalmology.Utility</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
