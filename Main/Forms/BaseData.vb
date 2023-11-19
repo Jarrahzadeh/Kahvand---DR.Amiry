@@ -2,11 +2,12 @@
 
 Public Class BaseData
     Public Sub New()
-        Me.New("")
+        Me.New("", "")
     End Sub
-    Public Sub New(tableName As String)
+    Public Sub New(tableName As String, title As String)
         InitializeComponent()
         _tableName = tableName
+        Text = title
     End Sub
 
     Sub ShowGrid()
@@ -132,5 +133,5 @@ Public Class BaseData
         btnEdit.Enabled = False
     End Sub
 
-    Private _tableName As String
+    Private ReadOnly _tableName As String
 End Class

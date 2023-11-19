@@ -25,7 +25,7 @@ Partial Class BaseData
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.DG = New System.Windows.Forms.DataGridView()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
@@ -58,8 +58,8 @@ Partial Class BaseData
         '
         Me.DG.AllowUserToAddRows = False
         Me.DG.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.LightCyan
-        Me.DG.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.LightCyan
+        Me.DG.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.DG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DG.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -91,12 +91,13 @@ Partial Class BaseData
         '
         'txtPrice
         '
+        Me.txtPrice.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtPrice.IsLanguage = Ophthalmology.Main.UTextBox.Language.Defualt
         Me.txtPrice.IsNumber = False
         Me.txtPrice.IsSplit = True
         Me.txtPrice.Location = New System.Drawing.Point(22, 50)
         Me.txtPrice.Name = "txtPrice"
-        Me.txtPrice.Size = New System.Drawing.Size(244, 21)
+        Me.txtPrice.Size = New System.Drawing.Size(213, 21)
         Me.txtPrice.TabIndex = 2
         Me.txtPrice.Value = ""
         '
@@ -114,7 +115,7 @@ Partial Class BaseData
         '
         Me.Label3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(272, 50)
+        Me.Label3.Location = New System.Drawing.Point(241, 53)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(63, 13)
         Me.Label3.TabIndex = 1
@@ -124,7 +125,7 @@ Partial Class BaseData
         '
         Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(272, 23)
+        Me.Label1.Location = New System.Drawing.Point(241, 23)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(40, 13)
         Me.Label1.TabIndex = 1
@@ -132,11 +133,10 @@ Partial Class BaseData
         '
         'TxtName
         '
-        Me.TxtName.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TxtName.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TxtName.Location = New System.Drawing.Point(22, 20)
         Me.TxtName.Name = "TxtName"
-        Me.TxtName.Size = New System.Drawing.Size(244, 21)
+        Me.TxtName.Size = New System.Drawing.Size(213, 21)
         Me.TxtName.TabIndex = 0
         '
         'TxtId
@@ -219,7 +219,6 @@ Partial Class BaseData
         Me.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.KeyPreview = True
         Me.Name = "BaseData"
-        Me.RightToLeft = System.Windows.Forms.RightToLeft.Yes
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "نوع بیمار"
         Me.GroupBox1.ResumeLayout(False)
@@ -229,17 +228,17 @@ Partial Class BaseData
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents TxtName As System.Windows.Forms.TextBox
-    Friend WithEvents TxtId As System.Windows.Forms.TextBox
-    Friend WithEvents DG As System.Windows.Forms.DataGridView
-    Friend WithEvents btnCancel As System.Windows.Forms.Button
-    Friend WithEvents btnDelete As System.Windows.Forms.Button
-    Friend WithEvents btnEdit As System.Windows.Forms.Button
-    Friend WithEvents btnSave As System.Windows.Forms.Button
-    Friend WithEvents txtPrice As Ophthalmology.Main.UTextBox
-    Friend WithEvents Label3 As System.Windows.Forms.Label
+    Private WithEvents GroupBox1 As System.Windows.Forms.GroupBox
+    Private WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Private WithEvents Label2 As System.Windows.Forms.Label
+    Private WithEvents Label1 As System.Windows.Forms.Label
+    Private WithEvents TxtName As System.Windows.Forms.TextBox
+    Private WithEvents TxtId As System.Windows.Forms.TextBox
+    Private WithEvents DG As System.Windows.Forms.DataGridView
+    Private WithEvents btnCancel As System.Windows.Forms.Button
+    Private WithEvents btnDelete As System.Windows.Forms.Button
+    Private WithEvents btnEdit As System.Windows.Forms.Button
+    Private WithEvents btnSave As System.Windows.Forms.Button
+    Private WithEvents txtPrice As Ophthalmology.Main.UTextBox
+    Private WithEvents Label3 As System.Windows.Forms.Label
 End Class
