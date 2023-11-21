@@ -20,9 +20,8 @@ namespace Ophthalmology.Controls.CustomForms
                 }
             }
 
-            if (e.Control is ISupportVisualStyles)
+            if (e.Control is ISupportVisualStyles control)
             {
-                var control = (ISupportVisualStyles)e.Control;
                 control.VisualStyleManager = visualStyleManager;
             }
             base.OnControlAdded(e);

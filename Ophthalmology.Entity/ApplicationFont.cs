@@ -4,7 +4,7 @@
     {
         public string Name { get; set; }
         
-        public int Size { get; set; }
+        public float Size { get; set; }
 
         public bool Bold { get; set; }
         
