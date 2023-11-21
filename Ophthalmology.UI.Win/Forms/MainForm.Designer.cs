@@ -1,6 +1,6 @@
-﻿namespace Ophthalmology.Controls.Forms
+﻿namespace Ophthalmology.UI.Win.Forms
 {
-    partial class CustomersForm
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,24 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.bindingSourceGrid = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGrid)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // CustomersForm
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Name = "CustomersForm";
-            this.Text = "لیست بیماران";
-            ((System.ComponentModel.ISupportInitialize)(this.bindingSourceGrid)).EndInit();
-            this.ResumeLayout(false);
-
+            this.Text = "MainForm";
         }
 
         #endregion
-
-        private System.Windows.Forms.BindingSource bindingSourceGrid;
     }
 }
+

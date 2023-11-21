@@ -469,9 +469,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Blue cube.ico" />
-    <None Include="db.mdb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <None Include="db.mdb" />
     <None Include="Resources\dialog-ok.gif" />
     <None Include="Resources\Icon %282%29.png" />
   </ItemGroup>

@@ -1,6 +1,8 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
+﻿Imports Ophthalmology.Controls.CustomForms
+
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Customer2VisitList
-    Inherits Ophthalmology.Controls.CustomForm.CustomizableFormBase
+    Inherits CustomizableFormBase
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()>

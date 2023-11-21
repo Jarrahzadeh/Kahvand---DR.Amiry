@@ -1,8 +1,9 @@
 ﻿Imports Ophthalmology.Controls.CustomForm
+Imports Ophthalmology.Controls.CustomForms
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class BaseData
-    Inherits Ophthalmology.Controls.CustomForm.CustomizableFormBase
+    Inherits CustomizableFormBase
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()> _

@@ -1,4 +1,4 @@
-﻿namespace Ophthalmology.Controls.CustomForm
+﻿namespace Ophthalmology.Controls.CustomForms
 {
     partial class CustomizableFormBase
     {
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Text = "CustomizableFormBase";
         }

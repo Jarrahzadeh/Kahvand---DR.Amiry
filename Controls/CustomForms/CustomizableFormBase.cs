@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using Ophthalmology.Utility.Helpers;
 
-namespace Ophthalmology.Controls.CustomForm
+namespace Ophthalmology.Controls.CustomForms
 {
     public partial class CustomizableFormBase : FormBase
     {
@@ -26,14 +26,14 @@ namespace Ophthalmology.Controls.CustomForm
             base.OnFormClosing(e);
         }
 
-        private void LoadSettings()
+        protected void LoadSettings()
         {
             var jsonFormSetting = ReadSettingsFromFile();
             var formSetting = JsonHelper.DeSerialize<FormSettings>(jsonFormSetting);
             formSetting.SetFormSettings(this);
         }
 
-        private void SaveSettings()
+        protected void SaveSettings()
         {
             var formSetting = FormSettings.GetFormSettings(this);
             var serialize = JsonHelper.Serialize(formSetting);
@@ -84,7 +84,6 @@ namespace Ophthalmology.Controls.CustomForm
                 if (!FormSize.IsEmpty)
                     form.Size = FormSize;
             }
-
 
             public Point FormLocation { get; set; }
 

@@ -1,6 +1,8 @@
-﻿Public Class UForm
+﻿Imports Ophthalmology.Controls.CustomForms
 
-    Inherits Ophthalmology.Controls.CustomForm.CustomizableFormBase
+Public Class UForm
+
+    Inherits CustomizableFormBase
     Private VCriteria As String = ""
     Private VAction As String = ""
 
