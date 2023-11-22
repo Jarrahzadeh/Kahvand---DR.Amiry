@@ -33,29 +33,44 @@
             Janus.Windows.Common.JanusColorScheme janusColorScheme2 = new Janus.Windows.Common.JanusColorScheme();
             Janus.Windows.Common.JanusColorScheme janusColorScheme3 = new Janus.Windows.Common.JanusColorScheme();
             Janus.Windows.Common.JanusColorScheme janusColorScheme4 = new Janus.Windows.Common.JanusColorScheme();
+            Janus.Windows.Common.JanusColorScheme janusColorScheme5 = new Janus.Windows.Common.JanusColorScheme();
+            Janus.Windows.Common.JanusColorScheme janusColorScheme6 = new Janus.Windows.Common.JanusColorScheme();
             this.visualStyleManager = new Janus.Windows.Common.VisualStyleManager(this.components);
             this.SuspendLayout();
             // 
             // visualStyleManager
             // 
             janusColorScheme1.HighlightTextColor = System.Drawing.SystemColors.HighlightText;
-            janusColorScheme1.Name = "Office2007Style";
+            janusColorScheme1.Name = "Office2007 (Blue)";
             janusColorScheme1.Office2007CustomColor = System.Drawing.Color.Empty;
+            janusColorScheme1.VisualStyle = Janus.Windows.Common.VisualStyle.Office2007;
             janusColorScheme2.HighlightTextColor = System.Drawing.SystemColors.HighlightText;
-            janusColorScheme2.Name = "Office2003Style";
+            janusColorScheme2.Name = "Office2003 (Blue)";
             janusColorScheme2.Office2007CustomColor = System.Drawing.Color.Empty;
             janusColorScheme3.HighlightTextColor = System.Drawing.SystemColors.HighlightText;
-            janusColorScheme3.Name = "Vs2005Style";
+            janusColorScheme3.Name = "VisualStudio 2005";
             janusColorScheme3.Office2007CustomColor = System.Drawing.Color.Empty;
             janusColorScheme3.VisualStyle = Janus.Windows.Common.VisualStyle.VS2005;
             janusColorScheme4.HighlightTextColor = System.Drawing.SystemColors.HighlightText;
-            janusColorScheme4.Name = "StandardStyle";
+            janusColorScheme4.Name = "Standard";
             janusColorScheme4.Office2007CustomColor = System.Drawing.Color.Empty;
             janusColorScheme4.VisualStyle = Janus.Windows.Common.VisualStyle.Standard;
+            janusColorScheme5.HighlightTextColor = System.Drawing.SystemColors.HighlightText;
+            janusColorScheme5.Name = "Office2007 (Black)";
+            janusColorScheme5.Office2007ColorScheme = Janus.Windows.Common.Office2007ColorScheme.Black;
+            janusColorScheme5.Office2007CustomColor = System.Drawing.Color.Empty;
+            janusColorScheme5.VisualStyle = Janus.Windows.Common.VisualStyle.Office2007;
+            janusColorScheme6.HighlightTextColor = System.Drawing.SystemColors.HighlightText;
+            janusColorScheme6.Name = "Office2007 (Silver)";
+            janusColorScheme6.Office2007ColorScheme = Janus.Windows.Common.Office2007ColorScheme.Silver;
+            janusColorScheme6.Office2007CustomColor = System.Drawing.Color.Empty;
+            janusColorScheme6.VisualStyle = Janus.Windows.Common.VisualStyle.Office2007;
             this.visualStyleManager.ColorSchemes.Add(janusColorScheme1);
             this.visualStyleManager.ColorSchemes.Add(janusColorScheme2);
             this.visualStyleManager.ColorSchemes.Add(janusColorScheme3);
             this.visualStyleManager.ColorSchemes.Add(janusColorScheme4);
+            this.visualStyleManager.ColorSchemes.Add(janusColorScheme5);
+            this.visualStyleManager.ColorSchemes.Add(janusColorScheme6);
             // 
             // FormBase
             // 

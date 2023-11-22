@@ -2,13 +2,21 @@
 using Ophthalmology.Entity;
 using Ophthalmology.Utility.Helpers;
 using System.Text;
-using System.Xml.Linq;
 
 namespace Ophthalmology.UI.Win.Classes
 {
     public class MyApplication
     {
+        #region ~( Fields )~
+
         private static ApplicationSettings _applicationSettings;
+
+        #endregion
+
+        static MyApplication()
+        {
+            _applicationSettings = new ApplicationSettings();
+        }
 
         public static ApplicationSettings CurrentSettings
         {
@@ -29,6 +37,12 @@ namespace Ophthalmology.UI.Win.Classes
             applicationSettings.SetFormSettings(_applicationSettings);
         }
 
+        public static void SaveSettings()
+        {
+            var serialize = JsonHelper.Serialize(_applicationSettings);
+            WriteSettingsToFile(serialize);
+        }
+
         private static string ReadSettingsFromFile()
         {
             var settingsFileName = GetSettingsFileName();
@@ -43,12 +57,6 @@ namespace Ophthalmology.UI.Win.Classes
                 Directory.CreateDirectory("CustomSetting");
 
             return "CustomSetting\\ApplicationSettings.json";
-        }
-
-        public static void SaveSettings()
-        {
-            var serialize = JsonHelper.Serialize(_applicationSettings);
-            WriteSettingsToFile(serialize);
         }
 
         private static void WriteSettingsToFile(string serialize)
