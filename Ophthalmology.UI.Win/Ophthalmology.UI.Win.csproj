@@ -34,13 +34,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Janus.Data.v3">
-      <HintPath>..\Main\bin\Debug\Janus.Data.v3.dll</HintPath>
+      <HintPath>..\packages\Janus\v3\Janus.Data.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.Common.v3">
-      <HintPath>..\Main\bin\Debug\Janus.Windows.Common.v3.dll</HintPath>
+      <HintPath>..\packages\Janus\v3\Janus.Windows.Common.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.GridEX.v3">
-      <HintPath>..\Main\bin\Debug\Janus.Windows.GridEX.v3.dll</HintPath>
+      <HintPath>..\packages\Janus\v3\Janus.Windows.GridEX.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.UI.v3">
       <HintPath>..\packages\Janus\v3\Janus.Windows.UI.v3.dll</HintPath>

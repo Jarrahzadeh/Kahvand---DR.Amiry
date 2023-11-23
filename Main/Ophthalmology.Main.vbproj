@@ -62,51 +62,51 @@
   <ItemGroup>
     <Reference Include="Janus.Data.v3, Version=4.0.50.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\WorkSpaces\Other\Dr Optic Managment\packages\Janus\v3\Janus.Data.v3.dll</HintPath>
+      <HintPath>..\packages\Janus\v3\Janus.Data.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.ButtonBar.v3, Version=4.0.50.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\WorkSpaces\Other\Dr Optic Managment\packages\Janus\v3\Janus.Windows.ButtonBar.v3.dll</HintPath>
+      <HintPath>..\packages\Janus\v3\Janus.Windows.ButtonBar.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.CalendarCombo.v3, Version=4.0.50.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\WorkSpaces\Other\Dr Optic Managment\packages\Janus\v3\Janus.Windows.CalendarCombo.v3.dll</HintPath>
+      <HintPath>..\packages\Janus\v3\Janus.Windows.CalendarCombo.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.Common.v3, Version=4.0.50.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\WorkSpaces\Other\Dr Optic Managment\packages\Janus\v3\Janus.Windows.Common.v3.dll</HintPath>
+      <HintPath>..\packages\Janus\v3\Janus.Windows.Common.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.ExplorerBar.v3, Version=4.0.50.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\WorkSpaces\Other\Dr Optic Managment\packages\Janus\v3\Janus.Windows.ExplorerBar.v3.dll</HintPath>
+      <HintPath>..\packages\Janus\v3\Janus.Windows.ExplorerBar.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.FilterEditor.v3, Version=4.0.50.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\WorkSpaces\Other\Dr Optic Managment\packages\Janus\v3\Janus.Windows.FilterEditor.v3.dll</HintPath>
+      <HintPath>..\packages\Janus\v3\Janus.Windows.FilterEditor.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.GridEX.v3, Version=4.0.50.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\WorkSpaces\Other\Dr Optic Managment\packages\Janus\v3\Janus.Windows.GridEX.v3.dll</HintPath>
+      <HintPath>..\packages\Janus\v3\Janus.Windows.GridEX.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.Ribbon.v3, Version=4.0.50.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\WorkSpaces\Other\Dr Optic Managment\packages\Janus\v3\Janus.Windows.Ribbon.v3.dll</HintPath>
+      <HintPath>..\packages\Janus\v3\Janus.Windows.Ribbon.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.Schedule.v3, Version=4.0.50.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\WorkSpaces\Other\Dr Optic Managment\packages\Janus\v3\Janus.Windows.Schedule.v3.dll</HintPath>
+      <HintPath>..\packages\Janus\v3\Janus.Windows.Schedule.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.TimeLine.v3, Version=4.0.50.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\WorkSpaces\Other\Dr Optic Managment\packages\Janus\v3\Janus.Windows.TimeLine.v3.dll</HintPath>
+      <HintPath>..\packages\Janus\v3\Janus.Windows.TimeLine.v3.dll</HintPath>
     </Reference>
     <Reference Include="Janus.Windows.UI.v3, Version=4.0.50.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\WorkSpaces\Other\Dr Optic Managment\packages\Janus\v3\Janus.Windows.UI.v3.dll</HintPath>
+      <HintPath>..\packages\Janus\v3\Janus.Windows.UI.v3.dll</HintPath>
     </Reference>
     <Reference Include="ShamsiDatePicker, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>D:\WorkSpaces\Other\Dr Optic Managment\packages\ShamsiDatePicker.dll</HintPath>
+      <HintPath>..\packages\ShamsiDatePicker.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
