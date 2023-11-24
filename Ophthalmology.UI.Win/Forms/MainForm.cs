@@ -1,14 +1,12 @@
-﻿using System.Windows.Forms;
+﻿using Ophthalmology.Controls.CustomForms;
 
 namespace Ophthalmology.UI.Win.Forms
 {
-    public partial class MainForm : Form
+    public partial class MainForm : CustomizableFormBase
     {
         public MainForm()
         {
             InitializeComponent();
-
-            new SettingsForm().ShowDialog();
         }
     }
 }
