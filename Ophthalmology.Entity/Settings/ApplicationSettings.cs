@@ -23,6 +23,7 @@ namespace Ophthalmology.Entity.Settings
         {
             applicationSettings.Font = Font;
             applicationSettings.Theme = Theme;
+            applicationSettings.UserType = UserType;
         }
 
         #endregion

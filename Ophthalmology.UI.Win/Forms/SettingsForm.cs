@@ -14,8 +14,6 @@ namespace Ophthalmology.UI.Win.Forms
         {
             InitializeComponent();
 
-            MyApplication.LoadSettings();
-
             InitThemeCombobox();
 
             InitFontCombobox();

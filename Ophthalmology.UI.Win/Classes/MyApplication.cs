@@ -1,5 +1,4 @@
 ﻿using System.IO;
-using Ophthalmology.Entity;
 using Ophthalmology.Utility.Helpers;
 using System.Text;
 using Ophthalmology.Entity.Settings;
@@ -14,24 +13,9 @@ namespace Ophthalmology.UI.Win.Classes
 
         #endregion
 
-        static MyApplication()
-        {
-            _applicationSettings = new ApplicationSettings();
-        }
+        #region ~( Methods )~
 
-        public static ApplicationSettings CurrentSettings
-        {
-            get
-            {
-                if (_applicationSettings == null)
-                {
-                    _applicationSettings = new ApplicationSettings();
-                }
-                return _applicationSettings;
-            }
-        }
-
-        public static void LoadSettings()
+        private static void LoadSettings()
         {
             var jsonFormSetting = ReadSettingsFromFile();
             var applicationSettings = JsonHelper.DeSerialize<ApplicationSettings>(jsonFormSetting);
@@ -64,5 +48,26 @@ namespace Ophthalmology.UI.Win.Classes
         {
             File.WriteAllText(GetSettingsFileName(), serialize, Encoding.UTF8);
         }
+
+        #endregion
+
+        #region ~( Properties )~
+
+        public static ApplicationSettings CurrentSettings
+        {
+            get
+            {
+                if (_applicationSettings == null)
+                {
+                    _applicationSettings = new ApplicationSettings();
+                    LoadSettings();
+                }
+
+                return _applicationSettings;
+
+            }
+        }
+
+        #endregion
     }
 }

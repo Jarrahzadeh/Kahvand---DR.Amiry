@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -42,9 +43,11 @@
             this.RadioButtonDocter = new Janus.Windows.EditControls.UIRadioButton();
             this.label3 = new System.Windows.Forms.Label();
             this.ComboBoxDoctors = new Janus.Windows.EditControls.UIComboBox();
+            this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiGroupBox1)).BeginInit();
             this.uiGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -126,7 +129,7 @@
             this.ButtonLogin.Location = new System.Drawing.Point(198, 260);
             this.ButtonLogin.Name = "ButtonLogin";
             this.ButtonLogin.Size = new System.Drawing.Size(125, 44);
-            this.ButtonLogin.TabIndex = 5;
+            this.ButtonLogin.TabIndex = 7;
             this.ButtonLogin.Text = "ورود";
             this.ButtonLogin.VisualStyleManager = this.visualStyleManager;
             this.ButtonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
@@ -137,7 +140,7 @@
             this.ButtonCancel.Location = new System.Drawing.Point(67, 260);
             this.ButtonCancel.Name = "ButtonCancel";
             this.ButtonCancel.Size = new System.Drawing.Size(125, 44);
-            this.ButtonCancel.TabIndex = 6;
+            this.ButtonCancel.TabIndex = 8;
             this.ButtonCancel.Text = "انصراف";
             this.ButtonCancel.VisualStyleManager = this.visualStyleManager;
             this.ButtonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
@@ -153,7 +156,7 @@
             this.uiGroupBox1.Name = "uiGroupBox1";
             this.tableLayoutPanel1.SetRowSpan(this.uiGroupBox1, 2);
             this.uiGroupBox1.Size = new System.Drawing.Size(250, 128);
-            this.uiGroupBox1.TabIndex = 4;
+            this.uiGroupBox1.TabIndex = 6;
             this.uiGroupBox1.Text = "نوع کاربری";
             this.uiGroupBox1.VisualStyleManager = this.visualStyleManager;
             // 
@@ -194,7 +197,7 @@
             this.label3.Location = new System.Drawing.Point(329, 82);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(97, 41);
-            this.label3.TabIndex = 7;
+            this.label3.TabIndex = 4;
             this.label3.Text = "پزشک";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
@@ -202,11 +205,18 @@
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.ComboBoxDoctors, 2);
             this.ComboBoxDoctors.ComboStyle = Janus.Windows.EditControls.ComboStyle.DropDownList;
+            this.ComboBoxDoctors.DataSource = this.bindingSource1;
+            this.ComboBoxDoctors.DisplayMember = "Name";
             this.ComboBoxDoctors.Location = new System.Drawing.Point(73, 85);
             this.ComboBoxDoctors.Name = "ComboBoxDoctors";
             this.ComboBoxDoctors.Size = new System.Drawing.Size(250, 35);
-            this.ComboBoxDoctors.TabIndex = 8;
+            this.ComboBoxDoctors.TabIndex = 5;
+            this.ComboBoxDoctors.ValueMember = "Id";
             this.ComboBoxDoctors.VisualStyleManager = this.visualStyleManager;
+            // 
+            // bindingSource1
+            // 
+            this.bindingSource1.DataSource = typeof(Ophthalmology.Entity.Entites.Doctor);
             // 
             // LoginForm
             // 
@@ -223,10 +233,12 @@
             this.Padding = new System.Windows.Forms.Padding(10);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ورود به سیستم";
+            this.Shown += new System.EventHandler(this.LoginForm_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiGroupBox1)).EndInit();
             this.uiGroupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -246,5 +258,6 @@
         private Janus.Windows.EditControls.UIRadioButton RadioButtonDocter;
         private System.Windows.Forms.Label label3;
         private Janus.Windows.EditControls.UIComboBox ComboBoxDoctors;
+        private System.Windows.Forms.BindingSource bindingSource1;
     }
 }

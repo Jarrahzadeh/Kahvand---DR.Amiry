@@ -62,7 +62,7 @@ namespace Ophthalmology.UI.Win.Classes
 
         private static void ApplicationOnThreadExit(object sender, EventArgs e)
         {
-
+            MyApplication.SaveSettings();
         }
 
         private static void Application_Idle(object sender, EventArgs e)
@@ -72,7 +72,8 @@ namespace Ophthalmology.UI.Win.Classes
 
         private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
         {
-            MessageBox.Show(e.Exception.GetMessage());
+            e.Exception.Log();
+            MessageBox.Show(e.Exception.GetMessage(), "خطا مدیریت نشده در برنامه", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

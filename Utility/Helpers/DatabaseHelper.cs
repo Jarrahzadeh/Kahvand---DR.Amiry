@@ -151,6 +151,10 @@ namespace Ophthalmology.Utility.Helpers
                 {
                     var propertyInfo = item.GetType().GetProperties().First(p => p.Name == dataColumn.ColumnName);
                     var value = dataRow[dataColumn];
+                    if (value is DBNull)
+                    {
+                        value = null;
+                    }
                     propertyInfo.SetValue(item, value);
                 }
                 result.Add(item);
@@ -171,7 +175,7 @@ namespace Ophthalmology.Utility.Helpers
             {
                 var fields = GetWhereClauseScript(whereClause, parameters);
                 if (!string.IsNullOrWhiteSpace(fields))
-                    script += $" WHERE {fields}";
+                    script += $" WHERE{fields}";
             }
 
             try

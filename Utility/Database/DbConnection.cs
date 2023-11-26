@@ -7,12 +7,22 @@ namespace Ophthalmology.Utility.Database
 {
     public class DbConnection : IDisposable
     {
+        #region ~( Fields )~
+
         private readonly OleDbConnection _oleDbConnection;
+
+        #endregion
+
+        #region ~( Constructors )~
 
         public DbConnection(string connectionString)
         {
             _oleDbConnection = new OleDbConnection(connectionString);
         }
+
+        #endregion
+
+        #region ~( Methods )~
 
         public void Dispose()
         {
@@ -56,5 +66,7 @@ namespace Ophthalmology.Utility.Database
             }
             return dataTable;
         }
+
+        #endregion
     }
 }
