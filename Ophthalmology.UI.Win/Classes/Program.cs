@@ -1,5 +1,7 @@
 ﻿using System;
+using System.IO;
 using System.Windows.Forms;
+using Ophthalmology.Entity.Entites;
 using Ophthalmology.UI.Win.Forms;
 using Ophthalmology.Utility.Helpers;
 
@@ -13,33 +15,64 @@ namespace Ophthalmology.UI.Win.Classes
         [STAThread]
         static void Main()
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.ThreadException += Application_ThreadException;
+            Application.ThreadExit += ApplicationOnThreadExit;
+            Application.Idle += Application_Idle;
 
             CultureHelper.SetCultureToPersian();
             CultureHelper.SetInputLanguageToPersian();
-            var logedIn = Login();
-            if (logedIn)
+            CheckImagesFolder();
+
+            var isAvailable = DatabaseHelper.DatabaseIsAvailable();
+            if (!isAvailable)
             {
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
+                MessageBox.Show("در باز کردن بانک اطلاعاتی خطلای پیش آمده", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                return;
+            }
+
+            var logIn = Login();
+            if (logIn)
+            {
                 Application.Run(new MainForm());
             }
+        }
+        
+        private static void CheckImagesFolder()
+        {
+            if (!Directory.Exists("Images"))
+                Directory.CreateDirectory("Images");
         }
 
         private static bool Login()
         {
             var loginForm = new LoginForm();
-            var dialogResult = loginForm.ShowDialog();
-            if (dialogResult == DialogResult.OK)
+            var doctors = DatabaseHelper.Select<Doctor>();
+            if (doctors == null || doctors.Count <= 0)
             {
-                return true;
+                MessageBox.Show("پزشکی برای برنامه تعریف نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
-            return false;
+
+            loginForm.PopulateUserTypeComboBox(doctors);
+            var dialogResult = loginForm.ShowDialog();
+            return dialogResult == DialogResult.OK;
+        }
+
+        private static void ApplicationOnThreadExit(object sender, EventArgs e)
+        {
+
+        }
+
+        private static void Application_Idle(object sender, EventArgs e)
+        {
+
         }
 
         private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
         {
-
+            MessageBox.Show(e.Exception.GetMessage());
         }
     }
 }

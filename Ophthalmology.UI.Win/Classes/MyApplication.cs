@@ -2,6 +2,7 @@
 using Ophthalmology.Entity;
 using Ophthalmology.Utility.Helpers;
 using System.Text;
+using Ophthalmology.Entity.Settings;
 
 namespace Ophthalmology.UI.Win.Classes
 {

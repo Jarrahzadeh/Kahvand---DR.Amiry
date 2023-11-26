@@ -42,14 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationFont.cs" />
-    <Compile Include="ApplicationSettings.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="EntityBase.cs" />
+    <Compile Include="Entites\Doctor.cs" />
+    <Compile Include="Entites\User.cs" />
+    <Compile Include="Enums\UserType.cs" />
+    <Compile Include="Settings\ApplicationSettings.cs" />
+    <Compile Include="Entites\Customer.cs" />
+    <Compile Include="Entites\EntityBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entites\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,6 @@
-﻿namespace Ophthalmology.UI.Win.Forms
+﻿using Ophthalmology.Entity.Entites;
+
+namespace Ophthalmology.UI.Win.Forms
 {
     partial class CustomersForm
     {
@@ -95,7 +97,7 @@
             // 
             // bindingSourceGridCustomer
             // 
-            this.bindingSourceGridCustomer.DataSource = typeof(Ophthalmology.Entity.Customer);
+            this.bindingSourceGridCustomer.DataSource = typeof(Customer);
             // 
             // CustomersForm
             // 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
+using System.Linq;
 using Ophthalmology.Utility.Classes;
 using Ophthalmology.Utility.Database;
 
@@ -41,10 +42,18 @@ namespace Ophthalmology.Utility.Helpers
 
             var script = $" INSERT INTO {tableName} ({fields}) VALUES ({values})";
 
-            using (var dbConnection = new DbConnection(Settings.ConnectionString))
+            try
             {
-                dbConnection.Open();
-                return dbConnection.ExecuteCommand(script, parameters);
+                using (var dbConnection = new DbConnection(Config.ConnectionString))
+                {
+                    dbConnection.Open();
+                    return dbConnection.ExecuteCommand(script, parameters);
+                }
+            }
+            catch (Exception e)
+            {
+                e.Log();
+                return -1;
             }
         }
 
@@ -79,10 +88,18 @@ namespace Ophthalmology.Utility.Helpers
             var script = $"UPDATE {tableName} SET {fields} WHERE {filedNameAndValues[0].Item1} = @{filedNameAndValues[0].Item1}";
 
             int rowsAffectedCount;
-            using (var dbConnection = new DbConnection(Settings.ConnectionString))
+            try
             {
-                dbConnection.Open();
-                rowsAffectedCount = dbConnection.ExecuteCommand(script, parameters);
+                using (var dbConnection = new DbConnection(Config.ConnectionString))
+                {
+                    dbConnection.Open();
+                    rowsAffectedCount = dbConnection.ExecuteCommand(script, parameters);
+                }
+            }
+            catch (Exception e)
+            {
+                e.Log();
+                rowsAffectedCount = -1;
             }
 
             return rowsAffectedCount;
@@ -105,11 +122,40 @@ namespace Ophthalmology.Utility.Helpers
                     script += $" WHERE {fields}";
             }
 
-            using (var dbConnection = new DbConnection(Settings.ConnectionString))
+            try
             {
-                dbConnection.Open();
-                return dbConnection.ExecuteCommand(script, parameters);
+                using (var dbConnection = new DbConnection(Config.ConnectionString))
+                {
+                    dbConnection.Open();
+                    return dbConnection.ExecuteCommand(script, parameters);
+                }
             }
+            catch (Exception e)
+            {
+                e.Log();
+                return -1;
+            }
+        }
+
+        public static List<T> Select<T>(string tableName = "", string selectFields = "*", List<Tuple<string, Type, object, string>> whereClause = default) where T : Entity.Entites.EntityBase, new()
+        {
+            if (string.IsNullOrEmpty(tableName))
+                tableName = new T().TableName;
+
+            var dataTable = Select(tableName, selectFields, whereClause);
+            var result = new List<T>();
+            foreach (DataRow dataRow in dataTable.Rows)
+            {
+                var item = new T();
+                foreach (DataColumn dataColumn in dataTable.Columns)
+                {
+                    var propertyInfo = item.GetType().GetProperties().First(p => p.Name == dataColumn.ColumnName);
+                    var value = dataRow[dataColumn];
+                    propertyInfo.SetValue(item, value);
+                }
+                result.Add(item);
+            }
+            return result;
         }
 
         public static DataTable Select(string tableName, string selectFields = "*", List<Tuple<string, Type, object, string>> whereClause = default)
@@ -128,11 +174,19 @@ namespace Ophthalmology.Utility.Helpers
                     script += $" WHERE {fields}";
             }
 
-            using (var dbConnection = new DbConnection(Settings.ConnectionString))
+            try
             {
-                dbConnection.Open();
-                var dataTable = dbConnection.RetrieveDataTable(script, parameters);
-                return dataTable;
+                using (var dbConnection = new DbConnection(Config.ConnectionString))
+                {
+                    dbConnection.Open();
+                    var dataTable = dbConnection.RetrieveDataTable(script, parameters);
+                    return dataTable;
+                }
+            }
+            catch (Exception e)
+            {
+                e.Log();
+                return new DataTable();
             }
         }
 
@@ -159,15 +213,16 @@ namespace Ophthalmology.Utility.Helpers
         {
             try
             {
-                using (var dbConnection = new DbConnection(Settings.ConnectionString))
+                using (var dbConnection = new DbConnection(Config.ConnectionString))
                 {
                     dbConnection.Open();
                 }
 
                 return true;
             }
-            catch
+            catch(Exception e)
             {
+                e.Log();
                 return false;
             }
         }
