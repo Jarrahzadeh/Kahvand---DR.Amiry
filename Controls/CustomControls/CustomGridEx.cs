@@ -4,7 +4,19 @@ namespace Ophthalmology.Controls.CustomControls
 {
     public class CustomGridEx : GridEX
     {
+        private System.Windows.Forms.ContextMenuStrip contextMenuGridRightClick;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemGrouping;
+        private System.Windows.Forms.ToolStripMenuItem MenuItemColumnSelector;
+        private System.ComponentModel.IContainer components;
+
         public CustomGridEx()
+        {
+            InitializeComponent();
+
+            InitGrid();
+        }
+
+        private void InitGrid()
         {
             RootTable = new GridEXTable
             {
@@ -16,18 +28,17 @@ namespace Ophthalmology.Controls.CustomControls
                 AllowRemoveColumns = InheritableBoolean.False,
                 CellToolTip = CellToolTip.UseCellToolTipText
             };
-
-
-            BuiltInTexts[GridEXBuiltInText.GroupByBoxInfo] = "سطری را جهت گروه بندی به اینجا بکشید";
             
+            BuiltInTexts[GridEXBuiltInText.GroupByBoxInfo] = "سطری را جهت گروه بندی به اینجا بکشید";
+
             BuiltInTexts[GridEXBuiltInText.CalendarNoneButton] = "هیچی";
             BuiltInTexts[GridEXBuiltInText.CalendarTodayButton] = "امروز";
-            
+
             BuiltInTexts[GridEXBuiltInText.RecordNavigator] = "سطر|از";
             BuiltInTexts[GridEXBuiltInText.RecordNavigatorError] = "خطا";
-            
+
             BuiltInTexts[GridEXBuiltInText.EmptyGridInfo] = "لیست خالی است و موردی ثبت نشده است";
-            
+
             BuiltInTexts[GridEXBuiltInText.OutlookDateEmpty] = "";
             BuiltInTexts[GridEXBuiltInText.OutlookDateOlder] = "";
             BuiltInTexts[GridEXBuiltInText.OutlookDateLastMonth] = "";
@@ -47,7 +58,7 @@ namespace Ophthalmology.Controls.CustomControls
 
             BuiltInTexts[GridEXBuiltInText.DropDownOkButton] = "تایید";
             BuiltInTexts[GridEXBuiltInText.DropDownCancelButton] = "انصراف";
-            
+
             BuiltInTexts[GridEXBuiltInText.FilterRowInfoText] = "فیلتر";
             BuiltInTexts[GridEXBuiltInText.FilterRowConditionEqual] = "برابر";
             BuiltInTexts[GridEXBuiltInText.FilterRowConditionNotEqual] = "نابرابر";
@@ -62,6 +73,54 @@ namespace Ophthalmology.Controls.CustomControls
             BuiltInTexts[GridEXBuiltInText.FilterRowConditionIsEmpty] = "خالی";
             BuiltInTexts[GridEXBuiltInText.FilterRowConditionNotIsEmpty] = "پر";
             BuiltInTexts[GridEXBuiltInText.FilterRowConditionClear] = "پاک کردن";
+        }
+
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.contextMenuGridRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.MenuItemGrouping = new System.Windows.Forms.ToolStripMenuItem();
+            this.MenuItemColumnSelector = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuGridRightClick.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // contextMenuGridRightClick
+            // 
+            this.contextMenuGridRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.MenuItemGrouping,
+            this.MenuItemColumnSelector});
+            this.contextMenuGridRightClick.Name = "contextMenuGridRightClick";
+            this.contextMenuGridRightClick.Size = new System.Drawing.Size(157, 48);
+            // 
+            // MenuItemGrouping
+            // 
+            this.MenuItemGrouping.CheckOnClick = true;
+            this.MenuItemGrouping.Name = "MenuItemGrouping";
+            this.MenuItemGrouping.Size = new System.Drawing.Size(156, 22);
+            this.MenuItemGrouping.Text = "نمایش گروهبندی";
+            this.MenuItemGrouping.Click += new System.EventHandler(this.MenuItemGrouping_Click);
+            // 
+            // MenuItemColumnSelector
+            // 
+            this.MenuItemColumnSelector.Name = "MenuItemColumnSelector";
+            this.MenuItemColumnSelector.Size = new System.Drawing.Size(156, 22);
+            this.MenuItemColumnSelector.Text = "لیست ستون ها";
+            this.MenuItemColumnSelector.Click += new System.EventHandler(this.MenuItemColumnSelector_Click);
+            this.contextMenuGridRightClick.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        private void MenuItemGrouping_Click(object sender, System.EventArgs e)
+        {
+            GroupByBoxVisible = MenuItemGrouping.Visible;
+        }
+
+        private void MenuItemColumnSelector_Click(object sender, System.EventArgs e)
+        {
+            ShowFieldChooser(ParentForm, "انتخاب ستون ها");
         }
     }
 }
