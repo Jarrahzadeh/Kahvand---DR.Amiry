@@ -89,6 +89,9 @@
     <EmbeddedResource Include="CustomControls\ChatControl.resx">
       <DependentUpon>ChatControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CustomControls\CustomGridEx.resx">
+      <DependentUpon>CustomGridEx.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\UserControlBase.resx">
       <DependentUpon>UserControlBase.cs</DependentUpon>
     </EmbeddedResource>
