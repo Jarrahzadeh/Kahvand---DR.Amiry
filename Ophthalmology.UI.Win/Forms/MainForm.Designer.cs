@@ -41,6 +41,7 @@
             this.uiGroupBox1 = new Janus.Windows.EditControls.UIGroupBox();
             this.TextBoxDoctor = new Janus.Windows.GridEX.EditControls.EditBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ButtonSettings = new Janus.Windows.EditControls.UIButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.LabelCurrentUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.LabelCurrentUserValue = new System.Windows.Forms.ToolStripStatusLabel();
@@ -69,23 +70,25 @@
             this.tableLayoutPanel1.Controls.Add(this.ButtonRestore, 2, 2);
             this.tableLayoutPanel1.Controls.Add(this.ButtonChat, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.uiGroupBox1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ButtonSettings, 2, 4);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(10, 10);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel1.RowCount = 5;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(664, 409);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // ButtonExit
             // 
             this.ButtonExit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ButtonExit.Location = new System.Drawing.Point(541, 309);
+            this.ButtonExit.Location = new System.Drawing.Point(541, 246);
             this.ButtonExit.Name = "ButtonExit";
-            this.ButtonExit.Size = new System.Drawing.Size(120, 97);
+            this.ButtonExit.Size = new System.Drawing.Size(120, 75);
             this.ButtonExit.TabIndex = 7;
             this.ButtonExit.Text = "خروج (Esc)";
             this.ButtonExit.VisualStyleManager = this.visualStyleManager;
@@ -96,7 +99,7 @@
             this.ButtonCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ButtonCustomers.Location = new System.Drawing.Point(541, 3);
             this.ButtonCustomers.Name = "ButtonCustomers";
-            this.ButtonCustomers.Size = new System.Drawing.Size(120, 96);
+            this.ButtonCustomers.Size = new System.Drawing.Size(120, 75);
             this.ButtonCustomers.TabIndex = 0;
             this.ButtonCustomers.Text = "اشخاص";
             this.ButtonCustomers.VisualStyleManager = this.visualStyleManager;
@@ -105,9 +108,9 @@
             // ButtonVisilList
             // 
             this.ButtonVisilList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ButtonVisilList.Location = new System.Drawing.Point(541, 105);
+            this.ButtonVisilList.Location = new System.Drawing.Point(541, 84);
             this.ButtonVisilList.Name = "ButtonVisilList";
-            this.ButtonVisilList.Size = new System.Drawing.Size(120, 96);
+            this.ButtonVisilList.Size = new System.Drawing.Size(120, 75);
             this.ButtonVisilList.TabIndex = 1;
             this.ButtonVisilList.Text = "رزرو ویزیت";
             this.ButtonVisilList.VisualStyleManager = this.visualStyleManager;
@@ -115,9 +118,9 @@
             // ButtonReports
             // 
             this.ButtonReports.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ButtonReports.Location = new System.Drawing.Point(541, 207);
+            this.ButtonReports.Location = new System.Drawing.Point(541, 165);
             this.ButtonReports.Name = "ButtonReports";
-            this.ButtonReports.Size = new System.Drawing.Size(120, 96);
+            this.ButtonReports.Size = new System.Drawing.Size(120, 75);
             this.ButtonReports.TabIndex = 2;
             this.ButtonReports.Text = "گزارشات";
             this.ButtonReports.VisualStyleManager = this.visualStyleManager;
@@ -127,7 +130,7 @@
             this.ButtonUsers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ButtonUsers.Location = new System.Drawing.Point(3, 3);
             this.ButtonUsers.Name = "ButtonUsers";
-            this.ButtonUsers.Size = new System.Drawing.Size(121, 96);
+            this.ButtonUsers.Size = new System.Drawing.Size(121, 75);
             this.ButtonUsers.TabIndex = 3;
             this.ButtonUsers.Text = "کاربران";
             this.ButtonUsers.VisualStyleManager = this.visualStyleManager;
@@ -135,9 +138,9 @@
             // ButtonBackup
             // 
             this.ButtonBackup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ButtonBackup.Location = new System.Drawing.Point(3, 105);
+            this.ButtonBackup.Location = new System.Drawing.Point(3, 84);
             this.ButtonBackup.Name = "ButtonBackup";
-            this.ButtonBackup.Size = new System.Drawing.Size(121, 96);
+            this.ButtonBackup.Size = new System.Drawing.Size(121, 75);
             this.ButtonBackup.TabIndex = 4;
             this.ButtonBackup.Text = "پشتیبان گیری";
             this.ButtonBackup.VisualStyleManager = this.visualStyleManager;
@@ -145,9 +148,9 @@
             // ButtonRestore
             // 
             this.ButtonRestore.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ButtonRestore.Location = new System.Drawing.Point(3, 207);
+            this.ButtonRestore.Location = new System.Drawing.Point(3, 165);
             this.ButtonRestore.Name = "ButtonRestore";
-            this.ButtonRestore.Size = new System.Drawing.Size(121, 96);
+            this.ButtonRestore.Size = new System.Drawing.Size(121, 75);
             this.ButtonRestore.TabIndex = 5;
             this.ButtonRestore.Text = "بازگردانی پشتیبان";
             this.ButtonRestore.VisualStyleManager = this.visualStyleManager;
@@ -155,9 +158,9 @@
             // ButtonChat
             // 
             this.ButtonChat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ButtonChat.Location = new System.Drawing.Point(3, 309);
+            this.ButtonChat.Location = new System.Drawing.Point(3, 246);
             this.ButtonChat.Name = "ButtonChat";
-            this.ButtonChat.Size = new System.Drawing.Size(121, 97);
+            this.ButtonChat.Size = new System.Drawing.Size(121, 75);
             this.ButtonChat.TabIndex = 6;
             this.ButtonChat.Text = "چت";
             this.ButtonChat.VisualStyleManager = this.visualStyleManager;
@@ -170,7 +173,7 @@
             this.uiGroupBox1.Location = new System.Drawing.Point(137, 10);
             this.uiGroupBox1.Margin = new System.Windows.Forms.Padding(10);
             this.uiGroupBox1.Name = "uiGroupBox1";
-            this.tableLayoutPanel1.SetRowSpan(this.uiGroupBox1, 4);
+            this.tableLayoutPanel1.SetRowSpan(this.uiGroupBox1, 5);
             this.uiGroupBox1.Size = new System.Drawing.Size(391, 389);
             this.uiGroupBox1.TabIndex = 8;
             this.uiGroupBox1.VisualStyleManager = this.visualStyleManager;
@@ -195,9 +198,19 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "پزشک";
             // 
+            // ButtonSettings
+            // 
+            this.ButtonSettings.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ButtonSettings.Location = new System.Drawing.Point(3, 327);
+            this.ButtonSettings.Name = "ButtonSettings";
+            this.ButtonSettings.Size = new System.Drawing.Size(121, 79);
+            this.ButtonSettings.TabIndex = 6;
+            this.ButtonSettings.Text = "تنظیمات";
+            this.ButtonSettings.VisualStyleManager = this.visualStyleManager;
+            this.ButtonSettings.Click += new System.EventHandler(this.ButtonSettings_Click);
+            // 
             // statusStrip1
             // 
-            this.statusStrip1.Font = new System.Drawing.Font("B Zar", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.LabelCurrentUser,
             this.LabelCurrentUserValue,
@@ -218,7 +231,6 @@
             // 
             // LabelCurrentUserValue
             // 
-            this.LabelCurrentUserValue.Font = new System.Drawing.Font("B Zar", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.LabelCurrentUserValue.Name = "LabelCurrentUserValue";
             this.LabelCurrentUserValue.Size = new System.Drawing.Size(41, 27);
             this.LabelCurrentUserValue.Text = "کاربر";
@@ -231,7 +243,6 @@
             // 
             // LabelDoctorName
             // 
-            this.LabelDoctorName.Font = new System.Drawing.Font("B Zar", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.LabelDoctorName.Name = "LabelDoctorName";
             this.LabelDoctorName.Size = new System.Drawing.Size(470, 27);
             this.LabelDoctorName.Spring = true;
@@ -252,7 +263,7 @@
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(684, 461);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
@@ -293,5 +304,6 @@
         private System.Windows.Forms.ToolStripStatusLabel LabelDoctorName;
         private System.Windows.Forms.ToolStripStatusLabel LabelDateTime;
         private System.Windows.Forms.Timer timer1;
+        private Janus.Windows.EditControls.UIButton ButtonSettings;
     }
 }

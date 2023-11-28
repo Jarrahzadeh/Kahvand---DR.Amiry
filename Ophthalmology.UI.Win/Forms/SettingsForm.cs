@@ -3,7 +3,6 @@ using System.Linq;
 using System.Windows.Forms;
 using Janus.Windows.Common;
 using Janus.Windows.EditControls;
-using Ophthalmology.Controls.CustomForms;
 using Ophthalmology.UI.Win.Classes;
 
 namespace Ophthalmology.UI.Win.Forms
@@ -55,7 +54,20 @@ namespace Ophthalmology.UI.Win.Forms
         private void SaveButton_Click(object sender, System.EventArgs e)
         {
             MyApplication.SaveSettings();
+            ApplyThemeToAll();
             MessageBox.Show("تنظیمات با موفقیت ذخیره گردید");
+        }
+
+        private void ApplyThemeToAll()
+        {
+            foreach (Form openForm in Application.OpenForms)
+            {
+                if (openForm is FormBase formBase)
+                {
+                    formBase.visualStyleManager.DefaultColorScheme = MyApplication.CurrentSettings.Theme;
+                }
+                openForm.Font = MyApplication.CurrentSettings.Font;
+            }
         }
 
         private void ThemeComboBox_SelectedValueChanged(object sender, System.EventArgs e)

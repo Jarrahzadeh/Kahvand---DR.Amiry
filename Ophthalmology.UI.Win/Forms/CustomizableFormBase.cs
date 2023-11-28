@@ -5,7 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using Ophthalmology.Utility.Helpers;
 
-namespace Ophthalmology.Controls.CustomForms
+namespace Ophthalmology.UI.Win.Forms
 {
     public partial class CustomizableFormBase : FormBase
     {

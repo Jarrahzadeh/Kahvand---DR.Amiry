@@ -483,7 +483,6 @@
             this.datePicker1.BackColor = System.Drawing.SystemColors.Control;
             this.datePicker1.Date = "1402/09/07";
             this.datePicker1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.datePicker1.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.datePicker1.Location = new System.Drawing.Point(387, 86);
             this.datePicker1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.datePicker1.MaximumSize = new System.Drawing.Size(300, 23);
@@ -505,17 +504,11 @@
             // 
             // customGridEx1
             // 
-            //this.customGridEx1.AlternatingColors = true;
             this.customGridEx1.BuiltInTextsData = resources.GetString("customGridEx1.BuiltInTextsData");
-            //this.customGridEx1.ColumnAutoResize = true;
             this.customGridEx1.DataSource = this.bindingSourceCustomers;
             customGridEx1_DesignTimeLayout.LayoutString = resources.GetString("customGridEx1_DesignTimeLayout.LayoutString");
             this.customGridEx1.DesignTimeLayout = customGridEx1_DesignTimeLayout;
             this.customGridEx1.Dock = System.Windows.Forms.DockStyle.Fill;
-            //this.customGridEx1.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic;
-            //this.customGridEx1.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
-            //this.customGridEx1.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
-            this.customGridEx1.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold);
             this.customGridEx1.Location = new System.Drawing.Point(3, 31);
             this.customGridEx1.Name = "customGridEx1";
             this.customGridEx1.Size = new System.Drawing.Size(905, 281);

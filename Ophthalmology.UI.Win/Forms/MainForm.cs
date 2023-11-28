@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using Ophthalmology.Controls.CustomForms;
 using Ophthalmology.UI.Win.Classes;
 using Ophthalmology.Utility.Helpers;
 
@@ -68,6 +67,12 @@ namespace Ophthalmology.UI.Win.Forms
             var customerForm = new CustomersForm();
             customerForm.Text += $" - {MyApplication.DrName}";
             customerForm.ShowDialog();
+        }
+
+        private void ButtonSettings_Click(object sender, EventArgs e)
+        {
+            var settingsForm = new SettingsForm();
+            settingsForm.ShowDialog(this);
         }
 
         #endregion

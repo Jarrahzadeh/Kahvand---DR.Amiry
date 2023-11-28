@@ -1,4 +1,4 @@
-﻿namespace Ophthalmology.Controls.CustomForms
+﻿namespace Ophthalmology.UI.Win.Forms
 {
     partial class CustomizableFormBase
     {

@@ -1,4 +1,4 @@
-﻿namespace Ophthalmology.Controls.CustomForms
+﻿namespace Ophthalmology.UI.Win.Forms
 {
     partial class FormBase
     {
@@ -77,7 +77,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(334, 245);
-            this.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormBase";
             this.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
