@@ -49,23 +49,19 @@ namespace Ophthalmology.Controls.CustomControls
             BuiltInTexts[GridEXBuiltInText.DropDownCancelButton] = "انصراف";
             
             BuiltInTexts[GridEXBuiltInText.FilterRowInfoText] = "فیلتر";
-            BuiltInTexts[GridEXBuiltInText.FilterRowConditionEqual] = "";
-            BuiltInTexts[GridEXBuiltInText.FilterRowConditionNotEqual] = "";
-            BuiltInTexts[GridEXBuiltInText.FilterRowConditionGreaterThan] = "";
-            BuiltInTexts[GridEXBuiltInText.FilterRowConditionGreaterThanOrEqual] = "";
-            BuiltInTexts[GridEXBuiltInText.FilterRowConditionLessThan] = "";
-            BuiltInTexts[GridEXBuiltInText.FilterRowConditionLessThanOrEqual] = "";
-            BuiltInTexts[GridEXBuiltInText.FilterRowConditionContains] = "";
-            BuiltInTexts[GridEXBuiltInText.FilterRowConditionNotContains] = "";
-            BuiltInTexts[GridEXBuiltInText.FilterRowConditionEndsWith] = "";
-            BuiltInTexts[GridEXBuiltInText.FilterRowConditionBeginsWith] = "";
-            BuiltInTexts[GridEXBuiltInText.FilterRowConditionIsEmpty] = "";
-            BuiltInTexts[GridEXBuiltInText.FilterRowConditionNotIsEmpty] = "";
-            BuiltInTexts[GridEXBuiltInText.FilterRowConditionClear] = "";
-
-            GroupByBoxVisible = false;
-            Office2007ColorScheme = Office2007ColorScheme.Blue;
-            VisualStyle = VisualStyle.Office2007;
+            BuiltInTexts[GridEXBuiltInText.FilterRowConditionEqual] = "برابر";
+            BuiltInTexts[GridEXBuiltInText.FilterRowConditionNotEqual] = "نابرابر";
+            BuiltInTexts[GridEXBuiltInText.FilterRowConditionGreaterThan] = "بزرگتر از";
+            BuiltInTexts[GridEXBuiltInText.FilterRowConditionGreaterThanOrEqual] = "بزرگتر یا برابر";
+            BuiltInTexts[GridEXBuiltInText.FilterRowConditionLessThan] = "کوچکتر از";
+            BuiltInTexts[GridEXBuiltInText.FilterRowConditionLessThanOrEqual] = "کوچکتر یا برابر";
+            BuiltInTexts[GridEXBuiltInText.FilterRowConditionContains] = "شامل";
+            BuiltInTexts[GridEXBuiltInText.FilterRowConditionNotContains] = "شامل نشود";
+            BuiltInTexts[GridEXBuiltInText.FilterRowConditionEndsWith] = "پایان با";
+            BuiltInTexts[GridEXBuiltInText.FilterRowConditionBeginsWith] = "شروع با";
+            BuiltInTexts[GridEXBuiltInText.FilterRowConditionIsEmpty] = "خالی";
+            BuiltInTexts[GridEXBuiltInText.FilterRowConditionNotIsEmpty] = "پر";
+            BuiltInTexts[GridEXBuiltInText.FilterRowConditionClear] = "پاک کردن";
         }
     }
 }

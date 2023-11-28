@@ -24,7 +24,9 @@
 
         public string DateSave { get; set; }
 
-        public string DrId { get; set; }
+        public int DrId { get; set; }
+        
+        public int IdTypePatient { get; set; }
 
         public override string TableName => "Customer";
     }

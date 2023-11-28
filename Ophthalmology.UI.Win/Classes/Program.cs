@@ -35,7 +35,8 @@ namespace Ophthalmology.UI.Win.Classes
             var logIn = Login();
             if (logIn)
             {
-                Application.Run(new MainForm());
+                var mainForm = new MainForm();
+                Application.Run(mainForm);
             }
         }
         
@@ -67,7 +68,6 @@ namespace Ophthalmology.UI.Win.Classes
 
         private static void Application_Idle(object sender, EventArgs e)
         {
-
         }
 
         private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)

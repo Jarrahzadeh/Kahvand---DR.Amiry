@@ -68,6 +68,14 @@ namespace Ophthalmology.UI.Win.Classes
             }
         }
 
+        public static int UserId { get; set; }
+        
+        public static string UserName { get; set; }
+
+        public static int DrId { get; set; }
+        
+        public static string DrName { get; set; }
+
         #endregion
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using Ophthalmology.Controls.CustomForms;
 using Ophthalmology.Entity.Entites;
@@ -11,6 +12,8 @@ namespace Ophthalmology.UI.Win.Forms
 {
     public partial class LoginForm : FormBase
     {
+        #region ~( Constructors )~
+
         public LoginForm()
         {
             InitializeComponent();
@@ -19,12 +22,16 @@ namespace Ophthalmology.UI.Win.Forms
             ActiveControl = TextBoxUserName;
         }
 
+        #endregion
+
+        #region ~( Methods )~
+
         internal void PopulateUserTypeComboBox(List<Doctor> doctors)
         {
             bindingSource1.DataSource = doctors;
         }
 
-        private static bool Authenticate(string userName, string password)
+        private bool Authenticate(string userName, string password)
         {
             User user;
             var whereClause = new List<Tuple<string, Type, object, string>>
@@ -33,8 +40,22 @@ namespace Ophthalmology.UI.Win.Forms
                 new Tuple<string, Type, object, string>(nameof(user.Pass), "".GetType(), password, "")
             };
             var users = DatabaseHelper.Select<User>(whereClause: whereClause);
-            return users != null && users.Count > 0;
+            var loggedIn = users != null && users.Count > 0;
+            if (loggedIn)
+            {
+                user = users.First();
+                MyApplication.UserId = user.Id;
+                MyApplication.UserName = user.FullName;
+                var doctor = (Doctor)bindingSource1.Current;
+                MyApplication.DrId = doctor.Id;
+                MyApplication.DrName = doctor.Name;
+            }
+            return loggedIn;
         }
+
+        #endregion
+
+        #region ~( Event Handlers )~
 
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
@@ -44,8 +65,11 @@ namespace Ophthalmology.UI.Win.Forms
         private void ButtonLogin_Click(object sender, EventArgs e)
         {
             var authenticate = Authenticate(TextBoxUserName.Text, TextboxPassword.Text);
-            if (!authenticate) 
+            if (!authenticate)
+            {
+                MessageBox.Show("امکان ورود به سیستم وجود ندارد", "ورود به سیستم", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
+            }
 
             DialogResult = DialogResult.OK;
             if (RadioButtonDocter.Checked)
@@ -56,8 +80,6 @@ namespace Ophthalmology.UI.Win.Forms
 
             if (RadioButtonSecretary.Checked)
                 MyApplication.CurrentSettings.UserType = UserType.Secretary;
-
-            //MyApplication.SaveSettings();
         }
 
         private void LoginForm_Shown(object sender, EventArgs e)
@@ -87,5 +109,26 @@ namespace Ophthalmology.UI.Win.Forms
                     break;
             }
         }
+
+        private void LoginForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Enter)
+            {
+                if (ActiveControl != ButtonLogin)
+                {
+                    SelectNextControl(ActiveControl, true, true, true, true);
+                }
+            }
+            else if (e.KeyChar == (int)Keys.Escape)
+            {
+                Close();
+            }
+            else if (e.KeyChar == (int)Keys.F2) 
+            {
+                ButtonLogin_Click(sender, e);
+            }
+        }
+
+        #endregion
     }
 }

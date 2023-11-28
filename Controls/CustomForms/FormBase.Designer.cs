@@ -80,7 +80,7 @@
             this.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormBase";
-            this.Padding = new System.Windows.Forms.Padding(18, 22, 18, 22);
+            this.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.ResumeLayout(false);
 

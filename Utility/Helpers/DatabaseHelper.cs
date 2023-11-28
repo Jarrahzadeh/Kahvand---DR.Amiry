@@ -137,7 +137,8 @@ namespace Ophthalmology.Utility.Helpers
             }
         }
 
-        public static List<T> Select<T>(string tableName = "", string selectFields = "*", List<Tuple<string, Type, object, string>> whereClause = default) where T : Entity.Entites.EntityBase, new()
+        public static List<T> Select<T>(string tableName = "", string selectFields = "*", List<Tuple<string, Type, object, string>> whereClause = default)
+            where T : Entity.Entites.EntityBase, new()
         {
             if (string.IsNullOrEmpty(tableName))
                 tableName = new T().TableName;
@@ -149,7 +150,10 @@ namespace Ophthalmology.Utility.Helpers
                 var item = new T();
                 foreach (DataColumn dataColumn in dataTable.Columns)
                 {
-                    var propertyInfo = item.GetType().GetProperties().First(p => p.Name == dataColumn.ColumnName);
+                    var propertyInfo = item.GetType().GetProperties().FirstOrDefault(p => p.Name.ToLower() == dataColumn.ColumnName.ToLower());
+                    if (propertyInfo == null)
+                        continue;
+
                     var value = dataRow[dataColumn];
                     if (value is DBNull)
                     {
@@ -224,7 +228,7 @@ namespace Ophthalmology.Utility.Helpers
 
                 return true;
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 e.Log();
                 return false;

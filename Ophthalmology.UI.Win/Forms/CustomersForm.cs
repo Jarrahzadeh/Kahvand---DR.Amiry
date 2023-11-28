@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Ophthalmology.Controls.CustomForms;
+using Ophthalmology.Entity.Entites;
+using Ophthalmology.UI.Win.Classes;
 using Ophthalmology.Utility.Helpers;
 
 namespace Ophthalmology.UI.Win.Forms
@@ -16,11 +18,19 @@ namespace Ophthalmology.UI.Win.Forms
         {
             var where = new List<Tuple<string, Type, object, string>>
             {
-                new Tuple<string, Type, object, string>("DrId", "".GetType(), "2", "")
+                new Tuple<string, Type, object, string>("DrId", "".GetType(), MyApplication.DrId, "")
             };
 
-            var dataTableCustomers = DatabaseHelper.Select("Customer", whereClause: where);
-            bindingSourceGridCustomer.DataSource = dataTableCustomers.DefaultView;
+            var dataTableCustomers = DatabaseHelper.Select<Customer>("Customer", whereClause: where);
+            bindingSourceCustomers.DataSource = dataTableCustomers;
+        }
+
+        public Customer CurrentCustomer
+        {
+            get
+            {
+                return (Customer)bindingSourceCustomers.Current;
+            }
         }
     }
 }
