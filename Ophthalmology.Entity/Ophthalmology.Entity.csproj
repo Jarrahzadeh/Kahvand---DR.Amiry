@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entites\Doctor.cs" />
+    <Compile Include="Entites\TypePatient.cs" />
     <Compile Include="Entites\User.cs" />
     <Compile Include="Enums\UserType.cs" />
     <Compile Include="Settings\ApplicationSettings.cs" />
