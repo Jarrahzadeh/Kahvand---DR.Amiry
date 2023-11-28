@@ -107,6 +107,10 @@ namespace Ophthalmology.Controls.CustomControls
             this.MenuItemColumnSelector.Size = new System.Drawing.Size(156, 22);
             this.MenuItemColumnSelector.Text = "لیست ستون ها";
             this.MenuItemColumnSelector.Click += new System.EventHandler(this.MenuItemColumnSelector_Click);
+            // 
+            // CustomGridEx
+            // 
+            this.ContextMenuStrip = this.contextMenuGridRightClick;
             this.contextMenuGridRightClick.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
