@@ -14,6 +14,7 @@ namespace Ophthalmology.Controls.CustomControls
             InitializeComponent();
 
             InitGrid();
+            MenuItemGrouping.Checked = GroupByBoxVisible;
         }
 
         private void InitGrid()
@@ -29,6 +30,12 @@ namespace Ophthalmology.Controls.CustomControls
                 CellToolTip = CellToolTip.UseCellToolTipText
             };
             
+            AlternatingColors = true;
+            ColumnAutoResize = true;
+            FilterMode = FilterMode.Automatic;
+            FilterRowButtonStyle = FilterRowButtonStyle.ConditionOperatorDropDown;
+            FilterRowUpdateMode = FilterRowUpdateMode.WhenValueChanges;
+
             BuiltInTexts[GridEXBuiltInText.GroupByBoxInfo] = "سطری را جهت گروه بندی به اینجا بکشید";
 
             BuiltInTexts[GridEXBuiltInText.CalendarNoneButton] = "هیچی";
@@ -119,7 +126,7 @@ namespace Ophthalmology.Controls.CustomControls
 
         private void MenuItemGrouping_Click(object sender, System.EventArgs e)
         {
-            GroupByBoxVisible = MenuItemGrouping.Visible;
+            GroupByBoxVisible = MenuItemGrouping.Checked;
         }
 
         private void MenuItemColumnSelector_Click(object sender, System.EventArgs e)
