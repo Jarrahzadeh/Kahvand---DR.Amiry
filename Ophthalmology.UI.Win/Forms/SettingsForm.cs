@@ -56,6 +56,7 @@ namespace Ophthalmology.UI.Win.Forms
             MyApplication.SaveSettings();
             ApplyThemeToAll();
             MessageBox.Show("تنظیمات با موفقیت ذخیره گردید");
+            Close();
         }
 
         private void ApplyThemeToAll()
@@ -85,6 +86,11 @@ namespace Ophthalmology.UI.Win.Forms
         private void FontsComboBox_SelectedValueChanged(object sender, System.EventArgs e)
         {
             MyApplication.CurrentSettings.Font = new Font(FontsComboBox.Text, MyApplication.CurrentSettings.Font.Size);
+        }
+
+        private void CancelButton_Click(object sender, System.EventArgs e)
+        {
+            Close();
         }
     }
 }

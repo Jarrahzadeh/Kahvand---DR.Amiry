@@ -218,6 +218,7 @@
             this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "انصراف";
             this.CancelButton.VisualStyleManager = this.visualStyleManager;
+            this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
             // SaveButton
             // 
@@ -239,7 +240,6 @@
             this.Controls.Add(this.uiGroupBox1);
             this.Margin = new System.Windows.Forms.Padding(11, 13, 11, 13);
             this.Name = "SettingsForm";
-            this.Padding = new System.Windows.Forms.Padding(10);
             this.Text = "تنظیمات برنامه";
             ((System.ComponentModel.ISupportInitialize)(this.uiGroupBox1)).EndInit();
             this.uiGroupBox1.ResumeLayout(false);

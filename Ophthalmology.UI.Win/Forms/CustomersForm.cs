@@ -9,9 +9,12 @@ namespace Ophthalmology.UI.Win.Forms
 {
     public partial class CustomersForm : CustomizableFormBase
     {
+        private object _customers;
+
         public CustomersForm()
         {
             InitializeComponent();
+            _customers = null;
         }
 
         private void CustomersForm_Load(object sender, EventArgs e)
@@ -95,6 +98,86 @@ namespace Ophthalmology.UI.Win.Forms
             {
                 return (Customer)bindingSourceCustomers.Current;
             }
+        }
+
+        private void ButtonAdd_Click(object sender, EventArgs e)
+        {
+            if (_customers == null)
+            {
+                bindingSourceCustomers.EndEdit(); 
+                _customers = bindingSourceCustomers.AddNew();
+            }
+            else
+            {
+                bindingSourceCustomers.CancelEdit();
+                _customers = null;
+            }
+
+            //bindingSourceCustomers.ResetAllowNew();
+            //bindingSourceCustomers.CancelEdit();
+            //bindingSourceCustomers.ResetCurrentItem();
+        }
+
+        private void ButtonCancel_Click(object sender, EventArgs e)
+        {
+            bindingSourceCustomers.ResetAllowNew();
+            bindingSourceCustomers.CancelEdit();
+            bindingSourceCustomers.ResetCurrentItem();
+            _customers = null;
+        }
+
+        private void ButtonEdit_Click(object sender, EventArgs e)
+        {
+            if (_customers == null)
+            {
+
+            }
+            else
+            {
+                
+            }
+
+            var whereClause = new List<Tuple<string, Type, object, string>>
+            {
+                new Tuple<string, Type, object, string>("Name", "".GetType(), CurrentCustomer.Name, "AND"),
+                new Tuple<string, Type, object, string>("Family", "".GetType(), CurrentCustomer.Family, ""),
+            };
+            var hasRecord = DatabaseHelper.TableHasRecord("Customer", whereClause);
+            if (hasRecord)
+            {
+                var result = MessageBox.Show("نام و نام خانوادگی تکراری می باشد. آیا ثبت می کنید؟", "ثبت بیمار", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    return;
+                }
+            }
+
+            var fields = new List<Tuple<string, Type, object>>
+            {
+                new Tuple<string, Type, object>("Name", "".GetType(), CurrentCustomer.Name),
+                new Tuple<string, Type, object>("Family", "".GetType(), CurrentCustomer.Family),
+                new Tuple<string, Type, object>("NameFather", "".GetType(), CurrentCustomer.NameFather),
+                new Tuple<string, Type, object>("Address", "".GetType(), CurrentCustomer.Address),
+                new Tuple<string, Type, object>("Age", "".GetType(), CurrentCustomer.Age),
+                new Tuple<string, Type, object>("DateSave", "".GetType(), CurrentCustomer.DateSave),
+                new Tuple<string, Type, object>("Dis", "".GetType(), CurrentCustomer.Dis),
+                new Tuple<string, Type, object>("DrId", "".GetType(), MyApplication.DrId),
+                new Tuple<string, Type, object>("IdTypePatient", "".GetType(), CurrentCustomer.IdTypePatient),
+                new Tuple<string, Type, object>("Tel", "".GetType(), CurrentCustomer.Tel)
+            };
+
+            if (CheckBoxEyeLeft.Checked)
+                fields.Add(new Tuple<string, Type, object>("EyeLeft", "".GetType(), CurrentCustomer.EyeLeft));
+
+            if (CheckBoxEyeRight.Checked)
+                fields.Add(new Tuple<string, Type, object>("EyeRight", "".GetType(), CurrentCustomer.EyeRight));
+
+            var rows = DatabaseHelper.Insert("Customer", fields);
+            if (rows <= 0)
+                return;
+
+            MessageBox.Show("اطلاعات با موفقیت ثبت شد", "ثبت بیمار", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ResetForm();
         }
     }
 }

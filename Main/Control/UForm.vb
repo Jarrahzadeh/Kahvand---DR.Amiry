@@ -2,7 +2,7 @@
 
 Public Class UForm
 
-    Inherits CustomizableFormBase
+    Inherits Form
     Private VCriteria As String = ""
     Private VAction As String = ""
 

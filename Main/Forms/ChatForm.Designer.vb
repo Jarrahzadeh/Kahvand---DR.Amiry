@@ -4,7 +4,7 @@ Imports Ophthalmology.Controls.CustomForms
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ChatForm
-    Inherits CustomizableFormBase
+    Inherits Form
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()>

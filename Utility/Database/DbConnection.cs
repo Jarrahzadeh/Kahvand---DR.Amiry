@@ -40,7 +40,7 @@ namespace Ophthalmology.Utility.Database
             _oleDbConnection.Close();
         }
 
-        public int ExecuteCommand(string script, List<OleDbParameter> parameters)
+        public int ExecuteNonQuery(string script, List<OleDbParameter> parameters)
         {
             using (var command = _oleDbConnection.CreateCommand())
             {
@@ -48,6 +48,18 @@ namespace Ophthalmology.Utility.Database
                 command.CommandType = CommandType.Text;
                 command.Parameters.AddRange(parameters.ToArray());
                 return command.ExecuteNonQuery();
+            }
+        }
+
+        public T ExecuteScalar<T>(string script, List<OleDbParameter> parameters)
+        {
+            using (var command = _oleDbConnection.CreateCommand())
+            {
+                command.CommandText = script;
+                command.CommandType = CommandType.Text;
+                command.Parameters.AddRange(parameters.ToArray());
+                var scalar = command.ExecuteScalar();
+                return (T)Convert.ChangeType(scalar, typeof(T));
             }
         }
 

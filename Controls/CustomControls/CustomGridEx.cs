@@ -29,7 +29,8 @@ namespace Ophthalmology.Controls.CustomControls
                 AllowRemoveColumns = InheritableBoolean.False,
                 CellToolTip = CellToolTip.UseCellToolTipText
             };
-            
+
+            AllowEdit = InheritableBoolean.False;
             AlternatingColors = true;
             ColumnAutoResize = true;
             FilterMode = FilterMode.Automatic;

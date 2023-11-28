@@ -1,7 +1,7 @@
 ﻿Imports Ophthalmology.Controls.CustomForms
 
 Partial Class UForm
-    Inherits CustomizableFormBase
+    Inherits Form
 
     <System.Diagnostics.DebuggerNonUserCode()> _
     Public Sub New(ByVal container As System.ComponentModel.IContainer)

@@ -47,7 +47,7 @@ namespace Ophthalmology.Utility.Helpers
                 using (var dbConnection = new DbConnection(Config.ConnectionString))
                 {
                     dbConnection.Open();
-                    return dbConnection.ExecuteCommand(script, parameters);
+                    return dbConnection.ExecuteNonQuery(script, parameters);
                 }
             }
             catch (Exception e)
@@ -93,7 +93,7 @@ namespace Ophthalmology.Utility.Helpers
                 using (var dbConnection = new DbConnection(Config.ConnectionString))
                 {
                     dbConnection.Open();
-                    rowsAffectedCount = dbConnection.ExecuteCommand(script, parameters);
+                    rowsAffectedCount = dbConnection.ExecuteNonQuery(script, parameters);
                 }
             }
             catch (Exception e)
@@ -127,7 +127,7 @@ namespace Ophthalmology.Utility.Helpers
                 using (var dbConnection = new DbConnection(Config.ConnectionString))
                 {
                     dbConnection.Open();
-                    return dbConnection.ExecuteCommand(script, parameters);
+                    return dbConnection.ExecuteNonQuery(script, parameters);
                 }
             }
             catch (Exception e)
@@ -195,6 +195,30 @@ namespace Ophthalmology.Utility.Helpers
             {
                 e.Log();
                 return new DataTable();
+            }
+        }
+
+        public static bool TableHasRecord(string tableName, List<Tuple<string, Type, object, string>> whereClause = default)
+        {
+            if (string.IsNullOrEmpty(tableName))
+            {
+                throw new ArgumentNullException(nameof(tableName));
+            }
+
+            var script = $"SELECT COUNT(*) FROM {tableName}";
+            var parameters = new List<OleDbParameter>();
+            if (whereClause != null)
+            {
+                var fields = GetWhereClauseScript(whereClause, parameters);
+                if (!string.IsNullOrWhiteSpace(fields))
+                    script += $" WHERE{fields}";
+            }
+
+            using (var dbConnection = new DbConnection(Config.ConnectionString))
+            {
+                dbConnection.Open();
+                var rows = dbConnection.ExecuteScalar<int>(script, parameters);
+                return rows > 0;
             }
         }
 
