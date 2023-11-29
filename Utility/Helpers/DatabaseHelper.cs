@@ -10,7 +10,7 @@ namespace Ophthalmology.Utility.Helpers
 {
     public static class DatabaseHelper
     {
-        public static int Insert(string tableName, List<Tuple<string, Type, object>> filedNameAndValues)
+        public static int Insert(string tableName, List<Tuple<string, object>> filedNameAndValues)
         {
             if (string.IsNullOrEmpty(tableName))
             {
@@ -31,11 +31,7 @@ namespace Ophthalmology.Utility.Helpers
                 fields = string.Join(separator, fields, $"{filedNameAndValue.Item1}");
                 values = string.Join(separator, values, $"@{filedNameAndValue.Item1}");
 
-                var oleDbParameter = new OleDbParameter($"@{filedNameAndValue.Item1}", filedNameAndValue.Item3);
-                //if (filedNameAndValue.Item2 == typeof(string))
-                //    oleDbParameter.DbType = DbType.String;
-                //else if (filedNameAndValue.Item2 == typeof(int))
-                //    oleDbParameter.DbType = DbType.Int32;
+                var oleDbParameter = new OleDbParameter($"@{filedNameAndValue.Item1}", filedNameAndValue.Item2);
 
                 parameters.Add(oleDbParameter);
             }
@@ -57,7 +53,7 @@ namespace Ophthalmology.Utility.Helpers
             }
         }
 
-        public static int Update(string tableName, List<Tuple<string, Type, object>> filedNameAndValues)
+        public static int Update(string tableName, List<Tuple<string, object>> filedNameAndValues)
         {
             if (string.IsNullOrEmpty(tableName))
             {
@@ -76,11 +72,7 @@ namespace Ophthalmology.Utility.Helpers
                 var separator = string.IsNullOrWhiteSpace(fields) ? string.Empty : ", ";
                 fields = string.Join(separator, fields, $"{filedNameAndValue.Item1} = @{filedNameAndValue.Item1}");
 
-                var oleDbParameter = new OleDbParameter($"@{filedNameAndValue.Item1}", filedNameAndValue.Item3);
-                //if (filedNameAndValue.Item2 == typeof(string))
-                //    oleDbParameter.DbType = DbType.String;
-                //else if (filedNameAndValue.Item2 == typeof(int))
-                //    oleDbParameter.DbType = DbType.Int32;
+                var oleDbParameter = new OleDbParameter($"@{filedNameAndValue.Item1}", filedNameAndValue.Item2);
 
                 parameters.Add(oleDbParameter);
             }
@@ -105,7 +97,7 @@ namespace Ophthalmology.Utility.Helpers
             return rowsAffectedCount;
         }
 
-        public static int Delete(string tableName, List<Tuple<string, Type, object, string>> whereClause = default)
+        public static int Delete(string tableName, List<Tuple<string, object, string>> whereClause = default)
         {
             if (string.IsNullOrEmpty(tableName))
             {
@@ -137,7 +129,7 @@ namespace Ophthalmology.Utility.Helpers
             }
         }
 
-        public static List<T> Select<T>(string tableName = "", string selectFields = "*", List<Tuple<string, Type, object, string>> whereClause = default)
+        public static List<T> Select<T>(string tableName = "", string selectFields = "*", List<Tuple<string, object, string>> whereClause = default)
             where T : Entity.Entites.EntityBase, new()
         {
             if (string.IsNullOrEmpty(tableName))
@@ -166,7 +158,7 @@ namespace Ophthalmology.Utility.Helpers
             return result;
         }
 
-        public static DataTable Select(string tableName, string selectFields = "*", List<Tuple<string, Type, object, string>> whereClause = default)
+        public static DataTable Select(string tableName, string selectFields = "*", List<Tuple<string, object, string>> whereClause = default)
         {
             if (string.IsNullOrEmpty(tableName))
             {
@@ -198,7 +190,7 @@ namespace Ophthalmology.Utility.Helpers
             }
         }
 
-        public static bool TableHasRecord(string tableName, List<Tuple<string, Type, object, string>> whereClause = default)
+        public static bool TableHasRecord(string tableName, List<Tuple<string, object, string>> whereClause = default)
         {
             if (string.IsNullOrEmpty(tableName))
             {
@@ -222,25 +214,6 @@ namespace Ophthalmology.Utility.Helpers
             }
         }
 
-        private static string GetWhereClauseScript(List<Tuple<string, Type, object, string>> whereClause, ICollection<OleDbParameter> parameters)
-        {
-            var fields = string.Empty;
-            foreach (var tuple in whereClause)
-            {
-                fields = string.Join(string.Empty, fields, $" {tuple.Item1} = @{tuple.Item1} ", tuple.Item4.ToUpper());
-
-                var oleDbParameter = new OleDbParameter($"@{tuple.Item1}", tuple.Item3);
-                //if (tuple.Item2 == typeof(string))
-                //    oleDbParameter.DbType = DbType.String;
-                //else if (tuple.Item2 == typeof(int))
-                //    oleDbParameter.DbType = DbType.Int32;
-
-                parameters.Add(oleDbParameter);
-            }
-
-            return fields;
-        }
-
         public static bool DatabaseIsAvailable()
         {
             try
@@ -257,6 +230,21 @@ namespace Ophthalmology.Utility.Helpers
                 e.Log();
                 return false;
             }
+        }
+
+        private static string GetWhereClauseScript(List<Tuple<string, object, string>> whereClause, ICollection<OleDbParameter> parameters)
+        {
+            var fields = string.Empty;
+            foreach (var tuple in whereClause)
+            {
+                fields = string.Join(string.Empty, fields, $" {tuple.Item1} = @{tuple.Item1} ", tuple.Item3.ToUpper());
+
+                var oleDbParameter = new OleDbParameter($"@{tuple.Item1}", tuple.Item2);
+
+                parameters.Add(oleDbParameter);
+            }
+
+            return fields;
         }
     }
 }

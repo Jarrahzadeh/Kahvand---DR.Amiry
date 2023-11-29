@@ -10,17 +10,21 @@ namespace Ophthalmology.UI.Win.Forms
     public partial class CustomersForm : CustomizableFormBase
     {
         private object _customers;
+        private bool _editMode;
 
         public CustomersForm()
         {
             InitializeComponent();
+
             _customers = null;
+            _editMode = false;
         }
 
         private void CustomersForm_Load(object sender, EventArgs e)
         {
             LoadCustomers();
             LoadTypePatient();
+            _editMode = false;
         }
 
         private void ButtonDelete_Click(object sender, EventArgs e)
@@ -30,7 +34,10 @@ namespace Ophthalmology.UI.Win.Forms
             if (result != DialogResult.Yes)
                 return;
 
-            var where = new List<Tuple<string, Type, object, string>>();
+            var where = new List<Tuple<string, object, string>>
+            {
+                new Tuple<string, object, string>("Id", CurrentCustomer.Id, "")
+            };
             var rows = DatabaseHelper.Delete("Customer", where);
             var text = rows > 0 ? $"اطلاعات '{personName}' با موفقیت حذف شد" : $"اطلاعات '{personName}' حذف نشد";
             MessageBox.Show(text, $"حذف '{personName}'", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -46,9 +53,9 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void LoadCustomers()
         {
-            var where = new List<Tuple<string, Type, object, string>>
+            var where = new List<Tuple<string, object, string>>
             {
-                new Tuple<string, Type, object, string>("DrId", "".GetType(), MyApplication.DrId, "")
+                new Tuple<string, object, string>("DrId", MyApplication.DrId, "")
             };
 
             var dataTableCustomers = DatabaseHelper.Select<Customer>("Customer", whereClause: where);
@@ -104,8 +111,9 @@ namespace Ophthalmology.UI.Win.Forms
         {
             if (_customers == null)
             {
-                bindingSourceCustomers.EndEdit(); 
+                bindingSourceCustomers.EndEdit();
                 _customers = bindingSourceCustomers.AddNew();
+                ActiveControl = TextBoxName;
             }
             else
             {
@@ -134,13 +142,13 @@ namespace Ophthalmology.UI.Win.Forms
             }
             else
             {
-                
+
             }
 
-            var whereClause = new List<Tuple<string, Type, object, string>>
+            var whereClause = new List<Tuple<string, object, string>>
             {
-                new Tuple<string, Type, object, string>("Name", "".GetType(), CurrentCustomer.Name, "AND"),
-                new Tuple<string, Type, object, string>("Family", "".GetType(), CurrentCustomer.Family, ""),
+                new Tuple<string, object, string>("Name", CurrentCustomer.Name, "AND"),
+                new Tuple<string, object, string>("Family",  CurrentCustomer.Family, ""),
             };
             var hasRecord = DatabaseHelper.TableHasRecord("Customer", whereClause);
             if (hasRecord)
@@ -152,25 +160,25 @@ namespace Ophthalmology.UI.Win.Forms
                 }
             }
 
-            var fields = new List<Tuple<string, Type, object>>
+            var fields = new List<Tuple<string, object>>
             {
-                new Tuple<string, Type, object>("Name", "".GetType(), CurrentCustomer.Name),
-                new Tuple<string, Type, object>("Family", "".GetType(), CurrentCustomer.Family),
-                new Tuple<string, Type, object>("NameFather", "".GetType(), CurrentCustomer.NameFather),
-                new Tuple<string, Type, object>("Address", "".GetType(), CurrentCustomer.Address),
-                new Tuple<string, Type, object>("Age", "".GetType(), CurrentCustomer.Age),
-                new Tuple<string, Type, object>("DateSave", "".GetType(), CurrentCustomer.DateSave),
-                new Tuple<string, Type, object>("Dis", "".GetType(), CurrentCustomer.Dis),
-                new Tuple<string, Type, object>("DrId", "".GetType(), MyApplication.DrId),
-                new Tuple<string, Type, object>("IdTypePatient", "".GetType(), CurrentCustomer.IdTypePatient),
-                new Tuple<string, Type, object>("Tel", "".GetType(), CurrentCustomer.Tel)
+                new Tuple<string, object>("Name",  CurrentCustomer.Name),
+                new Tuple<string, object>("Family",  CurrentCustomer.Family),
+                new Tuple<string, object>("NameFather",  CurrentCustomer.NameFather),
+                new Tuple<string, object>("Address",  CurrentCustomer.Address),
+                new Tuple<string, object>("Age", CurrentCustomer.Age),
+                new Tuple<string, object>("DateSave",  CurrentCustomer.DateSave),
+                new Tuple<string, object>("Dis",  CurrentCustomer.Dis),
+                new Tuple<string, object>("DrId", MyApplication.DrId),
+                new Tuple<string, object>("IdTypePatient",  CurrentCustomer.IdTypePatient),
+                new Tuple<string, object>("Tel",  CurrentCustomer.Tel)
             };
 
             if (CheckBoxEyeLeft.Checked)
-                fields.Add(new Tuple<string, Type, object>("EyeLeft", "".GetType(), CurrentCustomer.EyeLeft));
+                fields.Add(new Tuple<string, object>("EyeLeft", CurrentCustomer.EyeLeft));
 
             if (CheckBoxEyeRight.Checked)
-                fields.Add(new Tuple<string, Type, object>("EyeRight", "".GetType(), CurrentCustomer.EyeRight));
+                fields.Add(new Tuple<string, object>("EyeRight", CurrentCustomer.EyeRight));
 
             var rows = DatabaseHelper.Insert("Customer", fields);
             if (rows <= 0)
@@ -178,6 +186,11 @@ namespace Ophthalmology.UI.Win.Forms
 
             MessageBox.Show("اطلاعات با موفقیت ثبت شد", "ثبت بیمار", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ResetForm();
+        }
+
+        private void bindingSourceCustomers_CurrentItemChanged(object sender, EventArgs e)
+        {
+            _editMode = true;
         }
     }
 }

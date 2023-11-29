@@ -149,7 +149,7 @@
             // 
             // ButtonBrowse
             // 
-            this.ButtonBrowse.Location = new System.Drawing.Point(346, 235);
+            this.ButtonBrowse.Location = new System.Drawing.Point(346, 228);
             this.ButtonBrowse.Name = "ButtonBrowse";
             this.ButtonBrowse.Size = new System.Drawing.Size(35, 35);
             this.ButtonBrowse.TabIndex = 26;
@@ -159,9 +159,9 @@
             // 
             // TextBoxAddress
             // 
+            this.TextBoxAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Address", true));
             this.TextBoxAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TextBoxAddress.Location = new System.Drawing.Point(67, 235);
-            this.TextBoxAddress.Multiline = true;
+            this.TextBoxAddress.Location = new System.Drawing.Point(67, 228);
             this.TextBoxAddress.Name = "TextBoxAddress";
             this.TextBoxAddress.Size = new System.Drawing.Size(190, 35);
             this.TextBoxAddress.TabIndex = 17;
@@ -180,9 +180,9 @@
             // 
             // TextBoxDescription
             // 
+            this.TextBoxDescription.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Dis", true));
             this.TextBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TextBoxDescription.Location = new System.Drawing.Point(67, 194);
-            this.TextBoxDescription.Multiline = true;
+            this.TextBoxDescription.Location = new System.Drawing.Point(67, 187);
             this.TextBoxDescription.Name = "TextBoxDescription";
             this.TextBoxDescription.Size = new System.Drawing.Size(190, 35);
             this.TextBoxDescription.TabIndex = 15;
@@ -203,7 +203,7 @@
             // CheckBoxEyeRight
             // 
             this.CheckBoxEyeRight.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CheckBoxEyeRight.Location = new System.Drawing.Point(583, 194);
+            this.CheckBoxEyeRight.Location = new System.Drawing.Point(583, 187);
             this.CheckBoxEyeRight.Name = "CheckBoxEyeRight";
             this.CheckBoxEyeRight.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.CheckBoxEyeRight.Size = new System.Drawing.Size(143, 35);
@@ -225,7 +225,7 @@
             // CheckBoxEyeLeft
             // 
             this.CheckBoxEyeLeft.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CheckBoxEyeLeft.Location = new System.Drawing.Point(583, 153);
+            this.CheckBoxEyeLeft.Location = new System.Drawing.Point(583, 146);
             this.CheckBoxEyeLeft.Name = "CheckBoxEyeLeft";
             this.CheckBoxEyeLeft.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.CheckBoxEyeLeft.Size = new System.Drawing.Size(143, 35);
@@ -246,6 +246,7 @@
             // bindingSourceCustomers
             // 
             this.bindingSourceCustomers.DataSource = typeof(Ophthalmology.Entity.Entites.Customer);
+            this.bindingSourceCustomers.CurrentItemChanged += new System.EventHandler(this.bindingSourceCustomers_CurrentItemChanged);
             // 
             // LabelFamily
             // 
@@ -270,6 +271,7 @@
             // 
             // TextBoxReason
             // 
+            this.TextBoxReason.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Reason", true));
             this.TextBoxReason.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TextBoxReason.Location = new System.Drawing.Point(67, 105);
             this.TextBoxReason.Name = "TextBoxReason";
@@ -281,7 +283,7 @@
             // 
             this.LabelAddress.AutoSize = true;
             this.LabelAddress.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LabelAddress.Location = new System.Drawing.Point(263, 232);
+            this.LabelAddress.Location = new System.Drawing.Point(263, 225);
             this.LabelAddress.Name = "LabelAddress";
             this.LabelAddress.Size = new System.Drawing.Size(77, 41);
             this.LabelAddress.TabIndex = 16;
@@ -290,6 +292,7 @@
             // 
             // TextBoxTel
             // 
+            this.TextBoxTel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Tel", true));
             this.TextBoxTel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TextBoxTel.Location = new System.Drawing.Point(67, 64);
             this.TextBoxTel.Name = "TextBoxTel";
@@ -322,7 +325,7 @@
             // 
             this.LabelDescription.AutoSize = true;
             this.LabelDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LabelDescription.Location = new System.Drawing.Point(263, 191);
+            this.LabelDescription.Location = new System.Drawing.Point(263, 184);
             this.LabelDescription.Name = "LabelDescription";
             this.LabelDescription.Size = new System.Drawing.Size(77, 41);
             this.LabelDescription.TabIndex = 14;
@@ -346,7 +349,7 @@
             this.LIdentify_Num.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LIdentify_Num.Location = new System.Drawing.Point(263, 102);
             this.LIdentify_Num.Name = "LIdentify_Num";
-            this.LIdentify_Num.Size = new System.Drawing.Size(77, 48);
+            this.LIdentify_Num.Size = new System.Drawing.Size(77, 41);
             this.LIdentify_Num.TabIndex = 10;
             this.LIdentify_Num.Text = "علت مراجعه";
             this.LIdentify_Num.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -355,7 +358,7 @@
             // 
             this.LabelAge.AutoSize = true;
             this.LabelAge.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LabelAge.Location = new System.Drawing.Point(263, 150);
+            this.LabelAge.Location = new System.Drawing.Point(263, 143);
             this.LabelAge.Name = "LabelAge";
             this.LabelAge.Size = new System.Drawing.Size(77, 41);
             this.LabelAge.TabIndex = 12;
@@ -368,7 +371,7 @@
             this.LableRegDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LableRegDate.Location = new System.Drawing.Point(583, 102);
             this.LableRegDate.Name = "LableRegDate";
-            this.LableRegDate.Size = new System.Drawing.Size(143, 48);
+            this.LableRegDate.Size = new System.Drawing.Size(143, 41);
             this.LableRegDate.TabIndex = 18;
             this.LableRegDate.Text = "تاریخ ثبت";
             this.LableRegDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -379,7 +382,7 @@
             this.ComboBoxType.DataSource = this.bindingSourceTypePatient;
             this.ComboBoxType.DisplayMember = "Name";
             this.ComboBoxType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ComboBoxType.Location = new System.Drawing.Point(387, 235);
+            this.ComboBoxType.Location = new System.Drawing.Point(387, 228);
             this.ComboBoxType.Name = "ComboBoxType";
             this.ComboBoxType.Size = new System.Drawing.Size(190, 35);
             this.ComboBoxType.TabIndex = 25;
@@ -390,7 +393,7 @@
             // 
             this.LabelType.AutoSize = true;
             this.LabelType.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LabelType.Location = new System.Drawing.Point(583, 232);
+            this.LabelType.Location = new System.Drawing.Point(583, 225);
             this.LabelType.Name = "LabelType";
             this.LabelType.Size = new System.Drawing.Size(143, 41);
             this.LabelType.TabIndex = 24;
@@ -399,8 +402,9 @@
             // 
             // TextBoxAge
             // 
+            this.TextBoxAge.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Age", true));
             this.TextBoxAge.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TextBoxAge.Location = new System.Drawing.Point(67, 153);
+            this.TextBoxAge.Location = new System.Drawing.Point(67, 146);
             this.TextBoxAge.MaxLength = 30;
             this.TextBoxAge.Name = "TextBoxAge";
             this.TextBoxAge.Size = new System.Drawing.Size(190, 35);
@@ -413,7 +417,7 @@
             this.ButtonOldVisit.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.AfterText;
             this.ButtonOldVisit.Location = new System.Drawing.Point(732, 105);
             this.ButtonOldVisit.Name = "ButtonOldVisit";
-            this.ButtonOldVisit.Size = new System.Drawing.Size(143, 42);
+            this.ButtonOldVisit.Size = new System.Drawing.Size(143, 35);
             this.ButtonOldVisit.TabIndex = 31;
             this.ButtonOldVisit.Text = "نسخه های قبلی";
             this.ButtonOldVisit.VisualStyleManager = this.visualStyleManager;
@@ -422,7 +426,7 @@
             // 
             this.BtnVisit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnVisit.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.AfterText;
-            this.BtnVisit.Location = new System.Drawing.Point(732, 153);
+            this.BtnVisit.Location = new System.Drawing.Point(732, 146);
             this.BtnVisit.Name = "BtnVisit";
             this.BtnVisit.Size = new System.Drawing.Size(143, 35);
             this.BtnVisit.TabIndex = 32;
@@ -433,7 +437,7 @@
             // 
             this.BtnVisitText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnVisitText.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.AfterText;
-            this.BtnVisitText.Location = new System.Drawing.Point(732, 194);
+            this.BtnVisitText.Location = new System.Drawing.Point(732, 187);
             this.BtnVisitText.Name = "BtnVisitText";
             this.BtnVisitText.Size = new System.Drawing.Size(143, 35);
             this.BtnVisitText.TabIndex = 33;
@@ -443,8 +447,7 @@
             // ButtonCancel
             // 
             this.ButtonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.ButtonCancel.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.AfterText;
-            this.ButtonCancel.Location = new System.Drawing.Point(114, 276);
+            this.ButtonCancel.Location = new System.Drawing.Point(114, 269);
             this.ButtonCancel.Name = "ButtonCancel";
             this.ButtonCancel.Size = new System.Drawing.Size(143, 35);
             this.ButtonCancel.TabIndex = 30;
@@ -456,8 +459,7 @@
             // 
             this.ButtonDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonDelete.Enabled = false;
-            this.ButtonDelete.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.AfterText;
-            this.ButtonDelete.Location = new System.Drawing.Point(387, 276);
+            this.ButtonDelete.Location = new System.Drawing.Point(387, 269);
             this.ButtonDelete.Name = "ButtonDelete";
             this.ButtonDelete.Size = new System.Drawing.Size(143, 35);
             this.ButtonDelete.TabIndex = 29;
@@ -469,8 +471,7 @@
             // 
             this.ButtonEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.ButtonEdit.Enabled = false;
-            this.ButtonEdit.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.AfterText;
-            this.ButtonEdit.Location = new System.Drawing.Point(583, 276);
+            this.ButtonEdit.Location = new System.Drawing.Point(583, 269);
             this.ButtonEdit.Name = "ButtonEdit";
             this.ButtonEdit.Size = new System.Drawing.Size(143, 35);
             this.ButtonEdit.TabIndex = 28;
@@ -481,8 +482,7 @@
             // ButtonAdd
             // 
             this.ButtonAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ButtonAdd.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.AfterText;
-            this.ButtonAdd.Location = new System.Drawing.Point(732, 276);
+            this.ButtonAdd.Location = new System.Drawing.Point(732, 269);
             this.ButtonAdd.Name = "ButtonAdd";
             this.ButtonAdd.Size = new System.Drawing.Size(143, 35);
             this.ButtonAdd.TabIndex = 27;
@@ -493,7 +493,7 @@
             // datePicker1
             // 
             this.datePicker1.BackColor = System.Drawing.SystemColors.Control;
-            this.datePicker1.Date = "1402/09/07";
+            this.datePicker1.Date = "1402/09/08";
             this.datePicker1.Dock = System.Windows.Forms.DockStyle.Top;
             this.datePicker1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
             this.datePicker1.Location = new System.Drawing.Point(387, 106);
@@ -507,10 +507,10 @@
             // datePicker2
             // 
             this.datePicker2.BackColor = System.Drawing.SystemColors.Control;
-            this.datePicker2.Date = "1402/09/07";
+            this.datePicker2.Date = "1402/09/08";
             this.datePicker2.Dock = System.Windows.Forms.DockStyle.Top;
             this.datePicker2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.datePicker2.Location = new System.Drawing.Point(387, 154);
+            this.datePicker2.Location = new System.Drawing.Point(387, 147);
             this.datePicker2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.datePicker2.MaximumSize = new System.Drawing.Size(300, 23);
             this.datePicker2.MinimumSize = new System.Drawing.Size(90, 23);
@@ -521,10 +521,10 @@
             // datePicker3
             // 
             this.datePicker3.BackColor = System.Drawing.SystemColors.Control;
-            this.datePicker3.Date = "1402/09/07";
+            this.datePicker3.Date = "1402/09/08";
             this.datePicker3.Dock = System.Windows.Forms.DockStyle.Top;
             this.datePicker3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.datePicker3.Location = new System.Drawing.Point(387, 195);
+            this.datePicker3.Location = new System.Drawing.Point(387, 188);
             this.datePicker3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.datePicker3.MaximumSize = new System.Drawing.Size(300, 23);
             this.datePicker3.MinimumSize = new System.Drawing.Size(90, 23);

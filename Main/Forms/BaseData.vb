@@ -38,9 +38,9 @@ Public Class BaseData
 
             If Val(TxtId.Text) = 0 Then
 
-                Dim fields As New List(Of Tuple(Of String, Type, Object)) From {
-                    New Tuple(Of String, Type, Object)(Constants.NameFieldName, "".GetType(), TxtName.Text),
-                    New Tuple(Of String, Type, Object)(Constants.PriceFieldName, "".GetType(), txtPrice.Text)
+                Dim fields As New List(Of Tuple(Of String, Object)) From {
+                    New Tuple(Of String, Object)(Constants.NameFieldName, TxtName.Text),
+                    New Tuple(Of String, Object)(Constants.PriceFieldName, txtPrice.Text)
                 }
                 Dim rows = DatabaseHelper.Insert(_tableName, fields)
 
@@ -61,9 +61,9 @@ Public Class BaseData
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
 
-        Dim fields As New List(Of Tuple(Of String, Type, Object)) From {
-                New Tuple(Of String, Type, Object)(Constants.NameFieldName, "".GetType(), TxtName.Text),
-                New Tuple(Of String, Type, Object)(Constants.PriceFieldName, "".GetType(), txtPrice.Text)
+        Dim fields As New List(Of Tuple(Of String, Object)) From {
+                New Tuple(Of String, Object)(Constants.NameFieldName, TxtName.Text),
+                New Tuple(Of String, Object)(Constants.PriceFieldName, txtPrice.Text)
                 }
         Dim rows = DatabaseHelper.Update(_tableName, fields)
 
@@ -94,9 +94,9 @@ Public Class BaseData
                 Exit Sub
             End If
 
-            Dim where As New List(Of Tuple(Of String, Type, Object, String)) From
+            Dim where As New List(Of Tuple(Of String, Object, String)) From
             {
-                New Tuple(Of String, Type, Object, String)(Constants.IdFieldName, "".GetType(), TxtId.Text, "")
+                New Tuple(Of String, Object, String)(Constants.IdFieldName, TxtId.Text, "")
             }
             Dim rows = DatabaseHelper.Delete(_tableName, where)
 

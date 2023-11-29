@@ -33,10 +33,10 @@ namespace Ophthalmology.UI.Win.Forms
         private bool Authenticate(string userName, string password)
         {
             User user;
-            var whereClause = new List<Tuple<string, Type, object, string>>
+            var whereClause = new List<Tuple<string, object, string>>
             {
-                new Tuple<string, Type, object, string>(nameof(user.Name), "".GetType(), userName, "AND"),
-                new Tuple<string, Type, object, string>(nameof(user.Pass), "".GetType(), password, "")
+                new Tuple<string, object, string>(nameof(user.Name),  userName, "AND"),
+                new Tuple<string, object, string>(nameof(user.Pass),  password, "")
             };
             var users = DatabaseHelper.Select<User>(whereClause: whereClause);
             var loggedIn = users != null && users.Count > 0;
@@ -122,7 +122,7 @@ namespace Ophthalmology.UI.Win.Forms
             {
                 Close();
             }
-            else if (e.KeyChar == (int)Keys.F2) 
+            else if (e.KeyChar == (int)Keys.F2)
             {
                 ButtonLogin_Click(sender, e);
             }

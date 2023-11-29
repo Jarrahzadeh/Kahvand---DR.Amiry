@@ -96,8 +96,8 @@ Public Class Editor
             CbFont.Text = 12
             LblStatus.Text = 0
 
-            Dim where As New List(Of Tuple(Of String, Type, Object, String)) From {
-                    New Tuple(Of String, Type, Object, String)("Fk_Customer", "".GetType(), TFk_Customer.Text, "")}
+            Dim where As New List(Of Tuple(Of String, Object, String)) From {
+                    New Tuple(Of String, Object, String)("Fk_Customer", TFk_Customer.Text, "")}
             Dim dt1 As DataTable = DatabaseHelper.Select("TblText", whereClause:=where)
 
             rtbMain.Text = dt1.Rows(0)("TextVisit").ToString()
