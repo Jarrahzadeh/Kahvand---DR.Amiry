@@ -24,6 +24,7 @@ namespace Ophthalmology.UI.Win.Forms
             TextBoxDoctor.Text = MyApplication.DrName;
             LabelDoctorName.Text = MyApplication.DrName;
             LabelCurrentUserValue.Text = MyApplication.UserName;
+            Text += $" - {MyApplication.DrName}";
         }
 
         #endregion

@@ -1,4 +1,5 @@
-﻿Imports Ophthalmology.Utility.Helpers
+﻿Imports Ophthalmology.Entity.Database
+Imports Ophthalmology.Utility.Helpers
 
 Public Class BaseData
     Public Sub New()
@@ -38,9 +39,9 @@ Public Class BaseData
 
             If Val(TxtId.Text) = 0 Then
 
-                Dim fields As New List(Of Tuple(Of String, Object)) From {
-                    New Tuple(Of String, Object)(Constants.NameFieldName, TxtName.Text),
-                    New Tuple(Of String, Object)(Constants.PriceFieldName, txtPrice.Text)
+                Dim fields As New List(Of IFieldValue) From {
+                    New FieldValue(Constants.NameFieldName, TxtName.Text),
+                    New FieldValue(Constants.PriceFieldName, txtPrice.Text)
                 }
                 Dim rows = DatabaseHelper.Insert(_tableName, fields)
 
@@ -61,9 +62,9 @@ Public Class BaseData
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
 
-        Dim fields As New List(Of Tuple(Of String, Object)) From {
-                New Tuple(Of String, Object)(Constants.NameFieldName, TxtName.Text),
-                New Tuple(Of String, Object)(Constants.PriceFieldName, txtPrice.Text)
+        Dim fields As New List(Of IFieldValue) From {
+                New FieldValue(Constants.NameFieldName, TxtName.Text),
+                New FieldValue(Constants.PriceFieldName, txtPrice.Text)
                 }
         Dim rows = DatabaseHelper.Update(_tableName, fields)
 
@@ -94,9 +95,9 @@ Public Class BaseData
                 Exit Sub
             End If
 
-            Dim where As New List(Of Tuple(Of String, Object, String)) From
+            Dim where As New List(Of IWhereClause) From
             {
-                New Tuple(Of String, Object, String)(Constants.IdFieldName, TxtId.Text, "")
+                New WhereClause(Constants.IdFieldName, TxtId.Text)
             }
             Dim rows = DatabaseHelper.Delete(_tableName, where)
 

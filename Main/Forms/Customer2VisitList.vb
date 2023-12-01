@@ -1,5 +1,7 @@
 ﻿Imports System.Net.Sockets
 Imports System.IO
+Imports Ophthalmology.Entity.Database
+Imports Ophthalmology.Entity.Enums
 Imports Ophthalmology.Utility.Helpers
 
 Public Class Customer2VisitList
@@ -7,10 +9,10 @@ Public Class Customer2VisitList
 
         Dim tableName = "Customer C INNER JOIN VisitList V on (C.id=V.Code_Customer)"
         Dim fields = "V.id,C.id as کد ,C.Name as نام , C.Family as فامیلی,   C.DateSave as تاریخ ,TimeVisit as زمان,V.Status as وضعیت  , v.price as مبلغ"
-        Dim where As New List(Of Tuple(Of String, Object, String)) From
+        Dim where As New List(Of IWhereClause) From
         {
-            New Tuple(Of String, Object, String)("V.DateVisit", $"{DatePicker1.Text}", "AND"),
-            New Tuple(Of String, Object, String)("C.DrId", $"{DrId}", "")
+            New WhereClause("V.DateVisit", $"{DatePicker1.Text}", LogicalOperatorType.And),
+            New WhereClause("C.DrId", $"{DrId}")
         }
         Dim dt As DataTable = DatabaseHelper.Select(tableName, fields, where)
         dt.DefaultView.Sort = "Id DESC"
@@ -55,21 +57,21 @@ Public Class Customer2VisitList
 
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
 
-        Dim params As New List(Of Tuple(Of String, Object)) From {
-                New Tuple(Of String, Object)("Code_customer", CbCustomer.SelectedValue.ToString),
-                New Tuple(Of String, Object)("DateVisit", MtDate.Text),
-                New Tuple(Of String, Object)("TimeVisit", MtTime.Text),
-                New Tuple(Of String, Object)("Price", Val(txtPrice.Text)),
-                New Tuple(Of String, Object)(Constants.DrIdFieldName, DrId)
+        Dim params As New List(Of IFieldValue) From {
+                New FieldValue("Code_customer", CbCustomer.SelectedValue.ToString),
+                New FieldValue("DateVisit", MtDate.Text),
+                New FieldValue("TimeVisit", MtTime.Text),
+                New FieldValue("Price", Val(txtPrice.Text)),
+                New FieldValue(Constants.DrIdFieldName, DrId)
                 }
 
         If Val(txtId.Text) = 0 Then
-            params.Add(New Tuple(Of String, Object)(Constants.StatusFieldName, "ویزیت نشده"))
+            params.Add(New FieldValue(Constants.StatusFieldName, "ویزیت نشده"))
             DatabaseHelper.Insert("VisitList", params)
         Else
 
-            params.Add(New Tuple(Of String, Object)(Constants.StatusFieldName, "ویزیت نشده"))
-            params.Add(New Tuple(Of String, Object)(Constants.IdFieldName, txtId.Text))
+            params.Add(New FieldValue(Constants.StatusFieldName, "ویزیت نشده"))
+            params.Add(New FieldValue(Constants.IdFieldName, txtId.Text))
             DatabaseHelper.Update("VisitList", params)
         End If
 
@@ -108,8 +110,8 @@ Public Class Customer2VisitList
             'Dim Dt As New DataTable
             'Ado.Fill(Dt)
 
-            Dim where As New List(Of Tuple(Of String, Object, String)) From {
-                    New Tuple(Of String, Object, String)(Constants.DrIdFieldName, DrId, "")}
+            Dim where As New List(Of IWhereClause) From {
+                    New WhereClause(Constants.DrIdFieldName, DrId)}
 
             Dim dt As DataTable = DatabaseHelper.Select(Constants.CustomerTableName, "id,Family +' ' + name +' ' + Tel as X", where)
 
@@ -182,8 +184,8 @@ Public Class Customer2VisitList
     Private Sub BtnDelete_Click(sender As Object, e As EventArgs) Handles BtnDelete.Click
         If Val(txtId.Text) <> 0 Then
 
-            Dim where As New List(Of Tuple(Of String, Object, String)) From {
-                    New Tuple(Of String, Object, String)(Constants.IdFieldName, txtId.Text, "")}
+            Dim where As New List(Of IWhereClause) From {
+                    New WhereClause(Constants.IdFieldName, txtId.Text, "")}
 
             DatabaseHelper.Delete("VisitList", where)
 
@@ -224,8 +226,9 @@ Public Class Customer2VisitList
 
         Dim tableName = "Customer INNER JOIN TypePatient ON Customer.IdTypePatient = TypePatient.ID"
         Dim fields = "Customer.Age, TypePatient.Name, TypePatient.Price"
-        Dim where As New List(Of Tuple(Of String, Object, String)) From {
-        New Tuple(Of String, Object, String)("Customer.id", CbCustomer.SelectedValue.ToString(), "")
+
+        Dim where As New List(Of IWhereClause) From {
+        New WhereClause("Customer.id", CbCustomer.SelectedValue.ToString())
         }
         Dim dt As DataTable = DatabaseHelper.Select(tableName, fields, where)
 

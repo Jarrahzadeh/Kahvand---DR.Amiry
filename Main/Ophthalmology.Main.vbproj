@@ -136,41 +136,59 @@
     <Compile Include="Forms\BaseData.Designer.vb">
       <DependentUpon>BaseData.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\BaseData.vb" />
+    <Compile Include="Forms\BaseData.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\ChatForm.Designer.vb">
       <DependentUpon>ChatForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ChatForm.vb" />
+    <Compile Include="Forms\ChatForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Compresor.vb" />
     <Compile Include="Control\ParentForm.Designer.vb">
       <DependentUpon>ParentForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Control\ParentForm.vb" />
+    <Compile Include="Control\ParentForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="EnCode.vb" />
     <Compile Include="Forms\ListOfData.Designer.vb">
       <DependentUpon>ListOfData.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\ListOfData.vb" />
+    <Compile Include="Forms\ListOfData.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\LoginForm.Designer.vb">
       <DependentUpon>LoginForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\LoginForm.vb" />
+    <Compile Include="Forms\LoginForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Register.Designer.vb">
       <DependentUpon>Register.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Register.vb" />
+    <Compile Include="Forms\Register.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\RptVisit.Designer.vb">
       <DependentUpon>RptVisit.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\RptVisit.vb" />
+    <Compile Include="Forms\RptVisit.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Control\Temp_form.Designer.vb">
       <DependentUpon>Temp_form.vb</DependentUpon>
     </Compile>
-    <Compile Include="Control\Temp_form.vb" />
+    <Compile Include="Control\Temp_form.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Control\UForm.designer.vb">
       <DependentUpon>UForm.vb</DependentUpon>
     </Compile>
-    <Compile Include="Control\UForm.vb" />
+    <Compile Include="Control\UForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Control\UTextBox.Designer.vb">
       <DependentUpon>UTextBox.vb</DependentUpon>
     </Compile>
@@ -180,51 +198,75 @@
     <Compile Include="Forms\Customer2VisitList.Designer.vb">
       <DependentUpon>Customer2VisitList.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customer2VisitList.vb" />
+    <Compile Include="Forms\Customer2VisitList.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Editor.Designer.vb">
       <DependentUpon>Editor.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Editor.vb" />
+    <Compile Include="Forms\Editor.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\F1_Ref.Designer.vb">
       <DependentUpon>F1_Ref.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\F1_Ref.vb" />
+    <Compile Include="Forms\F1_Ref.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\F2_Cat.Designer.vb">
       <DependentUpon>F2_Cat.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\F2_Cat.vb" />
+    <Compile Include="Forms\F2_Cat.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\F3_Cornea.Designer.vb">
       <DependentUpon>F3_Cornea.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\F3_Cornea.vb" />
+    <Compile Include="Forms\F3_Cornea.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\F4_Strabisam.Designer.vb">
       <DependentUpon>F4_Strabisam.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\F4_Strabisam.vb" />
+    <Compile Include="Forms\F4_Strabisam.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\F5_Fundus.Designer.vb">
       <DependentUpon>F5_Fundus.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\F5_Fundus.vb" />
+    <Compile Include="Forms\F5_Fundus.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\F6_Conjunctiva.Designer.vb">
       <DependentUpon>F6_Conjunctiva.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\F6_Conjunctiva.vb" />
+    <Compile Include="Forms\F6_Conjunctiva.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\F7_Nld.Designer.vb">
       <DependentUpon>F7_Nld.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\F7_Nld.vb" />
+    <Compile Include="Forms\F7_Nld.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\F8_Lid.Designer.vb">
       <DependentUpon>F8_Lid.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\F8_Lid.vb" />
+    <Compile Include="Forms\F8_Lid.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\F9_Surgery.Designer.vb">
       <DependentUpon>F9_Surgery.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\F9_Surgery.vb" />
+    <Compile Include="Forms\F9_Surgery.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Main.designer.vb">
       <DependentUpon>Main.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Main.vb" />
+    <Compile Include="Forms\Main.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Module1.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
@@ -245,19 +287,27 @@
     <Compile Include="Forms\Customer.Designer.vb">
       <DependentUpon>Customer.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Customer.vb" />
+    <Compile Include="Forms\Customer.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\OldVisit.Designer.vb">
       <DependentUpon>OldVisit.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\OldVisit.vb" />
+    <Compile Include="Forms\OldVisit.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\SaveMSG.Designer.vb">
       <DependentUpon>SaveMSG.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SaveMSG.vb" />
+    <Compile Include="Forms\SaveMSG.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Test.Designer.vb">
       <DependentUpon>Test.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Test.vb" />
+    <Compile Include="Forms\Test.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Control\UCheckBox.Designer.vb">
       <DependentUpon>UCheckBox.vb</DependentUpon>
     </Compile>
@@ -268,15 +318,21 @@
     <Compile Include="Forms\Users.Designer.vb">
       <DependentUpon>Users.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Users.vb" />
+    <Compile Include="Forms\Users.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\Visit.Designer.vb">
       <DependentUpon>Visit.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Visit.vb" />
+    <Compile Include="Forms\Visit.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Forms\VisitList.Designer.vb">
       <DependentUpon>VisitList.vb</DependentUpon>
     </Compile>
-    <Compile Include="Forms\VisitList.vb" />
+    <Compile Include="Forms\VisitList.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Forms\BaseData.resx">
@@ -448,6 +504,10 @@
     <ProjectReference Include="..\Controls\Ophthalmology.Controls.csproj">
       <Project>{ae1649b5-110d-48d1-8f4e-8e02e690c818}</Project>
       <Name>Ophthalmology.Controls</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Ophthalmology.Entity\Ophthalmology.Entity.csproj">
+      <Project>{36861226-c2e5-43e8-95bc-1c7830853c95}</Project>
+      <Name>Ophthalmology.Entity</Name>
     </ProjectReference>
     <ProjectReference Include="..\Utility\Ophthalmology.Utility.csproj">
       <Project>{87739c09-90e2-470d-b438-94881969fd29}</Project>

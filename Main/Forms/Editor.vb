@@ -1,5 +1,6 @@
 ﻿Imports System.Data.OleDb
 Imports System.Globalization
+Imports Ophthalmology.Entity.Database
 Imports Ophthalmology.Utility.Helpers
 
 Public Class Editor
@@ -96,9 +97,9 @@ Public Class Editor
             CbFont.Text = 12
             LblStatus.Text = 0
 
-            Dim where As New List(Of Tuple(Of String, Object, String)) From {
-                    New Tuple(Of String, Object, String)("Fk_Customer", TFk_Customer.Text, "")}
-            Dim dt1 As DataTable = DatabaseHelper.Select("TblText", whereClause:=where)
+            Dim where As New List(Of IWhereClause) From {
+                    New WhereClause("Fk_Customer", TFk_Customer.Text)}
+            Dim dt1 As DataTable = DatabaseHelper.Select("TblText", whereClauses:=where)
 
             rtbMain.Text = dt1.Rows(0)("TextVisit").ToString()
             lblId.Text = dt1.Rows(0)("id").ToString()

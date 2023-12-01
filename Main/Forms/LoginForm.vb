@@ -1,4 +1,6 @@
 ﻿Imports System.Net
+Imports Ophthalmology.Entity.Database
+Imports Ophthalmology.Entity.Enums
 Imports Ophthalmology.Utility.Helpers
 
 Namespace Forms
@@ -17,12 +19,12 @@ Namespace Forms
         End Sub
 
         Private Sub BtnEnter_Click(sender As Object, e As EventArgs) Handles BtnEnter.Click
-            Dim where As New List(Of Tuple(Of String, Object, String)) From {
-                New Tuple(Of String, Object, String)(Constants.NameFieldName, TxtUserName.Text, "AND"),
-                New Tuple(Of String, Object, String)(Constants.PassFieldName, TxtPass.Text, String.Empty)
+            Dim where As New List(Of IWhereClause) From {
+                New WhereClause(Constants.NameFieldName, TxtUserName.Text, LogicalOperatorType.And),
+                New WhereClause(Constants.PassFieldName, TxtPass.Text)
             }
 
-            Dim dt = DatabaseHelper.Select(Constants.UserTableName, whereClause:=where)
+            Dim dt = DatabaseHelper.Select(Constants.UserTableName, whereClauses:=where)
 
             DrName = CbDr.Text
 
