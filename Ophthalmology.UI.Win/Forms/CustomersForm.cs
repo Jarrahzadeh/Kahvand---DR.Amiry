@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Forms;
 using Ophthalmology.Entity.Database;
 using Ophthalmology.Entity.Entites;
@@ -17,7 +18,8 @@ namespace Ophthalmology.UI.Win.Forms
         public CustomersForm()
         {
             InitializeComponent();
-
+            
+            //dateTimePicker1.
             _customers = null;
             _editMode = false;
         }
@@ -119,10 +121,6 @@ namespace Ophthalmology.UI.Win.Forms
                 bindingSourceCustomers.CancelEdit();
                 _customers = null;
             }
-
-            //bindingSourceCustomers.ResetAllowNew();
-            //bindingSourceCustomers.CancelEdit();
-            //bindingSourceCustomers.ResetCurrentItem();
         }
 
         private void ButtonCancel_Click(object sender, EventArgs e)
@@ -131,6 +129,7 @@ namespace Ophthalmology.UI.Win.Forms
             bindingSourceCustomers.CancelEdit();
             bindingSourceCustomers.ResetCurrentItem();
             _customers = null;
+            Close();
         }
 
         private void ButtonEdit_Click(object sender, EventArgs e)
@@ -189,7 +188,91 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void bindingSourceCustomers_CurrentItemChanged(object sender, EventArgs e)
         {
-            _editMode = true;
+            if (_editMode)
+            {
+
+            }
+        }
+
+        private void bindingSourceCustomers_ListChanged(object sender, System.ComponentModel.ListChangedEventArgs e)
+        {
+            switch (e.ListChangedType)
+            {
+                case ListChangedType.Reset:
+                    break;
+                case ListChangedType.ItemAdded:
+                    break;
+                case ListChangedType.ItemDeleted:
+                    break;
+                case ListChangedType.ItemMoved:
+                    break;
+                case ListChangedType.ItemChanged:
+                    _editMode = true;
+                    break;
+                case ListChangedType.PropertyDescriptorAdded:
+                    break;
+                case ListChangedType.PropertyDescriptorDeleted:
+                    break;
+                case ListChangedType.PropertyDescriptorChanged:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        private void bindingSourceCustomers_AddingNew(object sender, AddingNewEventArgs e)
+        {
+
+        }
+
+        private void bindingSourceCustomers_BindingComplete(object sender, BindingCompleteEventArgs e)
+        {
+            switch (e.BindingCompleteState)
+            {
+                case BindingCompleteState.Success:
+                    break;
+                case BindingCompleteState.DataError:
+                    break;
+                case BindingCompleteState.Exception:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            switch (e.BindingCompleteContext)
+            {
+                case BindingCompleteContext.ControlUpdate:
+                    break;
+                case BindingCompleteContext.DataSourceUpdate:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        private void bindingSourceCustomers_CurrentChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bindingSourceCustomers_DataError(object sender, BindingManagerDataErrorEventArgs e)
+        {
+
+        }
+
+        private void bindingSourceCustomers_DataMemberChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bindingSourceCustomers_DataSourceChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bindingSourceCustomers_PositionChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

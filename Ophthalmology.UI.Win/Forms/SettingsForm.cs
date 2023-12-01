@@ -56,7 +56,6 @@ namespace Ophthalmology.UI.Win.Forms
             MyApplication.SaveSettings();
             ApplyThemeToAll();
             MessageBox.Show("تنظیمات با موفقیت ذخیره گردید");
-            Close();
         }
 
         private void ApplyThemeToAll()

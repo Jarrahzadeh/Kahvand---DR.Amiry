@@ -85,6 +85,8 @@ namespace Ophthalmology.UI.Win.Forms
 
             if (RadioButtonSecretary.Checked)
                 MyApplication.CurrentSettings.UserType = UserType.Secretary;
+
+            ShowCloseQuestion = false;
         }
 
         private void LoginForm_Shown(object sender, EventArgs e)

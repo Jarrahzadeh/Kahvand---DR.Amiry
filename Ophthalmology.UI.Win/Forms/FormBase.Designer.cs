@@ -79,8 +79,9 @@
             this.ClientSize = new System.Drawing.Size(334, 245);
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "FormBase";
-            this.Padding = new System.Windows.Forms.Padding(10, 10, 10, 10);
+            this.Padding = new System.Windows.Forms.Padding(10);
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormBase_FormClosing);
             this.ResumeLayout(false);
 
         }

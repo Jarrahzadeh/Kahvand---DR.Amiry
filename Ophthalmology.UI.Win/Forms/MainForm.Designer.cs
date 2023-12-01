@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.ButtonExit = new Janus.Windows.EditControls.UIButton();
             this.ButtonCustomers = new Janus.Windows.EditControls.UIButton();
             this.ButtonVisilList = new Janus.Windows.EditControls.UIButton();
             this.ButtonReports = new Janus.Windows.EditControls.UIButton();
@@ -42,6 +41,7 @@
             this.uiGroupBox1 = new Janus.Windows.EditControls.UIGroupBox();
             this.TextBoxDoctor = new Janus.Windows.GridEX.EditControls.EditBox();
             this.ButtonSettings = new Janus.Windows.EditControls.UIButton();
+            this.ButtonExit = new Janus.Windows.EditControls.UIButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.LabelCurrentUser = new System.Windows.Forms.ToolStripStatusLabel();
             this.LabelCurrentUserValue = new System.Windows.Forms.ToolStripStatusLabel();
@@ -82,17 +82,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(664, 419);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // ButtonExit
-            // 
-            this.ButtonExit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ButtonExit.Location = new System.Drawing.Point(541, 335);
-            this.ButtonExit.Name = "ButtonExit";
-            this.ButtonExit.Size = new System.Drawing.Size(120, 81);
-            this.ButtonExit.TabIndex = 7;
-            this.ButtonExit.Text = "خروج (Esc)";
-            this.ButtonExit.VisualStyleManager = this.visualStyleManager;
-            this.ButtonExit.Click += new System.EventHandler(this.ButtonExit_Click);
             // 
             // ButtonCustomers
             // 
@@ -204,6 +193,17 @@
             this.ButtonSettings.VisualStyleManager = this.visualStyleManager;
             this.ButtonSettings.Click += new System.EventHandler(this.ButtonSettings_Click);
             // 
+            // ButtonExit
+            // 
+            this.ButtonExit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ButtonExit.Location = new System.Drawing.Point(541, 335);
+            this.ButtonExit.Name = "ButtonExit";
+            this.ButtonExit.Size = new System.Drawing.Size(120, 81);
+            this.ButtonExit.TabIndex = 7;
+            this.ButtonExit.Text = "خروج (Esc)";
+            this.ButtonExit.VisualStyleManager = this.visualStyleManager;
+            this.ButtonExit.Click += new System.EventHandler(this.ButtonExit_Click);
+            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -263,6 +263,7 @@
             this.Controls.Add(this.statusStrip1);
             this.KeyPreview = true;
             this.Name = "MainForm";
+            this.ShowCloseQuestion = false;
             this.Text = "مدیریت مطب";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.MainForm_KeyPress);
