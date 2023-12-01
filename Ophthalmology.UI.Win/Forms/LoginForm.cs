@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Ophthalmology.Entity.Database;
 using Ophthalmology.Entity.Entites;
 using Ophthalmology.Entity.Enums;
 using Ophthalmology.UI.Win.Classes;
@@ -33,23 +34,28 @@ namespace Ophthalmology.UI.Win.Forms
         private bool Authenticate(string userName, string password)
         {
             User user;
-            var whereClause = new List<Tuple<string, object, string>>
+            var whereClauses = new List<IWhereClause>
             {
-                new Tuple<string, object, string>(nameof(user.Name),  userName, "AND"),
-                new Tuple<string, object, string>(nameof(user.Pass),  password, "")
+                new WhereClause(nameof(user.Name),  userName, LogicalOperatorType.And),
+                new WhereClause(nameof(user.Pass),  password)
             };
-            var users = DatabaseHelper.Select<User>(whereClause: whereClause);
+            var users = DatabaseHelper.Select<User>(whereClauses: whereClauses);
             var loggedIn = users != null && users.Count > 0;
             if (loggedIn)
             {
                 user = users.First();
-                MyApplication.UserId = user.Id;
-                MyApplication.UserName = user.FullName;
                 var doctor = (Doctor)bindingSource1.Current;
-                MyApplication.DrId = doctor.Id;
-                MyApplication.DrName = doctor.Name;
+                SetUserContextData(user, doctor);
             }
             return loggedIn;
+        }
+
+        private static void SetUserContextData(User user, Doctor doctor)
+        {
+            MyApplication.UserId = user.Id;
+            MyApplication.UserName = user.FullName;
+            MyApplication.DrId = doctor.Id;
+            MyApplication.DrName = doctor.Name;
         }
 
         #endregion

@@ -42,9 +42,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\IFieldValue.cs" />
+    <Compile Include="Database\IWhereClause.cs" />
     <Compile Include="Entites\Doctor.cs" />
+    <Compile Include="Database\FieldValue.cs" />
     <Compile Include="Entites\TypePatient.cs" />
     <Compile Include="Entites\User.cs" />
+    <Compile Include="Database\WhereClause.cs" />
+    <Compile Include="Enums\LogicalOperatorType.cs" />
     <Compile Include="Enums\UserType.cs" />
     <Compile Include="Settings\ApplicationSettings.cs" />
     <Compile Include="Entites\Customer.cs" />

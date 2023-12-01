@@ -174,5 +174,30 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\anyrgb.com.png" />
+    <Content Include="Images\Hero_Blog_Ophthalmology-No3-lead-up-to-WS.jpg" />
+    <Content Include="Images\Ophthalmology_hero image.jpg" />
+    <Content Include="Images\wp10578000.jpg" />
+    <Content Include="Images\wp10578001.jpg" />
+    <Content Include="Images\wp10578002.jpg" />
+    <Content Include="Images\wp10578003.jpg" />
+    <Content Include="Images\wp10578004.jpg" />
+    <Content Include="Images\wp10578005.jpg" />
+    <Content Include="Images\wp10578010.jpg" />
+    <Content Include="Images\wp10578011.jpg" />
+    <Content Include="Images\wp10578027.jpg" />
+    <Content Include="Images\wp10578033.jpg" />
+    <Content Include="Images\wp10578053.jpg" />
+    <Content Include="Images\wp10578065.jpg" />
+    <Content Include="Images\wp10578086.jpg" />
+    <Content Include="Images\wp10578097.jpg" />
+    <Content Include="Images\wp7364836.jpg" />
+    <Content Include="Images\wp7364864.jpg" />
+    <Content Include="Images\wp7364866.jpg" />
+    <Content Include="Images\wp7364894.jpg" />
+    <Content Include="Images\wp7365271.jpg" />
+    <Content Include="Images\wp8108333.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

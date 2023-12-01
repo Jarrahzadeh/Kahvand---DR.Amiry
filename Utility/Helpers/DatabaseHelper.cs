@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.Linq;
+using Ophthalmology.Entity.Database;
+using Ophthalmology.Entity.Enums;
 using Ophthalmology.Utility.Classes;
 using Ophthalmology.Utility.Database;
 
@@ -10,7 +12,7 @@ namespace Ophthalmology.Utility.Helpers
 {
     public static class DatabaseHelper
     {
-        public static int Insert(string tableName, List<Tuple<string, object>> filedNameAndValues)
+        public static int Insert(string tableName, List<IFieldValue> filedNameAndValues)
         {
             if (string.IsNullOrEmpty(tableName))
             {
@@ -22,24 +24,12 @@ namespace Ophthalmology.Utility.Helpers
                 throw new ArgumentNullException(nameof(filedNameAndValues));
             }
 
-            var fields = string.Empty;
-            var values = string.Empty;
-            var parameters = new List<OleDbParameter>();
-            foreach (var filedNameAndValue in filedNameAndValues)
-            {
-                var separator = string.IsNullOrWhiteSpace(fields) ? string.Empty : ", ";
-                fields = string.Join(separator, fields, $"{filedNameAndValue.Item1}");
-                values = string.Join(separator, values, $"@{filedNameAndValue.Item1}");
-
-                var oleDbParameter = new OleDbParameter($"@{filedNameAndValue.Item1}", filedNameAndValue.Item2);
-
-                parameters.Add(oleDbParameter);
-            }
-
-            var script = $" INSERT INTO {tableName} ({fields}) VALUES ({values})";
+            var insertScript = filedNameAndValues.ToInsertScript();
+            var script = $" INSERT INTO {tableName} ({insertScript.Item1}) VALUES ({insertScript.Item2})";
 
             try
             {
+                var parameters = filedNameAndValues.ToOleDbParameters();
                 using (var dbConnection = new DbConnection(Config.ConnectionString))
                 {
                     dbConnection.Open();
@@ -53,7 +43,7 @@ namespace Ophthalmology.Utility.Helpers
             }
         }
 
-        public static int Update(string tableName, List<Tuple<string, object>> filedNameAndValues)
+        public static int Update(string tableName, List<IFieldValue> filedNameAndValues, List<IWhereClause> whereClauses = default)
         {
             if (string.IsNullOrEmpty(tableName))
             {
@@ -65,23 +55,17 @@ namespace Ophthalmology.Utility.Helpers
                 throw new ArgumentNullException(nameof(filedNameAndValues));
             }
 
-            var fields = string.Empty;
-            var parameters = new List<OleDbParameter>();
-            foreach (var filedNameAndValue in filedNameAndValues)
-            {
-                var separator = string.IsNullOrWhiteSpace(fields) ? string.Empty : ", ";
-                fields = string.Join(separator, fields, $"{filedNameAndValue.Item1} = @{filedNameAndValue.Item1}");
+            var fields = filedNameAndValues.ToUpdateScript();
+            var whereClauseScript = whereClauses.ToWhereClauseScript();
 
-                var oleDbParameter = new OleDbParameter($"@{filedNameAndValue.Item1}", filedNameAndValue.Item2);
-
-                parameters.Add(oleDbParameter);
-            }
-
-            var script = $"UPDATE {tableName} SET {fields} WHERE {filedNameAndValues[0].Item1} = @{filedNameAndValues[0].Item1}";
+            var script = $"UPDATE {tableName} SET {fields} WHERE {whereClauseScript}";
 
             int rowsAffectedCount;
             try
             {
+                var parameters = filedNameAndValues.ToOleDbParameters();
+                parameters.AddRange(whereClauses.ToOleDbParameters());
+
                 using (var dbConnection = new DbConnection(Config.ConnectionString))
                 {
                     dbConnection.Open();
@@ -97,7 +81,7 @@ namespace Ophthalmology.Utility.Helpers
             return rowsAffectedCount;
         }
 
-        public static int Delete(string tableName, List<Tuple<string, object, string>> whereClause = default)
+        public static int Delete(string tableName, List<IWhereClause> whereClauses = default)
         {
             if (string.IsNullOrEmpty(tableName))
             {
@@ -107,9 +91,10 @@ namespace Ophthalmology.Utility.Helpers
             var script = $"DELETE FROM {tableName}";
             var parameters = new List<OleDbParameter>();
 
-            if (whereClause != null)
+            if (whereClauses != null)
             {
-                var fields = GetWhereClauseScript(whereClause, parameters);
+                parameters = whereClauses.ToOleDbParameters();
+                var fields = whereClauses.ToWhereClauseScript();
                 if (!string.IsNullOrWhiteSpace(fields))
                     script += $" WHERE {fields}";
             }
@@ -129,36 +114,18 @@ namespace Ophthalmology.Utility.Helpers
             }
         }
 
-        public static List<T> Select<T>(string tableName = "", string selectFields = "*", List<Tuple<string, object, string>> whereClause = default)
+        public static List<T> Select<T>(string tableName = "", string selectFields = "*", List<IWhereClause> whereClauses = default)
             where T : Entity.Entites.EntityBase, new()
         {
             if (string.IsNullOrEmpty(tableName))
                 tableName = new T().TableName;
 
-            var dataTable = Select(tableName, selectFields, whereClause);
-            var result = new List<T>();
-            foreach (DataRow dataRow in dataTable.Rows)
-            {
-                var item = new T();
-                foreach (DataColumn dataColumn in dataTable.Columns)
-                {
-                    var propertyInfo = item.GetType().GetProperties().FirstOrDefault(p => p.Name.ToLower() == dataColumn.ColumnName.ToLower());
-                    if (propertyInfo == null)
-                        continue;
-
-                    var value = dataRow[dataColumn];
-                    if (value is DBNull)
-                    {
-                        value = null;
-                    }
-                    propertyInfo.SetValue(item, value);
-                }
-                result.Add(item);
-            }
+            var dataTable = Select(tableName, selectFields, whereClauses);
+            var result = dataTable.ToListOfT<T>();
             return result;
         }
 
-        public static DataTable Select(string tableName, string selectFields = "*", List<Tuple<string, object, string>> whereClause = default)
+        public static DataTable Select(string tableName, string selectFields = "*", List<IWhereClause> whereClauses = default)
         {
             if (string.IsNullOrEmpty(tableName))
             {
@@ -167,9 +134,10 @@ namespace Ophthalmology.Utility.Helpers
 
             var script = $" SELECT {selectFields} FROM {tableName}";
             var parameters = new List<OleDbParameter>();
-            if (whereClause != null)
+            if (whereClauses != null)
             {
-                var fields = GetWhereClauseScript(whereClause, parameters);
+                parameters = whereClauses.ToOleDbParameters();
+                var fields = whereClauses.ToWhereClauseScript();
                 if (!string.IsNullOrWhiteSpace(fields))
                     script += $" WHERE{fields}";
             }
@@ -190,7 +158,7 @@ namespace Ophthalmology.Utility.Helpers
             }
         }
 
-        public static bool TableHasRecord(string tableName, List<Tuple<string, object, string>> whereClause = default)
+        public static bool TableHasRecord(string tableName, List<IWhereClause> whereClauses = default)
         {
             if (string.IsNullOrEmpty(tableName))
             {
@@ -199,9 +167,10 @@ namespace Ophthalmology.Utility.Helpers
 
             var script = $"SELECT COUNT(*) FROM {tableName}";
             var parameters = new List<OleDbParameter>();
-            if (whereClause != null)
+            if (whereClauses != null)
             {
-                var fields = GetWhereClauseScript(whereClause, parameters);
+                parameters = whereClauses.ToOleDbParameters();
+                var fields = whereClauses.ToWhereClauseScript();
                 if (!string.IsNullOrWhiteSpace(fields))
                     script += $" WHERE{fields}";
             }
@@ -232,19 +201,93 @@ namespace Ophthalmology.Utility.Helpers
             }
         }
 
-        private static string GetWhereClauseScript(List<Tuple<string, object, string>> whereClause, ICollection<OleDbParameter> parameters)
+        private static List<T> ToListOfT<T>(this DataTable dataTable) where T : Entity.Entites.EntityBase, new()
         {
-            var fields = string.Empty;
-            foreach (var tuple in whereClause)
+            var result = new List<T>();
+            foreach (DataRow dataRow in dataTable.Rows)
             {
-                fields = string.Join(string.Empty, fields, $" {tuple.Item1} = @{tuple.Item1} ", tuple.Item3.ToUpper());
+                var item = new T();
+                foreach (DataColumn dataColumn in dataTable.Columns)
+                {
+                    var propertyInfo = item.GetType().GetProperties().FirstOrDefault(p => p.Name.ToLower() == dataColumn.ColumnName.ToLower());
+                    if (propertyInfo == null)
+                        continue;
 
-                var oleDbParameter = new OleDbParameter($"@{tuple.Item1}", tuple.Item2);
+                    var value = dataRow[dataColumn];
+                    if (value is DBNull)
+                    {
+                        value = null;
+                    }
 
-                parameters.Add(oleDbParameter);
+                    propertyInfo.SetValue(item, value);
+                }
+
+                result.Add(item);
             }
 
-            return fields;
+            return result;
+        }
+
+        private static List<OleDbParameter> ToOleDbParameters(this List<IFieldValue> filedValues)
+        {
+            var oleDbParameters = new List<OleDbParameter>();
+            if (filedValues != null)
+            {
+                var dbParameters = filedValues.Select(filedValue => new OleDbParameter($"@{filedValue.FiledName}", filedValue.Value));
+                oleDbParameters.AddRange(dbParameters);
+            }
+            return oleDbParameters;
+        }
+
+        private static List<OleDbParameter> ToOleDbParameters(this List<IWhereClause> filedValues)
+        {
+            var oleDbParameters = new List<OleDbParameter>();
+            if (filedValues != null)
+            {
+                var dbParameters = filedValues.Select(filedValue => new OleDbParameter($"@{filedValue.FiledName}", filedValue.Value));
+                oleDbParameters.AddRange(dbParameters);
+            }
+            return oleDbParameters;
+        }
+
+        private static string ToWhereClauseScript(this IEnumerable<IWhereClause> whereClauses)
+        {
+            var result = string.Empty;
+            foreach (var clause in whereClauses)
+            {
+                var value = "";
+                if (clause.LogicalOperator != LogicalOperatorType.None)
+                    value = clause.LogicalOperator.ToString().ToUpper();
+
+                result = string.Join(string.Empty, result, $" {clause.FiledName} = @{clause.Value} ", value);
+            }
+            return result;
+        }
+
+        private static Tuple<string, string> ToInsertScript(this IEnumerable<IFieldValue> filedValues)
+        {
+            var fields = string.Empty;
+            var values = string.Empty;
+
+            foreach (var filedValue in filedValues)
+            {
+                var separator = string.IsNullOrWhiteSpace(fields) ? string.Empty : ", ";
+                fields = string.Join(separator, fields, $"{filedValue.FiledName}");
+                values = string.Join(separator, values, $"@{filedValue.Value}");
+            }
+
+            return new Tuple<string, string>(fields, values);
+        }
+
+        private static string ToUpdateScript(this IEnumerable<IFieldValue> filedValues)
+        {
+            var script = string.Empty;
+            foreach (var filedValue in filedValues)
+            {
+                var separator = string.IsNullOrWhiteSpace(script) ? string.Empty : ", ";
+                script = string.Join(separator, script, $"{filedValue.FiledName} = @{filedValue.FiledName}");
+            }
+            return script;
         }
     }
 }

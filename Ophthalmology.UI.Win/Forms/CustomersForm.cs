@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Ophthalmology.Entity.Database;
 using Ophthalmology.Entity.Entites;
+using Ophthalmology.Entity.Enums;
 using Ophthalmology.UI.Win.Classes;
 using Ophthalmology.Utility.Helpers;
 
@@ -34,11 +36,8 @@ namespace Ophthalmology.UI.Win.Forms
             if (result != DialogResult.Yes)
                 return;
 
-            var where = new List<Tuple<string, object, string>>
-            {
-                new Tuple<string, object, string>("Id", CurrentCustomer.Id, "")
-            };
-            var rows = DatabaseHelper.Delete("Customer", where);
+            var whereClauses = new List<IWhereClause> { new WhereClause("Id", CurrentCustomer.Id) };
+            var rows = DatabaseHelper.Delete("Customer", whereClauses);
             var text = rows > 0 ? $"اطلاعات '{personName}' با موفقیت حذف شد" : $"اطلاعات '{personName}' حذف نشد";
             MessageBox.Show(text, $"حذف '{personName}'", MessageBoxButtons.OK, MessageBoxIcon.Information);
             ResetForm();
@@ -53,12 +52,12 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void LoadCustomers()
         {
-            var where = new List<Tuple<string, object, string>>
+            var whereClauses = new List<IWhereClause>
             {
-                new Tuple<string, object, string>("DrId", MyApplication.DrId, "")
+                new WhereClause("DrId", MyApplication.DrId)
             };
 
-            var dataTableCustomers = DatabaseHelper.Select<Customer>("Customer", whereClause: where);
+            var dataTableCustomers = DatabaseHelper.Select<Customer>("Customer", whereClauses: whereClauses);
             bindingSourceCustomers.DataSource = dataTableCustomers;
         }
 
@@ -145,12 +144,12 @@ namespace Ophthalmology.UI.Win.Forms
 
             }
 
-            var whereClause = new List<Tuple<string, object, string>>
+            var whereClauses = new List<IWhereClause>
             {
-                new Tuple<string, object, string>("Name", CurrentCustomer.Name, "AND"),
-                new Tuple<string, object, string>("Family",  CurrentCustomer.Family, ""),
+                new WhereClause("Name", CurrentCustomer.Name, LogicalOperatorType.And),
+                new WhereClause("Family", CurrentCustomer.Family)
             };
-            var hasRecord = DatabaseHelper.TableHasRecord("Customer", whereClause);
+            var hasRecord = DatabaseHelper.TableHasRecord("Customer", whereClauses);
             if (hasRecord)
             {
                 var result = MessageBox.Show("نام و نام خانوادگی تکراری می باشد. آیا ثبت می کنید؟", "ثبت بیمار", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -160,25 +159,25 @@ namespace Ophthalmology.UI.Win.Forms
                 }
             }
 
-            var fields = new List<Tuple<string, object>>
+            var fields = new List<IFieldValue>
             {
-                new Tuple<string, object>("Name",  CurrentCustomer.Name),
-                new Tuple<string, object>("Family",  CurrentCustomer.Family),
-                new Tuple<string, object>("NameFather",  CurrentCustomer.NameFather),
-                new Tuple<string, object>("Address",  CurrentCustomer.Address),
-                new Tuple<string, object>("Age", CurrentCustomer.Age),
-                new Tuple<string, object>("DateSave",  CurrentCustomer.DateSave),
-                new Tuple<string, object>("Dis",  CurrentCustomer.Dis),
-                new Tuple<string, object>("DrId", MyApplication.DrId),
-                new Tuple<string, object>("IdTypePatient",  CurrentCustomer.IdTypePatient),
-                new Tuple<string, object>("Tel",  CurrentCustomer.Tel)
+                new FieldValue("Name",  CurrentCustomer.Name),
+                new FieldValue("Family",  CurrentCustomer.Family),
+                new FieldValue("NameFather",  CurrentCustomer.NameFather),
+                new FieldValue("Address",  CurrentCustomer.Address),
+                new FieldValue("Age", CurrentCustomer.Age),
+                new FieldValue("DateSave",  CurrentCustomer.DateSave),
+                new FieldValue("Dis",  CurrentCustomer.Dis),
+                new FieldValue("DrId", MyApplication.DrId),
+                new FieldValue("IdTypePatient",  CurrentCustomer.IdTypePatient),
+                new FieldValue("Tel",  CurrentCustomer.Tel)
             };
 
             if (CheckBoxEyeLeft.Checked)
-                fields.Add(new Tuple<string, object>("EyeLeft", CurrentCustomer.EyeLeft));
+                fields.Add(new FieldValue("EyeLeft", CurrentCustomer.EyeLeft));
 
             if (CheckBoxEyeRight.Checked)
-                fields.Add(new Tuple<string, object>("EyeRight", CurrentCustomer.EyeRight));
+                fields.Add(new FieldValue("EyeRight", CurrentCustomer.EyeRight));
 
             var rows = DatabaseHelper.Insert("Customer", fields);
             if (rows <= 0)
