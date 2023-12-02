@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Windows.Forms;
 using Ophthalmology.Entity.Database;
 using Ophthalmology.Entity.Entites;
@@ -273,6 +274,16 @@ namespace Ophthalmology.UI.Win.Forms
         private void bindingSourceCustomers_PositionChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void CheckBoxEyeLeft_CheckedChanged(object sender, EventArgs e)
+        {
+            DateTimePickerEyeLeft.Enabled = CheckBoxEyeLeft.Checked;
+        }
+
+        private void CheckBoxEyeRight_CheckedChanged(object sender, EventArgs e)
+        {
+            DateTimePickerEyeRight.Enabled = CheckBoxEyeRight.Checked;
         }
     }
 }

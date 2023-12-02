@@ -43,17 +43,10 @@
     <Reference Include="Janus.Windows.GridEX.v3">
       <HintPath>..\packages\Janus\v3\Janus.Windows.GridEX.v3.dll</HintPath>
     </Reference>
-    <Reference Include="Janus.Windows.UI.v3">
-      <HintPath>..\packages\Janus\v3\Janus.Windows.UI.v3.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomControls\ChatControl.cs">
@@ -84,16 +77,6 @@
       <DependentUpon>UserControlBase.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Ophthalmology.Entity\Ophthalmology.Entity.csproj">
-      <Project>{36861226-c2e5-43e8-95bc-1c7830853c95}</Project>
-      <Name>Ophthalmology.Entity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Utility\Ophthalmology.Utility.csproj">
-      <Project>{87739c09-90e2-470d-b438-94881969fd29}</Project>
-      <Name>Ophthalmology.Utility</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\DataSources\Ophthalmology.Entity.Customer.datasource" />
