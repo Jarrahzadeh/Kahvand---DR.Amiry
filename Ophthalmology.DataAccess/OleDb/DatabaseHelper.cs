@@ -6,9 +6,9 @@ using System.Linq;
 using Ophthalmology.Entity.Database;
 using Ophthalmology.Entity.Enums;
 using Ophthalmology.Utility.Classes;
-using Ophthalmology.Utility.Database;
+using Ophthalmology.Utility.Helpers;
 
-namespace Ophthalmology.Utility.Helpers
+namespace Ophthalmology.DataAccess.OleDb
 {
     public static class DatabaseHelper
     {

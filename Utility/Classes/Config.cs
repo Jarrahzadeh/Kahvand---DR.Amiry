@@ -1,5 +1,4 @@
-﻿using System;
-using Ophthalmology.Utility.Helpers;
+﻿using Ophthalmology.Utility.Helpers;
 
 namespace Ophthalmology.Utility.Classes
 {

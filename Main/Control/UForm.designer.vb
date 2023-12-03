@@ -1,4 +1,4 @@
-﻿Imports Ophthalmology.Controls.CustomForms
+﻿
 
 Partial Class UForm
     Inherits Form

@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Ophthalmology.UI.Win")]
+[assembly: AssemblyTitle("Ophthalmology.DataAccess")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Ophthalmology.UI.Win")]
+[assembly: AssemblyProduct("Ophthalmology.DataAccess")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c716107c-b193-4c2f-9365-f8ab656a749c")]
+[assembly: Guid("ab392e28-680a-4d6f-8cdf-d9d02766644e")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -49,11 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\DbConnection.cs" />
     <Compile Include="Helpers\CollectionHelper.cs" />
     <Compile Include="Helpers\ConfigurationHelper.cs" />
     <Compile Include="Helpers\CultureHelper.cs" />
-    <Compile Include="Helpers\DatabaseHelper.cs" />
     <Compile Include="Helpers\DateTimeHelper.cs" />
     <Compile Include="Connection\Client.cs" />
     <Compile Include="Connection\Server.cs" />
@@ -61,16 +59,11 @@
     <Compile Include="Helpers\ExceptionHelper.cs" />
     <Compile Include="Helpers\JsonHelper.cs" />
     <Compile Include="Helpers\NetworkHelper.cs" />
+    <Compile Include="Helpers\PersianCultureInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Ophthalmology.Entity\Ophthalmology.Entity.csproj">
-      <Project>{36861226-c2e5-43e8-95bc-1c7830853c95}</Project>
-      <Name>Ophthalmology.Entity</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

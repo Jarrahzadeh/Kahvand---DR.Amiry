@@ -3,7 +3,7 @@ using Ophthalmology.Entity.Entites;
 
 namespace Ophthalmology.UI.Win.Forms
 {
-    public partial class TypePatientForm : CustomizableFormBase
+    public partial class TypePatientForm : CustomizableForm
     {
         public TypePatientForm()
         {

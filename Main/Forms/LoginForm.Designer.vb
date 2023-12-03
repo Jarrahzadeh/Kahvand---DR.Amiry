@@ -1,5 +1,4 @@
-﻿Imports Ophthalmology.Controls.CustomForm
-Imports Ophthalmology.Controls.CustomForms
+﻿
 
 Namespace Forms
     <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>

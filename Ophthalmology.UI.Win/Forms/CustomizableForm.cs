@@ -7,9 +7,9 @@ using Ophthalmology.Utility.Helpers;
 
 namespace Ophthalmology.UI.Win.Forms
 {
-    public partial class CustomizableFormBase : FormBase
+    public partial class CustomizableForm : BaseForm
     {
-        public CustomizableFormBase()
+        public CustomizableForm()
         {
             InitializeComponent();
         }
@@ -65,24 +65,24 @@ namespace Ophthalmology.UI.Win.Forms
         {
             private FormSettings() { }
 
-            public static FormSettings GetFormSettings(CustomizableFormBase form)
+            public static FormSettings GetFormSettings(CustomizableForm baseForm)
             {
                 var formSettings = new FormSettings
                 {
-                    FormLocation = form.Location,
-                    FormWindowState = form.WindowState,
-                    FormSize = form.Size
+                    FormLocation = baseForm.Location,
+                    FormWindowState = baseForm.WindowState,
+                    FormSize = baseForm.Size
                 };
 
                 return formSettings;
             }
 
-            public void SetFormSettings(CustomizableFormBase form)
+            public void SetFormSettings(CustomizableForm baseForm)
             {
-                form.Location = FormLocation;
-                form.WindowState = FormWindowState;
+                baseForm.Location = FormLocation;
+                baseForm.WindowState = FormWindowState;
                 if (!FormSize.IsEmpty)
-                    form.Size = FormSize;
+                    baseForm.Size = FormSize;
             }
 
             public Point FormLocation { get; set; }

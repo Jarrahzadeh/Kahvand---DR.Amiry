@@ -1,6 +1,6 @@
 ﻿namespace Ophthalmology.UI.Win.Forms
 {
-    partial class FormBase
+    partial class BaseForm
     {
         /// <summary>
         /// Required designer variable.
@@ -72,16 +72,18 @@
             this.visualStyleManager.ColorSchemes.Add(janusColorScheme5);
             this.visualStyleManager.ColorSchemes.Add(janusColorScheme6);
             // 
-            // FormBase
+            // BaseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(334, 245);
+            this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(6);
-            this.Name = "FormBase";
+            this.Name = "BaseForm";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormBase_FormClosing);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BaseForm_KeyPress);
             this.ResumeLayout(false);
 
         }

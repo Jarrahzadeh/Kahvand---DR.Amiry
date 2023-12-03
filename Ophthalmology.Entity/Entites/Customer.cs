@@ -20,6 +20,12 @@
 
         #endregion
 
+        #region ~( Constructors )~
+
+        public Customer() { }
+
+        #endregion
+
         #region ~( Methods )~
 
         public override string ToString()
@@ -120,6 +126,10 @@
         }
 
         public override string TableName => "Customer";
+
+        public bool EyeLeftHasData => !string.IsNullOrEmpty(EyeLeft);
+
+        public bool EyeRightHasData => !string.IsNullOrEmpty(EyeRight);
 
         #endregion
     }

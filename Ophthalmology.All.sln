@@ -22,6 +22,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		packages\ShamsiDatePicker.dll = packages\ShamsiDatePicker.dll
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ophthalmology.DataAccess", "Ophthalmology.DataAccess\Ophthalmology.DataAccess.csproj", "{AB392E28-680A-4D6F-8CDF-D9D02766644E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,14 @@ Global
 		{C716107C-B193-4C2F-9365-F8AB656A749C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C716107C-B193-4C2F-9365-F8AB656A749C}.Release|x86.ActiveCfg = Release|Any CPU
 		{C716107C-B193-4C2F-9365-F8AB656A749C}.Release|x86.Build.0 = Release|Any CPU
+		{AB392E28-680A-4D6F-8CDF-D9D02766644E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB392E28-680A-4D6F-8CDF-D9D02766644E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB392E28-680A-4D6F-8CDF-D9D02766644E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{AB392E28-680A-4D6F-8CDF-D9D02766644E}.Debug|x86.Build.0 = Debug|Any CPU
+		{AB392E28-680A-4D6F-8CDF-D9D02766644E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB392E28-680A-4D6F-8CDF-D9D02766644E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB392E28-680A-4D6F-8CDF-D9D02766644E}.Release|x86.ActiveCfg = Release|Any CPU
+		{AB392E28-680A-4D6F-8CDF-D9D02766644E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +90,7 @@ Global
 		{D697C386-7818-44BC-8D37-1F6F82FCFD0F} = {DD43E343-C4F1-4F2C-98F0-CEC132DCB949}
 		{36861226-C2E5-43E8-95BC-1C7830853C95} = {DD43E343-C4F1-4F2C-98F0-CEC132DCB949}
 		{C716107C-B193-4C2F-9365-F8AB656A749C} = {DD43E343-C4F1-4F2C-98F0-CEC132DCB949}
+		{AB392E28-680A-4D6F-8CDF-D9D02766644E} = {DD43E343-C4F1-4F2C-98F0-CEC132DCB949}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CB832BD5-E681-4EF5-B35A-71764723B6E4}

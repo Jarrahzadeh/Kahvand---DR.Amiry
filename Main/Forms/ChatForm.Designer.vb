@@ -1,6 +1,4 @@
 ﻿Imports Ophthalmology.Controls.CustomControls
-Imports Ophthalmology.Controls.CustomForm
-Imports Ophthalmology.Controls.CustomForms
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class ChatForm

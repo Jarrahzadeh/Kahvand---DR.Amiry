@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Windows.Forms;
+using Ophthalmology.Controls;
 using Ophthalmology.UI.Win.Classes;
 using Ophthalmology.Utility.Helpers;
 
 namespace Ophthalmology.UI.Win.Forms
 {
-    public partial class MainForm : CustomizableFormBase
+    public partial class MainForm : CustomizableForm
     {
         #region ~( Constructors )~
 
@@ -35,30 +36,15 @@ namespace Ophthalmology.UI.Win.Forms
         {
             Close();
         }
-
-        private void MainForm_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (int)Keys.Enter)
-            {
-                //if (ActiveControl != ButtonLogin)
-                //{
-                //    SelectNextControl(ActiveControl, true, true, true, true);
-                //}
-            }
-            else if (e.KeyChar == (int)Keys.Escape)
-            {
-                Close();
-            }
-        }
-
+        
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var dialogResult = MessageBox.Show("آیا برای خروج مطمئن هستید؟", "خروج از سیستم", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            var dialogResult = MsgBox.ShowQuestion("آیا برای خروج مطمئن هستید؟", "خروج از سیستم");
             if (dialogResult == DialogResult.No)
                 e.Cancel = true;
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void Timer1_Tick(object sender, EventArgs e)
         {
             LabelDateTime.Text = DateTime.Now.ToString("ddd dd MMM yyyy - HH:mm:ss", CultureHelper.PersianCulture);
         }

@@ -30,6 +30,8 @@ namespace Ophthalmology.Controls.CustomControls
                 CellToolTip = CellToolTip.UseCellToolTipText
             };
 
+            SaveSettings = true;
+
             AllowEdit = InheritableBoolean.False;
             AlternatingColors = true;
             ColumnAutoResize = true;

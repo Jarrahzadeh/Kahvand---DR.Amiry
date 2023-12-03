@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using Ophthalmology.Controls;
+using Ophthalmology.DataAccess.OleDb;
 using Ophthalmology.Entity.Entites;
 using Ophthalmology.UI.Win.Forms;
 using Ophthalmology.Utility.Helpers;
@@ -28,7 +30,7 @@ namespace Ophthalmology.UI.Win.Classes
             var isAvailable = DatabaseHelper.DatabaseIsAvailable();
             if (!isAvailable)
             {
-                MessageBox.Show("در باز کردن بانک اطلاعاتی خطلای پیش آمده", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MsgBox.ShowError("در باز کردن بانک اطلاعاتی خطلای پیش آمده", "خطا");
                 return;
             }
 
@@ -52,7 +54,7 @@ namespace Ophthalmology.UI.Win.Classes
             var doctors = DatabaseHelper.Select<Doctor>();
             if (doctors == null || doctors.Count <= 0)
             {
-                MessageBox.Show("پزشکی برای برنامه تعریف نشده است", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MsgBox.ShowError("پزشکی برای برنامه تعریف نشده است", "خطا");
                 return false;
             }
 
@@ -73,7 +75,7 @@ namespace Ophthalmology.UI.Win.Classes
         private static void Application_ThreadException(object sender, System.Threading.ThreadExceptionEventArgs e)
         {
             e.Exception.Log();
-            MessageBox.Show(e.Exception.GetMessage(), "خطا مدیریت نشده در برنامه", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MsgBox.ShowError(e.Exception.GetMessage(), "خطا مدیریت نشده در برنامه");
         }
     }
 }

@@ -3,11 +3,12 @@ using System.Linq;
 using System.Windows.Forms;
 using Janus.Windows.Common;
 using Janus.Windows.EditControls;
+using Ophthalmology.Controls;
 using Ophthalmology.UI.Win.Classes;
 
 namespace Ophthalmology.UI.Win.Forms
 {
-    public partial class SettingsForm : CustomizableFormBase
+    public partial class SettingsForm : CustomizableForm
     {
         public SettingsForm()
         {
@@ -55,14 +56,14 @@ namespace Ophthalmology.UI.Win.Forms
         {
             MyApplication.SaveSettings();
             ApplyThemeToAll();
-            MessageBox.Show("تنظیمات با موفقیت ذخیره گردید");
+            MsgBox.ShowInformation("تنظیمات با موفقیت ذخیره گردید", "تنظیمات");
         }
 
         private void ApplyThemeToAll()
         {
             foreach (Form openForm in Application.OpenForms)
             {
-                if (openForm is FormBase formBase)
+                if (openForm is BaseForm formBase)
                 {
                     formBase.visualStyleManager.DefaultColorScheme = MyApplication.CurrentSettings.Theme;
                 }

@@ -1,56 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Globalization;
 using System.Windows.Forms;
+using Ophthalmology.Controls;
+using Ophthalmology.DataAccess.OleDb;
 using Ophthalmology.Entity.Database;
 using Ophthalmology.Entity.Entites;
 using Ophthalmology.Entity.Enums;
 using Ophthalmology.UI.Win.Classes;
-using Ophthalmology.Utility.Helpers;
 
 namespace Ophthalmology.UI.Win.Forms
 {
-    public partial class CustomersForm : CustomizableFormBase
+    public partial class CustomersForm : CustomizableForm
     {
-        private object _customers;
-        private bool _editMode;
+        private enum Mode
+        {
+            None,
+            Add,
+            Edit,
+            Delete
+        }
+
+        private Mode _mode;
 
         public CustomersForm()
         {
             InitializeComponent();
-            
-            //dateTimePicker1.
-            _customers = null;
-            _editMode = false;
-        }
 
-        private void CustomersForm_Load(object sender, EventArgs e)
-        {
-            LoadCustomers();
-            LoadTypePatient();
-            _editMode = false;
-        }
-
-        private void ButtonDelete_Click(object sender, EventArgs e)
-        {
-            var personName = $"{TextBoxFamily.Text} {TextBoxName.Text}";
-            var result = MessageBox.Show($"آیا از حذف '{personName}' اطمینان دارید؟", $"حذف '{personName}'", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (result != DialogResult.Yes)
-                return;
-
-            var whereClauses = new List<IWhereClause> { new WhereClause("Id", CurrentCustomer.Id) };
-            var rows = DatabaseHelper.Delete("Customer", whereClauses);
-            var text = rows > 0 ? $"اطلاعات '{personName}' با موفقیت حذف شد" : $"اطلاعات '{personName}' حذف نشد";
-            MessageBox.Show(text, $"حذف '{personName}'", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            ResetForm();
-        }
-
-        private void ButtonBrowse_Click(object sender, EventArgs e)
-        {
-            var typePatientForm = new TypePatientForm();
-            typePatientForm.InitDataSource((List<TypePatient>)bindingSourceTypePatient.DataSource);
-            typePatientForm.ShowDialog(this);
+            _mode = Mode.None;
         }
 
         private void LoadCustomers()
@@ -70,58 +47,88 @@ namespace Ophthalmology.UI.Win.Forms
             bindingSourceTypePatient.DataSource = typePatients;
         }
 
-        private void ResetForm()
+        //private void ResetForm()
+        //{
+        //    ResetTextBoxes();
+        //    ResetCheckBoxes();
+        //    ResetComboBoxes();
+        //}
+
+        //private void ResetTextBoxes()
+        //{
+        //    textBoxAddress.Clear();
+        //    textBoxAge.Clear();
+        //    textBoxCode.Clear();
+        //    textBoxDescription.Clear();
+        //    textBoxFamily.Clear();
+        //    textBoxFatherName.Clear();
+        //    textBoxName.Clear();
+        //    textBoxReason.Clear();
+        //    textBoxTel.Clear();
+        //}
+
+        //private void ResetCheckBoxes()
+        //{
+        //    checkBoxEyeLeft.Checked = false;
+        //    checkBoxEyeRight.Checked = false;
+        //}
+
+        //private void ResetComboBoxes()
+        //{
+        //    comboBoxType.Text = string.Empty;
+        //}
+
+        //private void ResetDateTimeBoxes()
+        //{
+        //    dateTimePickerRegisterDate.ClearDateTime();
+        //    dateTimePickerEyeRight.ClearDateTime();
+        //    dateTimePickerEyeLeft.ClearDateTime();
+        //}
+
+        private void CustomersForm_Load(object sender, EventArgs e)
         {
-            ResetTextBoxes();
-            ResetCheckBoxes();
-            ResetComboBoxes();
+            //ResetDateTimeBoxes();
+            LoadCustomers();
+            LoadTypePatient();
         }
 
-        private void ResetTextBoxes()
+        private void ButtonDelete_Click(object sender, EventArgs e)
         {
-            TextBoxAddress.Clear();
-            TextBoxAge.Clear();
-            TextBoxCode.Clear();
-            TextBoxDescription.Clear();
-            TextBoxFamily.Clear();
-            TextBoxFatherName.Clear();
-            TextBoxName.Clear();
-            TextBoxReason.Clear();
-            TextBoxTel.Clear();
+            var personName = CurrentCustomer.ToString();
+
+            var result = MsgBox.ShowYesNo($"آیا از حذف '{personName}' اطمینان دارید؟", $"حذف '{personName}'", MessageBoxIcon.Warning);
+            if (result != DialogResult.Yes)
+                return;
+
+            var whereClauses = new List<IWhereClause> { new WhereClause("Id", CurrentCustomer.Id) };
+            var rows = DatabaseHelper.Delete("Customer", whereClauses);
+            var text = rows > 0 ? $"اطلاعات '{personName}' با موفقیت حذف شد" : $"اطلاعات '{personName}' حذف نشد";
+            MsgBox.ShowInformation(text, $"حذف '{personName}'");
         }
 
-        private void ResetCheckBoxes()
+        private void ButtonBrowse_Click(object sender, EventArgs e)
         {
-            CheckBoxEyeLeft.Checked = false;
-            CheckBoxEyeRight.Checked = false;
-        }
-
-        private void ResetComboBoxes()
-        {
-            ComboBoxType.Text = string.Empty;
-        }
-
-        public Customer CurrentCustomer
-        {
-            get
-            {
-                return (Customer)bindingSourceCustomers.Current;
-            }
+            var typePatientForm = new TypePatientForm();
+            typePatientForm.InitDataSource((List<TypePatient>)bindingSourceTypePatient.DataSource);
+            typePatientForm.ShowDialog(this);
         }
 
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
-            if (_customers == null)
-            {
-                bindingSourceCustomers.EndEdit();
-                _customers = bindingSourceCustomers.AddNew();
-                ActiveControl = TextBoxName;
-            }
-            else
-            {
-                bindingSourceCustomers.CancelEdit();
-                _customers = null;
-            }
+            //if (_mode == Mode.Edit)
+            //{
+            //    //MsgBox.ShowQuestion($"اطلاعات '{CurrentCustomer}' در حال ویرایش می باشد، آیا میخواهید تغییرات را ذخیره کنید؟", "ثبت جدید");
+            //    //bindingSourceCustomers.EndEdit();
+            //    bindingSourceCustomers.CancelEdit();
+            //    bindingSourceCustomers.ResetBindings(true);
+            //}
+            //else
+            //{
+
+            //}
+
+            bindingSourceCustomers.AddNew();
+            ActiveControl = textBoxName;
         }
 
         private void ButtonCancel_Click(object sender, EventArgs e)
@@ -129,21 +136,12 @@ namespace Ophthalmology.UI.Win.Forms
             bindingSourceCustomers.ResetAllowNew();
             bindingSourceCustomers.CancelEdit();
             bindingSourceCustomers.ResetCurrentItem();
-            _customers = null;
+            _mode = Mode.None;
             Close();
         }
 
         private void ButtonEdit_Click(object sender, EventArgs e)
         {
-            if (_customers == null)
-            {
-
-            }
-            else
-            {
-
-            }
-
             var whereClauses = new List<IWhereClause>
             {
                 new WhereClause("Name", CurrentCustomer.Name, LogicalOperatorType.And),
@@ -152,7 +150,7 @@ namespace Ophthalmology.UI.Win.Forms
             var hasRecord = DatabaseHelper.TableHasRecord("Customer", whereClauses);
             if (hasRecord)
             {
-                var result = MessageBox.Show("نام و نام خانوادگی تکراری می باشد. آیا ثبت می کنید؟", "ثبت بیمار", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                var result = MsgBox.ShowQuestion("نام و نام خانوادگی تکراری می باشد. آیا ثبت می کنید؟", "ثبت بیمار");
                 if (result == DialogResult.No)
                 {
                     return;
@@ -173,42 +171,44 @@ namespace Ophthalmology.UI.Win.Forms
                 new FieldValue("Tel",  CurrentCustomer.Tel)
             };
 
-            if (CheckBoxEyeLeft.Checked)
+            if (checkBoxEyeLeft.Checked)
                 fields.Add(new FieldValue("EyeLeft", CurrentCustomer.EyeLeft));
 
-            if (CheckBoxEyeRight.Checked)
+            if (checkBoxEyeRight.Checked)
                 fields.Add(new FieldValue("EyeRight", CurrentCustomer.EyeRight));
 
             var rows = DatabaseHelper.Insert("Customer", fields);
             if (rows <= 0)
                 return;
 
-            MessageBox.Show("اطلاعات با موفقیت ثبت شد", "ثبت بیمار", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            ResetForm();
+            MsgBox.ShowQuestion("اطلاعات با موفقیت ثبت شد", "ثبت بیمار");
         }
 
-        private void bindingSourceCustomers_CurrentItemChanged(object sender, EventArgs e)
+        private void BindingSourceCustomers_CurrentItemChanged(object sender, EventArgs e)
         {
-            if (_editMode)
+            if (_mode == Mode.Add)
             {
 
             }
         }
 
-        private void bindingSourceCustomers_ListChanged(object sender, System.ComponentModel.ListChangedEventArgs e)
+        private void BindingSourceCustomers_ListChanged(object sender, ListChangedEventArgs e)
         {
             switch (e.ListChangedType)
             {
                 case ListChangedType.Reset:
+                    _mode = Mode.None;
                     break;
                 case ListChangedType.ItemAdded:
+                    _mode = Mode.Add;
                     break;
                 case ListChangedType.ItemDeleted:
+                    _mode = Mode.Delete;
                     break;
                 case ListChangedType.ItemMoved:
                     break;
                 case ListChangedType.ItemChanged:
-                    _editMode = true;
+                    _mode = Mode.Edit;
                     break;
                 case ListChangedType.PropertyDescriptorAdded:
                     break;
@@ -221,12 +221,12 @@ namespace Ophthalmology.UI.Win.Forms
             }
         }
 
-        private void bindingSourceCustomers_AddingNew(object sender, AddingNewEventArgs e)
+        private void BindingSourceCustomers_AddingNew(object sender, AddingNewEventArgs e)
         {
-
+            // ResetDateTimeBoxes();
         }
 
-        private void bindingSourceCustomers_BindingComplete(object sender, BindingCompleteEventArgs e)
+        private void BindingSourceCustomers_BindingComplete(object sender, BindingCompleteEventArgs e)
         {
             switch (e.BindingCompleteState)
             {
@@ -251,39 +251,24 @@ namespace Ophthalmology.UI.Win.Forms
             }
         }
 
-        private void bindingSourceCustomers_CurrentChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bindingSourceCustomers_DataError(object sender, BindingManagerDataErrorEventArgs e)
-        {
-
-        }
-
-        private void bindingSourceCustomers_DataMemberChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bindingSourceCustomers_DataSourceChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void bindingSourceCustomers_PositionChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void CheckBoxEyeLeft_CheckedChanged(object sender, EventArgs e)
         {
-            DateTimePickerEyeLeft.Enabled = CheckBoxEyeLeft.Checked;
+            dateTimePickerEyeLeft.Enabled = checkBoxEyeLeft.Checked;
+            if (dateTimePickerEyeLeft.Enabled)
+                dateTimePickerEyeLeft.Focus();
+            //else
+            //    dateTimePickerEyeLeft.ClearDateTime();
         }
 
         private void CheckBoxEyeRight_CheckedChanged(object sender, EventArgs e)
         {
-            DateTimePickerEyeRight.Enabled = CheckBoxEyeRight.Checked;
+            dateTimePickerEyeRight.Enabled = checkBoxEyeRight.Checked;
+            if (dateTimePickerEyeRight.Enabled)
+                dateTimePickerEyeRight.Focus();
+            //else
+            //    dateTimePickerEyeRight.ClearDateTime();
         }
+
+        public Customer CurrentCustomer => (Customer)bindingSourceCustomers.Current;
     }
 }

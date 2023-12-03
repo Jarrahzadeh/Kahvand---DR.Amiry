@@ -1,6 +1,6 @@
 ﻿namespace Ophthalmology.UI.Win.Forms
 {
-    partial class CustomizableFormBase
+    partial class CustomizableForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "CustomizableFormBase";
+            this.Text = "CustomizableBaseForm";
         }
 
         #endregion

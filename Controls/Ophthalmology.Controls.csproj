@@ -64,6 +64,10 @@
     <Compile Include="CustomControls\UserControlBase.Designer.cs">
       <DependentUpon>UserControlBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="MsgBox.cs" />
+    <Compile Include="MyDateTimePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +85,5 @@
   <ItemGroup>
     <None Include="Properties\DataSources\Ophthalmology.Entity.Customer.datasource" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,5 @@
-﻿Imports Ophthalmology.Entity.Database
-Imports Ophthalmology.Utility.Helpers
+﻿Imports Ophthalmology.DataAccess.OleDb
+Imports Ophthalmology.Entity.Database
 
 Public Class BaseData
     Public Sub New()

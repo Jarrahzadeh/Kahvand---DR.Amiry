@@ -1,12 +1,13 @@
 ﻿using System.Windows.Forms;
 using Janus.Windows.Common;
+using Ophthalmology.Controls;
 using Ophthalmology.UI.Win.Classes;
 
 namespace Ophthalmology.UI.Win.Forms
 {
-    public partial class FormBase : Form
+    public partial class BaseForm : Form
     {
-        public FormBase()
+        public BaseForm()
         {
             InitializeComponent();
 
@@ -45,10 +46,18 @@ namespace Ophthalmology.UI.Win.Forms
                 return;
 
             var text = $"آیا برای بستن پنجره '{Text}' مطمئن هستید؟";
-            var result = MessageBox.Show(text, "بستن", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RightAlign);
+            var result = MsgBox.ShowQuestion(text, "بستن");
             if (result == DialogResult.No)
             {
                 e.Cancel = true;
+            }
+        }
+
+        private void BaseForm_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (int)Keys.Escape)
+            {
+                Close();
             }
         }
 

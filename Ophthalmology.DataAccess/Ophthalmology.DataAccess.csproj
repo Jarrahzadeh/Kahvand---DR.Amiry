@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{36861226-C2E5-43E8-95BC-1C7830853C95}</ProjectGuid>
+    <ProjectGuid>{AB392E28-680A-4D6F-8CDF-D9D02766644E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ophthalmology.Entity</RootNamespace>
-    <AssemblyName>Ophthalmology.Entity</AssemblyName>
+    <RootNamespace>Ophthalmology.DataAccess</RootNamespace>
+    <AssemblyName>Ophthalmology.DataAccess</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -33,7 +33,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,19 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Database\IFieldValue.cs" />
-    <Compile Include="Database\IWhereClause.cs" />
-    <Compile Include="Entites\Doctor.cs" />
-    <Compile Include="Database\FieldValue.cs" />
-    <Compile Include="Entites\TypePatient.cs" />
-    <Compile Include="Entites\User.cs" />
-    <Compile Include="Database\WhereClause.cs" />
-    <Compile Include="Enums\LogicalOperatorType.cs" />
-    <Compile Include="Enums\UserType.cs" />
-    <Compile Include="Settings\ApplicationSettings.cs" />
-    <Compile Include="Entites\Customer.cs" />
-    <Compile Include="Entites\EntityBase.cs" />
+    <Compile Include="OleDb\DatabaseHelper.cs" />
+    <Compile Include="OleDb\DbConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ophthalmology.Entity\Ophthalmology.Entity.csproj">
+      <Project>{36861226-c2e5-43e8-95bc-1c7830853c95}</Project>
+      <Name>Ophthalmology.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utility\Ophthalmology.Utility.csproj">
+      <Project>{87739c09-90e2-470d-b438-94881969fd29}</Project>
+      <Name>Ophthalmology.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

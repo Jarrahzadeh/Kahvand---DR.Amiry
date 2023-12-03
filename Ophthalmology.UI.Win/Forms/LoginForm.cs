@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Ophthalmology.Controls;
+using Ophthalmology.DataAccess.OleDb;
 using Ophthalmology.Entity.Database;
 using Ophthalmology.Entity.Entites;
 using Ophthalmology.Entity.Enums;
@@ -10,7 +12,7 @@ using Ophthalmology.Utility.Helpers;
 
 namespace Ophthalmology.UI.Win.Forms
 {
-    public partial class LoginForm : FormBase
+    public partial class LoginForm : BaseForm
     {
         #region ~( Constructors )~
 
@@ -72,7 +74,7 @@ namespace Ophthalmology.UI.Win.Forms
             var authenticate = Authenticate(TextBoxUserName.Text, TextboxPassword.Text);
             if (!authenticate)
             {
-                MessageBox.Show("امکان ورود به سیستم وجود ندارد", "ورود به سیستم", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MsgBox.ShowQuestion("امکان ورود به سیستم وجود ندارد", "ورود به سیستم");
                 return;
             }
 

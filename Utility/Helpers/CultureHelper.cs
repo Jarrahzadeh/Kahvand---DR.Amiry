@@ -9,11 +9,13 @@ namespace Ophthalmology.Utility.Helpers
         {
             System.Threading.Thread.CurrentThread.CurrentCulture = PersianCulture;
             System.Threading.Thread.CurrentThread.CurrentUICulture = PersianCulture;
+            CultureInfo.DefaultThreadCurrentCulture = PersianCulture;
+            CultureInfo.DefaultThreadCurrentUICulture = PersianCulture;
         }
 
         public static void SetCultureToEnglish()
         {
-            System.Threading.Thread.CurrentThread.CurrentCulture =   EnglishCulture;
+            System.Threading.Thread.CurrentThread.CurrentCulture = EnglishCulture;
             System.Threading.Thread.CurrentThread.CurrentUICulture = EnglishCulture;
         }
 
@@ -27,16 +29,11 @@ namespace Ophthalmology.Utility.Helpers
             InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(EnglishCulture);
         }
 
-        public static CultureInfo PersianCulture
+        public static PersianCultureInfo PersianCulture
         {
             get
             {
-                var persianCulture = new CultureInfo("fa-IR");
-                persianCulture.DateTimeFormat.LongDatePattern = "yyyy/MM/dd";
-                persianCulture.DateTimeFormat.FullDateTimePattern = "yyyy/MM/dd HH:mm:ss";
-                persianCulture.DateTimeFormat.ShortDatePattern = "yyyy/MM/dd";
-                persianCulture.DateTimeFormat.ShortTimePattern = "HH:mm";
-                persianCulture.DateTimeFormat.LongTimePattern = "HH:mm:ss";
+                var persianCulture = new PersianCultureInfo();
                 return persianCulture;
             }
         }

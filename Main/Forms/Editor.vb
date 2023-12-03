@@ -1,7 +1,7 @@
 ﻿Imports System.Data.OleDb
 Imports System.Globalization
+Imports Ophthalmology.DataAccess.OleDb
 Imports Ophthalmology.Entity.Database
-Imports Ophthalmology.Utility.Helpers
 
 Public Class Editor
     Dim textCurent As String
