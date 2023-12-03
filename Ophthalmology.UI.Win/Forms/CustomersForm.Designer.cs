@@ -66,9 +66,10 @@
             this.buttonAppointment = new Janus.Windows.EditControls.UIButton();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonAdd = new Janus.Windows.EditControls.UIButton();
-            this.buttonSave = new Janus.Windows.EditControls.UIButton();
-            this.buttonDelete = new Janus.Windows.EditControls.UIButton();
             this.buttonCancel = new Janus.Windows.EditControls.UIButton();
+            this.buttonDelete = new Janus.Windows.EditControls.UIButton();
+            this.buttonSave = new Janus.Windows.EditControls.UIButton();
+            this.buttonEdit = new Janus.Windows.EditControls.UIButton();
             this.dateTimePickerRegisterDate = new BehComponents.DateTimePickerX();
             this.dateTimePickerEyeLeft = new BehComponents.DateTimePickerX();
             this.dateTimePickerEyeRight = new BehComponents.DateTimePickerX();
@@ -144,6 +145,7 @@
             // buttonBrowse
             // 
             this.buttonBrowse.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonBrowse.Enabled = false;
             this.buttonBrowse.Location = new System.Drawing.Point(347, 266);
             this.buttonBrowse.Name = "buttonBrowse";
             this.buttonBrowse.Size = new System.Drawing.Size(35, 35);
@@ -156,6 +158,7 @@
             // 
             this.textBoxAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Address", true));
             this.textBoxAddress.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxAddress.Enabled = false;
             this.textBoxAddress.Location = new System.Drawing.Point(20, 266);
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(238, 35);
@@ -185,6 +188,7 @@
             // 
             this.textBoxDescription.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Dis", true));
             this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxDescription.Enabled = false;
             this.textBoxDescription.Location = new System.Drawing.Point(20, 225);
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.Size = new System.Drawing.Size(238, 35);
@@ -205,8 +209,8 @@
             // 
             // checkBoxEyeRight
             // 
-            this.checkBoxEyeRight.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindingSourceCustomers, "EyeRightHasData", true));
             this.checkBoxEyeRight.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBoxEyeRight.Enabled = false;
             this.checkBoxEyeRight.Location = new System.Drawing.Point(632, 225);
             this.checkBoxEyeRight.Name = "checkBoxEyeRight";
             this.checkBoxEyeRight.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -229,8 +233,8 @@
             // 
             // checkBoxEyeLeft
             // 
-            this.checkBoxEyeLeft.DataBindings.Add(new System.Windows.Forms.Binding("Checked", this.bindingSourceCustomers, "EyeLeftHasData", true));
             this.checkBoxEyeLeft.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.checkBoxEyeLeft.Enabled = false;
             this.checkBoxEyeLeft.Location = new System.Drawing.Point(632, 184);
             this.checkBoxEyeLeft.Name = "checkBoxEyeLeft";
             this.checkBoxEyeLeft.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -244,6 +248,7 @@
             // 
             this.textBoxName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Name", true));
             this.textBoxName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxName.Enabled = false;
             this.textBoxName.Location = new System.Drawing.Point(388, 61);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(238, 35);
@@ -265,6 +270,7 @@
             // 
             this.textBoxFamily.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Family", true));
             this.textBoxFamily.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxFamily.Enabled = false;
             this.textBoxFamily.Location = new System.Drawing.Point(388, 102);
             this.textBoxFamily.Name = "textBoxFamily";
             this.textBoxFamily.Size = new System.Drawing.Size(238, 35);
@@ -275,6 +281,7 @@
             // 
             this.textBoxReason.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Reason", true));
             this.textBoxReason.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxReason.Enabled = false;
             this.textBoxReason.Location = new System.Drawing.Point(20, 143);
             this.textBoxReason.Name = "textBoxReason";
             this.textBoxReason.Size = new System.Drawing.Size(238, 35);
@@ -296,6 +303,7 @@
             // 
             this.textBoxTel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Tel", true));
             this.textBoxTel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxTel.Enabled = false;
             this.textBoxTel.Location = new System.Drawing.Point(20, 102);
             this.textBoxTel.Name = "textBoxTel";
             this.textBoxTel.Size = new System.Drawing.Size(238, 35);
@@ -317,6 +325,7 @@
             // 
             this.textBoxFatherName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "NameFather", true));
             this.textBoxFatherName.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxFatherName.Enabled = false;
             this.textBoxFatherName.Location = new System.Drawing.Point(20, 61);
             this.textBoxFatherName.Name = "textBoxFatherName";
             this.textBoxFatherName.Size = new System.Drawing.Size(238, 35);
@@ -385,6 +394,7 @@
             this.comboBoxType.DataSource = this.bindingSourceTypePatient;
             this.comboBoxType.DisplayMember = "Name";
             this.comboBoxType.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxType.Enabled = false;
             this.comboBoxType.Location = new System.Drawing.Point(388, 266);
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(238, 35);
@@ -407,6 +417,7 @@
             // 
             this.textBoxAge.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Age", true));
             this.textBoxAge.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBoxAge.Enabled = false;
             this.textBoxAge.Location = new System.Drawing.Point(20, 184);
             this.textBoxAge.MaxLength = 30;
             this.textBoxAge.Name = "textBoxAge";
@@ -501,9 +512,10 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.Controls.Add(this.buttonAdd, 0, 0);
-            this.tableLayoutPanel3.Controls.Add(this.buttonSave, 1, 0);
-            this.tableLayoutPanel3.Controls.Add(this.buttonDelete, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.buttonCancel, 4, 0);
+            this.tableLayoutPanel3.Controls.Add(this.buttonDelete, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.buttonSave, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.buttonEdit, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 317);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -523,31 +535,8 @@
             this.buttonAdd.VisualStyleManager = this.visualStyleManager;
             this.buttonAdd.Click += new System.EventHandler(this.ButtonAdd_Click);
             // 
-            // buttonSave
-            // 
-            this.buttonSave.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonSave.Location = new System.Drawing.Point(613, 3);
-            this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(196, 36);
-            this.buttonSave.TabIndex = 28;
-            this.buttonSave.Text = "ذخیره";
-            this.buttonSave.VisualStyleManager = this.visualStyleManager;
-            this.buttonSave.Click += new System.EventHandler(this.ButtonEdit_Click);
-            // 
-            // buttonDelete
-            // 
-            this.buttonDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonDelete.Location = new System.Drawing.Point(411, 3);
-            this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(196, 36);
-            this.buttonDelete.TabIndex = 29;
-            this.buttonDelete.Text = "حذف";
-            this.buttonDelete.VisualStyleManager = this.visualStyleManager;
-            this.buttonDelete.Click += new System.EventHandler(this.ButtonDelete_Click);
-            // 
             // buttonCancel
             // 
-            this.buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCancel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonCancel.Location = new System.Drawing.Point(3, 3);
             this.buttonCancel.Name = "buttonCancel";
@@ -556,6 +545,40 @@
             this.buttonCancel.Text = "انصراف";
             this.buttonCancel.VisualStyleManager = this.visualStyleManager;
             this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonDelete.Location = new System.Drawing.Point(209, 3);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(196, 36);
+            this.buttonDelete.TabIndex = 29;
+            this.buttonDelete.Text = "حذف";
+            this.buttonDelete.VisualStyleManager = this.visualStyleManager;
+            this.buttonDelete.Click += new System.EventHandler(this.ButtonDelete_Click);
+            // 
+            // buttonSave
+            // 
+            this.buttonSave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonSave.Enabled = false;
+            this.buttonSave.Location = new System.Drawing.Point(411, 3);
+            this.buttonSave.Name = "buttonSave";
+            this.buttonSave.Size = new System.Drawing.Size(196, 36);
+            this.buttonSave.TabIndex = 28;
+            this.buttonSave.Text = "ذخیره";
+            this.buttonSave.VisualStyleManager = this.visualStyleManager;
+            this.buttonSave.Click += new System.EventHandler(this.ButtonSave_Click);
+            // 
+            // buttonEdit
+            // 
+            this.buttonEdit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.buttonEdit.Location = new System.Drawing.Point(613, 3);
+            this.buttonEdit.Name = "buttonEdit";
+            this.buttonEdit.Size = new System.Drawing.Size(196, 36);
+            this.buttonEdit.TabIndex = 27;
+            this.buttonEdit.Text = "ویرایش";
+            this.buttonEdit.VisualStyleManager = this.visualStyleManager;
+            this.buttonEdit.Click += new System.EventHandler(this.ButtonEdit_Click);
             // 
             // dateTimePickerRegisterDate
             // 
@@ -620,6 +643,7 @@
             this.dateTimePickerRegisterDate.DockSide = BehComponents.DropDownEmpty.Alignments.Left;
             this.dateTimePickerRegisterDate.DropDownClosedWhenClickOnDays = false;
             this.dateTimePickerRegisterDate.DropDownClosedWhenSelectedDateChanged = false;
+            this.dateTimePickerRegisterDate.Enabled = false;
             this.dateTimePickerRegisterDate.Format = BehComponents.DateTimePickerX.FormatDate.Custom;
             this.dateTimePickerRegisterDate.Format4Binding = "yyyy/MM/dd";
             this.dateTimePickerRegisterDate.Location = new System.Drawing.Point(388, 143);
@@ -689,7 +713,6 @@
             this.dateTimePickerEyeLeft.ClearButtonWidth = 17;
             this.dateTimePickerEyeLeft.ClearDateTimeWhenDownDeleteKey = true;
             this.dateTimePickerEyeLeft.CustomFormat = "yyyy/MM/dd";
-            this.dateTimePickerEyeLeft.DataBindings.Add(new System.Windows.Forms.Binding("SelectedDateInStringPersian", this.bindingSourceCustomers, "EyeLeft", true));
             this.dateTimePickerEyeLeft.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateTimePickerEyeLeft.DockSide = BehComponents.DropDownEmpty.Alignments.Left;
             this.dateTimePickerEyeLeft.DropDownClosedWhenClickOnDays = false;
@@ -764,7 +787,6 @@
             this.dateTimePickerEyeRight.ClearButtonWidth = 17;
             this.dateTimePickerEyeRight.ClearDateTimeWhenDownDeleteKey = true;
             this.dateTimePickerEyeRight.CustomFormat = "yyyy/MM/dd";
-            this.dateTimePickerEyeRight.DataBindings.Add(new System.Windows.Forms.Binding("SelectedDateInStringPersian", this.bindingSourceCustomers, "EyeRight", true));
             this.dateTimePickerEyeRight.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dateTimePickerEyeRight.DockSide = BehComponents.DropDownEmpty.Alignments.Left;
             this.dateTimePickerEyeRight.DropDownClosedWhenClickOnDays = false;
@@ -870,5 +892,6 @@
         private BehComponents.DateTimePickerX dateTimePickerRegisterDate;
         private BehComponents.DateTimePickerX dateTimePickerEyeLeft;
         private BehComponents.DateTimePickerX dateTimePickerEyeRight;
+        private Janus.Windows.EditControls.UIButton buttonEdit;
     }
 }
