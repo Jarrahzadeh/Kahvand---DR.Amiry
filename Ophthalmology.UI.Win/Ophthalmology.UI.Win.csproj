@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\MyApplication.cs" />
+    <Compile Include="Enums\FormActionMode.cs" />
     <Compile Include="Forms\CustomizableForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -198,5 +199,6 @@
     <Content Include="Images\wp7365271.jpg" />
     <Content Include="Images\wp8108333.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

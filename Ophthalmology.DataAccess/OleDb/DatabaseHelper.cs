@@ -273,7 +273,7 @@ namespace Ophthalmology.DataAccess.OleDb
             {
                 var separator = string.IsNullOrWhiteSpace(fields) ? string.Empty : ", ";
                 fields = string.Join(separator, fields, $"{filedValue.FiledName}");
-                values = string.Join(separator, values, $"@{filedValue.Value}");
+                values = string.Join(separator, values, $"@{filedValue.FiledName}");
             }
 
             return new Tuple<string, string>(fields, values);

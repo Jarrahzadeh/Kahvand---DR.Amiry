@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Windows.Forms;
 using Ophthalmology.Controls;
 using Ophthalmology.DataAccess.OleDb;
@@ -8,23 +7,14 @@ using Ophthalmology.Entity.Database;
 using Ophthalmology.Entity.Entites;
 using Ophthalmology.Entity.Enums;
 using Ophthalmology.UI.Win.Classes;
-using Ophthalmology.Utility.Helpers;
+using Ophthalmology.UI.Win.Enums;
 
 namespace Ophthalmology.UI.Win.Forms
 {
     public partial class CustomersForm : CustomizableForm
     {
-        private enum Mode
-        {
-            None,
-            Add,
-            Edit,
-            Delete
-        }
-
-        private Mode _mode;
+        private FormActionMode _formActionMode;
         private int _recordLastPosition;
-
 
         public CustomersForm()
         {
@@ -32,7 +22,7 @@ namespace Ophthalmology.UI.Win.Forms
 
             ChangeFormEnabled(false);
             _recordLastPosition = -1;
-            _mode = Mode.None;
+            _formActionMode = FormActionMode.None;
         }
 
         private void LoadCustomers()
@@ -54,37 +44,6 @@ namespace Ophthalmology.UI.Win.Forms
             bindingSourceTypePatient.DataSource = typePatients;
         }
 
-        //private void ResetForm()
-        //{
-        //    ResetTextBoxes();
-        //    ResetCheckBoxes();
-        //    ResetComboBoxes();
-        //}
-
-        //private void ResetTextBoxes()
-        //{
-        //    textBoxAddress.Clear();
-        //    textBoxAge.Clear();
-        //    textBoxCode.Clear();
-        //    textBoxDescription.Clear();
-        //    textBoxFamily.Clear();
-        //    textBoxFatherName.Clear();
-        //    textBoxName.Clear();
-        //    textBoxReason.Clear();
-        //    textBoxTel.Clear();
-        //}
-
-        //private void ResetCheckBoxes()
-        //{
-        //    checkBoxEyeLeft.Checked = false;
-        //    checkBoxEyeRight.Checked = false;
-        //}
-
-        //private void ResetComboBoxes()
-        //{
-        //    comboBoxType.Text = string.Empty;
-        //}
-
         private void ResetDateTimeBoxes()
         {
             dateTimePickerRegisterDate.ClearDateTime();
@@ -92,6 +51,57 @@ namespace Ophthalmology.UI.Win.Forms
             dateTimePickerEyeRight.Text = string.Empty;
             dateTimePickerEyeLeft.ClearDateTime();
             dateTimePickerEyeLeft.Text = string.Empty;
+        }
+
+        private void SaveNewCustomer()
+        {
+            var whereClauses = new List<IWhereClause>
+            {
+                new WhereClause(nameof(CurrentCustomer.Name), CurrentCustomer.Name, LogicalOperatorType.And),
+                new WhereClause(nameof(CurrentCustomer.Family), CurrentCustomer.Family)
+            };
+
+            var dataTable = DatabaseHelper.Select<Customer>("Customer", whereClauses: whereClauses);
+
+            if (dataTable.Count > 0)
+            {
+                var msg = $"قبلا بیماری با مشخصات '{CurrentCustomer}' .ثبت گردیده است {Environment.NewLine} آیا عملیات ذخیره سازی را ادامه میدهید؟";
+                var result = MsgBox.ShowQuestion(msg, "ثبت جدید");
+                if (result != DialogResult.Yes)
+                    return;
+            }
+
+            var filedNameAndValues = new List<IFieldValue>
+            {
+                new FieldValue("Name", CurrentCustomer.Name),
+                new FieldValue("Family", CurrentCustomer.Family),
+                new FieldValue("Tel", CurrentCustomer.Tel),
+                new FieldValue("NameFather", CurrentCustomer.NameFather),
+                new FieldValue("Reason", CurrentCustomer.Reason),
+                new FieldValue("Dis", CurrentCustomer.Dis),
+                new FieldValue("Age", CurrentCustomer.Age),
+                new FieldValue("DateSave", CurrentCustomer.DateSave),
+                new FieldValue("DrId", CurrentCustomer.DrId),
+                new FieldValue("Address", CurrentCustomer.Address),
+                new FieldValue("IdTypePatient", CurrentCustomer.IdTypePatient), 
+                new FieldValue("EyeLeft", checkBoxEyeLeft.Checked ? CurrentCustomer.EyeLeft : ""),
+                new FieldValue("EyeRight", checkBoxEyeRight.Checked ? CurrentCustomer.EyeRight : "")
+            };
+            
+            var inserted = DatabaseHelper.Insert("Customer", filedNameAndValues);
+            if (inserted > 0)
+            {
+                MsgBox.ShowInformation("اطلاعات بیمار با موفقیت ثبت گردید.", "ثبت جدید");
+            }
+            else
+            {
+                MsgBox.ShowError("مشکلی در ثبت اطلاعات بیمار پیش آمده و عملیات انجام نگردید.", "ثبت جدید");
+            }
+        }
+
+        private void EditCustomer()
+        {
+
         }
 
         private void ChangeFormEnabled(bool enabled)
@@ -114,8 +124,6 @@ namespace Ophthalmology.UI.Win.Forms
             buttonAdd.Enabled = !enabled;
             buttonEdit.Enabled = !enabled;
 
-            dateTimePickerEyeLeft.Enabled = enabled;
-            dateTimePickerEyeRight.Enabled = enabled;
             dateTimePickerRegisterDate.Enabled = enabled;
 
             checkBoxEyeLeft.Enabled = enabled;
@@ -127,6 +135,8 @@ namespace Ophthalmology.UI.Win.Forms
             ResetDateTimeBoxes();
             LoadCustomers();
             LoadTypePatient();
+            tableLayoutPanel1.Refresh();
+            tableLayoutPanel1.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
         }
 
         private void ButtonDelete_Click(object sender, EventArgs e)
@@ -156,6 +166,7 @@ namespace Ophthalmology.UI.Win.Forms
             bindingSourceCustomers.AddNew();
             ChangeFormEnabled(true);
             ActiveControl = textBoxName;
+            _formActionMode = FormActionMode.Add;
         }
 
         private void ButtonEdit_Click(object sender, EventArgs e)
@@ -163,12 +174,22 @@ namespace Ophthalmology.UI.Win.Forms
             _recordLastPosition = bindingSourceCustomers.Position;
             ChangeFormEnabled(true);
             ActiveControl = textBoxName;
+            _formActionMode = FormActionMode.Edit;
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            ChangeFormEnabled(false);
+            if (_formActionMode == FormActionMode.Add)
+            {
+                SaveNewCustomer();
+            }
+            else if (_formActionMode == FormActionMode.Edit)
+            {
+                EditCustomer();
+            }
+
             MsgBox.ShowInformation("اطلاعات با موفقیت ذخیره گردید", "دخیره اطلاعات");
+            ChangeFormEnabled(false);
         }
 
         private void ButtonCancel_Click(object sender, EventArgs e)
@@ -181,95 +202,19 @@ namespace Ophthalmology.UI.Win.Forms
 
             customGridEx1.Focus();
 
-            //_mode = Mode.None;
-        }
-
-        private void BindingSourceCustomers_CurrentItemChanged(object sender, EventArgs e)
-        {
-            if (_mode == Mode.Add)
-            {
-
-            }
-        }
-
-        private void BindingSourceCustomers_ListChanged(object sender, ListChangedEventArgs e)
-        {
-            switch (e.ListChangedType)
-            {
-                case ListChangedType.Reset:
-                    _mode = Mode.None;
-                    break;
-                case ListChangedType.ItemAdded:
-                    _mode = Mode.Add;
-                    break;
-                case ListChangedType.ItemDeleted:
-                    _mode = Mode.Delete;
-                    break;
-                case ListChangedType.ItemMoved:
-                    break;
-                case ListChangedType.ItemChanged:
-                    _mode = Mode.Edit;
-                    break;
-                case ListChangedType.PropertyDescriptorAdded:
-                    break;
-                case ListChangedType.PropertyDescriptorDeleted:
-                    break;
-                case ListChangedType.PropertyDescriptorChanged:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
-
-        private void BindingSourceCustomers_AddingNew(object sender, AddingNewEventArgs e)
-        {
-            // ResetDateTimeBoxes();
-        }
-
-        private void BindingSourceCustomers_BindingComplete(object sender, BindingCompleteEventArgs e)
-        {
-            switch (e.BindingCompleteState)
-            {
-                case BindingCompleteState.Success:
-                    break;
-                case BindingCompleteState.DataError:
-                    break;
-                case BindingCompleteState.Exception:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-
-            switch (e.BindingCompleteContext)
-            {
-                case BindingCompleteContext.ControlUpdate:
-                    break;
-                case BindingCompleteContext.DataSourceUpdate:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            _formActionMode = FormActionMode.None;
         }
 
         private void CheckBoxEyeLeft_CheckedChanged(object sender, EventArgs e)
         {
             dateTimePickerEyeLeft.Enabled = checkBoxEyeLeft.Checked;
-            if (dateTimePickerEyeLeft.Enabled)
-            {
-                //dateTimePickerEyeLeft.SelectedDateInStringPersian = CurrentCustomer.EyeLeft;
-            }
         }
 
         private void CheckBoxEyeRight_CheckedChanged(object sender, EventArgs e)
         {
             dateTimePickerEyeRight.Enabled = checkBoxEyeRight.Checked;
-            if (dateTimePickerEyeRight.Enabled)
-            {
-                //dateTimePickerEyeRight.SelectedDateInStringPersian = CurrentCustomer.EyeRight;
-            }
         }
 
         public Customer CurrentCustomer => (Customer)bindingSourceCustomers.Current;
-
     }
 }

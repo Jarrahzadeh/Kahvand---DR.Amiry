@@ -22,9 +22,10 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void InitDetails()
         {
-            TextBoxDoctor.Text = MyApplication.DrName;
-            LabelDoctorName.Text = MyApplication.DrName;
-            LabelCurrentUserValue.Text = MyApplication.UserName;
+            textBoxDoctor.Text = MyApplication.DrName;
+            labelDoctorName.Text = MyApplication.DrName;
+            labelCurrentUserValue.Text = MyApplication.UserName;
+            labelUserType.Text = MyApplication.CurrentSettings.UserTypeTitle;
             Text += $" - {MyApplication.DrName}";
         }
 
@@ -46,7 +47,7 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            LabelDateTime.Text = DateTime.Now.ToString("ddd dd MMM yyyy - HH:mm:ss", CultureHelper.PersianCulture);
+            labelDateTime.Text = DateTime.Now.ToString("ddd dd MMM yyyy - HH:mm:ss", CultureHelper.PersianCulture);
         }
 
         private void ButtonCustomers_Click(object sender, EventArgs e)

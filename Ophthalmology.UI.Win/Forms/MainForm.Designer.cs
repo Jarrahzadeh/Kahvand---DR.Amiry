@@ -39,15 +39,17 @@
             this.ButtonRestore = new Janus.Windows.EditControls.UIButton();
             this.ButtonChat = new Janus.Windows.EditControls.UIButton();
             this.uiGroupBox1 = new Janus.Windows.EditControls.UIGroupBox();
-            this.TextBoxDoctor = new Janus.Windows.GridEX.EditControls.EditBox();
+            this.textBoxDoctor = new Janus.Windows.GridEX.EditControls.EditBox();
             this.ButtonSettings = new Janus.Windows.EditControls.UIButton();
             this.ButtonExit = new Janus.Windows.EditControls.UIButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.labelUserType = new System.Windows.Forms.ToolStripStatusLabel();
             this.LabelCurrentUser = new System.Windows.Forms.ToolStripStatusLabel();
-            this.LabelCurrentUserValue = new System.Windows.Forms.ToolStripStatusLabel();
+            this.labelCurrentUserValue = new System.Windows.Forms.ToolStripStatusLabel();
             this.LabelDoctor = new System.Windows.Forms.ToolStripStatusLabel();
-            this.LabelDoctorName = new System.Windows.Forms.ToolStripStatusLabel();
-            this.LabelDateTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.labelDoctorName = new System.Windows.Forms.ToolStripStatusLabel();
+            this.labelDateTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.uiGroupBox1)).BeginInit();
@@ -80,7 +82,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(664, 419);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(664, 417);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // ButtonCustomers
@@ -159,35 +161,35 @@
             this.uiGroupBox1.BackColor = System.Drawing.Color.Transparent;
             this.uiGroupBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("uiGroupBox1.BackgroundImage")));
             this.uiGroupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.uiGroupBox1.Controls.Add(this.TextBoxDoctor);
+            this.uiGroupBox1.Controls.Add(this.textBoxDoctor);
             this.uiGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiGroupBox1.Location = new System.Drawing.Point(137, 10);
             this.uiGroupBox1.Margin = new System.Windows.Forms.Padding(10);
             this.uiGroupBox1.Name = "uiGroupBox1";
             this.tableLayoutPanel1.SetRowSpan(this.uiGroupBox1, 5);
-            this.uiGroupBox1.Size = new System.Drawing.Size(391, 399);
+            this.uiGroupBox1.Size = new System.Drawing.Size(391, 397);
             this.uiGroupBox1.TabIndex = 8;
             this.uiGroupBox1.VisualStyleManager = this.visualStyleManager;
             // 
-            // TextBoxDoctor
+            // textBoxDoctor
             // 
-            this.TextBoxDoctor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.textBoxDoctor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxDoctor.BorderStyle = Janus.Windows.GridEX.BorderStyle.None;
-            this.TextBoxDoctor.Location = new System.Drawing.Point(6, 13);
-            this.TextBoxDoctor.Name = "TextBoxDoctor";
-            this.TextBoxDoctor.ReadOnly = true;
-            this.TextBoxDoctor.Size = new System.Drawing.Size(379, 33);
-            this.TextBoxDoctor.TabIndex = 1;
-            this.TextBoxDoctor.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center;
-            this.TextBoxDoctor.VisualStyleManager = this.visualStyleManager;
+            this.textBoxDoctor.BorderStyle = Janus.Windows.GridEX.BorderStyle.None;
+            this.textBoxDoctor.Location = new System.Drawing.Point(6, 13);
+            this.textBoxDoctor.Name = "textBoxDoctor";
+            this.textBoxDoctor.ReadOnly = true;
+            this.textBoxDoctor.Size = new System.Drawing.Size(379, 33);
+            this.textBoxDoctor.TabIndex = 1;
+            this.textBoxDoctor.TextAlignment = Janus.Windows.GridEX.TextAlignment.Center;
+            this.textBoxDoctor.VisualStyleManager = this.visualStyleManager;
             // 
             // ButtonSettings
             // 
             this.ButtonSettings.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ButtonSettings.Location = new System.Drawing.Point(3, 335);
             this.ButtonSettings.Name = "ButtonSettings";
-            this.ButtonSettings.Size = new System.Drawing.Size(121, 81);
+            this.ButtonSettings.Size = new System.Drawing.Size(121, 79);
             this.ButtonSettings.TabIndex = 6;
             this.ButtonSettings.Text = "تنظیمات";
             this.ButtonSettings.VisualStyleManager = this.visualStyleManager;
@@ -198,7 +200,7 @@
             this.ButtonExit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ButtonExit.Location = new System.Drawing.Point(541, 335);
             this.ButtonExit.Name = "ButtonExit";
-            this.ButtonExit.Size = new System.Drawing.Size(120, 81);
+            this.ButtonExit.Size = new System.Drawing.Size(120, 79);
             this.ButtonExit.TabIndex = 7;
             this.ButtonExit.Text = "خروج (Esc)";
             this.ButtonExit.VisualStyleManager = this.visualStyleManager;
@@ -207,62 +209,88 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1,
+            this.labelUserType,
             this.LabelCurrentUser,
-            this.LabelCurrentUserValue,
+            this.labelCurrentUserValue,
             this.LabelDoctor,
-            this.LabelDoctorName,
-            this.LabelDateTime});
-            this.statusStrip1.Location = new System.Drawing.Point(10, 429);
+            this.labelDoctorName,
+            this.labelDateTime});
+            this.statusStrip1.Location = new System.Drawing.Point(10, 427);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(664, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(664, 24);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)(((System.Windows.Forms.ToolStripStatusLabelBorderSides.Top | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.toolStripStatusLabel1.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(68, 19);
+            this.toolStripStatusLabel1.Text = "نوع کاربری :";
+            // 
+            // labelUserType
+            // 
+            this.labelUserType.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)(((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.labelUserType.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
+            this.labelUserType.Name = "labelUserType";
+            this.labelUserType.Size = new System.Drawing.Size(62, 19);
+            this.labelUserType.Text = "نوع کاربری";
+            // 
             // LabelCurrentUser
             // 
+            this.LabelCurrentUser.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)(((System.Windows.Forms.ToolStripStatusLabelBorderSides.Top | System.Windows.Forms.ToolStripStatusLabelBorderSides.Right) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.LabelCurrentUser.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
             this.LabelCurrentUser.Name = "LabelCurrentUser";
-            this.LabelCurrentUser.Size = new System.Drawing.Size(36, 17);
+            this.LabelCurrentUser.Size = new System.Drawing.Size(40, 19);
             this.LabelCurrentUser.Text = "کاربر :";
             // 
-            // LabelCurrentUserValue
+            // labelCurrentUserValue
             // 
-            this.LabelCurrentUserValue.Name = "LabelCurrentUserValue";
-            this.LabelCurrentUserValue.Size = new System.Drawing.Size(30, 17);
-            this.LabelCurrentUserValue.Text = "کاربر";
+            this.labelCurrentUserValue.BorderSides = ((System.Windows.Forms.ToolStripStatusLabelBorderSides)(((System.Windows.Forms.ToolStripStatusLabelBorderSides.Left | System.Windows.Forms.ToolStripStatusLabelBorderSides.Top) 
+            | System.Windows.Forms.ToolStripStatusLabelBorderSides.Bottom)));
+            this.labelCurrentUserValue.BorderStyle = System.Windows.Forms.Border3DStyle.Sunken;
+            this.labelCurrentUserValue.Name = "labelCurrentUserValue";
+            this.labelCurrentUserValue.Size = new System.Drawing.Size(34, 19);
+            this.labelCurrentUserValue.Text = "کاربر";
             // 
             // LabelDoctor
             // 
             this.LabelDoctor.Name = "LabelDoctor";
-            this.LabelDoctor.Size = new System.Drawing.Size(42, 17);
+            this.LabelDoctor.Size = new System.Drawing.Size(42, 19);
             this.LabelDoctor.Text = "پزشک :";
             // 
-            // LabelDoctorName
+            // labelDoctorName
             // 
-            this.LabelDoctorName.Name = "LabelDoctorName";
-            this.LabelDoctorName.Size = new System.Drawing.Size(511, 17);
-            this.LabelDoctorName.Spring = true;
-            this.LabelDoctorName.Text = "پزشک";
-            this.LabelDoctorName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.labelDoctorName.Name = "labelDoctorName";
+            this.labelDoctorName.Size = new System.Drawing.Size(36, 19);
+            this.labelDoctorName.Text = "پزشک";
+            this.labelDoctorName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // LabelDateTime
+            // labelDateTime
             // 
-            this.LabelDateTime.Name = "LabelDateTime";
-            this.LabelDateTime.Size = new System.Drawing.Size(30, 17);
-            this.LabelDateTime.Text = "date";
+            this.labelDateTime.Name = "labelDateTime";
+            this.labelDateTime.Size = new System.Drawing.Size(336, 19);
+            this.labelDateTime.Spring = true;
+            this.labelDateTime.Text = "date";
+            this.labelDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.Timer1_Tick);
             // 
-            // MainBaseForm
+            // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(684, 461);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.statusStrip1);
-            this.KeyPreview = true;
-            this.Name = "MainBaseForm";
+            this.Name = "MainForm";
             this.ShowCloseQuestion = false;
             this.Text = "مدیریت مطب";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
@@ -289,14 +317,16 @@
         private Janus.Windows.EditControls.UIButton ButtonRestore;
         private Janus.Windows.EditControls.UIButton ButtonChat;
         private Janus.Windows.EditControls.UIGroupBox uiGroupBox1;
-        private Janus.Windows.GridEX.EditControls.EditBox TextBoxDoctor;
+        private Janus.Windows.GridEX.EditControls.EditBox textBoxDoctor;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel LabelCurrentUser;
-        private System.Windows.Forms.ToolStripStatusLabel LabelCurrentUserValue;
+        private System.Windows.Forms.ToolStripStatusLabel labelCurrentUserValue;
         private System.Windows.Forms.ToolStripStatusLabel LabelDoctor;
-        private System.Windows.Forms.ToolStripStatusLabel LabelDoctorName;
-        private System.Windows.Forms.ToolStripStatusLabel LabelDateTime;
+        private System.Windows.Forms.ToolStripStatusLabel labelDoctorName;
+        private System.Windows.Forms.ToolStripStatusLabel labelDateTime;
         private System.Windows.Forms.Timer timer1;
         private Janus.Windows.EditControls.UIButton ButtonSettings;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ToolStripStatusLabel labelUserType;
     }
 }

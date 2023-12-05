@@ -36,6 +36,24 @@ namespace Ophthalmology.Entity.Settings
 
         public UserType UserType { get; set; }
 
+        public string UserTypeTitle
+        {
+            get
+            {
+                switch (UserType)
+                {
+                    case UserType.Doctor:
+                        return "پزشک";
+                    case UserType.Optometrist:
+                        return "اپتومتریست";
+                    case UserType.Secretary:
+                        return "منشی";
+                    default:
+                        return string.Empty;
+                }
+            }
+        }
+
         #endregion
     }
 }

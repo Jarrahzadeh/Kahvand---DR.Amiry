@@ -22,7 +22,22 @@
 
         #region ~( Constructors )~
 
-        public Customer() { }
+        public Customer()
+        {
+            _name = string.Empty;
+            _family = string.Empty;
+            _nameFather = string.Empty;
+            _address = string.Empty;
+            _reason = string.Empty;
+            _tel = string.Empty;
+            _dis = string.Empty;
+            _age = string.Empty;
+            _eyeLeft = string.Empty;
+            _eyeRight = string.Empty;
+            _dateSave = string.Empty;
+            //_drId = 0;
+            //_idTypePatient = 0;
+        }
 
         #endregion
 
