@@ -6,32 +6,32 @@ namespace Ophthalmology.Controls
     {
         public static void ShowInformation(string msg, string title)
         {
-            ShowMessageCore(title, msg, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ShowMessageCore(msg, title, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         public static void ShowWarning(string msg, string title)
         {
-            ShowMessageCore(title, msg, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ShowMessageCore(msg, title, MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         public static void ShowError(string msg, string title)
         {
-            ShowMessageCore(title, msg, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            ShowMessageCore(msg, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public static DialogResult ShowQuestion(string msg, string title)
         {
-            return ShowQuestion(title, msg, MessageBoxButtons.YesNo);
+            return ShowQuestion(msg, title, MessageBoxButtons.YesNo);
         }
 
         public static DialogResult ShowQuestion(string msg, string title, MessageBoxButtons buttons)
         {
-            return ShowMessageCore(title, msg, buttons, MessageBoxIcon.Question);
+            return ShowMessageCore(msg, title, buttons, MessageBoxIcon.Question);
         }
 
         public static DialogResult ShowYesNo(string msg, string title, MessageBoxIcon icon)
         {
-            return ShowMessageCore(title, msg, MessageBoxButtons.YesNo, icon);
+            return ShowMessageCore(msg, title, MessageBoxButtons.YesNo, icon);
         }
 
         private static DialogResult ShowMessageCore(string msg, string title, MessageBoxButtons buttons, MessageBoxIcon icon)

@@ -1,4 +1,7 @@
-﻿namespace Ophthalmology.Entity.Entites
+﻿using System;
+using System.Globalization;
+
+namespace Ophthalmology.Entity.Entites
 {
     public class Customer : EntityBase
     {
@@ -34,7 +37,7 @@
             _age = string.Empty;
             _eyeLeft = string.Empty;
             _eyeRight = string.Empty;
-            _dateSave = string.Empty;
+            _dateSave = DateTime.Now.ToString("yyyy/MM/dd", new CultureInfo("fa-IR"));
             //_drId = 0;
             //_idTypePatient = 0;
         }

@@ -38,6 +38,7 @@ namespace Ophthalmology.Controls.CustomControls
             FilterMode = FilterMode.Automatic;
             FilterRowButtonStyle = FilterRowButtonStyle.ConditionOperatorDropDown;
             FilterRowUpdateMode = FilterRowUpdateMode.WhenValueChanges;
+            TabKeyBehavior = TabKeyBehavior.ControlNavigation;
 
             BuiltInTexts[GridEXBuiltInText.GroupByBoxInfo] = "سطری را جهت گروه بندی به اینجا بکشید";
 

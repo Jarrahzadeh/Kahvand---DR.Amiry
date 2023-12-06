@@ -33,7 +33,9 @@ namespace Ophthalmology.UI.Win.Forms
             };
 
             var customers = DatabaseHelper.Select<Customer>("Customer", whereClauses: whereClauses);
+            bindingSourceCustomers.DataSource = new List<Customer>();
             bindingSourceCustomers.DataSource = customers;
+            bindingSourceCustomers.ResetBindings(true);
         }
 
         private void LoadTypePatient()
@@ -53,12 +55,16 @@ namespace Ophthalmology.UI.Win.Forms
             dateTimePickerEyeLeft.Text = string.Empty;
         }
 
-        private void SaveNewCustomer()
+        private int SaveNewCustomer()
         {
+            if (string.IsNullOrWhiteSpace(CurrentCustomer.Name) || string.IsNullOrWhiteSpace(CurrentCustomer.Family))
+                return -3;
+
             var whereClauses = new List<IWhereClause>
             {
                 new WhereClause(nameof(CurrentCustomer.Name), CurrentCustomer.Name, LogicalOperatorType.And),
-                new WhereClause(nameof(CurrentCustomer.Family), CurrentCustomer.Family)
+                new WhereClause(nameof(CurrentCustomer.Family), CurrentCustomer.Family, LogicalOperatorType.And),
+                new WhereClause(nameof(MyApplication.DrId), MyApplication.DrId)
             };
 
             var dataTable = DatabaseHelper.Select<Customer>("Customer", whereClauses: whereClauses);
@@ -68,7 +74,7 @@ namespace Ophthalmology.UI.Win.Forms
                 var msg = $"قبلا بیماری با مشخصات '{CurrentCustomer}' .ثبت گردیده است {Environment.NewLine} آیا عملیات ذخیره سازی را ادامه میدهید؟";
                 var result = MsgBox.ShowQuestion(msg, "ثبت جدید");
                 if (result != DialogResult.Yes)
-                    return;
+                    return -2;
             }
 
             var filedNameAndValues = new List<IFieldValue>
@@ -81,27 +87,19 @@ namespace Ophthalmology.UI.Win.Forms
                 new FieldValue("Dis", CurrentCustomer.Dis),
                 new FieldValue("Age", CurrentCustomer.Age),
                 new FieldValue("DateSave", CurrentCustomer.DateSave),
-                new FieldValue("DrId", CurrentCustomer.DrId),
+                new FieldValue("DrId", MyApplication.DrId),
                 new FieldValue("Address", CurrentCustomer.Address),
-                new FieldValue("IdTypePatient", CurrentCustomer.IdTypePatient), 
+                new FieldValue("IdTypePatient", CurrentCustomer.IdTypePatient),
                 new FieldValue("EyeLeft", checkBoxEyeLeft.Checked ? CurrentCustomer.EyeLeft : ""),
                 new FieldValue("EyeRight", checkBoxEyeRight.Checked ? CurrentCustomer.EyeRight : "")
             };
-            
-            var inserted = DatabaseHelper.Insert("Customer", filedNameAndValues);
-            if (inserted > 0)
-            {
-                MsgBox.ShowInformation("اطلاعات بیمار با موفقیت ثبت گردید.", "ثبت جدید");
-            }
-            else
-            {
-                MsgBox.ShowError("مشکلی در ثبت اطلاعات بیمار پیش آمده و عملیات انجام نگردید.", "ثبت جدید");
-            }
+
+            return DatabaseHelper.Insert("Customer", filedNameAndValues);
         }
 
-        private void EditCustomer()
+        private int EditCustomer()
         {
-
+            return -1;
         }
 
         private void ChangeFormEnabled(bool enabled)
@@ -128,6 +126,15 @@ namespace Ophthalmology.UI.Win.Forms
 
             checkBoxEyeLeft.Enabled = enabled;
             checkBoxEyeRight.Enabled = enabled;
+
+            if (!enabled)
+            {
+                if (checkBoxEyeLeft.Checked)
+                    checkBoxEyeLeft.Checked = false;
+                
+                if (checkBoxEyeRight.Checked)
+                    checkBoxEyeRight.Checked = false;
+            }
         }
 
         private void CustomersForm_Load(object sender, EventArgs e)
@@ -179,16 +186,35 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
+            var rowEffected = -1;
             if (_formActionMode == FormActionMode.Add)
             {
-                SaveNewCustomer();
+                rowEffected = SaveNewCustomer();
             }
             else if (_formActionMode == FormActionMode.Edit)
             {
-                EditCustomer();
+                rowEffected = EditCustomer();
+                LoadCustomers();
             }
 
-            MsgBox.ShowInformation("اطلاعات با موفقیت ذخیره گردید", "دخیره اطلاعات");
+            if (rowEffected > 0)
+            {
+                MsgBox.ShowInformation("اطلاعات بیمار با موفقیت ثبت گردید.", "ثبت جدید");
+            }
+            else if (rowEffected > -2)
+            {
+                MsgBox.ShowError("مشکلی در ثبت اطلاعات بیمار پیش آمده و عملیات انجام نگردید.", "ثبت جدید");
+            }
+            else if (rowEffected == -2)
+            {
+                ButtonCancel_Click(sender, e);
+            }
+            else if (rowEffected == -3)
+            {
+                MsgBox.ShowWarning("لطفا مشخصات بیمار را بصورت صحیح وارد نمائید", "ثبت جدید");
+                ActiveControl = textBoxName;
+            }
+
             ChangeFormEnabled(false);
         }
 
@@ -216,5 +242,10 @@ namespace Ophthalmology.UI.Win.Forms
         }
 
         public Customer CurrentCustomer => (Customer)bindingSourceCustomers.Current;
+
+        private void textBoxFamily_TextChanged(object sender, EventArgs e)
+        {
+            customGridEx1.FilterRow.Cells["Family"].Text = textBoxFamily.Text;
+        }
     }
 }
