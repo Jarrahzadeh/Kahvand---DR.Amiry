@@ -74,7 +74,8 @@ namespace Ophthalmology.UI.Win.Forms
             var authenticate = Authenticate(TextBoxUserName.Text, TextboxPassword.Text);
             if (!authenticate)
             {
-                MsgBox.ShowQuestion("امکان ورود به سیستم وجود ندارد", "ورود به سیستم");
+                MsgBox.ShowWarning("امکان ورود به سیستم وجود ندارد", "ورود به سیستم");
+                ActiveControl = TextBoxUserName;
                 return;
             }
 
@@ -128,10 +129,10 @@ namespace Ophthalmology.UI.Win.Forms
                     SelectNextControl(ActiveControl, true, true, true, true);
                 }
             }
-            else if (e.KeyChar == (int)Keys.Escape)
-            {
-                Close();
-            }
+            //else if (e.KeyChar == (int)Keys.Escape)
+            //{
+            //    Close();
+            //}
             else if (e.KeyChar == (int)Keys.F2)
             {
                 ButtonLogin_Click(sender, e);

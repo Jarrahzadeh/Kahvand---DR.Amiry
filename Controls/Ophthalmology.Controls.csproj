@@ -34,6 +34,9 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BehComponents">
+      <HintPath>..\packages\BehComponents.dll</HintPath>
+    </Reference>
     <Reference Include="Janus.Data.v3">
       <HintPath>..\packages\Janus\v3\Janus.Data.v3.dll</HintPath>
     </Reference>
@@ -83,6 +86,7 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="Properties\DataSources\Ophthalmology.Entity.Customer.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

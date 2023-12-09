@@ -53,12 +53,12 @@ namespace Ophthalmology.Entity.Entites
                 return $"{_name} {_family}";
             }
 
-            if (!string.IsNullOrWhiteSpace(_name))
-            {
+            //if (!string.IsNullOrWhiteSpace(_name))
+            //{
                 return _name;
-            }
+            //}
 
-            return !string.IsNullOrWhiteSpace(_family) ? _family : base.ToString();
+            //return !string.IsNullOrWhiteSpace(_family) ? _family : base.ToString();
         }
 
         #endregion

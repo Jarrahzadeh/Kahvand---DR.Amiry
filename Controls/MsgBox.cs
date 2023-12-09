@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
+using BehComponents;
 
 namespace Ophthalmology.Controls
 {
@@ -36,7 +38,30 @@ namespace Ophthalmology.Controls
 
         private static DialogResult ShowMessageCore(string msg, string title, MessageBoxButtons buttons, MessageBoxIcon icon)
         {
-            return MessageBox.Show(msg, title, buttons, icon, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
+            var buttonsFarsi = (MessageBoxFarsiButtons)buttons;
+            var iconFarsi = (MessageBoxFarsiIcon)icon;
+            if (icon == MessageBoxIcon.None)
+                iconFarsi = MessageBoxFarsiIcon.None;
+            else if (icon == MessageBoxIcon.Error)
+                iconFarsi = MessageBoxFarsiIcon.Error;
+            else if (icon == MessageBoxIcon.Hand)
+                iconFarsi = MessageBoxFarsiIcon.Delete;
+            else if (icon == MessageBoxIcon.Stop)
+                iconFarsi = MessageBoxFarsiIcon.Stop;
+            else if (icon == MessageBoxIcon.Question)
+                iconFarsi = MessageBoxFarsiIcon.Question;
+            else if (icon == MessageBoxIcon.Exclamation)
+                iconFarsi = MessageBoxFarsiIcon.Warning;
+            else if (icon == MessageBoxIcon.Warning)
+                iconFarsi = MessageBoxFarsiIcon.Preference;
+            else if (icon == MessageBoxIcon.Asterisk)
+                iconFarsi = MessageBoxFarsiIcon.Information;
+            else
+                throw new ArgumentOutOfRangeException(nameof(icon), icon, null);
+
+            var result =  MessageBoxFarsi.Show(msg, title, buttonsFarsi, iconFarsi);
+            //MessageBox.Show(msg, title, buttons, icon, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading | MessageBoxOptions.RightAlign);
+            return result;
         }
     }
 }

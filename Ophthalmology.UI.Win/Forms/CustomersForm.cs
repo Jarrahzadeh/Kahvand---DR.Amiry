@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using Janus.Windows.GridEX;
 using Ophthalmology.Controls;
 using Ophthalmology.DataAccess.OleDb;
 using Ophthalmology.Entity.Database;
@@ -13,8 +14,15 @@ namespace Ophthalmology.UI.Win.Forms
 {
     public partial class CustomersForm : CustomizableForm
     {
+        #region ~( Fields )~
+
         private FormActionMode _formActionMode;
         private int _recordLastPosition;
+        private bool _onLoadRecords;
+
+        #endregion
+
+        #region ~( Constructors )~
 
         public CustomersForm()
         {
@@ -25,8 +33,13 @@ namespace Ophthalmology.UI.Win.Forms
             _formActionMode = FormActionMode.None;
         }
 
+        #endregion
+
+        #region ~( Method )~
+
         private void LoadCustomers()
         {
+            _onLoadRecords = true;
             var whereClauses = new List<IWhereClause>
             {
                 new WhereClause("DrId", MyApplication.DrId)
@@ -36,6 +49,7 @@ namespace Ophthalmology.UI.Win.Forms
             bindingSourceCustomers.DataSource = new List<Customer>();
             bindingSourceCustomers.DataSource = customers;
             bindingSourceCustomers.ResetBindings(true);
+            _onLoadRecords = false;
         }
 
         private void LoadTypePatient()
@@ -99,7 +113,24 @@ namespace Ophthalmology.UI.Win.Forms
 
         private int EditCustomer()
         {
-            return -1;
+            var filedNameAndValues = new List<IFieldValue>
+            {
+                new FieldValue("Name", CurrentCustomer.Name),
+                new FieldValue("Family", CurrentCustomer.Family),
+                new FieldValue("Tel", CurrentCustomer.Tel),
+                new FieldValue("NameFather", CurrentCustomer.NameFather),
+                new FieldValue("Reason", CurrentCustomer.Reason),
+                new FieldValue("Dis", CurrentCustomer.Dis),
+                new FieldValue("Age", CurrentCustomer.Age),
+                new FieldValue("DateSave", CurrentCustomer.DateSave),
+                new FieldValue("DrId", MyApplication.DrId),
+                new FieldValue("Address", CurrentCustomer.Address),
+                new FieldValue("IdTypePatient", CurrentCustomer.IdTypePatient),
+                new FieldValue("EyeLeft", checkBoxEyeLeft.Checked ? CurrentCustomer.EyeLeft : ""),
+                new FieldValue("EyeRight", checkBoxEyeRight.Checked ? CurrentCustomer.EyeRight : "")
+            };
+            var whereClauses = new List<IWhereClause> { new WhereClause("Id", CurrentCustomer.Id) };
+            return DatabaseHelper.Update("Customer", filedNameAndValues, whereClauses);
         }
 
         private void ChangeFormEnabled(bool enabled)
@@ -131,11 +162,15 @@ namespace Ophthalmology.UI.Win.Forms
             {
                 if (checkBoxEyeLeft.Checked)
                     checkBoxEyeLeft.Checked = false;
-                
+
                 if (checkBoxEyeRight.Checked)
                     checkBoxEyeRight.Checked = false;
             }
         }
+
+        #endregion
+
+        #region ~( Event Handlers )~
 
         private void CustomersForm_Load(object sender, EventArgs e)
         {
@@ -150,14 +185,24 @@ namespace Ophthalmology.UI.Win.Forms
         {
             var personName = CurrentCustomer.ToString();
 
-            var result = MsgBox.ShowYesNo($"آیا از حذف '{personName}' اطمینان دارید؟", $"حذف '{personName}'", MessageBoxIcon.Warning);
+            var result = MsgBox.ShowYesNo($"آیا از حذف '{personName}' اطمینان دارید؟", "حذف بیمار", MessageBoxIcon.Warning);
             if (result != DialogResult.Yes)
                 return;
+
+            _recordLastPosition = bindingSourceCustomers.Position;
+            if (_recordLastPosition <= 0)
+                _recordLastPosition = 0;
+
+            if (_recordLastPosition > 0)
+                _recordLastPosition--;
 
             var whereClauses = new List<IWhereClause> { new WhereClause("Id", CurrentCustomer.Id) };
             var rows = DatabaseHelper.Delete("Customer", whereClauses);
             var text = rows > 0 ? $"اطلاعات '{personName}' با موفقیت حذف شد" : $"اطلاعات '{personName}' حذف نشد";
-            MsgBox.ShowInformation(text, $"حذف '{personName}'");
+            MsgBox.ShowInformation(text, "حذف بیمار");
+            LoadCustomers();
+
+            bindingSourceCustomers.Position = _recordLastPosition;
         }
 
         private void ButtonBrowse_Click(object sender, EventArgs e)
@@ -226,7 +271,7 @@ namespace Ophthalmology.UI.Win.Forms
 
             ChangeFormEnabled(false);
 
-            customGridEx1.Focus();
+            gridCustomers.Focus();
 
             _formActionMode = FormActionMode.None;
         }
@@ -241,11 +286,29 @@ namespace Ophthalmology.UI.Win.Forms
             dateTimePickerEyeRight.Enabled = checkBoxEyeRight.Checked;
         }
 
-        public Customer CurrentCustomer => (Customer)bindingSourceCustomers.Current;
-
         private void textBoxFamily_TextChanged(object sender, EventArgs e)
         {
-            customGridEx1.FilterRow.Cells["Family"].Text = textBoxFamily.Text;
+            //try
+            //{
+            //    if (_onLoadRecords)
+            //        return;
+
+            //    var column = gridCustomers.RootTable.Columns["Family"];
+            //    var filterValue = textBoxFamily.Text;
+            //    gridCustomers.ApplyFilter(column, filterValue);
+            //}
+            //catch (Exception exception)
+            //{
+            //    Console.WriteLine(exception);
+            //}
         }
+
+        #endregion
+
+        #region ~( Properties )~
+
+        public Customer CurrentCustomer => (Customer)bindingSourceCustomers.Current;
+
+        #endregion
     }
 }

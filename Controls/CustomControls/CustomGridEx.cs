@@ -30,7 +30,7 @@ namespace Ophthalmology.Controls.CustomControls
                 CellToolTip = CellToolTip.UseCellToolTipText
             };
 
-            SaveSettings = true;
+            //SaveSettings = true;
 
             AllowEdit = InheritableBoolean.False;
             AlternatingColors = true;
@@ -39,7 +39,14 @@ namespace Ophthalmology.Controls.CustomControls
             FilterRowButtonStyle = FilterRowButtonStyle.ConditionOperatorDropDown;
             FilterRowUpdateMode = FilterRowUpdateMode.WhenValueChanges;
             TabKeyBehavior = TabKeyBehavior.ControlNavigation;
+            HideSelection = HideSelection.HighlightInactive;
 
+
+            InitBuiltInTexts();
+        }
+
+        private void InitBuiltInTexts()
+        {
             BuiltInTexts[GridEXBuiltInText.GroupByBoxInfo] = "سطری را جهت گروه بندی به اینجا بکشید";
 
             BuiltInTexts[GridEXBuiltInText.CalendarNoneButton] = "هیچی";
@@ -70,7 +77,7 @@ namespace Ophthalmology.Controls.CustomControls
             BuiltInTexts[GridEXBuiltInText.DropDownOkButton] = "تایید";
             BuiltInTexts[GridEXBuiltInText.DropDownCancelButton] = "انصراف";
 
-            BuiltInTexts[GridEXBuiltInText.FilterRowInfoText] = "فیلتر";
+            BuiltInTexts[GridEXBuiltInText.FilterRowInfoText] = "جستجو در لیست بر اساس هر ستون";
             BuiltInTexts[GridEXBuiltInText.FilterRowConditionEqual] = "برابر";
             BuiltInTexts[GridEXBuiltInText.FilterRowConditionNotEqual] = "نابرابر";
             BuiltInTexts[GridEXBuiltInText.FilterRowConditionGreaterThan] = "بزرگتر از";
@@ -122,6 +129,9 @@ namespace Ophthalmology.Controls.CustomControls
             // CustomGridEx
             // 
             this.ContextMenuStrip = this.contextMenuGridRightClick;
+            this.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
+            this.SettingsKey = "CustomGrid";
+            this.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
             this.contextMenuGridRightClick.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
@@ -136,6 +146,13 @@ namespace Ophthalmology.Controls.CustomControls
         private void MenuItemColumnSelector_Click(object sender, System.EventArgs e)
         {
             ShowFieldChooser(ParentForm, "انتخاب ستون ها");
+        }
+
+        public void ApplyFilter(GridEXColumn column, string filterValue)
+        {
+            FilterRow.Cells[column].Text = filterValue;
+            var condition = new GridEXFilterCondition(column, ConditionOperator.BeginsWith, filterValue);
+            RootTable.ApplyFilter(condition);
         }
     }
 }

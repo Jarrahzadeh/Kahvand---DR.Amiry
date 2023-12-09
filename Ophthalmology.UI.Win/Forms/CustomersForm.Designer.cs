@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CustomersForm));
-            Janus.Windows.GridEX.GridEXLayout customGridEx1_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
+            Janus.Windows.GridEX.GridEXLayout gridCustomers_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonBrowse = new Janus.Windows.EditControls.UIButton();
             this.lableCode = new System.Windows.Forms.Label();
@@ -73,13 +73,13 @@
             this.labelAddress = new System.Windows.Forms.Label();
             this.labelDescription = new System.Windows.Forms.Label();
             this.textBoxDescription = new Janus.Windows.GridEX.EditControls.EditBox();
-            this.customGridEx1 = new Ophthalmology.Controls.CustomControls.CustomGridEx();
+            this.gridCustomers = new Ophthalmology.Controls.CustomControls.CustomGridEx();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceCustomers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTypePatient)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customGridEx1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCustomers)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -801,35 +801,34 @@
             this.textBoxDescription.TabIndex = 17;
             this.textBoxDescription.VisualStyleManager = this.visualStyleManager;
             // 
-            // customGridEx1
+            // gridCustomers
             // 
-            this.customGridEx1.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
-            this.customGridEx1.AlternatingColors = true;
-            this.customGridEx1.BuiltInTextsData = resources.GetString("customGridEx1.BuiltInTextsData");
-            this.customGridEx1.ColumnAutoResize = true;
-            this.customGridEx1.DataSource = this.bindingSourceCustomers;
-            customGridEx1_DesignTimeLayout.LayoutString = resources.GetString("customGridEx1_DesignTimeLayout.LayoutString");
-            this.customGridEx1.DesignTimeLayout = customGridEx1_DesignTimeLayout;
-            this.customGridEx1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.customGridEx1.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic;
-            this.customGridEx1.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
-            this.customGridEx1.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
-            this.customGridEx1.GroupByBoxVisible = false;
-            this.customGridEx1.Location = new System.Drawing.Point(10, 382);
-            this.customGridEx1.Name = "customGridEx1";
-            this.customGridEx1.SaveSettings = true;
-            this.customGridEx1.SettingsKey = "customGridEx1";
-            this.customGridEx1.Size = new System.Drawing.Size(1017, 341);
-            this.customGridEx1.TabIndex = 1;
-            this.customGridEx1.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
-            this.customGridEx1.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
-            this.customGridEx1.VisualStyleManager = this.visualStyleManager;
+            this.gridCustomers.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
+            this.gridCustomers.AlternatingColors = true;
+            this.gridCustomers.BuiltInTextsData = resources.GetString("gridCustomers.BuiltInTextsData");
+            this.gridCustomers.ColumnAutoResize = true;
+            this.gridCustomers.DataSource = this.bindingSourceCustomers;
+            gridCustomers_DesignTimeLayout.LayoutString = resources.GetString("gridCustomers_DesignTimeLayout.LayoutString");
+            this.gridCustomers.DesignTimeLayout = gridCustomers_DesignTimeLayout;
+            this.gridCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridCustomers.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic;
+            this.gridCustomers.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
+            this.gridCustomers.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
+            this.gridCustomers.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
+            this.gridCustomers.Location = new System.Drawing.Point(10, 382);
+            this.gridCustomers.Name = "gridCustomers";
+            this.gridCustomers.Size = new System.Drawing.Size(1017, 341);
+            this.gridCustomers.TabIndex = 1;
+            this.gridCustomers.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
+            this.gridCustomers.UpdateMode = Janus.Windows.GridEX.UpdateMode.CellUpdate;
+            this.gridCustomers.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
+            this.gridCustomers.VisualStyleManager = this.visualStyleManager;
             // 
             // CustomersForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.ClientSize = new System.Drawing.Size(1037, 733);
-            this.Controls.Add(this.customGridEx1);
+            this.Controls.Add(this.gridCustomers);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "CustomersForm";
             this.Text = "لیست بیماران";
@@ -840,8 +839,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceTypePatient)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
-            ((System.Configuration.IPersistComponentSettings)(this.customGridEx1)).LoadComponentSettings();
-            ((System.ComponentModel.ISupportInitialize)(this.customGridEx1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridCustomers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -850,7 +848,7 @@
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private Controls.CustomControls.CustomGridEx customGridEx1;
+        private Controls.CustomControls.CustomGridEx gridCustomers;
         private System.Windows.Forms.BindingSource bindingSourceCustomers;
         private Janus.Windows.EditControls.UIButton buttonOldVisit;
         private System.Windows.Forms.Label lableCode;
