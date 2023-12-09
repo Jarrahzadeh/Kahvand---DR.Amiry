@@ -114,25 +114,25 @@ namespace Ophthalmology.DataAccess.OleDb
             }
         }
 
-        public static List<T> Select<T>(string tableName = "", string selectFields = "*", List<IWhereClause> whereClauses = default)
+        public static List<T> Select<T>(string tableName = "", string selectFields = "*", List<IWhereClause> whereClauses = default, string sortOrder = default)
             where T : Entity.Entites.EntityBase, new()
         {
             if (string.IsNullOrEmpty(tableName))
                 tableName = new T().TableName;
 
-            var dataTable = Select(tableName, selectFields, whereClauses);
+            var dataTable = Select(tableName, selectFields, whereClauses, sortOrder);
             var result = dataTable.ToListOfT<T>();
             return result;
         }
 
-        public static DataTable Select(string tableName, string selectFields = "*", List<IWhereClause> whereClauses = default)
+        public static DataTable Select(string tableName, string selectFields = "*", List<IWhereClause> whereClauses = default, string sortOrder = default)
         {
             if (string.IsNullOrEmpty(tableName))
             {
                 throw new ArgumentNullException(nameof(tableName));
             }
 
-            var script = $" SELECT {selectFields} FROM {tableName}";
+            var script = $"SELECT {selectFields} FROM {tableName}";
             var parameters = new List<OleDbParameter>();
             if (whereClauses != null)
             {
@@ -141,6 +141,9 @@ namespace Ophthalmology.DataAccess.OleDb
                 if (!string.IsNullOrWhiteSpace(fields))
                     script += $" WHERE{fields}";
             }
+
+            if (!string.IsNullOrWhiteSpace(sortOrder))
+                script += $"ORDER BY {sortOrder}";
 
             try
             {
@@ -233,7 +236,7 @@ namespace Ophthalmology.DataAccess.OleDb
             var oleDbParameters = new List<OleDbParameter>();
             if (filedValues != null)
             {
-                var dbParameters = filedValues.Select(filedValue => new OleDbParameter($"@{filedValue.FiledName}", filedValue.Value));
+                var dbParameters = filedValues.Select(filedValue => new OleDbParameter($"@{filedValue.Alias}", filedValue.Value));
                 oleDbParameters.AddRange(dbParameters);
             }
             return oleDbParameters;
@@ -244,7 +247,7 @@ namespace Ophthalmology.DataAccess.OleDb
             var oleDbParameters = new List<OleDbParameter>();
             if (filedValues != null)
             {
-                var dbParameters = filedValues.Select(filedValue => new OleDbParameter($"@{filedValue.FiledName}", filedValue.Value));
+                var dbParameters = filedValues.Select(filedValue => new OleDbParameter($"@{filedValue.Alias}", filedValue.Value));
                 oleDbParameters.AddRange(dbParameters);
             }
             return oleDbParameters;
@@ -255,11 +258,11 @@ namespace Ophthalmology.DataAccess.OleDb
             var result = string.Empty;
             foreach (var clause in whereClauses)
             {
-                var value = "";
+                var logicalOperator = "";
                 if (clause.LogicalOperator != LogicalOperatorType.None)
-                    value = clause.LogicalOperator.ToString().ToUpper();
+                    logicalOperator = clause.LogicalOperator.ToString().ToUpper();
 
-                result = string.Join(string.Empty, result, $" {clause.FiledName} = @{clause.Value} ", value);
+                result = string.Join(string.Empty, result, $" {clause.FiledName} = @{clause.Alias} ", logicalOperator);
             }
             return result;
         }
@@ -272,8 +275,8 @@ namespace Ophthalmology.DataAccess.OleDb
             foreach (var filedValue in filedValues)
             {
                 var separator = string.IsNullOrWhiteSpace(fields) ? string.Empty : ", ";
-                fields = string.Join(separator, fields, $"{filedValue.FiledName}");
-                values = string.Join(separator, values, $"@{filedValue.FiledName}");
+                fields = string.Join(separator, fields, $"{filedValue.Alias}");
+                values = string.Join(separator, values, $"@{filedValue.Alias}");
             }
 
             return new Tuple<string, string>(fields, values);
@@ -285,7 +288,7 @@ namespace Ophthalmology.DataAccess.OleDb
             foreach (var filedValue in filedValues)
             {
                 var separator = string.IsNullOrWhiteSpace(script) ? string.Empty : ", ";
-                script = string.Join(separator, script, $"{filedValue.FiledName} = @{filedValue.FiledName}");
+                script = string.Join(separator, script, $"{filedValue.Alias} = @{filedValue.Alias}");
             }
             return script;
         }

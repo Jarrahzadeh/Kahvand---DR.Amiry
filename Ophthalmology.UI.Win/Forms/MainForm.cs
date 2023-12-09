@@ -53,7 +53,6 @@ namespace Ophthalmology.UI.Win.Forms
         private void ButtonCustomers_Click(object sender, EventArgs e)
         {
             var customerForm = new CustomersForm();
-            customerForm.Text += $" - {MyApplication.DrName}";
             customerForm.ShowDialog();
         }
 

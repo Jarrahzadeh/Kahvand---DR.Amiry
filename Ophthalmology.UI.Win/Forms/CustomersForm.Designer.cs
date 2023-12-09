@@ -138,14 +138,14 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1017, 372);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(915, 372);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // buttonBrowse
             // 
             this.buttonBrowse.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonBrowse.Enabled = false;
-            this.buttonBrowse.Location = new System.Drawing.Point(449, 266);
+            this.buttonBrowse.Location = new System.Drawing.Point(347, 266);
             this.buttonBrowse.Name = "buttonBrowse";
             this.buttonBrowse.Size = new System.Drawing.Size(35, 35);
             this.buttonBrowse.TabIndex = 24;
@@ -157,7 +157,7 @@
             // 
             this.lableCode.AutoSize = true;
             this.lableCode.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lableCode.Location = new System.Drawing.Point(987, 58);
+            this.lableCode.Location = new System.Drawing.Point(885, 58);
             this.lableCode.Name = "lableCode";
             this.lableCode.Size = new System.Drawing.Size(27, 41);
             this.lableCode.TabIndex = 0;
@@ -168,7 +168,7 @@
             // 
             this.textBoxCode.BackColor = System.Drawing.Color.AntiqueWhite;
             this.textBoxCode.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBoxCode.Location = new System.Drawing.Point(843, 61);
+            this.textBoxCode.Location = new System.Drawing.Point(741, 61);
             this.textBoxCode.Name = "textBoxCode";
             this.textBoxCode.ReadOnly = true;
             this.textBoxCode.Size = new System.Drawing.Size(138, 35);
@@ -181,7 +181,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.checkBoxEyeRight, 2);
             this.checkBoxEyeRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.checkBoxEyeRight.Enabled = false;
-            this.checkBoxEyeRight.Location = new System.Drawing.Point(746, 225);
+            this.checkBoxEyeRight.Location = new System.Drawing.Point(644, 225);
             this.checkBoxEyeRight.Name = "checkBoxEyeRight";
             this.checkBoxEyeRight.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.checkBoxEyeRight.Size = new System.Drawing.Size(136, 35);
@@ -194,7 +194,7 @@
             // 
             this.lableName.AutoSize = true;
             this.lableName.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lableName.Location = new System.Drawing.Point(746, 58);
+            this.lableName.Location = new System.Drawing.Point(644, 58);
             this.lableName.Name = "lableName";
             this.lableName.Size = new System.Drawing.Size(26, 41);
             this.lableName.TabIndex = 2;
@@ -206,7 +206,7 @@
             this.tableLayoutPanel1.SetColumnSpan(this.checkBoxEyeLeft, 2);
             this.checkBoxEyeLeft.Dock = System.Windows.Forms.DockStyle.Right;
             this.checkBoxEyeLeft.Enabled = false;
-            this.checkBoxEyeLeft.Location = new System.Drawing.Point(746, 184);
+            this.checkBoxEyeLeft.Location = new System.Drawing.Point(644, 184);
             this.checkBoxEyeLeft.Name = "checkBoxEyeLeft";
             this.checkBoxEyeLeft.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.checkBoxEyeLeft.Size = new System.Drawing.Size(126, 35);
@@ -220,7 +220,7 @@
             this.textBoxName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Name", true));
             this.textBoxName.Dock = System.Windows.Forms.DockStyle.Left;
             this.textBoxName.Enabled = false;
-            this.textBoxName.Location = new System.Drawing.Point(490, 61);
+            this.textBoxName.Location = new System.Drawing.Point(388, 61);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(250, 35);
             this.textBoxName.TabIndex = 3;
@@ -234,7 +234,7 @@
             // 
             this.labelFamily.AutoSize = true;
             this.labelFamily.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelFamily.Location = new System.Drawing.Point(746, 99);
+            this.labelFamily.Location = new System.Drawing.Point(644, 99);
             this.labelFamily.Name = "labelFamily";
             this.labelFamily.Size = new System.Drawing.Size(78, 41);
             this.labelFamily.TabIndex = 4;
@@ -246,7 +246,7 @@
             this.textBoxFamily.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Family", true));
             this.textBoxFamily.Dock = System.Windows.Forms.DockStyle.Left;
             this.textBoxFamily.Enabled = false;
-            this.textBoxFamily.Location = new System.Drawing.Point(490, 102);
+            this.textBoxFamily.Location = new System.Drawing.Point(388, 102);
             this.textBoxFamily.Name = "textBoxFamily";
             this.textBoxFamily.Size = new System.Drawing.Size(250, 35);
             this.textBoxFamily.TabIndex = 5;
@@ -258,7 +258,7 @@
             this.textBoxTel.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Tel", true));
             this.textBoxTel.Dock = System.Windows.Forms.DockStyle.Left;
             this.textBoxTel.Enabled = false;
-            this.textBoxTel.Location = new System.Drawing.Point(110, 102);
+            this.textBoxTel.Location = new System.Drawing.Point(8, 102);
             this.textBoxTel.Name = "textBoxTel";
             this.textBoxTel.Size = new System.Drawing.Size(250, 35);
             this.textBoxTel.TabIndex = 9;
@@ -268,7 +268,7 @@
             // 
             this.lableFatherName.AutoSize = true;
             this.lableFatherName.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lableFatherName.Location = new System.Drawing.Point(366, 58);
+            this.lableFatherName.Location = new System.Drawing.Point(264, 58);
             this.lableFatherName.Name = "lableFatherName";
             this.lableFatherName.Size = new System.Drawing.Size(47, 41);
             this.lableFatherName.TabIndex = 6;
@@ -280,7 +280,7 @@
             this.textBoxFatherName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "NameFather", true));
             this.textBoxFatherName.Dock = System.Windows.Forms.DockStyle.Left;
             this.textBoxFatherName.Enabled = false;
-            this.textBoxFatherName.Location = new System.Drawing.Point(110, 61);
+            this.textBoxFatherName.Location = new System.Drawing.Point(8, 61);
             this.textBoxFatherName.Name = "textBoxFatherName";
             this.textBoxFatherName.Size = new System.Drawing.Size(250, 35);
             this.textBoxFatherName.TabIndex = 7;
@@ -290,7 +290,7 @@
             // 
             this.lablePhone.AutoSize = true;
             this.lablePhone.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lablePhone.Location = new System.Drawing.Point(366, 99);
+            this.lablePhone.Location = new System.Drawing.Point(264, 99);
             this.lablePhone.Name = "lablePhone";
             this.lablePhone.Size = new System.Drawing.Size(71, 41);
             this.lablePhone.TabIndex = 8;
@@ -301,7 +301,7 @@
             // 
             this.lableRegDate.AutoSize = true;
             this.lableRegDate.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lableRegDate.Location = new System.Drawing.Point(746, 140);
+            this.lableRegDate.Location = new System.Drawing.Point(644, 140);
             this.lableRegDate.Name = "lableRegDate";
             this.lableRegDate.Size = new System.Drawing.Size(64, 41);
             this.lableRegDate.TabIndex = 25;
@@ -316,7 +316,7 @@
             this.comboBoxType.DisplayMember = "Name";
             this.comboBoxType.Dock = System.Windows.Forms.DockStyle.Left;
             this.comboBoxType.Enabled = false;
-            this.comboBoxType.Location = new System.Drawing.Point(490, 266);
+            this.comboBoxType.Location = new System.Drawing.Point(388, 266);
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(250, 35);
             this.comboBoxType.TabIndex = 23;
@@ -327,7 +327,7 @@
             // 
             this.labelType.AutoSize = true;
             this.labelType.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelType.Location = new System.Drawing.Point(746, 263);
+            this.labelType.Location = new System.Drawing.Point(644, 263);
             this.labelType.Name = "labelType";
             this.labelType.Size = new System.Drawing.Size(91, 41);
             this.labelType.TabIndex = 22;
@@ -348,24 +348,25 @@
             this.tableLayoutPanel2.Controls.Add(this.buttonOldVisit, 2, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonVisitList, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.buttonAppointment, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1011, 42);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(908, 42);
             this.tableLayoutPanel2.TabIndex = 35;
             // 
             // buttonVisit
             // 
             this.buttonVisit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonVisit.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.AfterText;
-            this.buttonVisit.Location = new System.Drawing.Point(206, 3);
+            this.buttonVisit.Location = new System.Drawing.Point(187, 3);
             this.buttonVisit.Name = "buttonVisit";
-            this.buttonVisit.Size = new System.Drawing.Size(196, 36);
+            this.buttonVisit.Size = new System.Drawing.Size(175, 36);
             this.buttonVisit.TabIndex = 3;
             this.buttonVisit.Text = "نسخه قلم(F6)";
             this.buttonVisit.VisualStyleManager = this.visualStyleManager;
+            this.buttonVisit.Click += new System.EventHandler(this.buttonVisit_Click);
             // 
             // buttonVisitText
             // 
@@ -373,43 +374,47 @@
             this.buttonVisitText.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.AfterText;
             this.buttonVisitText.Location = new System.Drawing.Point(3, 3);
             this.buttonVisitText.Name = "buttonVisitText";
-            this.buttonVisitText.Size = new System.Drawing.Size(197, 36);
+            this.buttonVisitText.Size = new System.Drawing.Size(178, 36);
             this.buttonVisitText.TabIndex = 4;
             this.buttonVisitText.Text = "نسخه متنی(F7)";
             this.buttonVisitText.VisualStyleManager = this.visualStyleManager;
+            this.buttonVisitText.Click += new System.EventHandler(this.buttonVisitText_Click);
             // 
             // buttonOldVisit
             // 
             this.buttonOldVisit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonOldVisit.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.AfterText;
-            this.buttonOldVisit.Location = new System.Drawing.Point(408, 3);
+            this.buttonOldVisit.Location = new System.Drawing.Point(368, 3);
             this.buttonOldVisit.Name = "buttonOldVisit";
-            this.buttonOldVisit.Size = new System.Drawing.Size(196, 36);
+            this.buttonOldVisit.Size = new System.Drawing.Size(175, 36);
             this.buttonOldVisit.TabIndex = 2;
             this.buttonOldVisit.Text = "نسخه های قبلی";
             this.buttonOldVisit.VisualStyleManager = this.visualStyleManager;
+            this.buttonOldVisit.Click += new System.EventHandler(this.buttonOldVisit_Click);
             // 
             // buttonVisitList
             // 
             this.buttonVisitList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonVisitList.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.AfterText;
-            this.buttonVisitList.Location = new System.Drawing.Point(812, 3);
+            this.buttonVisitList.Location = new System.Drawing.Point(730, 3);
             this.buttonVisitList.Name = "buttonVisitList";
-            this.buttonVisitList.Size = new System.Drawing.Size(196, 36);
+            this.buttonVisitList.Size = new System.Drawing.Size(175, 36);
             this.buttonVisitList.TabIndex = 0;
             this.buttonVisitList.Text = "لیست ویزیت";
             this.buttonVisitList.VisualStyleManager = this.visualStyleManager;
+            this.buttonVisitList.Click += new System.EventHandler(this.buttonVisitList_Click);
             // 
             // buttonAppointment
             // 
             this.buttonAppointment.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonAppointment.ImageHorizontalAlignment = Janus.Windows.EditControls.ImageHorizontalAlignment.AfterText;
-            this.buttonAppointment.Location = new System.Drawing.Point(610, 3);
+            this.buttonAppointment.Location = new System.Drawing.Point(549, 3);
             this.buttonAppointment.Name = "buttonAppointment";
-            this.buttonAppointment.Size = new System.Drawing.Size(196, 36);
+            this.buttonAppointment.Size = new System.Drawing.Size(175, 36);
             this.buttonAppointment.TabIndex = 1;
             this.buttonAppointment.Text = "نوبت دهی";
             this.buttonAppointment.VisualStyleManager = this.visualStyleManager;
+            this.buttonAppointment.Click += new System.EventHandler(this.buttonAppointment_Click);
             // 
             // tableLayoutPanel3
             // 
@@ -425,20 +430,20 @@
             this.tableLayoutPanel3.Controls.Add(this.buttonDelete, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.buttonSave, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.buttonEdit, 1, 0);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 317);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(5, 317);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1011, 42);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(907, 42);
             this.tableLayoutPanel3.TabIndex = 34;
             // 
             // buttonAdd
             // 
             this.buttonAdd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonAdd.Location = new System.Drawing.Point(812, 3);
+            this.buttonAdd.Location = new System.Drawing.Point(729, 3);
             this.buttonAdd.Name = "buttonAdd";
-            this.buttonAdd.Size = new System.Drawing.Size(196, 36);
+            this.buttonAdd.Size = new System.Drawing.Size(175, 36);
             this.buttonAdd.TabIndex = 0;
             this.buttonAdd.Text = "جدید";
             this.buttonAdd.VisualStyleManager = this.visualStyleManager;
@@ -449,7 +454,7 @@
             this.buttonCancel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonCancel.Location = new System.Drawing.Point(3, 3);
             this.buttonCancel.Name = "buttonCancel";
-            this.buttonCancel.Size = new System.Drawing.Size(197, 36);
+            this.buttonCancel.Size = new System.Drawing.Size(177, 36);
             this.buttonCancel.TabIndex = 4;
             this.buttonCancel.Text = "انصراف";
             this.buttonCancel.VisualStyleManager = this.visualStyleManager;
@@ -458,9 +463,9 @@
             // buttonDelete
             // 
             this.buttonDelete.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonDelete.Location = new System.Drawing.Point(206, 3);
+            this.buttonDelete.Location = new System.Drawing.Point(186, 3);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(196, 36);
+            this.buttonDelete.Size = new System.Drawing.Size(175, 36);
             this.buttonDelete.TabIndex = 3;
             this.buttonDelete.Text = "حذف";
             this.buttonDelete.VisualStyleManager = this.visualStyleManager;
@@ -470,9 +475,9 @@
             // 
             this.buttonSave.Dock = System.Windows.Forms.DockStyle.Fill;
             this.buttonSave.Enabled = false;
-            this.buttonSave.Location = new System.Drawing.Point(408, 3);
+            this.buttonSave.Location = new System.Drawing.Point(367, 3);
             this.buttonSave.Name = "buttonSave";
-            this.buttonSave.Size = new System.Drawing.Size(196, 36);
+            this.buttonSave.Size = new System.Drawing.Size(175, 36);
             this.buttonSave.TabIndex = 2;
             this.buttonSave.Text = "ذخیره";
             this.buttonSave.VisualStyleManager = this.visualStyleManager;
@@ -481,9 +486,9 @@
             // buttonEdit
             // 
             this.buttonEdit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.buttonEdit.Location = new System.Drawing.Point(610, 3);
+            this.buttonEdit.Location = new System.Drawing.Point(548, 3);
             this.buttonEdit.Name = "buttonEdit";
-            this.buttonEdit.Size = new System.Drawing.Size(196, 36);
+            this.buttonEdit.Size = new System.Drawing.Size(175, 36);
             this.buttonEdit.TabIndex = 1;
             this.buttonEdit.Text = "ویرایش";
             this.buttonEdit.VisualStyleManager = this.visualStyleManager;
@@ -555,7 +560,7 @@
             this.dateTimePickerRegisterDate.Enabled = false;
             this.dateTimePickerRegisterDate.Format = BehComponents.DateTimePickerX.FormatDate.Custom;
             this.dateTimePickerRegisterDate.Format4Binding = "yyyy/MM/dd";
-            this.dateTimePickerRegisterDate.Location = new System.Drawing.Point(490, 143);
+            this.dateTimePickerRegisterDate.Location = new System.Drawing.Point(388, 143);
             this.dateTimePickerRegisterDate.Name = "dateTimePickerRegisterDate";
             this.dateTimePickerRegisterDate.RightToLeftLayout = true;
             this.dateTimePickerRegisterDate.ShowClearButton = false;
@@ -629,7 +634,7 @@
             this.dateTimePickerEyeLeft.Enabled = false;
             this.dateTimePickerEyeLeft.Format = BehComponents.DateTimePickerX.FormatDate.Custom;
             this.dateTimePickerEyeLeft.Format4Binding = "yyyy/MM/dd";
-            this.dateTimePickerEyeLeft.Location = new System.Drawing.Point(490, 184);
+            this.dateTimePickerEyeLeft.Location = new System.Drawing.Point(388, 184);
             this.dateTimePickerEyeLeft.Name = "dateTimePickerEyeLeft";
             this.dateTimePickerEyeLeft.RightToLeftLayout = true;
             this.dateTimePickerEyeLeft.ShowClearButton = false;
@@ -703,7 +708,7 @@
             this.dateTimePickerEyeRight.Enabled = false;
             this.dateTimePickerEyeRight.Format = BehComponents.DateTimePickerX.FormatDate.Custom;
             this.dateTimePickerEyeRight.Format4Binding = "yyyy/MM/dd";
-            this.dateTimePickerEyeRight.Location = new System.Drawing.Point(490, 225);
+            this.dateTimePickerEyeRight.Location = new System.Drawing.Point(388, 225);
             this.dateTimePickerEyeRight.Name = "dateTimePickerEyeRight";
             this.dateTimePickerEyeRight.RightToLeftLayout = true;
             this.dateTimePickerEyeRight.ShowClearButton = false;
@@ -716,7 +721,7 @@
             // 
             this.labelAge.AutoSize = true;
             this.labelAge.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelAge.Location = new System.Drawing.Point(366, 140);
+            this.labelAge.Location = new System.Drawing.Point(264, 140);
             this.labelAge.Name = "labelAge";
             this.labelAge.Size = new System.Drawing.Size(59, 41);
             this.labelAge.TabIndex = 10;
@@ -728,7 +733,7 @@
             this.textBoxAge.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Age", true));
             this.textBoxAge.Dock = System.Windows.Forms.DockStyle.Left;
             this.textBoxAge.Enabled = false;
-            this.textBoxAge.Location = new System.Drawing.Point(110, 143);
+            this.textBoxAge.Location = new System.Drawing.Point(8, 143);
             this.textBoxAge.MaxLength = 30;
             this.textBoxAge.Name = "textBoxAge";
             this.textBoxAge.Size = new System.Drawing.Size(250, 35);
@@ -739,7 +744,7 @@
             // 
             this.lableIdentifyNum.AutoSize = true;
             this.lableIdentifyNum.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lableIdentifyNum.Location = new System.Drawing.Point(366, 181);
+            this.lableIdentifyNum.Location = new System.Drawing.Point(264, 181);
             this.lableIdentifyNum.Name = "lableIdentifyNum";
             this.lableIdentifyNum.Size = new System.Drawing.Size(77, 41);
             this.lableIdentifyNum.TabIndex = 12;
@@ -751,7 +756,7 @@
             this.textBoxReason.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Reason", true));
             this.textBoxReason.Dock = System.Windows.Forms.DockStyle.Left;
             this.textBoxReason.Enabled = false;
-            this.textBoxReason.Location = new System.Drawing.Point(110, 184);
+            this.textBoxReason.Location = new System.Drawing.Point(8, 184);
             this.textBoxReason.Name = "textBoxReason";
             this.textBoxReason.Size = new System.Drawing.Size(250, 35);
             this.textBoxReason.TabIndex = 13;
@@ -762,7 +767,7 @@
             this.textBoxAddress.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Address", true));
             this.textBoxAddress.Dock = System.Windows.Forms.DockStyle.Left;
             this.textBoxAddress.Enabled = false;
-            this.textBoxAddress.Location = new System.Drawing.Point(110, 225);
+            this.textBoxAddress.Location = new System.Drawing.Point(8, 225);
             this.textBoxAddress.Name = "textBoxAddress";
             this.textBoxAddress.Size = new System.Drawing.Size(250, 35);
             this.textBoxAddress.TabIndex = 15;
@@ -772,7 +777,7 @@
             // 
             this.labelAddress.AutoSize = true;
             this.labelAddress.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelAddress.Location = new System.Drawing.Point(366, 222);
+            this.labelAddress.Location = new System.Drawing.Point(264, 222);
             this.labelAddress.Name = "labelAddress";
             this.labelAddress.Size = new System.Drawing.Size(47, 41);
             this.labelAddress.TabIndex = 14;
@@ -783,7 +788,7 @@
             // 
             this.labelDescription.AutoSize = true;
             this.labelDescription.Dock = System.Windows.Forms.DockStyle.Right;
-            this.labelDescription.Location = new System.Drawing.Point(366, 263);
+            this.labelDescription.Location = new System.Drawing.Point(264, 263);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Size = new System.Drawing.Size(63, 41);
             this.labelDescription.TabIndex = 16;
@@ -795,7 +800,7 @@
             this.textBoxDescription.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Dis", true));
             this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Left;
             this.textBoxDescription.Enabled = false;
-            this.textBoxDescription.Location = new System.Drawing.Point(110, 266);
+            this.textBoxDescription.Location = new System.Drawing.Point(8, 266);
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.Size = new System.Drawing.Size(250, 35);
             this.textBoxDescription.TabIndex = 17;
@@ -817,7 +822,7 @@
             this.gridCustomers.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
             this.gridCustomers.Location = new System.Drawing.Point(10, 382);
             this.gridCustomers.Name = "gridCustomers";
-            this.gridCustomers.Size = new System.Drawing.Size(1017, 341);
+            this.gridCustomers.Size = new System.Drawing.Size(915, 341);
             this.gridCustomers.TabIndex = 1;
             this.gridCustomers.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
             this.gridCustomers.UpdateMode = Janus.Windows.GridEX.UpdateMode.CellUpdate;
@@ -827,7 +832,7 @@
             // CustomersForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
-            this.ClientSize = new System.Drawing.Size(1037, 733);
+            this.ClientSize = new System.Drawing.Size(935, 733);
             this.Controls.Add(this.gridCustomers);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "CustomersForm";

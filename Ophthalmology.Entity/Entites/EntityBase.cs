@@ -42,7 +42,7 @@ namespace Ophthalmology.Entity.Entites
             get => _id;
             set => SetField(ref _id, value);
         }
-
+        
         #endregion
     }
 }

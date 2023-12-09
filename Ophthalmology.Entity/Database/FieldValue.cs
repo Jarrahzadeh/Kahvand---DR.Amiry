@@ -8,12 +8,14 @@
         {
             FiledName = string.Empty;
             Value = default;
+            Alias = string.Empty;
         }
 
-        public FieldValue(string filedName, object value)
+        public FieldValue(string filedName, object value, string alias)
         {
             FiledName = filedName;
             Value = value;
+            Alias = alias;
         }
 
         #endregion
@@ -30,6 +32,10 @@
         /// </summary>
         public object Value { get; set; }
 
+        /// <summary>
+        /// نام مستعار فیلد
+        /// </summary>
+        public string Alias { get; set; }
         #endregion
     }
 }

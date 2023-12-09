@@ -14,6 +14,11 @@
         /// </summary>
         object Value { get; set; }
 
+        /// <summary>
+        /// نام مستعار فیلد
+        /// </summary>
+        string Alias { get; set; }
+
         #endregion
     }
 }

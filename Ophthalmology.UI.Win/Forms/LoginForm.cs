@@ -38,8 +38,8 @@ namespace Ophthalmology.UI.Win.Forms
             User user;
             var whereClauses = new List<IWhereClause>
             {
-                new WhereClause(nameof(user.Name),  userName, LogicalOperatorType.And),
-                new WhereClause(nameof(user.Pass),  password)
+                new WhereClause(nameof(user.Name), userName, nameof(user.Name), LogicalOperatorType.And),
+                new WhereClause(nameof(user.Pass), password, nameof(user.Pass))
             };
             var users = DatabaseHelper.Select<User>(whereClauses: whereClauses);
             var loggedIn = users != null && users.Count > 0;

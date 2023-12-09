@@ -24,31 +24,31 @@ Partial Class VisitList
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.btnRef = New System.Windows.Forms.Button
-        Me.DG = New System.Windows.Forms.DataGridView
-        Me.LSearch = New System.Windows.Forms.Label
-        Me.TSearch = New System.Windows.Forms.TextBox
-        Me.MtDate = New Devy.Windows.DatePicker
-        Me.LFamily = New System.Windows.Forms.Label
-        Me.BtnClose = New System.Windows.Forms.Button
-        Me.BtnDelete = New System.Windows.Forms.Button
-        Me.BtnView = New System.Windows.Forms.Button
-        Me.BtnOldVisit = New System.Windows.Forms.Button
-        Me.BtnVisit = New System.Windows.Forms.Button
-        Me.Button1 = New System.Windows.Forms.Button
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip
-        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel
-        Me.tsslAllCount = New System.Windows.Forms.ToolStripStatusLabel
-        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel
-        Me.tsslVisitCount = New System.Windows.Forms.ToolStripStatusLabel
-        Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel
-        Me.tsslNotVisitCount = New System.Windows.Forms.ToolStripStatusLabel
-        Me.Button3 = New System.Windows.Forms.Button
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnRef = New System.Windows.Forms.Button()
+        Me.DG = New System.Windows.Forms.DataGridView()
+        Me.LSearch = New System.Windows.Forms.Label()
+        Me.TSearch = New System.Windows.Forms.TextBox()
+        Me.MtDate = New Devy.Windows.DatePicker()
+        Me.LFamily = New System.Windows.Forms.Label()
+        Me.BtnClose = New System.Windows.Forms.Button()
+        Me.BtnDelete = New System.Windows.Forms.Button()
+        Me.BtnView = New System.Windows.Forms.Button()
+        Me.BtnOldVisit = New System.Windows.Forms.Button()
+        Me.BtnVisit = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.tsslAllCount = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel3 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.tsslVisitCount = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.tsslNotVisitCount = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.Button3 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox2.SuspendLayout()
         CType(Me.DG, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -59,15 +59,15 @@ Partial Class VisitList
         'GroupBox2
         '
         Me.GroupBox2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.btnRef)
         Me.GroupBox2.Controls.Add(Me.DG)
         Me.GroupBox2.Controls.Add(Me.LSearch)
         Me.GroupBox2.Controls.Add(Me.TSearch)
         Me.GroupBox2.Location = New System.Drawing.Point(14, 99)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(893, 393)
+        Me.GroupBox2.Size = New System.Drawing.Size(900, 394)
         Me.GroupBox2.TabIndex = 1238
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "نمایش"
@@ -88,8 +88,8 @@ Partial Class VisitList
         DataGridViewCellStyle1.BackColor = System.Drawing.Color.LightCyan
         Me.DG.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DG.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.DG.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.DG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -100,7 +100,7 @@ Partial Class VisitList
         Me.DG.RowHeadersVisible = False
         Me.DG.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[False]
         Me.DG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect
-        Me.DG.Size = New System.Drawing.Size(879, 336)
+        Me.DG.Size = New System.Drawing.Size(886, 337)
         Me.DG.TabIndex = 101
         Me.DG.TabStop = False
         '
@@ -109,7 +109,7 @@ Partial Class VisitList
         Me.LSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LSearch.AutoSize = True
         Me.LSearch.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LSearch.Location = New System.Drawing.Point(772, 19)
+        Me.LSearch.Location = New System.Drawing.Point(779, 19)
         Me.LSearch.Name = "LSearch"
         Me.LSearch.Size = New System.Drawing.Size(101, 19)
         Me.LSearch.TabIndex = 100
@@ -119,7 +119,7 @@ Partial Class VisitList
         '
         Me.TSearch.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TSearch.Font = New System.Drawing.Font("Tahoma", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TSearch.Location = New System.Drawing.Point(455, 16)
+        Me.TSearch.Location = New System.Drawing.Point(462, 16)
         Me.TSearch.Name = "TSearch"
         Me.TSearch.Size = New System.Drawing.Size(311, 27)
         Me.TSearch.TabIndex = 10
@@ -128,9 +128,9 @@ Partial Class VisitList
         '
         Me.MtDate.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.MtDate.BackColor = System.Drawing.SystemColors.Control
-        Me.MtDate.Date = "1398/05/13"
+        Me.MtDate.Date = "1402/09/18"
         Me.MtDate.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(178, Byte))
-        Me.MtDate.Location = New System.Drawing.Point(704, 21)
+        Me.MtDate.Location = New System.Drawing.Point(711, 21)
         Me.MtDate.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.MtDate.MaximumSize = New System.Drawing.Size(300, 23)
         Me.MtDate.MinimumSize = New System.Drawing.Size(90, 23)
@@ -143,7 +143,7 @@ Partial Class VisitList
         Me.LFamily.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.LFamily.AutoSize = True
         Me.LFamily.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LFamily.Location = New System.Drawing.Point(814, 24)
+        Me.LFamily.Location = New System.Drawing.Point(821, 24)
         Me.LFamily.Name = "LFamily"
         Me.LFamily.Size = New System.Drawing.Size(55, 13)
         Me.LFamily.TabIndex = 1243
@@ -156,7 +156,7 @@ Partial Class VisitList
         Me.BtnClose.Font = New System.Drawing.Font("Tahoma", 8.25!)
         Me.BtnClose.Image = Global.Ophthalmology.Main.My.Resources.Resources.Delete
         Me.BtnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnClose.Location = New System.Drawing.Point(20, 58)
+        Me.BtnClose.Location = New System.Drawing.Point(27, 58)
         Me.BtnClose.Name = "BtnClose"
         Me.BtnClose.Size = New System.Drawing.Size(121, 35)
         Me.BtnClose.TabIndex = 1248
@@ -169,7 +169,7 @@ Partial Class VisitList
         Me.BtnDelete.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnDelete.Image = Global.Ophthalmology.Main.My.Resources.Resources.cut
         Me.BtnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnDelete.Location = New System.Drawing.Point(147, 58)
+        Me.BtnDelete.Location = New System.Drawing.Point(154, 58)
         Me.BtnDelete.Name = "BtnDelete"
         Me.BtnDelete.Size = New System.Drawing.Size(142, 35)
         Me.BtnDelete.TabIndex = 1249
@@ -179,7 +179,7 @@ Partial Class VisitList
         'BtnView
         '
         Me.BtnView.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BtnView.Location = New System.Drawing.Point(576, 20)
+        Me.BtnView.Location = New System.Drawing.Point(583, 20)
         Me.BtnView.Name = "BtnView"
         Me.BtnView.Size = New System.Drawing.Size(122, 27)
         Me.BtnView.TabIndex = 1250
@@ -192,7 +192,7 @@ Partial Class VisitList
         Me.BtnOldVisit.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnOldVisit.Image = Global.Ophthalmology.Main.My.Resources.Resources.im
         Me.BtnOldVisit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnOldVisit.Location = New System.Drawing.Point(765, 58)
+        Me.BtnOldVisit.Location = New System.Drawing.Point(772, 58)
         Me.BtnOldVisit.Name = "BtnOldVisit"
         Me.BtnOldVisit.Size = New System.Drawing.Size(142, 35)
         Me.BtnOldVisit.TabIndex = 1252
@@ -205,7 +205,7 @@ Partial Class VisitList
         Me.BtnVisit.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BtnVisit.Image = Global.Ophthalmology.Main.My.Resources.Resources.im
         Me.BtnVisit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnVisit.Location = New System.Drawing.Point(617, 58)
+        Me.BtnVisit.Location = New System.Drawing.Point(624, 58)
         Me.BtnVisit.Name = "BtnVisit"
         Me.BtnVisit.Size = New System.Drawing.Size(142, 35)
         Me.BtnVisit.TabIndex = 1251
@@ -218,7 +218,7 @@ Partial Class VisitList
         Me.Button1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Image = Global.Ophthalmology.Main.My.Resources.Resources.im
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.Location = New System.Drawing.Point(469, 58)
+        Me.Button1.Location = New System.Drawing.Point(476, 58)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(142, 35)
         Me.Button1.TabIndex = 1251
@@ -228,14 +228,14 @@ Partial Class VisitList
         'GroupBox1
         '
         Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.BtnView)
         Me.GroupBox1.Controls.Add(Me.MtDate)
         Me.GroupBox1.Controls.Add(Me.LFamily)
         Me.GroupBox1.Location = New System.Drawing.Point(14, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(890, 54)
+        Me.GroupBox1.Size = New System.Drawing.Size(897, 54)
         Me.GroupBox1.TabIndex = 1253
         Me.GroupBox1.TabStop = False
         '
@@ -252,9 +252,9 @@ Partial Class VisitList
         'StatusStrip1
         '
         Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel1, Me.tsslAllCount, Me.ToolStripStatusLabel3, Me.tsslVisitCount, Me.ToolStripStatusLabel5, Me.tsslNotVisitCount})
-        Me.StatusStrip1.Location = New System.Drawing.Point(0, 498)
+        Me.StatusStrip1.Location = New System.Drawing.Point(0, 499)
         Me.StatusStrip1.Name = "StatusStrip1"
-        Me.StatusStrip1.Size = New System.Drawing.Size(917, 22)
+        Me.StatusStrip1.Size = New System.Drawing.Size(924, 22)
         Me.StatusStrip1.TabIndex = 1254
         Me.StatusStrip1.Text = "StatusStrip1"
         '
@@ -304,7 +304,7 @@ Partial Class VisitList
         '
         Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button3.Location = New System.Drawing.Point(312, 60)
+        Me.Button3.Location = New System.Drawing.Point(319, 60)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(151, 35)
         Me.Button3.TabIndex = 1255
@@ -320,7 +320,7 @@ Partial Class VisitList
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.BtnClose
-        Me.ClientSize = New System.Drawing.Size(917, 520)
+        Me.ClientSize = New System.Drawing.Size(924, 521)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.GroupBox1)

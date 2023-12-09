@@ -144,11 +144,7 @@ namespace Ophthalmology.Entity.Entites
         }
 
         public override string TableName => "Customer";
-
-        public bool EyeLeftHasData => !string.IsNullOrEmpty(EyeLeft);
-
-        public bool EyeRightHasData => !string.IsNullOrEmpty(EyeRight);
-
+        
         #endregion
     }
 }

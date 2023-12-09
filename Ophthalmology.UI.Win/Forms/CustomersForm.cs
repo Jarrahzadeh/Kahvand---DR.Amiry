@@ -27,7 +27,7 @@ namespace Ophthalmology.UI.Win.Forms
         public CustomersForm()
         {
             InitializeComponent();
-
+            Text += $" - {MyApplication.DrName}";
             ChangeFormEnabled(false);
             _recordLastPosition = -1;
             _formActionMode = FormActionMode.None;
@@ -42,7 +42,7 @@ namespace Ophthalmology.UI.Win.Forms
             _onLoadRecords = true;
             var whereClauses = new List<IWhereClause>
             {
-                new WhereClause("DrId", MyApplication.DrId)
+                new WhereClause("DrId", MyApplication.DrId, "DrId")
             };
 
             var customers = DatabaseHelper.Select<Customer>("Customer", whereClauses: whereClauses);
@@ -76,9 +76,9 @@ namespace Ophthalmology.UI.Win.Forms
 
             var whereClauses = new List<IWhereClause>
             {
-                new WhereClause(nameof(CurrentCustomer.Name), CurrentCustomer.Name, LogicalOperatorType.And),
-                new WhereClause(nameof(CurrentCustomer.Family), CurrentCustomer.Family, LogicalOperatorType.And),
-                new WhereClause(nameof(MyApplication.DrId), MyApplication.DrId)
+                new WhereClause(nameof(CurrentCustomer.Name), CurrentCustomer.Name, nameof(CurrentCustomer.Name), LogicalOperatorType.And),
+                new WhereClause(nameof(CurrentCustomer.Family), CurrentCustomer.Family, nameof(CurrentCustomer.Family) ,LogicalOperatorType.And),
+                new WhereClause(nameof(MyApplication.DrId), MyApplication.DrId, nameof(MyApplication.DrId))
             };
 
             var dataTable = DatabaseHelper.Select<Customer>("Customer", whereClauses: whereClauses);
@@ -93,19 +93,19 @@ namespace Ophthalmology.UI.Win.Forms
 
             var filedNameAndValues = new List<IFieldValue>
             {
-                new FieldValue("Name", CurrentCustomer.Name),
-                new FieldValue("Family", CurrentCustomer.Family),
-                new FieldValue("Tel", CurrentCustomer.Tel),
-                new FieldValue("NameFather", CurrentCustomer.NameFather),
-                new FieldValue("Reason", CurrentCustomer.Reason),
-                new FieldValue("Dis", CurrentCustomer.Dis),
-                new FieldValue("Age", CurrentCustomer.Age),
-                new FieldValue("DateSave", CurrentCustomer.DateSave),
-                new FieldValue("DrId", MyApplication.DrId),
-                new FieldValue("Address", CurrentCustomer.Address),
-                new FieldValue("IdTypePatient", CurrentCustomer.IdTypePatient),
-                new FieldValue("EyeLeft", checkBoxEyeLeft.Checked ? CurrentCustomer.EyeLeft : ""),
-                new FieldValue("EyeRight", checkBoxEyeRight.Checked ? CurrentCustomer.EyeRight : "")
+                new FieldValue("Name", CurrentCustomer.Name, "Name"),
+                new FieldValue("Family", CurrentCustomer.Family, "Family"),
+                new FieldValue("Tel", CurrentCustomer.Tel, "Tel"),
+                new FieldValue("NameFather", CurrentCustomer.NameFather, "NameFather"),
+                new FieldValue("Reason", CurrentCustomer.Reason, "Reason"),
+                new FieldValue("Dis", CurrentCustomer.Dis, "Dis"),
+                new FieldValue("Age", CurrentCustomer.Age, "Age"),
+                new FieldValue("DateSave", CurrentCustomer.DateSave, "DateSave"),
+                new FieldValue("DrId", MyApplication.DrId, "DrId"),
+                new FieldValue("Address", CurrentCustomer.Address, "Address"),
+                new FieldValue("IdTypePatient", CurrentCustomer.IdTypePatient, "IdTypePatient"),
+                new FieldValue("EyeLeft", checkBoxEyeLeft.Checked ? CurrentCustomer.EyeLeft : "", "EyeLeft"),
+                new FieldValue("EyeRight", checkBoxEyeRight.Checked ? CurrentCustomer.EyeRight : "", "EyeRight")
             };
 
             return DatabaseHelper.Insert("Customer", filedNameAndValues);
@@ -115,21 +115,21 @@ namespace Ophthalmology.UI.Win.Forms
         {
             var filedNameAndValues = new List<IFieldValue>
             {
-                new FieldValue("Name", CurrentCustomer.Name),
-                new FieldValue("Family", CurrentCustomer.Family),
-                new FieldValue("Tel", CurrentCustomer.Tel),
-                new FieldValue("NameFather", CurrentCustomer.NameFather),
-                new FieldValue("Reason", CurrentCustomer.Reason),
-                new FieldValue("Dis", CurrentCustomer.Dis),
-                new FieldValue("Age", CurrentCustomer.Age),
-                new FieldValue("DateSave", CurrentCustomer.DateSave),
-                new FieldValue("DrId", MyApplication.DrId),
-                new FieldValue("Address", CurrentCustomer.Address),
-                new FieldValue("IdTypePatient", CurrentCustomer.IdTypePatient),
-                new FieldValue("EyeLeft", checkBoxEyeLeft.Checked ? CurrentCustomer.EyeLeft : ""),
-                new FieldValue("EyeRight", checkBoxEyeRight.Checked ? CurrentCustomer.EyeRight : "")
+                new FieldValue("Name", CurrentCustomer.Name, "Name"),
+                new FieldValue("Family", CurrentCustomer.Family, "Family"),
+                new FieldValue("Tel", CurrentCustomer.Tel, "Tel"),
+                new FieldValue("NameFather", CurrentCustomer.NameFather, "NameFather"),
+                new FieldValue("Reason", CurrentCustomer.Reason, "Reason"),
+                new FieldValue("Dis", CurrentCustomer.Dis, "Dis"),
+                new FieldValue("Age", CurrentCustomer.Age, "Age"),
+                new FieldValue("DateSave", CurrentCustomer.DateSave, "DateSave"),
+                new FieldValue("DrId", MyApplication.DrId, "DrId"),
+                new FieldValue("Address", CurrentCustomer.Address, "Address"),
+                new FieldValue("IdTypePatient", CurrentCustomer.IdTypePatient, "IdTypePatient"),
+                new FieldValue("EyeLeft", checkBoxEyeLeft.Checked ? CurrentCustomer.EyeLeft : "", "EyeLeft"),
+                new FieldValue("EyeRight", checkBoxEyeRight.Checked ? CurrentCustomer.EyeRight : "", "EyeRight")
             };
-            var whereClauses = new List<IWhereClause> { new WhereClause("Id", CurrentCustomer.Id) };
+            var whereClauses = new List<IWhereClause> { new WhereClause("Id", CurrentCustomer.Id, "Id") };
             return DatabaseHelper.Update("Customer", filedNameAndValues, whereClauses);
         }
 
@@ -177,8 +177,6 @@ namespace Ophthalmology.UI.Win.Forms
             ResetDateTimeBoxes();
             LoadCustomers();
             LoadTypePatient();
-            tableLayoutPanel1.Refresh();
-            tableLayoutPanel1.GrowStyle = TableLayoutPanelGrowStyle.FixedSize;
         }
 
         private void ButtonDelete_Click(object sender, EventArgs e)
@@ -196,7 +194,7 @@ namespace Ophthalmology.UI.Win.Forms
             if (_recordLastPosition > 0)
                 _recordLastPosition--;
 
-            var whereClauses = new List<IWhereClause> { new WhereClause("Id", CurrentCustomer.Id) };
+            var whereClauses = new List<IWhereClause> { new WhereClause("Id", CurrentCustomer.Id , "Id") };
             var rows = DatabaseHelper.Delete("Customer", whereClauses);
             var text = rows > 0 ? $"اطلاعات '{personName}' با موفقیت حذف شد" : $"اطلاعات '{personName}' حذف نشد";
             MsgBox.ShowInformation(text, "حذف بیمار");
@@ -303,6 +301,32 @@ namespace Ophthalmology.UI.Win.Forms
             //}
         }
 
+        private void buttonVisitList_Click(object sender, EventArgs e)
+        {
+            var visitListForm = new VisitListForm();
+            visitListForm.ShowDialog();
+        }
+
+        private void buttonAppointment_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonOldVisit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonVisit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonVisitText_Click(object sender, EventArgs e)
+        {
+
+        }
+
         #endregion
 
         #region ~( Properties )~
@@ -310,5 +334,6 @@ namespace Ophthalmology.UI.Win.Forms
         public Customer CurrentCustomer => (Customer)bindingSourceCustomers.Current;
 
         #endregion
+
     }
 }
