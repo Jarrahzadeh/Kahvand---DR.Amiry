@@ -40,8 +40,8 @@ Public Class BaseData
             If Val(TxtId.Text) = 0 Then
 
                 Dim fields As New List(Of IFieldValue) From {
-                    New FieldValue(Constants.NameFieldName, TxtName.Text),
-                    New FieldValue(Constants.PriceFieldName, txtPrice.Text)
+                    New FieldValue(Constants.NameFieldName, TxtName.Text, Constants.NameFieldName),
+                    New FieldValue(Constants.PriceFieldName, txtPrice.Text, Constants.PriceFieldName)
                 }
                 Dim rows = DatabaseHelper.Insert(_tableName, fields)
 
@@ -63,8 +63,8 @@ Public Class BaseData
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
 
         Dim fields As New List(Of IFieldValue) From {
-                New FieldValue(Constants.NameFieldName, TxtName.Text),
-                New FieldValue(Constants.PriceFieldName, txtPrice.Text)
+                New FieldValue(Constants.NameFieldName, TxtName.Text, Constants.NameFieldName),
+                New FieldValue(Constants.PriceFieldName, txtPrice.Text, Constants.PriceFieldName)
                 }
         Dim rows = DatabaseHelper.Update(_tableName, fields)
 
@@ -97,7 +97,7 @@ Public Class BaseData
 
             Dim where As New List(Of IWhereClause) From
             {
-                New WhereClause(Constants.IdFieldName, TxtId.Text)
+                New WhereClause(Constants.IdFieldName, TxtId.Text, Constants.IdFieldName)
             }
             Dim rows = DatabaseHelper.Delete(_tableName, where)
 

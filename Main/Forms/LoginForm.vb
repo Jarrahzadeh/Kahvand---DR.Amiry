@@ -20,8 +20,8 @@ Namespace Forms
 
         Private Sub BtnEnter_Click(sender As Object, e As EventArgs) Handles BtnEnter.Click
             Dim where As New List(Of IWhereClause) From {
-                New WhereClause(Constants.NameFieldName, TxtUserName.Text, LogicalOperatorType.And),
-                New WhereClause(Constants.PassFieldName, TxtPass.Text)
+                New WhereClause(Constants.NameFieldName, TxtUserName.Text, Constants.NameFieldName, LogicalOperatorType.And),
+                New WhereClause(Constants.PassFieldName, TxtPass.Text, Constants.PassFieldName)
             }
 
             Dim dt = DatabaseHelper.Select(Constants.UserTableName, whereClauses:=where)

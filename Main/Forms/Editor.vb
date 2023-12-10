@@ -98,7 +98,7 @@ Public Class Editor
             LblStatus.Text = 0
 
             Dim where As New List(Of IWhereClause) From {
-                    New WhereClause("Fk_Customer", TFk_Customer.Text)}
+                    New WhereClause("Fk_Customer", TFk_Customer.Text, "Fk_Customer")}
             Dim dt1 As DataTable = DatabaseHelper.Select("TblText", whereClauses:=where)
 
             rtbMain.Text = dt1.Rows(0)("TextVisit").ToString()

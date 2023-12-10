@@ -12,7 +12,7 @@ Public Class Customer2VisitList
         Dim where As New List(Of IWhereClause) From
         {
             New WhereClause("V.DateVisit", $"{DatePicker1.Text}", LogicalOperatorType.And),
-            New WhereClause("C.DrId", $"{DrId}")
+            New WhereClause("C.DrId", $"{DrId}", "DrId")
         }
         Dim dt As DataTable = DatabaseHelper.Select(tableName, fields, where)
         dt.DefaultView.Sort = "Id DESC"
@@ -58,20 +58,20 @@ Public Class Customer2VisitList
     Private Sub BtnSave_Click(sender As Object, e As EventArgs) Handles BtnSave.Click
 
         Dim params As New List(Of IFieldValue) From {
-                New FieldValue("Code_customer", CbCustomer.SelectedValue.ToString),
-                New FieldValue("DateVisit", MtDate.Text),
-                New FieldValue("TimeVisit", MtTime.Text),
-                New FieldValue("Price", Val(txtPrice.Text)),
-                New FieldValue(Constants.DrIdFieldName, DrId)
+                New FieldValue("Code_customer", CbCustomer.SelectedValue.ToString, "Code_customer"),
+                New FieldValue("DateVisit", MtDate.Text, "DateVisit"),
+                New FieldValue("TimeVisit", MtTime.Text, "TimeVisit"),
+                New FieldValue("Price", Val(txtPrice.Text), "Price"),
+                New FieldValue(Constants.DrIdFieldName, DrId, Constants.DrIdFieldName)
                 }
 
         If Val(txtId.Text) = 0 Then
-            params.Add(New FieldValue(Constants.StatusFieldName, "ویزیت نشده"))
+            params.Add(New FieldValue(Constants.StatusFieldName, "ویزیت نشده", Constants.StatusFieldName))
             DatabaseHelper.Insert("VisitList", params)
         Else
 
-            params.Add(New FieldValue(Constants.StatusFieldName, "ویزیت نشده"))
-            params.Add(New FieldValue(Constants.IdFieldName, txtId.Text))
+            params.Add(New FieldValue(Constants.StatusFieldName, "ویزیت نشده", Constants.StatusFieldName))
+            params.Add(New FieldValue(Constants.IdFieldName, txtId.Text, Constants.IdFieldName))
             DatabaseHelper.Update("VisitList", params)
         End If
 
@@ -111,7 +111,7 @@ Public Class Customer2VisitList
             'Ado.Fill(Dt)
 
             Dim where As New List(Of IWhereClause) From {
-                    New WhereClause(Constants.DrIdFieldName, DrId)}
+                    New WhereClause(Constants.DrIdFieldName, DrId, Constants.DrIdFieldName)}
 
             Dim dt As DataTable = DatabaseHelper.Select(Constants.CustomerTableName, "id,Family +' ' + name +' ' + Tel as X", where)
 
@@ -228,7 +228,7 @@ Public Class Customer2VisitList
         Dim fields = "Customer.Age, TypePatient.Name, TypePatient.Price"
 
         Dim where As New List(Of IWhereClause) From {
-        New WhereClause("Customer.id", CbCustomer.SelectedValue.ToString())
+        New WhereClause("Customer.id", CbCustomer.SelectedValue.ToString(), "Id")
         }
         Dim dt As DataTable = DatabaseHelper.Select(tableName, fields, where)
 

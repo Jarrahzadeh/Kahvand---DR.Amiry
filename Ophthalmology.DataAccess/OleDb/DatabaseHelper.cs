@@ -256,6 +256,9 @@ namespace Ophthalmology.DataAccess.OleDb
         private static string ToWhereClauseScript(this IEnumerable<IWhereClause> whereClauses)
         {
             var result = string.Empty;
+            if (whereClauses == null)
+                return result;
+
             foreach (var clause in whereClauses)
             {
                 var logicalOperator = "";
