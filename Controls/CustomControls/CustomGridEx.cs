@@ -1,10 +1,11 @@
-﻿using Janus.Windows.GridEX;
+﻿using System.Windows.Forms;
+using Janus.Windows.GridEX;
 
 namespace Ophthalmology.Controls.CustomControls
 {
     public class CustomGridEx : GridEX
     {
-        private System.Windows.Forms.ContextMenuStrip contextMenuGridRightClick;
+        public System.Windows.Forms.ContextMenuStrip contextMenuGridRightClick;
         private System.Windows.Forms.ToolStripMenuItem MenuItemGrouping;
         private System.Windows.Forms.ToolStripMenuItem MenuItemColumnSelector;
         private System.ComponentModel.IContainer components;
@@ -153,6 +154,17 @@ namespace Ophthalmology.Controls.CustomControls
             FilterRow.Cells[column].Text = filterValue;
             var condition = new GridEXFilterCondition(column, ConditionOperator.BeginsWith, filterValue);
             RootTable.ApplyFilter(condition);
+        }
+
+        public void MergeMenu(ContextMenuStrip contextMenu)
+        {
+            ContextMenuStrip.Items.Add(new ToolStripSeparator());
+            var itemsCount = contextMenu.Items.Count;
+            for (var index = 0; index < itemsCount; index++)
+            {
+                var menuItem = contextMenu.Items[0];
+                base.ContextMenuStrip.Items.Add(menuItem);
+            }
         }
     }
 }

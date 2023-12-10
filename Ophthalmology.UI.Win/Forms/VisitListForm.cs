@@ -3,6 +3,7 @@ using Ophthalmology.DataAccess.OleDb;
 using Ophthalmology.Entity.Database;
 using Ophthalmology.UI.Win.Classes;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using BehComponents;
 using Ophthalmology.Entity.Entites;
 using Ophthalmology.Entity.Enums;
@@ -17,7 +18,9 @@ namespace Ophthalmology.UI.Win.Forms
         public VisitListForm()
         {
             InitializeComponent();
+
             Text += $" - {MyApplication.DrName}";
+            customGridEx1.MergeMenu(contextMenuStrip1);
         }
 
         #endregion
@@ -64,6 +67,46 @@ namespace Ophthalmology.UI.Win.Forms
         {
             var date = selectedDateTime.ToString("yyyy/MM/dd", CultureHelper.PersianCulture);
             LoadVisitList(date);
+        }
+
+        private void buttonOldVisit_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(((Control)sender).Name);
+        }
+
+        private void buttonPenVisit_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(((Control)sender).Name);
+        }
+
+        private void buttonTextVisit_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(((Control)sender).Name);
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(((Control)sender).Name);
+        }
+
+        private void menuItemOldVisit_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(((System.Windows.Forms.ToolStripMenuItem)sender).Name);
+        }
+
+        private void menuItemPenVisit_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(((System.Windows.Forms.ToolStripMenuItem)sender).Name);
+        }
+
+        private void menuItemTextVisit_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(((System.Windows.Forms.ToolStripMenuItem)sender).Name);
+        }
+
+        private void menuItemDelete_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(((System.Windows.Forms.ToolStripMenuItem)sender).Name);
         }
     }
 }
