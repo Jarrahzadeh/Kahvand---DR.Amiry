@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\QueryHelper.cs" />
     <Compile Include="OleDb\DatabaseHelper.cs" />
     <Compile Include="OleDb\DbConnection.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -55,5 +56,6 @@
       <Name>Ophthalmology.Utility</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

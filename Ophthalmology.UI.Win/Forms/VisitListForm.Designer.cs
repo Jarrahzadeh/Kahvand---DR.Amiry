@@ -33,26 +33,27 @@
             Janus.Windows.GridEX.GridEXLayout customGridEx1_DesignTimeLayout = new Janus.Windows.GridEX.GridEXLayout();
             this.StatusStrip1 = new System.Windows.Forms.StatusStrip();
             this.ToolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsslAllCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.labelTotalCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.ToolStripStatusLabel3 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsslVisitCount = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ToolStripStatusLabel5 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsslNotVisitCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.labelVisitedCount = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.labelNotVisitedCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.bindingSourceVisitList = new System.Windows.Forms.BindingSource(this.components);
             this.dateTimePickerX1 = new BehComponents.DateTimePickerX();
             this.buttonOldVisit = new Janus.Windows.EditControls.UIButton();
             this.buttonPenVisit = new Janus.Windows.EditControls.UIButton();
             this.buttonTextVisit = new Janus.Windows.EditControls.UIButton();
             this.buttonDelete = new Janus.Windows.EditControls.UIButton();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.menuItemOldVisit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemPenVisit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemTextVisit = new System.Windows.Forms.ToolStripMenuItem();
             this.menuItemDelete = new System.Windows.Forms.ToolStripMenuItem();
             this.customGridEx1 = new Ophthalmology.Controls.CustomControls.CustomGridEx();
+            this.timerLoad = new System.Windows.Forms.Timer(this.components);
             this.StatusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceVisitList)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
+            this.contextMenuRightClick.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customGridEx1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,11 +61,11 @@
             // 
             this.StatusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ToolStripStatusLabel1,
-            this.tsslAllCount,
+            this.labelTotalCount,
             this.ToolStripStatusLabel3,
-            this.tsslVisitCount,
-            this.ToolStripStatusLabel5,
-            this.tsslNotVisitCount});
+            this.labelVisitedCount,
+            this.toolStripStatusLabel2,
+            this.labelNotVisitedCount});
             this.StatusStrip1.Location = new System.Drawing.Point(10, 489);
             this.StatusStrip1.Name = "StatusStrip1";
             this.StatusStrip1.Padding = new System.Windows.Forms.Padding(23, 0, 2, 0);
@@ -79,12 +80,12 @@
             this.ToolStripStatusLabel1.Size = new System.Drawing.Size(56, 17);
             this.ToolStripStatusLabel1.Text = "تعداد کل :";
             // 
-            // tsslAllCount
+            // labelTotalCount
             // 
-            this.tsslAllCount.ForeColor = System.Drawing.Color.Red;
-            this.tsslAllCount.Name = "tsslAllCount";
-            this.tsslAllCount.Size = new System.Drawing.Size(27, 17);
-            this.tsslAllCount.Text = "----";
+            this.labelTotalCount.ForeColor = System.Drawing.Color.Red;
+            this.labelTotalCount.Name = "labelTotalCount";
+            this.labelTotalCount.Size = new System.Drawing.Size(27, 17);
+            this.labelTotalCount.Text = "----";
             // 
             // ToolStripStatusLabel3
             // 
@@ -93,26 +94,26 @@
             this.ToolStripStatusLabel3.Size = new System.Drawing.Size(113, 17);
             this.ToolStripStatusLabel3.Text = "تعداد ویزیت شده ها :";
             // 
-            // tsslVisitCount
+            // labelVisitedCount
             // 
-            this.tsslVisitCount.ForeColor = System.Drawing.Color.Red;
-            this.tsslVisitCount.Name = "tsslVisitCount";
-            this.tsslVisitCount.Size = new System.Drawing.Size(22, 17);
-            this.tsslVisitCount.Text = "---";
+            this.labelVisitedCount.ForeColor = System.Drawing.Color.Red;
+            this.labelVisitedCount.Name = "labelVisitedCount";
+            this.labelVisitedCount.Size = new System.Drawing.Size(22, 17);
+            this.labelVisitedCount.Text = "---";
             // 
-            // ToolStripStatusLabel5
+            // toolStripStatusLabel2
             // 
-            this.ToolStripStatusLabel5.ForeColor = System.Drawing.Color.Navy;
-            this.ToolStripStatusLabel5.Name = "ToolStripStatusLabel5";
-            this.ToolStripStatusLabel5.Size = new System.Drawing.Size(117, 17);
-            this.ToolStripStatusLabel5.Text = "تعداد ویزیت نشده ها :";
+            this.toolStripStatusLabel2.ForeColor = System.Drawing.Color.Navy;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(117, 17);
+            this.toolStripStatusLabel2.Text = "تعداد ویزیت نشده ها :";
             // 
-            // tsslNotVisitCount
+            // labelNotVisitedCount
             // 
-            this.tsslNotVisitCount.ForeColor = System.Drawing.Color.Red;
-            this.tsslNotVisitCount.Name = "tsslNotVisitCount";
-            this.tsslNotVisitCount.Size = new System.Drawing.Size(22, 17);
-            this.tsslNotVisitCount.Text = "---";
+            this.labelNotVisitedCount.ForeColor = System.Drawing.Color.Red;
+            this.labelNotVisitedCount.Name = "labelNotVisitedCount";
+            this.labelNotVisitedCount.Size = new System.Drawing.Size(22, 17);
+            this.labelNotVisitedCount.Text = "---";
             // 
             // bindingSourceVisitList
             // 
@@ -237,16 +238,16 @@
             this.buttonDelete.VisualStyleManager = this.visualStyleManager;
             this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
-            // contextMenuStrip1
+            // contextMenuRightClick
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.contextMenuRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuItemOldVisit,
             this.menuItemPenVisit,
             this.menuItemTextVisit,
             this.menuItemDelete});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.contextMenuStrip1.Size = new System.Drawing.Size(152, 92);
+            this.contextMenuRightClick.Name = "contextMenuRightClick";
+            this.contextMenuRightClick.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.contextMenuRightClick.Size = new System.Drawing.Size(152, 92);
             // 
             // menuItemOldVisit
             // 
@@ -293,15 +294,24 @@
             this.customGridEx1.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic;
             this.customGridEx1.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
             this.customGridEx1.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
+            this.customGridEx1.Font = new System.Drawing.Font("B Koodak", 12F);
             this.customGridEx1.GroupByBoxVisible = false;
+            this.customGridEx1.HideColumnsWhenGrouped = Janus.Windows.GridEX.InheritableBoolean.True;
             this.customGridEx1.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
             this.customGridEx1.Location = new System.Drawing.Point(13, 59);
             this.customGridEx1.Name = "customGridEx1";
+            this.customGridEx1.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.True;
             this.customGridEx1.Size = new System.Drawing.Size(899, 423);
             this.customGridEx1.TabIndex = 1257;
             this.customGridEx1.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
+            this.customGridEx1.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
+            this.customGridEx1.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
             this.customGridEx1.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
             this.customGridEx1.VisualStyleManager = this.visualStyleManager;
+            // 
+            // timerLoad
+            // 
+            this.timerLoad.Tick += new System.EventHandler(this.timerLoad_Tick);
             // 
             // VisitListForm
             // 
@@ -317,12 +327,12 @@
             this.Controls.Add(this.StatusStrip1);
             this.Margin = new System.Windows.Forms.Padding(10, 13, 10, 13);
             this.Name = "VisitListForm";
-            this.Text = "ویزیت بیماران";
+            this.Text = "لیست ویزیت بیماران";
             this.Load += new System.EventHandler(this.VisitListForm_Load);
             this.StatusStrip1.ResumeLayout(false);
             this.StatusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSourceVisitList)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
+            this.contextMenuRightClick.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.customGridEx1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -331,11 +341,9 @@
 
         #endregion
         internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel1;
-        internal System.Windows.Forms.ToolStripStatusLabel tsslAllCount;
+        internal System.Windows.Forms.ToolStripStatusLabel labelTotalCount;
         internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel3;
-        internal System.Windows.Forms.ToolStripStatusLabel tsslVisitCount;
-        internal System.Windows.Forms.ToolStripStatusLabel ToolStripStatusLabel5;
-        internal System.Windows.Forms.ToolStripStatusLabel tsslNotVisitCount;
+        internal System.Windows.Forms.ToolStripStatusLabel labelVisitedCount;
         private System.Windows.Forms.BindingSource bindingSourceVisitList;
         private System.Windows.Forms.StatusStrip StatusStrip1;
         private BehComponents.DateTimePickerX dateTimePickerX1;
@@ -344,10 +352,13 @@
         private Janus.Windows.EditControls.UIButton buttonPenVisit;
         private Janus.Windows.EditControls.UIButton buttonTextVisit;
         private Janus.Windows.EditControls.UIButton buttonDelete;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuRightClick;
         private System.Windows.Forms.ToolStripMenuItem menuItemOldVisit;
         private System.Windows.Forms.ToolStripMenuItem menuItemPenVisit;
         private System.Windows.Forms.ToolStripMenuItem menuItemTextVisit;
         private System.Windows.Forms.ToolStripMenuItem menuItemDelete;
+        private System.Windows.Forms.Timer timerLoad;
+        internal System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        internal System.Windows.Forms.ToolStripStatusLabel labelNotVisitedCount;
     }
 }

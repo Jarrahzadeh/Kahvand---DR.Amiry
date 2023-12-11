@@ -45,7 +45,7 @@ namespace Ophthalmology.UI.Win.Forms
                 new WhereClause("DrId", MyApplication.DrId, "DrId")
             };
 
-            var customers = DatabaseHelper.Select<Customer>("Customer", whereClauses: whereClauses);
+            var customers = DatabaseHelper.Select<Customer>("Customer", whereClauses: whereClauses, sortOrder: "Id DESC");
             bindingSourceCustomers.DataSource = new List<Customer>();
             bindingSourceCustomers.DataSource = customers;
             bindingSourceCustomers.ResetBindings(true);
@@ -67,6 +67,57 @@ namespace Ophthalmology.UI.Win.Forms
             dateTimePickerEyeRight.Text = string.Empty;
             dateTimePickerEyeLeft.ClearDateTime();
             dateTimePickerEyeLeft.Text = string.Empty;
+        }
+
+        private void Save()
+        {
+            var rowEffected = -1;
+            if (_formActionMode == FormActionMode.Add)
+            {
+                rowEffected = SaveNewCustomer();
+                if (rowEffected > 0)
+                    LoadCustomers();
+
+                bindingSourceCustomers.Position = 0;
+            }
+            else if (_formActionMode == FormActionMode.Edit)
+            {
+                rowEffected = EditCustomer();
+                LoadCustomers();
+            }
+
+            if (rowEffected > 0)
+            {
+                MsgBox.ShowInformation("اطلاعات بیمار با موفقیت ثبت گردید.", "ثبت جدید");
+            }
+            else if (rowEffected > -2)
+            {
+                MsgBox.ShowError("مشکلی در ثبت اطلاعات بیمار پیش آمده و عملیات انجام نگردید.", "ثبت جدید");
+            }
+            else if (rowEffected == -2)
+            {
+                Cancel();
+            }
+            else if (rowEffected == -3)
+            {
+                MsgBox.ShowWarning("لطفا مشخصات بیمار را بصورت صحیح وارد نمائید", "ثبت جدید");
+                ActiveControl = textBoxName;
+            }
+
+            ChangeFormEnabled(false);
+        }
+
+        private void Cancel()
+        {
+            bindingSourceCustomers.CancelEdit();
+            bindingSourceCustomers.Position = _recordLastPosition;
+            _recordLastPosition = -1;
+
+            ChangeFormEnabled(false);
+
+            gridCustomers.Focus();
+
+            _formActionMode = FormActionMode.None;
         }
 
         private int SaveNewCustomer()
@@ -168,18 +219,7 @@ namespace Ophthalmology.UI.Win.Forms
             }
         }
 
-        #endregion
-
-        #region ~( Event Handlers )~
-
-        private void CustomersForm_Load(object sender, EventArgs e)
-        {
-            ResetDateTimeBoxes();
-            LoadCustomers();
-            LoadTypePatient();
-        }
-
-        private void ButtonDelete_Click(object sender, EventArgs e)
+        private void DeleteCurrentRecord()
         {
             var personName = CurrentCustomer.ToString();
 
@@ -194,13 +234,29 @@ namespace Ophthalmology.UI.Win.Forms
             if (_recordLastPosition > 0)
                 _recordLastPosition--;
 
-            var whereClauses = new List<IWhereClause> { new WhereClause("Id", CurrentCustomer.Id , "Id") };
+            var whereClauses = new List<IWhereClause> { new WhereClause("Id", CurrentCustomer.Id, "Id") };
             var rows = DatabaseHelper.Delete("Customer", whereClauses);
             var text = rows > 0 ? $"اطلاعات '{personName}' با موفقیت حذف شد" : $"اطلاعات '{personName}' حذف نشد";
             MsgBox.ShowInformation(text, "حذف بیمار");
             LoadCustomers();
 
             bindingSourceCustomers.Position = _recordLastPosition;
+        }
+
+        #endregion
+
+        #region ~( Event Handlers )~
+
+        private void CustomersForm_Load(object sender, EventArgs e)
+        {
+            ResetDateTimeBoxes();
+            LoadCustomers();
+            LoadTypePatient();
+        }
+
+        private void ButtonDelete_Click(object sender, EventArgs e)
+        {
+            DeleteCurrentRecord();
         }
 
         private void ButtonBrowse_Click(object sender, EventArgs e)
@@ -213,7 +269,14 @@ namespace Ophthalmology.UI.Win.Forms
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
             _recordLastPosition = bindingSourceCustomers.Position;
+            bindingSourceCustomers.Position = 0;
+            var maxId = CurrentCustomer.Id + 1;
             bindingSourceCustomers.AddNew();
+            CurrentCustomer.Id = maxId;
+            var dateSave = DateTime.Now.ToString("yyyy/MM/dd", Utility.Helpers.CultureHelper.PersianCulture);
+            CurrentCustomer.DateSave = dateSave;
+            dateTimePickerRegisterDate.Text = dateSave;
+            gridCustomers.VerticalScrollPosition = 0;
             ChangeFormEnabled(true);
             ActiveControl = textBoxName;
             _formActionMode = FormActionMode.Add;
@@ -229,49 +292,12 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
-            var rowEffected = -1;
-            if (_formActionMode == FormActionMode.Add)
-            {
-                rowEffected = SaveNewCustomer();
-            }
-            else if (_formActionMode == FormActionMode.Edit)
-            {
-                rowEffected = EditCustomer();
-                LoadCustomers();
-            }
-
-            if (rowEffected > 0)
-            {
-                MsgBox.ShowInformation("اطلاعات بیمار با موفقیت ثبت گردید.", "ثبت جدید");
-            }
-            else if (rowEffected > -2)
-            {
-                MsgBox.ShowError("مشکلی در ثبت اطلاعات بیمار پیش آمده و عملیات انجام نگردید.", "ثبت جدید");
-            }
-            else if (rowEffected == -2)
-            {
-                ButtonCancel_Click(sender, e);
-            }
-            else if (rowEffected == -3)
-            {
-                MsgBox.ShowWarning("لطفا مشخصات بیمار را بصورت صحیح وارد نمائید", "ثبت جدید");
-                ActiveControl = textBoxName;
-            }
-
-            ChangeFormEnabled(false);
+            Save();
         }
 
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
-            bindingSourceCustomers.CancelEdit();
-            bindingSourceCustomers.Position = _recordLastPosition;
-            _recordLastPosition = -1;
-
-            ChangeFormEnabled(false);
-
-            gridCustomers.Focus();
-
-            _formActionMode = FormActionMode.None;
+            Cancel();
         }
 
         private void CheckBoxEyeLeft_CheckedChanged(object sender, EventArgs e)
@@ -309,7 +335,9 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void buttonAppointment_Click(object sender, EventArgs e)
         {
-
+            var appointmentForm = new AppointmentForm();
+            appointmentForm.Customers = bindingSourceCustomers.List;
+            appointmentForm.ShowDialog();
         }
 
         private void buttonOldVisit_Click(object sender, EventArgs e)

@@ -38,7 +38,7 @@ Partial Class VisitList
         Me.BtnView = New System.Windows.Forms.Button()
         Me.BtnOldVisit = New System.Windows.Forms.Button()
         Me.BtnVisit = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.buttonTextVisit = New System.Windows.Forms.Button()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
@@ -48,7 +48,7 @@ Partial Class VisitList
         Me.tsslVisitCount = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripStatusLabel5 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tsslNotVisitCount = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.Button3 = New System.Windows.Forms.Button()
+        Me.buttonChat = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox2.SuspendLayout()
         CType(Me.DG, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -212,18 +212,18 @@ Partial Class VisitList
         Me.BtnVisit.Text = "نسخه قلم(F6)"
         Me.BtnVisit.UseVisualStyleBackColor = True
         '
-        'Button1
+        'buttonTextVisit
         '
-        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Image = Global.Ophthalmology.Main.My.Resources.Resources.im
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.Location = New System.Drawing.Point(476, 58)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(142, 35)
-        Me.Button1.TabIndex = 1251
-        Me.Button1.Text = "نسخه متنی(F7)"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.buttonTextVisit.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.buttonTextVisit.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.buttonTextVisit.Image = Global.Ophthalmology.Main.My.Resources.Resources.im
+        Me.buttonTextVisit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.buttonTextVisit.Location = New System.Drawing.Point(476, 58)
+        Me.buttonTextVisit.Name = "buttonTextVisit"
+        Me.buttonTextVisit.Size = New System.Drawing.Size(142, 35)
+        Me.buttonTextVisit.TabIndex = 1251
+        Me.buttonTextVisit.Text = "نسخه متنی(F7)"
+        Me.buttonTextVisit.UseVisualStyleBackColor = True
         '
         'GroupBox1
         '
@@ -300,16 +300,16 @@ Partial Class VisitList
         Me.tsslNotVisitCount.Size = New System.Drawing.Size(22, 17)
         Me.tsslNotVisitCount.Text = "---"
         '
-        'Button3
+        'buttonChat
         '
-        Me.Button3.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.Button3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button3.Location = New System.Drawing.Point(319, 60)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(151, 35)
-        Me.Button3.TabIndex = 1255
-        Me.Button3.Text = "گفتگو"
-        Me.Button3.UseVisualStyleBackColor = True
+        Me.buttonChat.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.buttonChat.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.buttonChat.Location = New System.Drawing.Point(319, 60)
+        Me.buttonChat.Name = "buttonChat"
+        Me.buttonChat.Size = New System.Drawing.Size(151, 35)
+        Me.buttonChat.TabIndex = 1255
+        Me.buttonChat.Text = "گفتگو"
+        Me.buttonChat.UseVisualStyleBackColor = True
         '
         'Timer1
         '
@@ -321,11 +321,11 @@ Partial Class VisitList
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.BtnClose
         Me.ClientSize = New System.Drawing.Size(924, 521)
-        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.buttonChat)
         Me.Controls.Add(Me.StatusStrip1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.BtnOldVisit)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.buttonTextVisit)
         Me.Controls.Add(Me.BtnVisit)
         Me.Controls.Add(Me.BtnDelete)
         Me.Controls.Add(Me.BtnClose)
@@ -357,7 +357,7 @@ Partial Class VisitList
     Friend WithEvents BtnView As System.Windows.Forms.Button
     Friend WithEvents BtnOldVisit As System.Windows.Forms.Button
     Friend WithEvents BtnVisit As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents buttonTextVisit As System.Windows.Forms.Button
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
     Friend WithEvents ToolStripStatusLabel1 As System.Windows.Forms.ToolStripStatusLabel
@@ -366,7 +366,7 @@ Partial Class VisitList
     Friend WithEvents tsslVisitCount As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents ToolStripStatusLabel5 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents tsslNotVisitCount As System.Windows.Forms.ToolStripStatusLabel
-    Friend WithEvents Button3 As System.Windows.Forms.Button
+    Friend WithEvents buttonChat As System.Windows.Forms.Button
     Friend WithEvents btnRef As System.Windows.Forms.Button
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents Label1 As System.Windows.Forms.Label

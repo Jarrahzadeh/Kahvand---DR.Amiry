@@ -2,7 +2,6 @@
     Sub ShowGrid(Optional ByVal St As String = "")
         Try
 
-
             Dim DtDg As New DataTable
             Dim AdoDaDg As New OleDb.OleDbDataAdapter("select V.id,C.id as کد ,C.Name as نام , C.Family as فامیلی, Tel as تلفن,  C.DateSave as تاریخ ,TimeVisit as زمان,V.Status as وضعیت  , v.price as مبلغ  From Customer C inner join VisitList V on (C.id=V.Code_Customer) where V.DateVisit = '" + MtDate.Text + "' and C.DrId = " + DrId.ToString() + St + " order by C.id desc", AdoCon)
             AdoDaDg.Fill(DtDg)
@@ -42,8 +41,6 @@
         Catch ex As Exception
 
         End Try
-
-
     End Sub
 
     Private Sub VisitList_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
@@ -77,29 +74,15 @@
 
     End Sub
 
-    Private Sub DG_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DG.CellContentClick
-
-    End Sub
-
     Private Sub DG_CellDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DG.CellDoubleClick
-
-        'Code_Customer = DG.CurrentRow.Cells(1).Value.ToString
-        'Me.Close()
-        Button1_Click(Nothing, Nothing)
-
+        buttonTextVisit_Click(Nothing, Nothing)
     End Sub
 
-    Private Sub DG_DoubleClick(ByVal sender As Object, ByVal e As System.EventArgs) Handles DG.DoubleClick
-
-    End Sub
-
- 
     Private Sub TSearch_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TSearch.TextChanged
         ShowGrid(" and Family LIKE '" & TSearch.Text & "%' ")
     End Sub
     Private Sub BtnView_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnView.Click
         ShowGrid()
-
     End Sub
 
     Private Sub BtnVisit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnVisit.Click
@@ -131,10 +114,8 @@
         End Try
     End Sub
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub buttonTextVisit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles buttonTextVisit.Click
         Try
-           
-
             Dim Frm As New Editor
             Frm.TFk_Customer.Text = DG.CurrentRow.Cells("کد").Value
             Frm.TName.Text = DG.CurrentRow.Cells("فامیلی").Value + " " + DG.CurrentRow.Cells("نام").Value
@@ -143,22 +124,18 @@
             ShowGrid()
         Catch ex As Exception
             MsgBox("لطفا شخص را انتخاب کنید .")
-
         End Try
     End Sub
 
-    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+    Private Sub buttonChat_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles buttonChat.Click
         If Not isShow Then
             ChatForm.Show()
             isShow = True
         End If
     End Sub
 
-  
-
     Private Sub btnRef_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRef.Click
         ShowGrid()
-
     End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick

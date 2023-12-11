@@ -204,7 +204,7 @@ Partial Class Editor
         Me.BtnSave.Text = "ذخیره وخروج"
         Me.BtnSave.UseVisualStyleBackColor = True
         '
-        'Button1
+        'buttonTextVisit
         '
         Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -215,7 +215,7 @@ Partial Class Editor
         Me.Button1.Text = "گفتگو"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'Button2
+        'buttonVisitAppointment
         '
         Me.Button2.Location = New System.Drawing.Point(12, 105)
         Me.Button2.Name = "Button2"
@@ -224,7 +224,7 @@ Partial Class Editor
         Me.Button2.Text = "F1 REF"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'Button3
+        'buttonChat
         '
         Me.Button3.Location = New System.Drawing.Point(95, 105)
         Me.Button3.Name = "Button3"

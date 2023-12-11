@@ -107,7 +107,7 @@ Partial Class Customer2VisitList
         Me.txtDrName.ReadOnly = True
         Me.txtDrName.TabStop = False
         '
-        'Button1
+        'buttonTextVisit
         '
         resources.ApplyResources(Me.Button1, "Button1")
         Me.Button1.Name = "Button1"

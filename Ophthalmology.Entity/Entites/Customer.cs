@@ -48,17 +48,7 @@ namespace Ophthalmology.Entity.Entites
 
         public override string ToString()
         {
-            if (!string.IsNullOrWhiteSpace(_name) && !string.IsNullOrWhiteSpace(_family))
-            {
-                return $"{_name} {_family}";
-            }
-
-            //if (!string.IsNullOrWhiteSpace(_name))
-            //{
-                return _name;
-            //}
-
-            //return !string.IsNullOrWhiteSpace(_family) ? _family : base.ToString();
+            return FullName;
         }
 
         #endregion
@@ -144,7 +134,20 @@ namespace Ophthalmology.Entity.Entites
         }
 
         public override string TableName => "Customer";
-        
+
+        public string FullName
+        {
+            get
+            {
+                if (!string.IsNullOrWhiteSpace(_name) && !string.IsNullOrWhiteSpace(_family))
+                {
+                    return $"{_family} {_name}";
+                }
+
+                return _name;
+            }
+        }
+
         #endregion
     }
 }

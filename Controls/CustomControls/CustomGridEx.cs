@@ -1,13 +1,14 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 using Janus.Windows.GridEX;
 
 namespace Ophthalmology.Controls.CustomControls
 {
     public class CustomGridEx : GridEX
     {
-        public System.Windows.Forms.ContextMenuStrip contextMenuGridRightClick;
-        private System.Windows.Forms.ToolStripMenuItem MenuItemGrouping;
-        private System.Windows.Forms.ToolStripMenuItem MenuItemColumnSelector;
+        public ContextMenuStrip contextMenuGridRightClick;
+        private ToolStripMenuItem menuItemGrouping;
+        private ToolStripMenuItem menuItemColumnSelector;
         private System.ComponentModel.IContainer components;
 
         public CustomGridEx()
@@ -15,7 +16,57 @@ namespace Ophthalmology.Controls.CustomControls
             InitializeComponent();
 
             InitGrid();
-            MenuItemGrouping.Checked = GroupByBoxVisible;
+            InitBuiltInTexts();
+
+            menuItemGrouping.Checked = GroupByBoxVisible;
+            menuItemColumnSelector.Checked = false;
+        }
+
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.contextMenuGridRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuItemGrouping = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuItemColumnSelector = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuGridRightClick.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // contextMenuGridRightClick
+            // 
+            this.contextMenuGridRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuItemGrouping,
+            this.menuItemColumnSelector});
+            this.contextMenuGridRightClick.Name = "contextMenuGridRightClick";
+            this.contextMenuGridRightClick.Size = new System.Drawing.Size(157, 48);
+            // 
+            // menuItemGrouping
+            // 
+            this.menuItemGrouping.CheckOnClick = true;
+            this.menuItemGrouping.Name = "menuItemGrouping";
+            this.menuItemGrouping.Size = new System.Drawing.Size(156, 22);
+            this.menuItemGrouping.Text = "نمایش گروهبندی";
+            this.menuItemGrouping.CheckedChanged += new System.EventHandler(this.MenuItemGrouping_CheckedChanged);
+            // 
+            // menuItemColumnSelector
+            // 
+            this.menuItemColumnSelector.CheckOnClick = true;
+            this.menuItemColumnSelector.Name = "menuItemColumnSelector";
+            this.menuItemColumnSelector.Size = new System.Drawing.Size(156, 22);
+            this.menuItemColumnSelector.Text = "لیست ستون ها";
+            this.menuItemColumnSelector.CheckedChanged += new System.EventHandler(this.MenuItemColumnSelector_CheckedChanged);
+            // 
+            // CustomGridEx
+            // 
+            this.ContextMenuStrip = this.contextMenuGridRightClick;
+            this.GroupByBoxVisible = false;
+            this.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
+            this.SettingsKey = "CustomGrid";
+            this.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
+            this.contextMenuGridRightClick.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         private void InitGrid()
@@ -41,9 +92,9 @@ namespace Ophthalmology.Controls.CustomControls
             FilterRowUpdateMode = FilterRowUpdateMode.WhenValueChanges;
             TabKeyBehavior = TabKeyBehavior.ControlNavigation;
             HideSelection = HideSelection.HighlightInactive;
-
-
-            InitBuiltInTexts();
+            HideColumnsWhenGrouped = InheritableBoolean.True;
+            RowHeaders = InheritableBoolean.True;
+            NewRowPosition = NewRowPosition.TopRow; 
         }
 
         private void InitBuiltInTexts()
@@ -94,59 +145,17 @@ namespace Ophthalmology.Controls.CustomControls
             BuiltInTexts[GridEXBuiltInText.FilterRowConditionClear] = "پاک کردن";
         }
 
-        private void InitializeComponent()
+        private void MenuItemGrouping_CheckedChanged(object sender, EventArgs e)
         {
-            this.components = new System.ComponentModel.Container();
-            this.contextMenuGridRightClick = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.MenuItemGrouping = new System.Windows.Forms.ToolStripMenuItem();
-            this.MenuItemColumnSelector = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuGridRightClick.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
-            this.SuspendLayout();
-            // 
-            // contextMenuGridRightClick
-            // 
-            this.contextMenuGridRightClick.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.MenuItemGrouping,
-            this.MenuItemColumnSelector});
-            this.contextMenuGridRightClick.Name = "contextMenuGridRightClick";
-            this.contextMenuGridRightClick.Size = new System.Drawing.Size(157, 48);
-            // 
-            // MenuItemGrouping
-            // 
-            this.MenuItemGrouping.CheckOnClick = true;
-            this.MenuItemGrouping.Name = "MenuItemGrouping";
-            this.MenuItemGrouping.Size = new System.Drawing.Size(156, 22);
-            this.MenuItemGrouping.Text = "نمایش گروهبندی";
-            this.MenuItemGrouping.Click += new System.EventHandler(this.MenuItemGrouping_Click);
-            // 
-            // MenuItemColumnSelector
-            // 
-            this.MenuItemColumnSelector.Name = "MenuItemColumnSelector";
-            this.MenuItemColumnSelector.Size = new System.Drawing.Size(156, 22);
-            this.MenuItemColumnSelector.Text = "لیست ستون ها";
-            this.MenuItemColumnSelector.Click += new System.EventHandler(this.MenuItemColumnSelector_Click);
-            // 
-            // CustomGridEx
-            // 
-            this.ContextMenuStrip = this.contextMenuGridRightClick;
-            this.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
-            this.SettingsKey = "CustomGrid";
-            this.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
-            this.contextMenuGridRightClick.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
-            this.ResumeLayout(false);
-
+            GroupByBoxVisible = menuItemGrouping.Checked;
         }
 
-        private void MenuItemGrouping_Click(object sender, System.EventArgs e)
+        private void MenuItemColumnSelector_CheckedChanged(object sender, EventArgs eventArgs)
         {
-            GroupByBoxVisible = MenuItemGrouping.Checked;
-        }
-
-        private void MenuItemColumnSelector_Click(object sender, System.EventArgs e)
-        {
-            ShowFieldChooser(ParentForm, "انتخاب ستون ها");
+            if (menuItemColumnSelector.Checked)
+                ShowFieldChooser(ParentForm, "انتخاب ستون ها");
+            else
+                HideFieldChooser();
         }
 
         public void ApplyFilter(GridEXColumn column, string filterValue)

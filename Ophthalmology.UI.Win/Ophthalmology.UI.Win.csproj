@@ -61,6 +61,12 @@
   <ItemGroup>
     <Compile Include="Classes\MyApplication.cs" />
     <Compile Include="Enums\FormActionMode.cs" />
+    <Compile Include="Forms\AppointmentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AppointmentForm.Designer.cs">
+      <DependentUpon>AppointmentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\CustomizableForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,18 @@
     </Compile>
     <Compile Include="Forms\BaseForm.Designer.cs">
       <DependentUpon>BaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LightPenVisitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LightPenVisitForm.Designer.cs">
+      <DependentUpon>LightPenVisitForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\OldVisitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\OldVisitForm.Designer.cs">
+      <DependentUpon>OldVisitForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\TypePatientForm.cs">
       <SubType>Form</SubType>
@@ -104,6 +122,12 @@
     <Compile Include="Forms\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\VisitForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\VisitForm.Designer.cs">
+      <DependentUpon>VisitForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\VisitListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +135,9 @@
       <DependentUpon>VisitListForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\AppointmentForm.resx">
+      <DependentUpon>AppointmentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>

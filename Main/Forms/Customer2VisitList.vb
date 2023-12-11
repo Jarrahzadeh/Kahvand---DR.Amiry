@@ -8,14 +8,14 @@ Public Class Customer2VisitList
     Sub ShowGrid()
 
         Dim tableName = "Customer C INNER JOIN VisitList V on (C.id=V.Code_Customer)"
-        Dim fields = "V.id,C.id as کد ,C.Name as نام , C.Family as فامیلی,   C.DateSave as تاریخ ,TimeVisit as زمان,V.Status as وضعیت  , v.price as مبلغ"
+        Dim fields = "V.id as id, C.id as کد ,C.Name as نام , C.Family as فامیلی,   C.DateSave as تاریخ ,TimeVisit as زمان,V.Status as وضعیت  , v.price as مبلغ"
         Dim where As New List(Of IWhereClause) From
         {
-            New WhereClause("V.DateVisit", $"{DatePicker1.Text}", LogicalOperatorType.And),
+            New WhereClause("V.DateVisit", $"{DatePicker1.Text}", "DateVisit", LogicalOperatorType.And),
             New WhereClause("C.DrId", $"{DrId}", "DrId")
         }
         Dim dt As DataTable = DatabaseHelper.Select(tableName, fields, where)
-        dt.DefaultView.Sort = "Id DESC"
+        dt.DefaultView.Sort = "id DESC"
         DG.DataSource = dt.DefaultView
 
         DG.Columns(0).Width = 50

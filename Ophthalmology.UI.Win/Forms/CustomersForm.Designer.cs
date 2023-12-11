@@ -35,11 +35,11 @@
             this.buttonBrowse = new Janus.Windows.EditControls.UIButton();
             this.lableCode = new System.Windows.Forms.Label();
             this.textBoxCode = new Janus.Windows.GridEX.EditControls.EditBox();
+            this.bindingSourceCustomers = new System.Windows.Forms.BindingSource(this.components);
             this.checkBoxEyeRight = new Janus.Windows.EditControls.UICheckBox();
             this.lableName = new System.Windows.Forms.Label();
             this.checkBoxEyeLeft = new Janus.Windows.EditControls.UICheckBox();
             this.textBoxName = new Janus.Windows.GridEX.EditControls.EditBox();
-            this.bindingSourceCustomers = new System.Windows.Forms.BindingSource(this.components);
             this.labelFamily = new System.Windows.Forms.Label();
             this.textBoxFamily = new Janus.Windows.GridEX.EditControls.EditBox();
             this.textBoxTel = new Janus.Windows.GridEX.EditControls.EditBox();
@@ -167,6 +167,7 @@
             // textBoxCode
             // 
             this.textBoxCode.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBoxCode.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bindingSourceCustomers, "Id", true));
             this.textBoxCode.Dock = System.Windows.Forms.DockStyle.Left;
             this.textBoxCode.Location = new System.Drawing.Point(741, 61);
             this.textBoxCode.Name = "textBoxCode";
@@ -175,6 +176,10 @@
             this.textBoxCode.TabIndex = 1;
             this.textBoxCode.TabStop = false;
             this.textBoxCode.VisualStyleManager = this.visualStyleManager;
+            // 
+            // bindingSourceCustomers
+            // 
+            this.bindingSourceCustomers.DataSource = typeof(Ophthalmology.Entity.Entites.Customer);
             // 
             // checkBoxEyeRight
             // 
@@ -225,10 +230,6 @@
             this.textBoxName.Size = new System.Drawing.Size(250, 35);
             this.textBoxName.TabIndex = 3;
             this.textBoxName.VisualStyleManager = this.visualStyleManager;
-            // 
-            // bindingSourceCustomers
-            // 
-            this.bindingSourceCustomers.DataSource = typeof(Ophthalmology.Entity.Entites.Customer);
             // 
             // labelFamily
             // 
@@ -819,9 +820,12 @@
             this.gridCustomers.FilterMode = Janus.Windows.GridEX.FilterMode.Automatic;
             this.gridCustomers.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
             this.gridCustomers.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
+            this.gridCustomers.GroupByBoxVisible = false;
+            this.gridCustomers.HideColumnsWhenGrouped = Janus.Windows.GridEX.InheritableBoolean.True;
             this.gridCustomers.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
             this.gridCustomers.Location = new System.Drawing.Point(10, 382);
             this.gridCustomers.Name = "gridCustomers";
+            this.gridCustomers.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.True;
             this.gridCustomers.Size = new System.Drawing.Size(915, 341);
             this.gridCustomers.TabIndex = 1;
             this.gridCustomers.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
