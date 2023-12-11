@@ -103,6 +103,20 @@
             set => SetField(ref _orderId, value);
         }
 
+        public string SendTo
+        {
+            get
+            {
+                var value = "";
+                if (Status == "ویزیت نشده")
+                    value = "ارسال به دکتر";
+                else if (Status == "ویزیت شده")
+                    value = "ارسال به اپتومتر";
+
+                return value;
+            }
+        }
+
         public override string TableName => "VisitList";
 
         #endregion

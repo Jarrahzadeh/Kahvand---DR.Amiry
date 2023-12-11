@@ -1,33 +1,101 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
 using Janus.Windows.GridEX;
+using Ophthalmology.DataAccess.OleDb;
+using Ophthalmology.Entity.Database;
+using Ophthalmology.Entity.Entites;
+using Ophthalmology.Entity.Enums;
+using Ophthalmology.UI.Win.Classes;
+using Ophthalmology.Utility.Helpers;
 
 namespace Ophthalmology.UI.Win.Forms
 {
     public partial class AppointmentForm : CustomizableForm
     {
-        public AppointmentForm()
+        #region ~( Fields )~
+
+        private readonly string _customerFullName;
+
+        #endregion
+
+        #region ~( Constructors )~
+
+        private AppointmentForm()
         {
             InitializeComponent();
+            Text += $" - {MyApplication.DrName}";
         }
-        
-        public IList Customers
+
+        public AppointmentForm(string customerFullName, IList<Customer> customers) : this()
         {
-            set
+            _customerFullName = customerFullName;
+            bindingSourceCustomers.DataSource = customers;
+        }
+
+        #endregion
+
+        #region ~( Methods )~
+
+        private void FillControls()
+        {
+            maskedBoxTime.Text = DateTime.Now.ToString("t");
+            dateTimePickerVisitDate.SetSelectedDate(DateTime.Now);
+            var customer = (Customer)multiColumnComboCustomer.SelectedItem;
+            if (customer != null)
             {
-                bindingSourceCustomers.DataSource = value;
+                var firstOrDefault = MyApplication.TypePatients.FirstOrDefault(x => x.Id == customer.IdTypePatient);
+                textBoxPrice.Text = firstOrDefault?.Price;
             }
+
+            LoadVisitList(dateTimePickerVisitList.SelectedDateInStringPersian);
         }
 
-        private void multiColumnCombo1_TextChanged(object sender, System.EventArgs e)
+        private void LoadVisitList(string date)
         {
-            //bindingSourceCustomers.Filter = $"FullName LIKE '{multiColumnCombo1.Text}%'";
+            var whereClauses = new List<IWhereClause>
+            {
+                new WhereClause("V.DrId", MyApplication.DrId, "DrId" ,LogicalOperatorType.And),
+                new WhereClause("V.DateVisit", date, "DateVisit")
+            };
+
+            var tableName = "Customer C INNER JOIN VisitList V ON (C.Id = V.Code_Customer)";
+            var selectFields = "V.Id, C.Id AS CustomerId, C.Name, C.Family, C.Tel, C.DateSave, V.TimeVisit, V.Status, V.Price, V.OrderId";
+            var visitLists = DatabaseHelper.Select<VisitList>(tableName, selectFields, whereClauses, "C.Id DESC");
             
+            bindingSourceVisitList.DataSource = new List<VisitList>();
+            bindingSourceVisitList.DataSource = visitLists;
+            bindingSourceVisitList.ResetBindings(true);
         }
 
-        private void multiColumnCombo1_ValueChanged(object sender, System.EventArgs e)
+        #endregion
+
+        #region ~( Event Handlers )~
+
+        private void AppointmentForm_Shown(object sender, EventArgs e)
         {
-            var column = multiColumnCombo1.DropDownList.Columns[0];
-            multiColumnCombo1.DropDownList.ApplyFilter(new GridEXFilterCondition(column, ConditionOperator.BeginsWith, multiColumnCombo1.Text));
+            multiColumnComboCustomer.Value = _customerFullName;
         }
+
+        private void multiColumnCombo1_TextChanged(object sender, EventArgs e)
+        {
+            multiColumnComboCustomer.DroppedDown = multiColumnComboCustomer.Text.Length > 0;
+        }
+
+        private void multiColumnCombo1_ValueChanged(object sender, EventArgs e)
+        {
+            var column = multiColumnComboCustomer.DropDownList.Columns[0];
+            multiColumnComboCustomer.DropDownList.ApplyFilter(new GridEXFilterCondition(column, ConditionOperator.BeginsWith, multiColumnComboCustomer.Text));
+            FillControls();
+        }
+
+        private void dateTimePickerVisitList_SelectedDateChanged(DateTime selectedDateTime, BehComponents.PersianDateTime selectedPersianDateTime)
+        {
+            var date = selectedDateTime.ToString("yyyy/MM/dd", CultureHelper.PersianCulture);
+            LoadVisitList(date);
+        }
+
+        #endregion
     }
 }

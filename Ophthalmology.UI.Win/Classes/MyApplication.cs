@@ -1,7 +1,10 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using Ophthalmology.Utility.Helpers;
 using System.Text;
+using Ophthalmology.Entity.Entites;
 using Ophthalmology.Entity.Settings;
+using Ophthalmology.DataAccess.OleDb;
 
 namespace Ophthalmology.UI.Win.Classes
 {
@@ -10,6 +13,7 @@ namespace Ophthalmology.UI.Win.Classes
         #region ~( Fields )~
 
         private static ApplicationSettings _applicationSettings;
+        private static IList<TypePatient> _typePatients;
 
         #endregion
 
@@ -26,6 +30,14 @@ namespace Ophthalmology.UI.Win.Classes
         {
             var serialize = JsonHelper.Serialize(_applicationSettings);
             WriteSettingsToFile(serialize);
+        }
+
+        /// <summary>
+        /// ریست کردن کش انواع بیمه
+        /// </summary>
+        public static void ResetTypePatientCache()
+        {
+            _typePatients = null;
         }
 
         private static string ReadSettingsFromFile()
@@ -75,6 +87,27 @@ namespace Ophthalmology.UI.Win.Classes
         public static int DrId { get; set; }
         
         public static string DrName { get; set; }
+
+        /// <summary>
+        /// لیست انواع بیمه ها
+        /// </summary>
+        /// <remarks>
+        /// به علت اینکه این لیست زیاد دستخوش تغییر نمیشود آن را کش میکنیم و در زمانی که رکورد جدیدی ثبت شود از بانک مجددا بازیابی میشود
+        /// </remarks>
+        public static IList<TypePatient> TypePatients
+        {
+            get
+            {
+                if (_typePatients == null)
+                {
+                    _typePatients = DatabaseHelper.Select<TypePatient>("TypePatient");
+                    var typePatient = new TypePatient { Id = 0, Name = string.Empty };
+                    _typePatients.Insert(0, typePatient);
+                }
+
+                return _typePatients;
+            }
+        }
 
         #endregion
     }

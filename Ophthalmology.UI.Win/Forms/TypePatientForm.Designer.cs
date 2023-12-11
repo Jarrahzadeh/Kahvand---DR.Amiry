@@ -171,6 +171,7 @@
             // 
             // customGridEx1
             // 
+            this.customGridEx1.AllowEdit = Janus.Windows.GridEX.InheritableBoolean.False;
             this.customGridEx1.AlternatingColors = true;
             this.customGridEx1.BuiltInTextsData = resources.GetString("customGridEx1.BuiltInTextsData");
             this.customGridEx1.ColumnAutoResize = true;
@@ -182,10 +183,14 @@
             this.customGridEx1.FilterRowButtonStyle = Janus.Windows.GridEX.FilterRowButtonStyle.ConditionOperatorDropDown;
             this.customGridEx1.FilterRowUpdateMode = Janus.Windows.GridEX.FilterRowUpdateMode.WhenValueChanges;
             this.customGridEx1.GroupByBoxVisible = false;
+            this.customGridEx1.HideColumnsWhenGrouped = Janus.Windows.GridEX.InheritableBoolean.True;
+            this.customGridEx1.HideSelection = Janus.Windows.GridEX.HideSelection.HighlightInactive;
             this.customGridEx1.Location = new System.Drawing.Point(3, 3);
             this.customGridEx1.Name = "customGridEx1";
+            this.customGridEx1.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.True;
             this.customGridEx1.Size = new System.Drawing.Size(503, 246);
             this.customGridEx1.TabIndex = 0;
+            this.customGridEx1.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
             this.customGridEx1.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
             this.customGridEx1.VisualStyleManager = this.visualStyleManager;
             // 
@@ -220,6 +225,7 @@
             this.Controls.Add(this.btnSave);
             this.Name = "TypePatientForm";
             this.Text = "مدیریت انواع بیمه";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TypePatientForm_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.GroupBox3)).EndInit();
             this.GroupBox3.ResumeLayout(false);
             this.GroupBox3.PerformLayout();

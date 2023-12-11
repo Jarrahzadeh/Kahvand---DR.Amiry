@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
-using Janus.Windows.GridEX;
 using Ophthalmology.Controls;
 using Ophthalmology.DataAccess.OleDb;
 using Ophthalmology.Entity.Database;
@@ -18,7 +17,6 @@ namespace Ophthalmology.UI.Win.Forms
 
         private FormActionMode _formActionMode;
         private int _recordLastPosition;
-        private bool _onLoadRecords;
 
         #endregion
 
@@ -39,7 +37,6 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void LoadCustomers()
         {
-            _onLoadRecords = true;
             var whereClauses = new List<IWhereClause>
             {
                 new WhereClause("DrId", MyApplication.DrId, "DrId")
@@ -49,15 +46,11 @@ namespace Ophthalmology.UI.Win.Forms
             bindingSourceCustomers.DataSource = new List<Customer>();
             bindingSourceCustomers.DataSource = customers;
             bindingSourceCustomers.ResetBindings(true);
-            _onLoadRecords = false;
         }
 
         private void LoadTypePatient()
         {
-            var typePatients = DatabaseHelper.Select<TypePatient>("TypePatient");
-            var typePatient = new TypePatient { Id = 0, Name = string.Empty };
-            typePatients.Insert(0, typePatient);
-            bindingSourceTypePatient.DataSource = typePatients;
+            bindingSourceTypePatient.DataSource = MyApplication.TypePatients;
         }
 
         private void ResetDateTimeBoxes()
@@ -335,8 +328,7 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void buttonAppointment_Click(object sender, EventArgs e)
         {
-            var appointmentForm = new AppointmentForm();
-            appointmentForm.Customers = bindingSourceCustomers.List;
+            var appointmentForm = new AppointmentForm(CurrentCustomer.FullName, (List<Customer>)bindingSourceCustomers.DataSource);
             appointmentForm.ShowDialog();
         }
 
