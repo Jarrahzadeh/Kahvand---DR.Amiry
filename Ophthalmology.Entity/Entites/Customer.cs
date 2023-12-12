@@ -1,11 +1,14 @@
-﻿using System;
+﻿using Ophthalmology.Entity.Database;
+using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 
 namespace Ophthalmology.Entity.Entites
 {
     public class Customer : EntityBase
     {
-        #region ~( Private Fields )~
+        #region ~( Fields )~
 
         private string _name;
         private string _family;
@@ -53,6 +56,135 @@ namespace Ophthalmology.Entity.Entites
 
         #endregion
 
+        #region ~( Operation )~
+
+        public static explicit operator List<IFieldValue>(Customer customer)
+        {
+            var fieldValues = new List<IFieldValue>
+            {
+                new FieldValue(nameof(Id), customer.Id, nameof(Id)),
+                new FieldValue(nameof(Name), customer.Name, nameof(Name)),
+                new FieldValue(nameof(Family), customer.Family, nameof(Family)),
+                new FieldValue(nameof(NameFather), customer.NameFather, nameof(NameFather)),
+                new FieldValue(nameof(Address), customer.Address, nameof(Address)),
+                new FieldValue(nameof(Reason), customer.Reason, nameof(Reason)),
+                new FieldValue(nameof(Tel), customer.Tel, nameof(Tel)),
+                new FieldValue(nameof(Dis), customer.Dis, nameof(Dis)),
+                new FieldValue(nameof(Age), customer.Age, nameof(Age)),
+                new FieldValue(nameof(EyeLeft), customer.EyeLeft, nameof(EyeLeft)),
+                new FieldValue(nameof(EyeRight), customer.EyeRight, nameof(EyeRight)),
+                new FieldValue(nameof(DateSave), customer.DateSave, nameof(DateSave)),
+                new FieldValue(nameof(DrId), customer.DrId, nameof(DrId)),
+                new FieldValue(nameof(IdTypePatient), customer.IdTypePatient, nameof(IdTypePatient)),
+            };
+            return fieldValues;
+        }
+
+        public static explicit operator Customer(List<IFieldValue> fieldValues)
+        {
+            var customer = new Customer();
+
+            var fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(Id));
+            if (fieldValue != null)
+            {
+                var tryParse = int.TryParse(fieldValue.Value.ToString(), out var intValue);
+                if (tryParse)
+                {
+                    customer._id = intValue;
+                }
+            }
+
+            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(IdTypePatient));
+            if (fieldValue != null)
+            {
+                var tryParse = int.TryParse(fieldValue.Value.ToString(), out var intValue);
+                if (tryParse)
+                {
+                    customer._idTypePatient = intValue;
+                }
+            }
+            
+            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(DrId));
+            if (fieldValue != null)
+            {
+                var tryParse = int.TryParse(fieldValue.Value.ToString(), out var intValue);
+                if (tryParse)
+                {
+                    customer._drId = intValue;
+                }
+            }
+
+            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(Name));
+            if (fieldValue != null)
+            {
+                customer._name = fieldValue.Value.ToString();
+            }
+
+            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(Family));
+            if (fieldValue != null)
+            {
+                customer._family = fieldValue.Value.ToString();
+            }
+
+            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(NameFather));
+            if (fieldValue != null)
+            {
+                customer._nameFather = fieldValue.Value.ToString();
+            }
+
+            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(Address));
+            if (fieldValue != null)
+            {
+                customer._address = fieldValue.Value.ToString();
+            }
+
+            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(Reason));
+            if (fieldValue != null)
+            {
+                customer._reason = fieldValue.Value.ToString();
+            }
+
+            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(Tel));
+            if (fieldValue != null)
+            {
+                customer._tel = fieldValue.Value.ToString();
+            }
+
+            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(Dis));
+            if (fieldValue != null)
+            {
+                customer._dis = fieldValue.Value.ToString();
+            }
+
+            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(Age));
+            if (fieldValue != null)
+            {
+                customer._age = fieldValue.Value.ToString();
+            }
+
+            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(EyeLeft));
+            if (fieldValue != null)
+            {
+                customer._eyeLeft = fieldValue.Value.ToString();
+            }
+
+            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(EyeRight));
+            if (fieldValue != null)
+            {
+                customer._eyeRight = fieldValue.Value.ToString();
+            }
+
+            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(DateSave));
+            if (fieldValue != null)
+            {
+                customer._dateSave = fieldValue.Value.ToString();
+            }
+
+            return customer;
+        }
+
+        #endregion
+        
         #region ~( Properties )~
 
         public string Name

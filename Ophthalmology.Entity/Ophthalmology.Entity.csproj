@@ -49,7 +49,7 @@
     <Compile Include="Entites\TypePatient.cs" />
     <Compile Include="Entites\User.cs" />
     <Compile Include="Database\WhereClause.cs" />
-    <Compile Include="Entites\VisitList.cs" />
+    <Compile Include="Entites\CustomerVisit.cs" />
     <Compile Include="Enums\LogicalOperatorType.cs" />
     <Compile Include="Enums\UserType.cs" />
     <Compile Include="Settings\ApplicationSettings.cs" />

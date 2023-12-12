@@ -307,10 +307,11 @@
             this.customGridVisitList.TotalRowPosition = Janus.Windows.GridEX.TotalRowPosition.BottomFixed;
             this.customGridVisitList.VisualStyle = Janus.Windows.GridEX.VisualStyle.Office2007;
             this.customGridVisitList.VisualStyleManager = this.visualStyleManager;
+            this.customGridVisitList.ColumnButtonClick += new Janus.Windows.GridEX.ColumnActionEventHandler(this.GridColumnButtonClick);
             // 
             // bindingSourceVisitList
             // 
-            this.bindingSourceVisitList.DataSource = typeof(Ophthalmology.Entity.Entites.VisitList);
+            this.bindingSourceVisitList.DataSource = typeof(Ophthalmology.Entity.Entites.CustomerVisit);
             // 
             // label5
             // 

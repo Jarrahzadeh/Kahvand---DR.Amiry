@@ -54,19 +54,38 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void LoadVisitList(string date)
         {
+            var customerVisit = new CustomerVisit();
             var whereClauses = new List<IWhereClause>
             {
                 new WhereClause("V.DrId", MyApplication.DrId, "DrId" ,LogicalOperatorType.And),
                 new WhereClause("V.DateVisit", date, "DateVisit")
             };
 
-            var tableName = "Customer C INNER JOIN VisitList V ON (C.Id = V.Code_Customer)";
-            var selectFields = "V.Id, C.Id AS CustomerId, C.Name, C.Family, C.Tel, C.DateSave, V.TimeVisit, V.Status, V.Price, V.OrderId";
-            var visitLists = DatabaseHelper.Select<VisitList>(tableName, selectFields, whereClauses, "C.Id DESC");
-            
-            bindingSourceVisitList.DataSource = new List<VisitList>();
+            var tableName = $"Customer C INNER JOIN {customerVisit.TableName} V ON (C.Id = V.Code_Customer)";
+            var selectFields = "V.Id, V.DrId, C.Id AS CustomerId, C.Name, C.Family, C.Tel, C.DateSave, V.TimeVisit, V.Status, V.Price, V.OrderId";
+            var visitLists = DatabaseHelper.Select<CustomerVisit>(tableName, selectFields, whereClauses, "C.Id DESC");
+
+            bindingSourceVisitList.DataSource = new List<CustomerVisit>();
             bindingSourceVisitList.DataSource = visitLists;
             bindingSourceVisitList.ResetBindings(true);
+        }
+
+        private void SendToOptometer(int visitItemId)
+        {
+            var whereClauses = new List<IWhereClause> { new WhereClause("VisitItemId", visitItemId, "VisitItemId") };
+            var hasRecord = DatabaseHelper.TableHasRecord("SendTo", whereClauses);
+            
+            var filedNameAndValues = new List<IFieldValue>();
+
+            if (hasRecord)
+                DatabaseHelper.Update("SendTo", filedNameAndValues);
+            else
+                DatabaseHelper.Insert("SendTo", filedNameAndValues);
+        }
+
+        private void SendToDoctor(int visitItemId)
+        {
+            DatabaseHelper.Insert("SendTo", new List<IFieldValue>());
         }
 
         #endregion
@@ -94,6 +113,20 @@ namespace Ophthalmology.UI.Win.Forms
         {
             var date = selectedDateTime.ToString("yyyy/MM/dd", CultureHelper.PersianCulture);
             LoadVisitList(date);
+        }
+
+        private void GridColumnButtonClick(object sender, ColumnActionEventArgs e)
+        {
+            var gridExRow = customGridVisitList.GetRow();
+            var visitItem = (CustomerVisit)gridExRow.DataRow;
+            if (visitItem.SendTo == "ارسال به دکتر")
+            {
+                SendToDoctor(visitItem.Id);
+            }
+            else if (visitItem.SendTo == "ارسال به اپتومتر")
+            {
+                SendToOptometer(visitItem.Id);
+            }
         }
 
         #endregion

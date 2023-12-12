@@ -117,7 +117,7 @@
             // 
             // bindingSourceVisitList
             // 
-            this.bindingSourceVisitList.DataSource = typeof(Ophthalmology.Entity.Entites.VisitList);
+            this.bindingSourceVisitList.DataSource = typeof(Ophthalmology.Entity.Entites.CustomerVisit);
             // 
             // dateTimePickerX1
             // 

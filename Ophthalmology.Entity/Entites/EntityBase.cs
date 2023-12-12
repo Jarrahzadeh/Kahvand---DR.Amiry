@@ -6,9 +6,9 @@ namespace Ophthalmology.Entity.Entites
 {
     public abstract class EntityBase : INotifyPropertyChanged
     {
-        private int _id;
-
         #region ~( Fields )~
+
+        protected int _id;
 
         public event PropertyChangedEventHandler PropertyChanged;
 

@@ -40,7 +40,7 @@ namespace Ophthalmology.UI.Win.Forms
 
             var tableName = "Customer C INNER JOIN VisitList V ON (C.Id = V.Code_Customer)";
             var selectFields = "V.Id, C.Id AS CustomerId, C.Name, C.Family, C.Tel, C.DateSave, V.TimeVisit, V.Status, V.Price, V.OrderId";
-            var visitLists = DatabaseHelper.Select<VisitList>(tableName, selectFields, whereClauses, "C.Id DESC");
+            var visitLists = DatabaseHelper.Select<CustomerVisit>(tableName, selectFields, whereClauses, "C.Id DESC");
 
             var script = $@"
                 SELECT Count(*) AS VisitedCount, V.Status AS Status
@@ -71,7 +71,7 @@ namespace Ophthalmology.UI.Win.Forms
             labelVisitedCount.Text = visitedCount.ToString();
             labelNotVisitedCount.Text = notVisitedCount.ToString();
 
-            bindingSourceVisitList.DataSource = new List<VisitList>();
+            bindingSourceVisitList.DataSource = new List<CustomerVisit>();
             bindingSourceVisitList.DataSource = visitLists;
             bindingSourceVisitList.ResetBindings(true);
         }
@@ -185,7 +185,7 @@ namespace Ophthalmology.UI.Win.Forms
 
         #region ~( Properties )~
 
-        private VisitList CurrentVisit => (VisitList)bindingSourceVisitList.Current;
+        private CustomerVisit CurrentVisit => (CustomerVisit)bindingSourceVisitList.Current;
 
         #endregion
     }
