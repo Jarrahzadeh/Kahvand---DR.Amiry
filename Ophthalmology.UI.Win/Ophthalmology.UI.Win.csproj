@@ -207,11 +207,58 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="db.mdb">
+    <None Include="..\Solution Items\BehComponents.dll">
+      <Link>BehComponents.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-  </ItemGroup>
-  <ItemGroup>
+    <None Include="..\Solution Items\Janus.Data.v3.dll">
+      <Link>Janus.Data.v3.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Solution Items\Janus.Windows.ButtonBar.v3.dll">
+      <Link>Janus.Windows.ButtonBar.v3.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Solution Items\Janus.Windows.CalendarCombo.v3.dll">
+      <Link>Janus.Windows.CalendarCombo.v3.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Solution Items\Janus.Windows.Common.v3.dll">
+      <Link>Janus.Windows.Common.v3.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Solution Items\Janus.Windows.ExplorerBar.v3.dll">
+      <Link>Janus.Windows.ExplorerBar.v3.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Solution Items\Janus.Windows.FilterEditor.v3.dll">
+      <Link>Janus.Windows.FilterEditor.v3.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Solution Items\Janus.Windows.GridEX.v3.dll">
+      <Link>Janus.Windows.GridEX.v3.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Solution Items\Janus.Windows.Ribbon.v3.dll">
+      <Link>Janus.Windows.Ribbon.v3.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Solution Items\Janus.Windows.Schedule.v3.dll">
+      <Link>Janus.Windows.Schedule.v3.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Solution Items\Janus.Windows.TimeLine.v3.dll">
+      <Link>Janus.Windows.TimeLine.v3.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Solution Items\Janus.Windows.UI.v3.dll">
+      <Link>Janus.Windows.UI.v3.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\Solution Items\ShamsiDatePicker.dll">
+      <Link>ShamsiDatePicker.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="Images\anyrgb.com.png" />
     <Content Include="Images\Hero_Blog_Ophthalmology-No3-lead-up-to-WS.jpg" />
     <Content Include="Images\Ophthalmology_hero image.jpg" />

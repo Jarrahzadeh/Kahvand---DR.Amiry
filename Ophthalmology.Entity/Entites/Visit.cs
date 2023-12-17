@@ -6,15 +6,12 @@ using Ophthalmology.Entity.Database;
 
 namespace Ophthalmology.Entity.Entites
 {
-    public class CustomerVisit : EntityBase
+    public class Visit : EntityBase
     {
         #region ~( Fields )~
 
         private int _customerId;
-        private string _name;
-        private string _family;
-        private string _tel;
-        private string _dateSave;
+        private string _dateVisit;
         private string _timeVisit;
         private string _status;
         private int _price;
@@ -25,12 +22,9 @@ namespace Ophthalmology.Entity.Entites
 
         #region ~( Constructors )~
 
-        public CustomerVisit()
+        public Visit()
         {
-            _name = string.Empty;
-            _family = string.Empty;
-            _tel = string.Empty;
-            _dateSave = DateTime.Now.ToString("yyyy/MM/dd", new CultureInfo("fa-IR"));
+            _dateVisit = DateTime.Now.ToString("yyyy/MM/dd", new CultureInfo("fa-IR"));
             _timeVisit = string.Empty;
             _status = string.Empty;
             _price = -1;
@@ -44,27 +38,24 @@ namespace Ophthalmology.Entity.Entites
 
         public override string ToString()
         {
-            if (!string.IsNullOrWhiteSpace(_name) && !string.IsNullOrWhiteSpace(_family))
+            if (!string.IsNullOrWhiteSpace(_status))
             {
-                return $"{_name} {_family}";
+                return _status;
             }
-            return _name;
+            return base.ToString();
         }
 
         #endregion
 
         #region ~( Operation )~
 
-        public static explicit operator List<IFieldValue>(CustomerVisit customerVisit)
+        public static explicit operator List<IFieldValue>(Visit customerVisit)
         {
             var fieldValues = new List<IFieldValue>
             {
                 new FieldValue("Code_Customer", customerVisit.CustomerId, "Code_Customer"),
-                new FieldValue(nameof(Name), customerVisit.Name, nameof(Name)),
-                new FieldValue(nameof(Family), customerVisit.Family, nameof(Family)),
-                new FieldValue(nameof(Tel), customerVisit.Tel, nameof(Tel)),
-                new FieldValue(nameof(DateSave), customerVisit.DateSave, nameof(DateSave)),
                 new FieldValue(nameof(TimeVisit), customerVisit.TimeVisit, nameof(TimeVisit)),
+                new FieldValue(nameof(DateVisit), customerVisit.DateVisit, nameof(DateVisit)),
                 new FieldValue(nameof(Status), customerVisit.Status, nameof(Status)),
                 new FieldValue(nameof(Price), customerVisit.Price, nameof(Price)),
                 new FieldValue(nameof(DrId), customerVisit.DrId, nameof(DrId)),
@@ -73,9 +64,9 @@ namespace Ophthalmology.Entity.Entites
             return fieldValues;
         }
 
-        public static explicit operator CustomerVisit(List<IFieldValue> fieldValues)
+        public static explicit operator Visit(List<IFieldValue> fieldValues)
         {
-            var customVisit = new CustomerVisit();
+            var customVisit = new Visit();
 
             var fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(Id));
             if (fieldValue != null)
@@ -127,28 +118,10 @@ namespace Ophthalmology.Entity.Entites
                 }
             }
 
-            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(Name));
+            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(DateVisit));
             if (fieldValue != null)
             {
-                customVisit._name = fieldValue.Value.ToString();
-            }
-
-            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(Family));
-            if (fieldValue != null)
-            {
-                customVisit._family = fieldValue.Value.ToString();
-            }
-
-            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(Tel));
-            if (fieldValue != null)
-            {
-                customVisit._tel = fieldValue.Value.ToString();
-            }
-
-            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(DateSave));
-            if (fieldValue != null)
-            {
-                customVisit._dateSave = fieldValue.Value.ToString();
+                customVisit._dateVisit = fieldValue.Value.ToString();
             }
 
             fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(TimeVisit));
@@ -166,15 +139,15 @@ namespace Ophthalmology.Entity.Entites
             return customVisit;
         }
 
-        public static explicit operator List<IWhereClause>(CustomerVisit customerVisit)
+        public static explicit operator List<IWhereClause>(Visit customerVisit)
         {
             var fieldValues = (List<IFieldValue>)customerVisit;
             return fieldValues.Cast<IWhereClause>().ToList();
         }
 
-        public static explicit operator CustomerVisit(List<IWhereClause> fieldValues)
+        public static explicit operator Visit(List<IWhereClause> fieldValues)
         {
-            var customVisit = new CustomerVisit();
+            var customVisit = new Visit();
 
             var fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(Id));
             if (fieldValue != null)
@@ -226,28 +199,10 @@ namespace Ophthalmology.Entity.Entites
                 }
             }
 
-            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(Name));
+            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(DateVisit));
             if (fieldValue != null)
             {
-                customVisit._name = fieldValue.Value.ToString();
-            }
-
-            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(Family));
-            if (fieldValue != null)
-            {
-                customVisit._family = fieldValue.Value.ToString();
-            }
-
-            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(Tel));
-            if (fieldValue != null)
-            {
-                customVisit._tel = fieldValue.Value.ToString();
-            }
-
-            fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(DateSave));
-            if (fieldValue != null)
-            {
-                customVisit._dateSave = fieldValue.Value.ToString();
+                customVisit._dateVisit = fieldValue.Value.ToString();
             }
 
             fieldValue = fieldValues.FirstOrDefault(x => x.Alias == nameof(TimeVisit));
@@ -275,28 +230,10 @@ namespace Ophthalmology.Entity.Entites
             set => SetField(ref _customerId, value);
         }
 
-        public string Name
+        public string DateVisit
         {
-            get => _name;
-            set => SetField(ref _name, value);
-        }
-
-        public string Family
-        {
-            get => _family;
-            set => SetField(ref _family, value);
-        }
-
-        public string Tel
-        {
-            get => _tel;
-            set => SetField(ref _tel, value);
-        }
-
-        public string DateSave
-        {
-            get => _dateSave;
-            set => SetField(ref _dateSave, value);
+            get => _dateVisit;
+            set => SetField(ref _dateVisit, value);
         }
 
         public string TimeVisit

@@ -15,14 +15,25 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ophthalmology.UI.Win", "Oph
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Src", "Src", "{DD43E343-C4F1-4F2C-98F0-CEC132DCB949}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CE9EFB1C-6B04-4F6F-90D7-605CF9E20777}"
-	ProjectSection(SolutionItems) = preProject
-		packages\BehComponents.dll = packages\BehComponents.dll
-		Ophthalmology.UI.Win\db.mdb = Ophthalmology.UI.Win\db.mdb
-		packages\ShamsiDatePicker.dll = packages\ShamsiDatePicker.dll
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ophthalmology.DataAccess", "Ophthalmology.DataAccess\Ophthalmology.DataAccess.csproj", "{AB392E28-680A-4D6F-8CDF-D9D02766644E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{03788BD4-BE21-4E27-A411-21F209B61E48}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\BehComponents.dll = Solution Items\BehComponents.dll
+		Solution Items\db.mdb = Solution Items\db.mdb
+		Solution Items\Janus.Data.v3.dll = Solution Items\Janus.Data.v3.dll
+		Solution Items\Janus.Windows.ButtonBar.v3.dll = Solution Items\Janus.Windows.ButtonBar.v3.dll
+		Solution Items\Janus.Windows.CalendarCombo.v3.dll = Solution Items\Janus.Windows.CalendarCombo.v3.dll
+		Solution Items\Janus.Windows.Common.v3.dll = Solution Items\Janus.Windows.Common.v3.dll
+		Solution Items\Janus.Windows.ExplorerBar.v3.dll = Solution Items\Janus.Windows.ExplorerBar.v3.dll
+		Solution Items\Janus.Windows.FilterEditor.v3.dll = Solution Items\Janus.Windows.FilterEditor.v3.dll
+		Solution Items\Janus.Windows.GridEX.v3.dll = Solution Items\Janus.Windows.GridEX.v3.dll
+		Solution Items\Janus.Windows.Ribbon.v3.dll = Solution Items\Janus.Windows.Ribbon.v3.dll
+		Solution Items\Janus.Windows.Schedule.v3.dll = Solution Items\Janus.Windows.Schedule.v3.dll
+		Solution Items\Janus.Windows.TimeLine.v3.dll = Solution Items\Janus.Windows.TimeLine.v3.dll
+		Solution Items\Janus.Windows.UI.v3.dll = Solution Items\Janus.Windows.UI.v3.dll
+		Solution Items\ShamsiDatePicker.dll = Solution Items\ShamsiDatePicker.dll
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

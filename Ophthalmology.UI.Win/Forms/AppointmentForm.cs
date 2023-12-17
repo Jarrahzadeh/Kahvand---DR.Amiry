@@ -74,7 +74,7 @@ namespace Ophthalmology.UI.Win.Forms
         {
             var whereClauses = new List<IWhereClause> { new WhereClause("VisitItemId", visitItemId, "VisitItemId") };
             var hasRecord = DatabaseHelper.TableHasRecord("SendTo", whereClauses);
-            
+
             var filedNameAndValues = new List<IFieldValue>();
 
             if (hasRecord)
@@ -88,6 +88,33 @@ namespace Ophthalmology.UI.Win.Forms
             DatabaseHelper.Insert("SendTo", new List<IFieldValue>());
         }
 
+        private void AddNewAppointment()
+        {
+            var customer = (Customer)multiColumnComboCustomer.SelectedItem;
+            if (customer != null)
+            {
+                var customerVisit = new Visit
+                {
+                    CustomerId = customer.Id,
+                    DateVisit = dateTimePickerVisitDate.SelectedDateInStringPersian,
+                    DrId = MyApplication.DrId,
+                    TimeVisit = maskedBoxTime.Text,
+                    Price = int.Parse(textBoxPrice.Text), 
+                    OrderId = 1,
+                    Status = "ویزیت نشده"
+                };
+
+                var filedNameAndValues = (List<IFieldValue>)customerVisit;
+                var rowEffected = DatabaseHelper.Insert(customerVisit.TableName, filedNameAndValues);
+                if (rowEffected > 0)
+                {
+                    Ophthalmology.Controls.MsgBox.ShowInformation("نوبت با موفقیت ثبت گردید", "ثبت نوبت");
+                    var date = dateTimePickerVisitDate.SelectedDateInStringPersian;
+                    LoadVisitList(date);
+                }
+            }
+        }
+
         #endregion
 
         #region ~( Event Handlers )~
@@ -97,19 +124,19 @@ namespace Ophthalmology.UI.Win.Forms
             multiColumnComboCustomer.Value = _customerFullName;
         }
 
-        private void multiColumnCombo1_TextChanged(object sender, EventArgs e)
+        private void MultiColumnCombo1TextChanged(object sender, EventArgs e)
         {
             multiColumnComboCustomer.DroppedDown = multiColumnComboCustomer.Text.Length > 0;
         }
 
-        private void multiColumnCombo1_ValueChanged(object sender, EventArgs e)
+        private void MultiColumnCombo1ValueChanged(object sender, EventArgs e)
         {
             var column = multiColumnComboCustomer.DropDownList.Columns[0];
             multiColumnComboCustomer.DropDownList.ApplyFilter(new GridEXFilterCondition(column, ConditionOperator.BeginsWith, multiColumnComboCustomer.Text));
             FillControls();
         }
 
-        private void dateTimePickerVisitList_SelectedDateChanged(DateTime selectedDateTime, BehComponents.PersianDateTime selectedPersianDateTime)
+        private void DateTimePickerVisitListSelectedDateChanged(DateTime selectedDateTime, BehComponents.PersianDateTime selectedPersianDateTime)
         {
             var date = selectedDateTime.ToString("yyyy/MM/dd", CultureHelper.PersianCulture);
             LoadVisitList(date);
@@ -127,6 +154,11 @@ namespace Ophthalmology.UI.Win.Forms
             {
                 SendToOptometer(visitItem.Id);
             }
+        }
+
+        private void ButtonAddClick(object sender, EventArgs e)
+        {
+            AddNewAppointment();
         }
 
         #endregion

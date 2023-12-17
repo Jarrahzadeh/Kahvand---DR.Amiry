@@ -79,8 +79,8 @@
             this.multiColumnComboCustomer.TabIndex = 1;
             this.multiColumnComboCustomer.ValueMember = "Id";
             this.multiColumnComboCustomer.VisualStyleManager = this.visualStyleManager;
-            this.multiColumnComboCustomer.ValueChanged += new System.EventHandler(this.multiColumnCombo1_ValueChanged);
-            this.multiColumnComboCustomer.TextChanged += new System.EventHandler(this.multiColumnCombo1_TextChanged);
+            this.multiColumnComboCustomer.ValueChanged += new System.EventHandler(this.MultiColumnCombo1ValueChanged);
+            this.multiColumnComboCustomer.TextChanged += new System.EventHandler(this.MultiColumnCombo1TextChanged);
             // 
             // tableLayoutPanel1
             // 
@@ -247,6 +247,7 @@
             this.buttonAdd.TabIndex = 11;
             this.buttonAdd.Text = "ثبت نوبت (F2)";
             this.buttonAdd.VisualStyleManager = this.visualStyleManager;
+            this.buttonAdd.Click += new System.EventHandler(this.ButtonAddClick);
             // 
             // uiGroupBox1
             // 
@@ -393,7 +394,7 @@
             this.dateTimePickerVisitList.TabIndex = 9;
             this.dateTimePickerVisitList.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.dateTimePickerVisitList.TextWhenClearButtonClicked = "";
-            this.dateTimePickerVisitList.SelectedDateChanged += new BehComponents.DateTimePickerX.OnSelectedDateChanged(this.dateTimePickerVisitList_SelectedDateChanged);
+            this.dateTimePickerVisitList.SelectedDateChanged += new BehComponents.DateTimePickerX.OnSelectedDateChanged(this.DateTimePickerVisitListSelectedDateChanged);
             // 
             // AppointmentForm
             // 

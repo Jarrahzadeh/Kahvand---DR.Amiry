@@ -1,4 +1,7 @@
-﻿using Ophthalmology.Utility.Helpers;
+﻿using System.IO;
+using System.Net.Mime;
+using System.Windows.Forms;
+using Ophthalmology.Utility.Helpers;
 
 namespace Ophthalmology.Utility.Classes
 {
@@ -20,7 +23,10 @@ namespace Ophthalmology.Utility.Classes
         {
             get
             {
-                return ConfigurationHelper.GetValue(ConstDataSourcePath);
+                var dateSourcePath = ConfigurationHelper.GetValue(ConstDataSourcePath);
+                //var directoryInfo = new DirectoryInfo(Application.StartupPath).Parent;
+                //return Path.Combine(directoryInfo.FullName, dateSourcePath);
+                return dateSourcePath;
             }
         }
 
