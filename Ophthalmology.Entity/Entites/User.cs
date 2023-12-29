@@ -12,6 +12,7 @@ namespace Ophthalmology.Entity.Entites
         private string _password;
         private string _firstName;
         private string _lastName;
+        private int _userTypeId;
 
         #endregion
 
@@ -90,7 +91,7 @@ namespace Ophthalmology.Entity.Entites
             {
                 user._lastName = fieldValue.Value.ToString();
             }
-            
+
             return user;
         }
 
@@ -120,6 +121,12 @@ namespace Ophthalmology.Entity.Entites
         {
             get => _lastName;
             set => SetField(ref _lastName, value);
+        }
+
+        public int UserTypeId
+        {
+            get => _userTypeId;
+            set => SetField(ref _userTypeId, value);
         }
 
         public string FullName => $"{LastName} {FirstName}".Trim();

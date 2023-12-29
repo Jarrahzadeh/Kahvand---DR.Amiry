@@ -18,9 +18,17 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ophthalmology.DataAccess", "Ophthalmology.DataAccess\Ophthalmology.DataAccess.csproj", "{AB392E28-680A-4D6F-8CDF-D9D02766644E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{03788BD4-BE21-4E27-A411-21F209B61E48}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Fonts", "Fonts", "{65850201-1DFA-4CBA-B5E7-3E4BF99127AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{4F0AA962-5EFC-4BC1-9CC8-29773665F65E}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\db.mdb = Solution Items\db.mdb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dlls", "dlls", "{DF8200B8-257F-4671-8CD9-7B6001CBC381}"
 	ProjectSection(SolutionItems) = preProject
 		Solution Items\BehComponents.dll = Solution Items\BehComponents.dll
-		Solution Items\db.mdb = Solution Items\db.mdb
 		Solution Items\Janus.Data.v3.dll = Solution Items\Janus.Data.v3.dll
 		Solution Items\Janus.Windows.ButtonBar.v3.dll = Solution Items\Janus.Windows.ButtonBar.v3.dll
 		Solution Items\Janus.Windows.CalendarCombo.v3.dll = Solution Items\Janus.Windows.CalendarCombo.v3.dll
@@ -102,6 +110,9 @@ Global
 		{36861226-C2E5-43E8-95BC-1C7830853C95} = {DD43E343-C4F1-4F2C-98F0-CEC132DCB949}
 		{C716107C-B193-4C2F-9365-F8AB656A749C} = {DD43E343-C4F1-4F2C-98F0-CEC132DCB949}
 		{AB392E28-680A-4D6F-8CDF-D9D02766644E} = {DD43E343-C4F1-4F2C-98F0-CEC132DCB949}
+		{65850201-1DFA-4CBA-B5E7-3E4BF99127AB} = {03788BD4-BE21-4E27-A411-21F209B61E48}
+		{4F0AA962-5EFC-4BC1-9CC8-29773665F65E} = {03788BD4-BE21-4E27-A411-21F209B61E48}
+		{DF8200B8-257F-4671-8CD9-7B6001CBC381} = {03788BD4-BE21-4E27-A411-21F209B61E48}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CB832BD5-E681-4EF5-B35A-71764723B6E4}

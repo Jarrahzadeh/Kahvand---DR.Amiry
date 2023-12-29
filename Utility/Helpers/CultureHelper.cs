@@ -29,6 +29,22 @@ namespace Ophthalmology.Utility.Helpers
             InputLanguage.CurrentInputLanguage = InputLanguage.FromCulture(EnglishCulture);
         }
 
+        private static CultureInfo CreateCultureInfoInstance(string name)
+        {
+            var cultureInfo = new CultureInfo(name)
+            {
+                DateTimeFormat =
+                {
+                    LongDatePattern = "yyyy/MM/dd",
+                    FullDateTimePattern = "yyyy/MM/dd HH:mm:ss",
+                    ShortDatePattern = "yyyy/MM/dd",
+                    ShortTimePattern = "HH:mm",
+                    LongTimePattern = "HH:mm:ss"
+                }
+            };
+            return cultureInfo;
+        }
+
         public static PersianCultureInfo PersianCulture
         {
             get
@@ -42,13 +58,8 @@ namespace Ophthalmology.Utility.Helpers
         {
             get
             {
-                var persianCulture = new CultureInfo("en-US");
-                persianCulture.DateTimeFormat.LongDatePattern = "yyyy/MM/dd";
-                persianCulture.DateTimeFormat.FullDateTimePattern = "yyyy/MM/dd HH:mm:ss";
-                persianCulture.DateTimeFormat.ShortDatePattern = "yyyy/MM/dd";
-                persianCulture.DateTimeFormat.ShortTimePattern = "HH:mm";
-                persianCulture.DateTimeFormat.LongTimePattern = "HH:mm:ss";
-                return persianCulture;
+                var englishCulture = CreateCultureInfoInstance("en-US");
+                return englishCulture;
             }
         }
     }

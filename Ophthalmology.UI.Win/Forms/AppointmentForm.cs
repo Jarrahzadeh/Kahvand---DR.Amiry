@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Linq;
 using Janus.Windows.GridEX;
 using Ophthalmology.DataAccess.OleDb;
@@ -17,6 +16,7 @@ namespace Ophthalmology.UI.Win.Forms
         #region ~( Fields )~
 
         private readonly string _customerFullName;
+        private bool _firstTimeShow;
 
         #endregion
 
@@ -99,7 +99,7 @@ namespace Ophthalmology.UI.Win.Forms
                     DateVisit = dateTimePickerVisitDate.SelectedDateInStringPersian,
                     DrId = MyApplication.DrId,
                     TimeVisit = maskedBoxTime.Text,
-                    Price = int.Parse(textBoxPrice.Text), 
+                    Price = int.Parse(textBoxPrice.Text),
                     OrderId = 1,
                     Status = "ویزیت نشده"
                 };
@@ -121,12 +121,19 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void AppointmentForm_Shown(object sender, EventArgs e)
         {
+            _firstTimeShow = true;
             multiColumnComboCustomer.Value = _customerFullName;
         }
 
         private void MultiColumnCombo1TextChanged(object sender, EventArgs e)
         {
-            multiColumnComboCustomer.DroppedDown = multiColumnComboCustomer.Text.Length > 0;
+            var droppedDown = multiColumnComboCustomer.Text.Length > 0;
+            multiColumnComboCustomer.DroppedDown = droppedDown;
+            if (droppedDown && _firstTimeShow)
+            {
+                multiColumnComboCustomer.SelectedIndex = 0;
+                _firstTimeShow = false;
+            }
         }
 
         private void MultiColumnCombo1ValueChanged(object sender, EventArgs e)
@@ -138,7 +145,7 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void DateTimePickerVisitListSelectedDateChanged(DateTime selectedDateTime, BehComponents.PersianDateTime selectedPersianDateTime)
         {
-            var date = selectedDateTime.ToString("yyyy/MM/dd", CultureHelper.PersianCulture);
+            var date = selectedDateTime.ToPersianDate();
             LoadVisitList(date);
         }
 

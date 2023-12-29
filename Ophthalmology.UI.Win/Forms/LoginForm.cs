@@ -54,6 +54,9 @@ namespace Ophthalmology.UI.Win.Forms
 
         private static void SetUserContextData(User user, Doctor doctor)
         {
+            var selectRawQuery = DatabaseHelper.SelectRawQuery($"SELECT Title FROM UserType Where Id = {user.UserTypeId}");
+            MyApplication.UserTypeId = user.UserTypeId;
+            MyApplication.UserType = selectRawQuery.Rows[0]["Title"].ToString();
             MyApplication.UserId = user.Id;
             MyApplication.UserName = user.FullName;
             MyApplication.DrId = doctor.Id;

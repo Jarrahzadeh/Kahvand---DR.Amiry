@@ -71,11 +71,11 @@
             this.multiColumnComboCustomer.DesignTimeLayout = multiColumnComboCustomer_DesignTimeLayout;
             this.multiColumnComboCustomer.DisplayMember = "FullName";
             this.multiColumnComboCustomer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.multiColumnComboCustomer.Location = new System.Drawing.Point(271, 44);
+            this.multiColumnComboCustomer.Location = new System.Drawing.Point(265, 44);
             this.multiColumnComboCustomer.Name = "multiColumnComboCustomer";
             this.multiColumnComboCustomer.SelectedIndex = -1;
             this.multiColumnComboCustomer.SelectedItem = null;
-            this.multiColumnComboCustomer.Size = new System.Drawing.Size(228, 35);
+            this.multiColumnComboCustomer.Size = new System.Drawing.Size(352, 35);
             this.multiColumnComboCustomer.TabIndex = 1;
             this.multiColumnComboCustomer.ValueMember = "Id";
             this.multiColumnComboCustomer.VisualStyleManager = this.visualStyleManager;
@@ -88,7 +88,7 @@
             this.tableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.tableLayoutPanel1.ColumnCount = 4;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel1.Controls.Add(this.label4, 0, 0);
@@ -108,12 +108,12 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(588, 134);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(706, 134);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // label4
             // 
-            this.label4.Location = new System.Drawing.Point(505, 0);
+            this.label4.Location = new System.Drawing.Point(623, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(80, 36);
             this.label4.TabIndex = 5;
@@ -122,7 +122,7 @@
             // 
             // label1
             // 
-            this.label1.Location = new System.Drawing.Point(505, 41);
+            this.label1.Location = new System.Drawing.Point(623, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(80, 36);
             this.label1.TabIndex = 2;
@@ -131,7 +131,7 @@
             // 
             // label2
             // 
-            this.label2.Location = new System.Drawing.Point(185, 0);
+            this.label2.Location = new System.Drawing.Point(179, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(80, 36);
             this.label2.TabIndex = 6;
@@ -140,7 +140,7 @@
             // 
             // label3
             // 
-            this.label3.Location = new System.Drawing.Point(185, 41);
+            this.label3.Location = new System.Drawing.Point(179, 41);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 36);
             this.label3.TabIndex = 7;
@@ -149,7 +149,7 @@
             // 
             // dateTimePickerVisitDate
             // 
-            this.dateTimePickerVisitDate.AnchorSize = new System.Drawing.Size(228, 37);
+            this.dateTimePickerVisitDate.AnchorSize = new System.Drawing.Size(352, 37);
             this.dateTimePickerVisitDate.BackColor = System.Drawing.Color.White;
             this.dateTimePickerVisitDate.CalendarBoldedDayForeColor = System.Drawing.Color.Blue;
             this.dateTimePickerVisitDate.CalendarBorderColor = System.Drawing.Color.CadetBlue;
@@ -211,19 +211,19 @@
             this.dateTimePickerVisitDate.DropDownClosedWhenSelectedDateChanged = false;
             this.dateTimePickerVisitDate.Format = BehComponents.DateTimePickerX.FormatDate.Long;
             this.dateTimePickerVisitDate.Format4Binding = "yyyy/MM/dd";
-            this.dateTimePickerVisitDate.Location = new System.Drawing.Point(271, 2);
+            this.dateTimePickerVisitDate.Location = new System.Drawing.Point(265, 2);
             this.dateTimePickerVisitDate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePickerVisitDate.Name = "dateTimePickerVisitDate";
             this.dateTimePickerVisitDate.RightToLeftLayout = true;
             this.dateTimePickerVisitDate.ShowClearButton = false;
-            this.dateTimePickerVisitDate.Size = new System.Drawing.Size(228, 37);
+            this.dateTimePickerVisitDate.Size = new System.Drawing.Size(352, 37);
             this.dateTimePickerVisitDate.TabIndex = 8;
             this.dateTimePickerVisitDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.dateTimePickerVisitDate.TextWhenClearButtonClicked = "";
             // 
             // maskedBoxTime
             // 
-            this.maskedBoxTime.Location = new System.Drawing.Point(122, 3);
+            this.maskedBoxTime.Location = new System.Drawing.Point(116, 3);
             this.maskedBoxTime.Mask = "00:00";
             this.maskedBoxTime.Name = "maskedBoxTime";
             this.maskedBoxTime.Size = new System.Drawing.Size(57, 35);
@@ -233,7 +233,7 @@
             // 
             // textBoxPrice
             // 
-            this.textBoxPrice.Location = new System.Drawing.Point(9, 44);
+            this.textBoxPrice.Location = new System.Drawing.Point(3, 44);
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(170, 35);
             this.textBoxPrice.TabIndex = 10;
@@ -241,7 +241,7 @@
             // 
             // buttonAdd
             // 
-            this.buttonAdd.Location = new System.Drawing.Point(349, 85);
+            this.buttonAdd.Location = new System.Drawing.Point(467, 85);
             this.buttonAdd.Name = "buttonAdd";
             this.buttonAdd.Size = new System.Drawing.Size(150, 36);
             this.buttonAdd.TabIndex = 11;
@@ -255,7 +255,7 @@
             this.uiGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.uiGroupBox1.Location = new System.Drawing.Point(10, 144);
             this.uiGroupBox1.Name = "uiGroupBox1";
-            this.uiGroupBox1.Size = new System.Drawing.Size(588, 296);
+            this.uiGroupBox1.Size = new System.Drawing.Size(706, 296);
             this.uiGroupBox1.TabIndex = 3;
             this.uiGroupBox1.Text = "لیست نوبت ها بر اساس تاریخ انتخابی";
             this.uiGroupBox1.VisualStyleManager = this.visualStyleManager;
@@ -275,7 +275,7 @@
             this.tableLayoutPanel2.RowCount = 2;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(582, 262);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(700, 262);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // customGridVisitList
@@ -301,7 +301,7 @@
             this.customGridVisitList.Location = new System.Drawing.Point(3, 45);
             this.customGridVisitList.Name = "customGridVisitList";
             this.customGridVisitList.RowHeaders = Janus.Windows.GridEX.InheritableBoolean.True;
-            this.customGridVisitList.Size = new System.Drawing.Size(576, 214);
+            this.customGridVisitList.Size = new System.Drawing.Size(694, 214);
             this.customGridVisitList.TabIndex = 1258;
             this.customGridVisitList.TabKeyBehavior = Janus.Windows.GridEX.TabKeyBehavior.ControlNavigation;
             this.customGridVisitList.TotalRow = Janus.Windows.GridEX.InheritableBoolean.True;
@@ -316,7 +316,7 @@
             // 
             // label5
             // 
-            this.label5.Location = new System.Drawing.Point(499, 0);
+            this.label5.Location = new System.Drawing.Point(617, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 36);
             this.label5.TabIndex = 3;
@@ -386,7 +386,7 @@
             this.dateTimePickerVisitList.DropDownClosedWhenSelectedDateChanged = false;
             this.dateTimePickerVisitList.Format = BehComponents.DateTimePickerX.FormatDate.Long;
             this.dateTimePickerVisitList.Format4Binding = "yyyy/MM/dd";
-            this.dateTimePickerVisitList.Location = new System.Drawing.Point(268, 3);
+            this.dateTimePickerVisitList.Location = new System.Drawing.Point(386, 3);
             this.dateTimePickerVisitList.Name = "dateTimePickerVisitList";
             this.dateTimePickerVisitList.RightToLeftLayout = true;
             this.dateTimePickerVisitList.ShowClearButton = false;
@@ -400,7 +400,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 28F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(608, 450);
+            this.ClientSize = new System.Drawing.Size(726, 450);
             this.Controls.Add(this.uiGroupBox1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "AppointmentForm";
