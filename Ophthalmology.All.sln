@@ -43,6 +43,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dlls", "dlls", "{DF8200B8-2
 		Solution Items\ShamsiDatePicker.dll = Solution Items\ShamsiDatePicker.dll
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dr Amiri", "Dr Amiri", "{70F5240B-188C-44E7-AB5E-C6F9701E9210}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Dr Amiri\DB\db - 1396-11-30.mdb = Solution Items\Dr Amiri\DB\db - 1396-11-30.mdb
+		Solution Items\Dr Amiri\DB\db - 1402-10-11.mdb = Solution Items\Dr Amiri\DB\db - 1402-10-11.mdb
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dr NikKhoo", "Dr NikKhoo", "{96E79CEB-BA39-4BED-9506-351DE1C53FE0}"
+	ProjectSection(SolutionItems) = preProject
+		Solution Items\Dr NikKhoo\DB\db - 1396-11-30.mdb = Solution Items\Dr NikKhoo\DB\db - 1396-11-30.mdb
+		Solution Items\Dr NikKhoo\DB\db - 1402-10-11.mdb = Solution Items\Dr NikKhoo\DB\db - 1402-10-11.mdb
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -113,6 +125,8 @@ Global
 		{65850201-1DFA-4CBA-B5E7-3E4BF99127AB} = {03788BD4-BE21-4E27-A411-21F209B61E48}
 		{4F0AA962-5EFC-4BC1-9CC8-29773665F65E} = {03788BD4-BE21-4E27-A411-21F209B61E48}
 		{DF8200B8-257F-4671-8CD9-7B6001CBC381} = {03788BD4-BE21-4E27-A411-21F209B61E48}
+		{70F5240B-188C-44E7-AB5E-C6F9701E9210} = {4F0AA962-5EFC-4BC1-9CC8-29773665F65E}
+		{96E79CEB-BA39-4BED-9506-351DE1C53FE0} = {4F0AA962-5EFC-4BC1-9CC8-29773665F65E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CB832BD5-E681-4EF5-B35A-71764723B6E4}
