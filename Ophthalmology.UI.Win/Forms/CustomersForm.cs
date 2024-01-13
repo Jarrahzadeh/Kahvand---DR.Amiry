@@ -25,10 +25,28 @@ namespace Ophthalmology.UI.Win.Forms
         public CustomersForm()
         {
             InitializeComponent();
+
+            foreach (ToolStripItem item in contextMenuStrip1.Items)
+            {
+                item.Tag = item.Text;
+            }
+
+            gridCustomers.MergeMenu(contextMenuStrip1);
+            gridCustomers.ContextMenuOpening = ContextMenuOpening;
+
             Text += $" - {MyApplication.DrName}";
             ChangeFormEnabled(false);
             _recordLastPosition = -1;
             _formActionMode = FormActionMode.None;
+        }
+
+        private void ContextMenuOpening(ContextMenuStrip strip)
+        {
+            foreach (ToolStripItem item in strip.Items)
+            {
+                if (item.Tag != null)
+                    item.Text = string.Format(item.Tag.ToString(), CurrentCustomer);
+            }
         }
 
         #endregion
@@ -89,7 +107,7 @@ namespace Ophthalmology.UI.Win.Forms
             }
             else if (rowEffected == -2)
             {
-                Cancel();
+                CancelAddOrEdit(true);
             }
             else if (rowEffected == -3)
             {
@@ -100,16 +118,18 @@ namespace Ophthalmology.UI.Win.Forms
             ChangeFormEnabled(false);
         }
 
-        private void Cancel()
+        private void CancelAddOrEdit(bool resetPosition)
         {
             bindingSourceCustomers.CancelEdit();
-            bindingSourceCustomers.Position = _recordLastPosition;
-            _recordLastPosition = -1;
+
+            if (resetPosition)
+            {
+                bindingSourceCustomers.Position = _recordLastPosition;
+                _recordLastPosition = -1;
+            }
 
             ChangeFormEnabled(false);
-
             gridCustomers.Focus();
-
             _formActionMode = FormActionMode.None;
         }
 
@@ -249,11 +269,17 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void ButtonDelete_Click(object sender, EventArgs e)
         {
+            if (!buttonDelete.Enabled)
+                return;
+
             DeleteCurrentRecord();
         }
 
         private void ButtonBrowse_Click(object sender, EventArgs e)
         {
+            if (!buttonBrowse.Enabled)
+                return;
+
             var typePatientForm = new TypePatientForm();
             typePatientForm.InitDataSource((List<TypePatient>)bindingSourceTypePatient.DataSource);
             typePatientForm.ShowDialog(this);
@@ -261,6 +287,9 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void ButtonAdd_Click(object sender, EventArgs e)
         {
+            if (!buttonAdd.Enabled)
+                return;
+
             _recordLastPosition = bindingSourceCustomers.Position;
             bindingSourceCustomers.Position = 0;
             var maxId = CurrentCustomer.Id + 1;
@@ -277,6 +306,9 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void ButtonEdit_Click(object sender, EventArgs e)
         {
+            if (!buttonEdit.Enabled)
+                return;
+
             _recordLastPosition = bindingSourceCustomers.Position;
             ChangeFormEnabled(true);
             ActiveControl = textBoxName;
@@ -285,12 +317,18 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
+            if (!buttonSave.Enabled)
+                return;
+
             Save();
         }
 
         private void ButtonCancel_Click(object sender, EventArgs e)
         {
-            Cancel();
+            if (!buttonCancel.Enabled)
+                return;
+
+            CancelAddOrEdit(true);
         }
 
         private void CheckBoxEyeLeft_CheckedChanged(object sender, EventArgs e)
@@ -322,28 +360,54 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void buttonVisitList_Click(object sender, EventArgs e)
         {
+            if (!buttonVisitList.Enabled)
+                return;
+
             var visitListForm = new VisitListForm();
             visitListForm.ShowDialog();
         }
 
         private void buttonAppointment_Click(object sender, EventArgs e)
         {
+            if (!buttonAppointment.Enabled)
+                return;
+
             var appointmentForm = new AppointmentForm(CurrentCustomer.FullName, (List<Customer>)bindingSourceCustomers.DataSource);
             appointmentForm.ShowDialog();
         }
 
         private void buttonOldVisit_Click(object sender, EventArgs e)
         {
+            if (!buttonOldVisit.Enabled)
+                return;
 
         }
 
         private void buttonVisit_Click(object sender, EventArgs e)
         {
+            if (!buttonVisit.Enabled)
+                return;
 
         }
 
         private void buttonVisitText_Click(object sender, EventArgs e)
         {
+            if (!buttonVisitText.Enabled)
+                return;
+
+        }
+
+        private void gridCustomers_RowDoubleClick(object sender, Janus.Windows.GridEX.RowActionEventArgs e)
+        {
+            ButtonEdit_Click(sender, e);
+        }
+
+        private void bindingSourceCustomers_ListChanged(object sender, System.ComponentModel.ListChangedEventArgs e)
+        {
+            if (_formActionMode == FormActionMode.Add || _formActionMode == FormActionMode.Edit)
+            {
+                CancelAddOrEdit(false);
+            }
 
         }
 
@@ -354,6 +418,5 @@ namespace Ophthalmology.UI.Win.Forms
         public Customer CurrentCustomer => (Customer)bindingSourceCustomers.Current;
 
         #endregion
-
     }
 }

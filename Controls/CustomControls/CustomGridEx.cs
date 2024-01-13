@@ -6,6 +6,8 @@ namespace Ophthalmology.Controls.CustomControls
 {
     public class CustomGridEx : GridEX
     {
+        public Action<ContextMenuStrip> ContextMenuOpening;
+
         public ContextMenuStrip contextMenuGridRightClick;
         private ToolStripMenuItem menuItemGrouping;
         private ToolStripMenuItem menuItemColumnSelector;
@@ -39,6 +41,7 @@ namespace Ophthalmology.Controls.CustomControls
             this.menuItemColumnSelector});
             this.contextMenuGridRightClick.Name = "contextMenuGridRightClick";
             this.contextMenuGridRightClick.Size = new System.Drawing.Size(157, 48);
+            this.contextMenuGridRightClick.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuGridRightClick_Opening);
             // 
             // menuItemGrouping
             // 
@@ -174,6 +177,11 @@ namespace Ophthalmology.Controls.CustomControls
                 var menuItem = contextMenu.Items[0];
                 base.ContextMenuStrip.Items.Add(menuItem);
             }
+        }
+
+        private void contextMenuGridRightClick_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ContextMenuOpening?.Invoke(ContextMenuStrip);
         }
     }
 }
