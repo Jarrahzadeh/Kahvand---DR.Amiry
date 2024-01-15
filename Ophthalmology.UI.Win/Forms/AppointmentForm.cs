@@ -26,6 +26,8 @@ namespace Ophthalmology.UI.Win.Forms
         {
             InitializeComponent();
             Text += $" - {MyApplication.DrName}";
+            
+            multiColumnComboCustomer.DropDownList.SelectionChanged += DropDownList_SelectionChanged;
         }
 
         public AppointmentForm(string customerFullName, IList<Customer> customers) : this()
@@ -42,14 +44,45 @@ namespace Ophthalmology.UI.Win.Forms
         {
             maskedBoxTime.Text = DateTime.Now.ToString("t");
             dateTimePickerVisitDate.SetSelectedDate(DateTime.Now);
+            uiGroupBox2.Text = string.Format("تاریخچه مراجعه {0}", multiColumnComboCustomer.Text);
+            uiGroupBox1.Text = string.Format(uiGroupBox1.Tag.ToString(), dateTimePickerVisitDate.Text);
             var customer = (Customer)multiColumnComboCustomer.SelectedItem;
             if (customer != null)
             {
                 var firstOrDefault = MyApplication.TypePatients.FirstOrDefault(x => x.Id == customer.IdTypePatient);
                 textBoxPrice.Text = firstOrDefault?.Price;
+                LoadPersonVisitHistory(customer.Id);
+            }
+            else
+            {
+                LoadPersonVisitHistory(-1);
             }
 
-            LoadVisitList(dateTimePickerVisitList.SelectedDateInStringPersian);
+            LoadVisitList(maskedBoxTime.Text);
+        }
+
+        private void LoadPersonVisitHistory(int customerId)
+        {
+            bindingSourceVisitHistory.DataSource = new List<CustomerVisit>();
+
+            if (customerId == -1)
+            {
+                return;
+            }
+
+            var customerVisit = new CustomerVisit();
+            var whereClauses = new List<IWhereClause>
+            {
+                new WhereClause("V.DrId", MyApplication.DrId, "DrId" ,LogicalOperatorType.And),
+                new WhereClause("V.Code_Customer", customerId, "CustomerId")
+            };
+
+            var tableName = $"{customerVisit.TableName} V";
+            var selectFields = "DISTINCT V.DateVisit AS DateSave, V.TimeVisit, V.Price";
+            var visitLists = DatabaseHelper.Select<CustomerVisit>(tableName, selectFields, whereClauses, "V.DateVisit DESC");
+
+            bindingSourceVisitHistory.DataSource = visitLists;
+            bindingSourceVisitHistory.ResetBindings(true);
         }
 
         private void LoadVisitList(string date)
@@ -62,7 +95,7 @@ namespace Ophthalmology.UI.Win.Forms
             };
 
             var tableName = $"Customer C INNER JOIN {customerVisit.TableName} V ON (C.Id = V.Code_Customer)";
-            var selectFields = "V.Id, V.DrId, C.Id AS CustomerId, C.Name, C.Family, C.Tel, C.DateSave, V.TimeVisit, V.Status, V.Price, V.OrderId";
+            var selectFields = "DISTINCT V.Id, V.DrId, C.Id AS CustomerId, C.Name, C.Family, C.Tel, C.DateSave, V.TimeVisit, V.Status, V.Price, V.OrderId";
             var visitLists = DatabaseHelper.Select<CustomerVisit>(tableName, selectFields, whereClauses, "C.Id DESC");
 
             bindingSourceVisitList.DataSource = new List<CustomerVisit>();
@@ -129,10 +162,23 @@ namespace Ophthalmology.UI.Win.Forms
         {
             var droppedDown = multiColumnComboCustomer.Text.Length > 0;
             multiColumnComboCustomer.DroppedDown = droppedDown;
-            if (droppedDown && _firstTimeShow)
+        }
+
+        private void DropDownList_SelectionChanged(object sender, EventArgs e)
+        {
+            if (multiColumnComboCustomer.DropDownList.CurrentRow == null)
+                return;
+
+            var customer = (Customer)multiColumnComboCustomer.DropDownList.CurrentRow.DataRow;
+            if (customer != null)
             {
-                multiColumnComboCustomer.SelectedIndex = 0;
-                _firstTimeShow = false;
+                LoadPersonVisitHistory(customer.Id);
+                uiGroupBox2.Text = string.Format("تاریخچه مراجعه {0}", customer);
+            }
+            else
+            {
+                LoadPersonVisitHistory(-1);
+                uiGroupBox2.Text = string.Format("تاریخچه مراجعه {0}", string.Empty);
             }
         }
 
@@ -141,11 +187,18 @@ namespace Ophthalmology.UI.Win.Forms
             var column = multiColumnComboCustomer.DropDownList.Columns[0];
             multiColumnComboCustomer.DropDownList.ApplyFilter(new GridEXFilterCondition(column, ConditionOperator.BeginsWith, multiColumnComboCustomer.Text));
             FillControls();
+
+            if (_firstTimeShow)
+            {
+                _firstTimeShow = false;
+                multiColumnComboCustomer.SelectedIndex = 0;
+            }
         }
 
         private void DateTimePickerVisitListSelectedDateChanged(DateTime selectedDateTime, BehComponents.PersianDateTime selectedPersianDateTime)
         {
             var date = selectedDateTime.ToPersianDate();
+            uiGroupBox1.Text = string.Format(uiGroupBox1.Tag.ToString(), dateTimePickerVisitDate.Text);
             LoadVisitList(date);
         }
 
@@ -166,6 +219,12 @@ namespace Ophthalmology.UI.Win.Forms
         private void ButtonAddClick(object sender, EventArgs e)
         {
             AddNewAppointment();
+        }
+        private void bindingSourceCustomers_PositionChanged(object sender, EventArgs e)
+        {
+            var customer = (Customer)bindingSourceCustomers.Current;
+            if (customer != null)
+                LoadPersonVisitHistory(customer.Id);
         }
 
         #endregion
