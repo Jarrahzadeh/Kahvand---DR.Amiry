@@ -26,7 +26,7 @@ namespace Ophthalmology.UI.Win.Forms
         {
             InitializeComponent();
             Text += $" - {MyApplication.DrName}";
-            
+
             multiColumnComboCustomer.DropDownList.SelectionChanged += DropDownList_SelectionChanged;
         }
 
@@ -146,6 +146,10 @@ namespace Ophthalmology.UI.Win.Forms
                     LoadVisitList(date);
                 }
             }
+            else
+            {
+                Ophthalmology.Controls.MsgBox.ShowError("لطفا بیماری را انتخاب کنید", "ثبت نوبت");
+            }
         }
 
         #endregion
@@ -166,6 +170,9 @@ namespace Ophthalmology.UI.Win.Forms
 
         private void DropDownList_SelectionChanged(object sender, EventArgs e)
         {
+            LoadPersonVisitHistory(-1);
+            uiGroupBox2.Text = string.Format("تاریخچه مراجعه {0}", string.Empty);
+
             if (multiColumnComboCustomer.DropDownList.CurrentRow == null)
                 return;
 
@@ -174,11 +181,6 @@ namespace Ophthalmology.UI.Win.Forms
             {
                 LoadPersonVisitHistory(customer.Id);
                 uiGroupBox2.Text = string.Format("تاریخچه مراجعه {0}", customer);
-            }
-            else
-            {
-                LoadPersonVisitHistory(-1);
-                uiGroupBox2.Text = string.Format("تاریخچه مراجعه {0}", string.Empty);
             }
         }
 
@@ -220,11 +222,17 @@ namespace Ophthalmology.UI.Win.Forms
         {
             AddNewAppointment();
         }
+
         private void bindingSourceCustomers_PositionChanged(object sender, EventArgs e)
         {
             var customer = (Customer)bindingSourceCustomers.Current;
             if (customer != null)
                 LoadPersonVisitHistory(customer.Id);
+        }
+
+        private void multiColumnComboCustomer_DropDownHide(object sender, ComboDropDownHideEventArgs e)
+        {
+            DropDownList_SelectionChanged(sender, e);
         }
 
         #endregion

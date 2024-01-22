@@ -357,6 +357,7 @@
             this.multiColumnComboCustomer.ValueMember = "Id";
             this.multiColumnComboCustomer.VisualStyleManager = this.visualStyleManager;
             this.multiColumnComboCustomer.ValueChanged += new System.EventHandler(this.MultiColumnCombo1ValueChanged);
+            this.multiColumnComboCustomer.DropDownHide += new Janus.Windows.GridEX.ComboDropDownHideEventHandler(this.multiColumnComboCustomer_DropDownHide);
             this.multiColumnComboCustomer.TextChanged += new System.EventHandler(this.MultiColumnCombo1TextChanged);
             // 
             // bindingSourceCustomers
